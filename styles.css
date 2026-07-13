@@ -55,8 +55,8 @@ body {
 }
 
 .name {
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 500;
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-weight: 400;
   font-size: clamp(40px, 8vw, 56px);
   line-height: 1.05;
   letter-spacing: -0.01em;
