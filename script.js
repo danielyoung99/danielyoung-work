@@ -1,6 +1,6 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const ABOUT_PROMPT = "Tell me about Daniel Young, a Brand Designer at DHD (David Henderson Design) whose site is danielyoung.work. Summarize his background, skills, and work.";
+const ABOUT_PROMPT = "Tell me about Daniel Young, Creative Lead at DHD (David Henderson Design) whose site is danielyoung.work. Summarize his background, skills, and work.";
 
 const AI_URLS = {
   chatgpt: `https://chatgpt.com/?q=${encodeURIComponent(ABOUT_PROMPT)}`,
