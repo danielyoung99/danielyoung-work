@@ -13,7 +13,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,34 +22,37 @@
 <main class="container">
 
   <header class="profile">
+    <!-- Replace this div with <img class="avatar" src="profile.jpg" alt="Daniel Young"> once you have a photo -->
+    <div class="avatar avatar-placeholder" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+    </div>
+
     <p class="kicker">Creative Lead, DHD</p>
     <h1 class="name">Daniel Young</h1>
+
+    <span class="status-pill"><span class="dot" aria-hidden="true"></span>Taking on freelance projects</span>
+
     <p class="bio">Building brand strategy and visual identity across print and digital at DHD. First-class honours graduate in Graphic Design &amp; Illustration, Ulster University.</p>
   </header>
 
   <hr class="divider">
   <section class="section" aria-label="Links">
     <p class="kicker">Links</p>
-    <div class="links">
-      <a class="link-row" href="https://www.linkedin.com/in/daniel-young/" target="_blank" rel="noopener">
-        <span class="link-label">LinkedIn</span>
-        <span class="arrow" aria-hidden="true">&#8594;</span>
+    <div class="icon-row">
+      <a class="icon-btn" href="https://www.linkedin.com/in/daniel-young/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+        <span class="glyph-text">in</span>
       </a>
-      <a class="link-row" href="mailto:info@danielyoung.work">
-        <span class="link-label">Email</span>
-        <span class="arrow" aria-hidden="true">&#8594;</span>
+      <a class="icon-btn" href="mailto:info@danielyoung.work" aria-label="Email" title="Email">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
       </a>
-      <a class="link-row" href="https://www.instagram.com/danielyoung.work/" target="_blank" rel="noopener">
-        <span class="link-label">Instagram</span>
-        <span class="arrow" aria-hidden="true">&#8594;</span>
+      <a class="icon-btn" href="https://www.instagram.com/danielyoung.work/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
       </a>
-      <a class="link-row" href="https://dribbble.com/danielyoung" target="_blank" rel="noopener">
-        <span class="link-label">Dribbble</span>
-        <span class="arrow" aria-hidden="true">&#8594;</span>
+      <a class="icon-btn" href="https://dribbble.com/danielyoung" target="_blank" rel="noopener" aria-label="Dribbble" title="Dribbble">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M4 9.5c4 1.4 12 1.4 16.3.3M3.7 14.5c3.6-1 12-2.6 16 .8M9 3.2c2.8 3.4 4.5 8.6 4.3 17.4"/></svg>
       </a>
-      <a class="link-row" href="https://www.behance.net/danielyoung-" target="_blank" rel="noopener">
-        <span class="link-label">Behance</span>
-        <span class="arrow" aria-hidden="true">&#8594;</span>
+      <a class="icon-btn" href="https://www.behance.net/danielyoung-" target="_blank" rel="noopener" aria-label="Behance" title="Behance">
+        <span class="glyph-text">Be</span>
       </a>
     </div>
   </section>
@@ -57,11 +60,19 @@
   <hr class="divider">
   <section class="section" aria-label="Ask an AI about me">
     <p class="kicker">Ask your AI</p>
-    <div class="ai-grid">
-      <button class="ai-button" data-ai="chatgpt">ChatGPT</button>
-      <button class="ai-button" data-ai="claude">Claude</button>
-      <button class="ai-button" data-ai="perplexity">Perplexity</button>
-      <button class="ai-button" data-ai="gemini">Gemini</button>
+    <div class="icon-row">
+      <button class="icon-btn ai-button" data-ai="chatgpt" aria-label="ChatGPT" title="ChatGPT">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </button>
+      <button class="icon-btn ai-button" data-ai="claude" aria-label="Claude" title="Claude">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3l1.8 6.2L20 11l-6.2 1.8L12 19l-1.8-6.2L4 11l6.2-1.8L12 3z"/></svg>
+      </button>
+      <button class="icon-btn ai-button" data-ai="perplexity" aria-label="Perplexity" title="Perplexity">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="icon-btn ai-button" data-ai="gemini" aria-label="Gemini" title="Gemini">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20"/><path d="M9 3l3 6-3 12"/><path d="M15 3l-3 6 3 12"/></svg>
+      </button>
     </div>
     <p class="hint">Copies a prompt about me and opens your chosen AI.</p>
   </section>
@@ -70,48 +81,58 @@
   <section class="section">
     <p class="kicker">Experience</p>
     <ul class="cv-list">
-      <li class="cv-item">
-        <div class="cv-main">
-          <span class="cv-role">Creative Lead</span>
-          <span class="cv-org">DHD — David Henderson Design</span>
+      <li class="cv-item-block">
+        <div class="cv-item">
+          <div class="cv-main">
+            <span class="cv-role">Creative Lead</span>
+            <span class="cv-org">DHD</span>
+          </div>
+          <span class="cv-dates">Jun 2026 — Present</span>
         </div>
-        <span class="cv-dates">Jun 2026 — Present</span>
+        <!-- Add up to a few images for this role (4:3 or 5:4). Replace .image-slot divs with <img class="image-slot" src="..." alt="..."> -->
+        <div class="image-row">
+          <div class="image-slot"></div>
+          <div class="image-slot"></div>
+        </div>
       </li>
-      <li class="cv-item">
-        <div class="cv-main">
-          <span class="cv-role">Brand Designer</span>
-          <span class="cv-org">DHD — David Henderson Design</span>
+      <li class="cv-item-block">
+        <div class="cv-item">
+          <div class="cv-main">
+            <span class="cv-role">Brand Designer</span>
+            <span class="cv-org">DHD</span>
+          </div>
+          <span class="cv-dates">Jun 2022 — Jun 2026</span>
         </div>
-        <span class="cv-dates">Jun 2022 — Jun 2026</span>
+        <div class="image-row">
+          <div class="image-slot"></div>
+          <div class="image-slot"></div>
+        </div>
       </li>
-      <li class="cv-item">
-        <div class="cv-main">
-          <span class="cv-role">Junior Designer</span>
-          <span class="cv-org">DHD — David Henderson Design</span>
+      <li class="cv-item-block">
+        <div class="cv-item">
+          <div class="cv-main">
+            <span class="cv-role">Junior Designer</span>
+            <span class="cv-org">DHD</span>
+          </div>
+          <span class="cv-dates">Jun 2020 — Jun 2022</span>
         </div>
-        <span class="cv-dates">Jun 2020 — Jun 2022</span>
+        <div class="image-row">
+          <div class="image-slot"></div>
+          <div class="image-slot"></div>
+        </div>
       </li>
-      <li class="cv-item">
-        <div class="cv-main">
-          <span class="cv-role">Graphic Designer</span>
-          <span class="cv-org">Signs &amp; Graphics</span>
+      <li class="cv-item-block">
+        <div class="cv-item">
+          <div class="cv-main">
+            <span class="cv-role">Graphic Designer</span>
+            <span class="cv-org">Signs &amp; Graphics</span>
+          </div>
+          <span class="cv-dates">Jun 2019 — Oct 2019</span>
         </div>
-        <span class="cv-dates">Jun 2019 — Oct 2019</span>
-      </li>
-    </ul>
-  </section>
-
-  <hr class="divider">
-  <section class="section">
-    <p class="kicker">Education</p>
-    <ul class="cv-list">
-      <li class="cv-item">
-        <div class="cv-main">
-          <span class="cv-role">BDes (Hons) Graphic Design &amp; Illustration</span>
-          <span class="cv-org">Ulster University</span>
-          <span class="cv-meta">First Class Honours</span>
+        <div class="image-row">
+          <div class="image-slot"></div>
+          <div class="image-slot"></div>
         </div>
-        <span class="cv-dates">2018 — 2022</span>
       </li>
     </ul>
   </section>
@@ -120,20 +141,30 @@
   <section class="section">
     <p class="kicker">Awards</p>
     <ul class="cv-list">
-      <li class="cv-item">
-        <div class="cv-main">
-          <span class="cv-role">D&amp;AD New Blood Awards — Yellow Pencil</span>
-          <span class="cv-org">D&amp;AD</span>
+      <li class="cv-item-block">
+        <div class="cv-item">
+          <div class="cv-main">
+            <span class="cv-role">D&amp;AD New Blood Awards — Yellow Pencil</span>
+            <span class="cv-org">D&amp;AD</span>
+          </div>
+          <span class="cv-dates">May 2022</span>
         </div>
-        <span class="cv-dates">May 2022</span>
+        <div class="image-row">
+          <div class="image-slot"></div>
+        </div>
       </li>
-      <li class="cv-item">
-        <div class="cv-main">
-          <span class="cv-role">IDI Graduate Awards 2022</span>
-          <span class="cv-org">Institute of Designers Ireland</span>
-          <span class="cv-meta">Commended — Interaction Design &amp; Visual Communication: Design for Digital</span>
+      <li class="cv-item-block">
+        <div class="cv-item">
+          <div class="cv-main">
+            <span class="cv-role">IDI Graduate Awards 2022</span>
+            <span class="cv-org">Institute of Designers Ireland</span>
+            <span class="cv-meta">Commended — Interaction Design &amp; Visual Communication: Design for Digital</span>
+          </div>
+          <span class="cv-dates">Sep 2022</span>
         </div>
-        <span class="cv-dates">Sep 2022</span>
+        <div class="image-row">
+          <div class="image-slot"></div>
+        </div>
       </li>
     </ul>
   </section>

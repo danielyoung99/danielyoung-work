@@ -1,12 +1,12 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const ABOUT_PROMPT = "Tell me about Daniel Young, Creative Lead at DHD (David Henderson Design) whose site is danielyoung.work. Summarize his background, skills, and work.";
+const ABOUT_PROMPT = "Tell me about Daniel Young, Creative Lead at DHD, whose site is danielyoung.work. Summarize his background, skills, and work.";
 
-const AI_URLS = {
-  chatgpt: `https://chatgpt.com/?q=${encodeURIComponent(ABOUT_PROMPT)}`,
-  claude: `https://claude.ai/new?q=${encodeURIComponent(ABOUT_PROMPT)}`,
-  perplexity: `https://www.perplexity.ai/search?q=${encodeURIComponent(ABOUT_PROMPT)}`,
-  gemini: `https://gemini.google.com/app`,
+const AI_CLIENTS = {
+  chatgpt: { name: 'ChatGPT', url: `https://chatgpt.com/?q=${encodeURIComponent(ABOUT_PROMPT)}` },
+  claude: { name: 'Claude', url: `https://claude.ai/new?q=${encodeURIComponent(ABOUT_PROMPT)}` },
+  perplexity: { name: 'Perplexity', url: `https://www.perplexity.ai/search?q=${encodeURIComponent(ABOUT_PROMPT)}` },
+  gemini: { name: 'Gemini', url: `https://gemini.google.com/app` },
 };
 
 const toast = document.getElementById('toast');
@@ -21,16 +21,15 @@ function showToast(message) {
 
 document.querySelectorAll('.ai-button').forEach((button) => {
   button.addEventListener('click', async () => {
-    const key = button.dataset.ai;
-    const url = AI_URLS[key];
+    const client = AI_CLIENTS[button.dataset.ai];
 
     try {
       await navigator.clipboard.writeText(ABOUT_PROMPT);
       showToast('Prompt copied — paste it if it isn\'t already there');
     } catch (err) {
-      showToast('Opening ' + button.textContent + '…');
+      showToast('Opening ' + client.name + '…');
     }
 
-    window.open(url, '_blank', 'noopener');
+    window.open(client.url, '_blank', 'noopener');
   });
 });
