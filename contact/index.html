@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
 <style>
-  :root { --bg: #fcfcfc; --text: #000; --muted: rgba(0,0,0,.45); --line: rgba(0,0,0,.1); }
+  :root { --bg: #fcfcfc; --text: #000; --muted: rgba(0,0,0,.45); --line: rgba(0,0,0,.1); --strip-h: clamp(152px, 14vw, 240px); }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
   body {
@@ -24,15 +24,22 @@
   .lede p, .muted { margin: 0; color: var(--muted); }
   .lede a { color: var(--text); }
   .work { display: flex; flex-direction: column; gap: 64px; margin-top: 128px; }
-  .strip h2 { margin: 0 0 16px; font-weight: 400; font-size: 15px; }
+  .strip h2 { display: inline-flex; align-items: baseline; gap: 6px; margin: 0 0 8px; font-weight: 400; font-size: 15px; }
   .strip h2 span { color: var(--muted); }
   .row { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
+  .row::after { content: ""; flex: 0 0 8px; }
   .row::-webkit-scrollbar { display: none; }
-  .tile { flex: 0 0 auto; width: 134px; height: 152px; position: relative; overflow: hidden; }
-  .tile.w { width: 270px; }
-  .rise { opacity: 0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease; }
+  .tile { flex: 0 0 auto; height: var(--strip-h); aspect-ratio: 1900 / 2160; position: relative; overflow: hidden; background: rgba(0,0,0,.04); }
+  .tile.w { aspect-ratio: 16 / 9; }
+  .rise { opacity: 0; transform: translateY(4px); transition: opacity .6s cubic-bezier(.32,.72,0,1), transform .6s cubic-bezier(.32,.72,0,1); }
   .rise.is-in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { .rise { opacity: 1; transform: none; transition: none; } }
+
+  @media (max-width: 720px) {
+    :root { --strip-h: 144px; }
+    main { padding-top: 48px; }
+    .work { margin-top: 80px; gap: 48px; }
+  }
 
   /* tiles: drawn in CSS, stand-ins until real screenshots go in */
   .t-navy { background: #16254d; }
@@ -78,7 +85,7 @@
 
     <section class="work">
       <section class="strip rise">
-        <h2>Selah <span>&middot; Bible study for iPhone and iPad</span></h2>
+        <h2>Selah<span>&middot;</span><span>Bible study for iPhone and iPad</span></h2>
         <div class="row">
           <div class="tile w t-navy t-ring"></div>
           <div class="tile t-gold t-type dk">Selah</div>
@@ -90,7 +97,7 @@
       </section>
 
       <section class="strip rise">
-        <h2>Stripes <span>&middot; Lawn care, logged</span></h2>
+        <h2>Stripes<span>&middot;</span><span>Lawn care, logged</span></h2>
         <div class="row">
           <div class="tile w t-lawn"></div>
           <div class="tile t-sky"></div>
@@ -102,7 +109,7 @@
       </section>
 
       <section class="strip rise">
-        <h2>Cadence <span>&middot; Focus and break timer</span></h2>
+        <h2>Cadence<span>&middot;</span><span>Focus and break timer</span></h2>
         <div class="row">
           <div class="tile w t-clock"></div>
           <div class="tile t-ink t-type">25:00</div>
@@ -114,7 +121,7 @@
       </section>
 
       <section class="strip rise">
-        <h2>Glowline Studio <span>&middot; Light-stroke pattern generator</span></h2>
+        <h2>Glowline Studio<span>&middot;</span><span>Light-stroke pattern generator</span></h2>
         <div class="row">
           <div class="tile w t-glow"></div>
           <div class="tile t-glow b"></div>
