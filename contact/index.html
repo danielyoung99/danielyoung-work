@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel Young</title>
+<meta name="description" content="Daniel Young is a brand designer. Get in touch about a project.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #fcfcfc; --text: #000; --muted: rgba(0,0,0,.45); --line: rgba(0,0,0,.1); }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 400 15px/24px Inter, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: .005em; -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  header { display: flex; justify-content: space-between; padding: 16px 16px 0; }
+  main { padding: 64px 16px 96px; }
+  .lede { display: flex; flex-direction: column; gap: 16px; max-width: 510px; }
+  .lede p, .muted { margin: 0; color: var(--muted); }
+  .lede a { color: var(--text); }
+  .work { display: flex; flex-direction: column; gap: 64px; margin-top: 128px; }
+  .strip h2 { margin: 0 0 16px; font-weight: 400; font-size: 15px; }
+  .strip h2 span { color: var(--muted); }
+  .row { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
+  .row::-webkit-scrollbar { display: none; }
+  .tile { flex: 0 0 auto; width: 134px; height: 152px; position: relative; overflow: hidden; }
+  .tile.w { width: 270px; }
+  .rise { opacity: 0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease; }
+  .rise.is-in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .rise { opacity: 1; transform: none; transition: none; } }
+
+  /* tiles: drawn in CSS, stand-ins until real screenshots go in */
+  .t-navy { background: #16254d; }
+  .t-gold { background: #c9a24a; }
+  .t-paper { background: #ece7da; }
+  .t-ring::after { content: ""; position: absolute; inset: 0; margin: auto; width: 56px; height: 56px; border-radius: 50%; border: 6px solid #d9b45c; }
+  .t-type { display: grid; place-items: center; font-size: 22px; letter-spacing: -.01em; color: #fff; }
+  .t-type.dk { color: #16254d; }
+  .t-lawn { background: repeating-linear-gradient(90deg, #2f5d3a 0 22px, #3a6d46 22px 44px); }
+  .t-lawn2 { background: repeating-linear-gradient(0deg, #1f4429 0 14px, #26502f 14px 28px); }
+  .t-sky { background: linear-gradient(180deg, #f3c58a, #f7e7cf 70%); }
+  .t-mint { background: #dbe8dc; }
+  .t-ink { background: #161616; }
+  .t-clock { background: #f2f2ef; }
+  .t-clock::after { content: ""; position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; border-radius: 50%; background: conic-gradient(#161616 0 62%, #d7d7d2 0); -webkit-mask: radial-gradient(circle, transparent 24px, #000 25px); mask: radial-gradient(circle, transparent 24px, #000 25px); }
+  .t-glow { background: #0b0b12; }
+  .t-glow::before { content: ""; position: absolute; inset: 0; background:
+    repeating-linear-gradient(115deg, transparent 0 14px, rgba(120,170,255,.55) 14px 15px, transparent 15px 30px),
+    repeating-linear-gradient(115deg, transparent 0 22px, rgba(255,140,200,.4) 22px 23px, transparent 23px 44px);
+    filter: blur(.4px); }
+  .t-glow.b::before { transform: scaleX(-1); }
+
+  /* contact */
+  .contact { display: none; max-width: 510px; }
+  body.is-contact .home { display: none; }
+  body.is-contact .contact { display: block; }
+  .contact__note { margin: 0; color: var(--muted); }
+  .contact__note a { color: var(--text); }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">Daniel Young</a>
+  <a href="/contact" id="navContact">Contact</a>
+</header>
+
+<main>
+  <div class="home">
+    <section class="lede">
+      <p>Brand designer working across strategy, identity and digital. I lead design at DHD, working alongside the teams we make things for.</p>
+      <p>Between projects I build my own apps. The latest is Selah, a Bible study app for iPhone and iPad.</p>
+    </section>
+
+    <section class="work">
+      <section class="strip rise">
+        <h2>Selah <span>&middot; Bible study for iPhone and iPad</span></h2>
+        <div class="row">
+          <div class="tile w t-navy t-ring"></div>
+          <div class="tile t-gold t-type dk">Selah</div>
+          <div class="tile t-paper t-type dk">Read</div>
+          <div class="tile w t-navy t-type">Study</div>
+          <div class="tile t-paper t-type dk">Pray</div>
+          <div class="tile t-navy t-ring"></div>
+        </div>
+      </section>
+
+      <section class="strip rise">
+        <h2>Stripes <span>&middot; Lawn care, logged</span></h2>
+        <div class="row">
+          <div class="tile w t-lawn"></div>
+          <div class="tile t-sky"></div>
+          <div class="tile t-lawn2"></div>
+          <div class="tile w t-mint t-type dk">Mow today</div>
+          <div class="tile t-lawn"></div>
+          <div class="tile t-sky"></div>
+        </div>
+      </section>
+
+      <section class="strip rise">
+        <h2>Cadence <span>&middot; Focus and break timer</span></h2>
+        <div class="row">
+          <div class="tile w t-clock"></div>
+          <div class="tile t-ink t-type">25:00</div>
+          <div class="tile t-clock"></div>
+          <div class="tile w t-ink t-type">Focus</div>
+          <div class="tile t-clock"></div>
+          <div class="tile t-ink t-type">05:00</div>
+        </div>
+      </section>
+
+      <section class="strip rise">
+        <h2>Glowline Studio <span>&middot; Light-stroke pattern generator</span></h2>
+        <div class="row">
+          <div class="tile w t-glow"></div>
+          <div class="tile t-glow b"></div>
+          <div class="tile t-glow"></div>
+          <div class="tile w t-glow b"></div>
+          <div class="tile t-glow"></div>
+          <div class="tile t-glow b"></div>
+        </div>
+      </section>
+    </section>
+  </div>
+
+  <section class="contact" id="contact">
+    <p class="contact__note">Write to <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>.</p>
+  </section>
+</main>
+
+<script>
+  var body = document.body;
+  function route() {
+    var isContact = location.pathname.replace(/\/$/, '') === '/contact';
+    body.classList.toggle('is-contact', isContact);
+    window.scrollTo(0, 0);
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (!a || a.origin !== location.origin) return;
+    var p = a.getAttribute('href');
+    if (p === '/' || p === '/contact') { e.preventDefault(); history.pushState({}, '', p); route(); }
+  });
+  window.addEventListener('popstate', route);
+  route();
+
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (en) {
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
+  }, { threshold: .1 }) : null;
+  document.querySelectorAll('.rise').forEach(function (el) { io ? io.observe(el) : el.classList.add('is-in'); });
+</script>
+</body>
+</html>

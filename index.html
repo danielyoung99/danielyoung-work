@@ -59,29 +59,8 @@
   .contact { display: none; max-width: 510px; }
   body.is-contact .home { display: none; }
   body.is-contact .contact { display: block; }
-  .contact__note { margin: 0 0 32px; color: var(--muted); }
+  .contact__note { margin: 0; color: var(--muted); }
   .contact__note a { color: var(--text); }
-  .form { display: flex; flex-direction: column; }
-  .form__input, .form__area {
-    font: inherit; color: var(--text); background: transparent; border: 0;
-    border-bottom: 1px solid var(--line); border-radius: 0; padding: 12px 0; width: 100%;
-  }
-  .form__input::placeholder, .form__area::placeholder { color: var(--muted); }
-  .form__input:focus, .form__area:focus { outline: 0; border-bottom-color: var(--text); }
-  .form__area { min-height: 96px; resize: vertical; }
-  .form__label { margin: 32px 0 12px; color: var(--muted); }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chips input { position: absolute; opacity: 0; pointer-events: none; }
-  .chips label { border: 1px solid var(--line); padding: 8px 16px; cursor: pointer; user-select: none; transition: background .15s, color .15s, border-color .15s; }
-  .chips label:hover { border-color: var(--text); }
-  .chips input:checked + label { background: var(--text); color: var(--bg); border-color: var(--text); }
-  .chips input:focus-visible + label { outline: 1px solid var(--text); outline-offset: 2px; }
-  .send { margin-top: 32px; align-self: flex-start; font: inherit; color: var(--bg); background: var(--text); border: 0; padding: 10px 20px; cursor: pointer; }
-  .send:hover { opacity: .8; }
-  .hp { position: absolute; left: -9999px; }
-  .thanks { display: none; margin: 0; }
-  .sent .form, .sent .contact__note { display: none; }
-  .sent .thanks { display: block; }
 </style>
 </head>
 <body>
@@ -149,41 +128,7 @@
   </div>
 
   <section class="contact" id="contact">
-    <p class="contact__note">Tell me a bit about what you have in mind, or fill in the form below.</p>
-
-    <form class="form" name="contact" method="POST" action="/contact?sent=1" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="contact">
-      <p class="hp"><label>Leave empty <input name="bot-field"></label></p>
-
-      <input class="form__input" name="name" type="text" autocomplete="name" placeholder="Name *" required>
-      <input class="form__input" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Email *" required>
-
-      <p class="form__label">What do you need</p>
-      <div class="chips">
-        <input type="checkbox" id="s1" name="need" value="Brand identity"><label for="s1">Branding</label>
-        <input type="checkbox" id="s2" name="need" value="Brand strategy"><label for="s2">Strategy</label>
-        <input type="checkbox" id="s3" name="need" value="Naming"><label for="s3">Naming</label>
-        <input type="checkbox" id="s4" name="need" value="Art direction"><label for="s4">Art direction</label>
-        <input type="checkbox" id="s5" name="need" value="Illustration"><label for="s5">Illustration</label>
-        <input type="checkbox" id="s6" name="need" value="Website"><label for="s6">Website</label>
-        <input type="checkbox" id="s7" name="need" value="Product"><label for="s7">Product</label>
-        <input type="checkbox" id="s8" name="need" value="Copywriting"><label for="s8">Copywriting</label>
-      </div>
-
-      <p class="form__label">Budget</p>
-      <div class="chips">
-        <input type="radio" id="b1" name="budget" value="Under 5k"><label for="b1">Under 5k</label>
-        <input type="radio" id="b2" name="budget" value="5k-15k"><label for="b2">5k to 15k</label>
-        <input type="radio" id="b3" name="budget" value="15k-30k"><label for="b3">15k to 30k</label>
-        <input type="radio" id="b4" name="budget" value="30k+"><label for="b4">30k+</label>
-      </div>
-
-      <p class="form__label">About the project</p>
-      <textarea class="form__area" name="message" placeholder="Message *" required></textarea>
-
-      <button class="send" type="submit">Send message</button>
-    </form>
-    <p class="thanks">Thank you. I read everything myself and come back within two working days.</p>
+    <p class="contact__note">Write to <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>.</p>
   </section>
 </main>
 
@@ -192,7 +137,6 @@
   function route() {
     var isContact = location.pathname.replace(/\/$/, '') === '/contact';
     body.classList.toggle('is-contact', isContact);
-    body.classList.toggle('sent', isContact && location.search.indexOf('sent=1') > -1);
     window.scrollTo(0, 0);
   }
   document.addEventListener('click', function (e) {
