@@ -1,182 +1,213 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daniel Young — Creative Lead</title>
-<meta name="description" content="Daniel Young, Creative Lead at DHD. Links, portfolio and CV.">
-
-<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23111'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23fff' text-anchor='middle'%3EDY%3C/text%3E%3C/svg%3E">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel Young</title>
+<meta name="description" content="Daniel Young is a brand designer. Get in touch about a project.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #fcfcfc; --text: #000; --muted: rgba(0,0,0,.45); --line: rgba(0,0,0,.1); }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 400 15px/24px Inter, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: .005em; -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  header { display: flex; justify-content: space-between; padding: 16px 16px 0; }
+  main { padding: 64px 16px 96px; }
+  .lede { display: flex; flex-direction: column; gap: 16px; max-width: 510px; }
+  .lede p, .muted { margin: 0; color: var(--muted); }
+  .lede a { color: var(--text); }
+  .work { display: flex; flex-direction: column; gap: 64px; margin-top: 128px; }
+  .strip h2 { margin: 0 0 16px; font-weight: 400; font-size: 15px; }
+  .strip h2 span { color: var(--muted); }
+  .row { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
+  .row::-webkit-scrollbar { display: none; }
+  .tile { flex: 0 0 auto; width: 134px; height: 152px; position: relative; overflow: hidden; }
+  .tile.w { width: 270px; }
+  .rise { opacity: 0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease; }
+  .rise.is-in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .rise { opacity: 1; transform: none; transition: none; } }
 
-<link rel="stylesheet" href="styles.css">
+  /* tiles: drawn in CSS, stand-ins until real screenshots go in */
+  .t-navy { background: #16254d; }
+  .t-gold { background: #c9a24a; }
+  .t-paper { background: #ece7da; }
+  .t-ring::after { content: ""; position: absolute; inset: 0; margin: auto; width: 56px; height: 56px; border-radius: 50%; border: 6px solid #d9b45c; }
+  .t-type { display: grid; place-items: center; font-size: 22px; letter-spacing: -.01em; color: #fff; }
+  .t-type.dk { color: #16254d; }
+  .t-lawn { background: repeating-linear-gradient(90deg, #2f5d3a 0 22px, #3a6d46 22px 44px); }
+  .t-lawn2 { background: repeating-linear-gradient(0deg, #1f4429 0 14px, #26502f 14px 28px); }
+  .t-sky { background: linear-gradient(180deg, #f3c58a, #f7e7cf 70%); }
+  .t-mint { background: #dbe8dc; }
+  .t-ink { background: #161616; }
+  .t-clock { background: #f2f2ef; }
+  .t-clock::after { content: ""; position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; border-radius: 50%; background: conic-gradient(#161616 0 62%, #d7d7d2 0); -webkit-mask: radial-gradient(circle, transparent 24px, #000 25px); mask: radial-gradient(circle, transparent 24px, #000 25px); }
+  .t-glow { background: #0b0b12; }
+  .t-glow::before { content: ""; position: absolute; inset: 0; background:
+    repeating-linear-gradient(115deg, transparent 0 14px, rgba(120,170,255,.55) 14px 15px, transparent 15px 30px),
+    repeating-linear-gradient(115deg, transparent 0 22px, rgba(255,140,200,.4) 22px 23px, transparent 23px 44px);
+    filter: blur(.4px); }
+  .t-glow.b::before { transform: scaleX(-1); }
+
+  /* contact */
+  .contact { display: none; max-width: 510px; }
+  body.is-contact .home { display: none; }
+  body.is-contact .contact { display: block; }
+  .contact__note { margin: 0 0 32px; color: var(--muted); }
+  .contact__note a { color: var(--text); }
+  .form { display: flex; flex-direction: column; }
+  .form__input, .form__area {
+    font: inherit; color: var(--text); background: transparent; border: 0;
+    border-bottom: 1px solid var(--line); border-radius: 0; padding: 12px 0; width: 100%;
+  }
+  .form__input::placeholder, .form__area::placeholder { color: var(--muted); }
+  .form__input:focus, .form__area:focus { outline: 0; border-bottom-color: var(--text); }
+  .form__area { min-height: 96px; resize: vertical; }
+  .form__label { margin: 32px 0 12px; color: var(--muted); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips input { position: absolute; opacity: 0; pointer-events: none; }
+  .chips label { border: 1px solid var(--line); padding: 8px 16px; cursor: pointer; user-select: none; transition: background .15s, color .15s, border-color .15s; }
+  .chips label:hover { border-color: var(--text); }
+  .chips input:checked + label { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .chips input:focus-visible + label { outline: 1px solid var(--text); outline-offset: 2px; }
+  .send { margin-top: 32px; align-self: flex-start; font: inherit; color: var(--bg); background: var(--text); border: 0; padding: 10px 20px; cursor: pointer; }
+  .send:hover { opacity: .8; }
+  .hp { position: absolute; left: -9999px; }
+  .thanks { display: none; margin: 0; }
+  .sent .form, .sent .contact__note { display: none; }
+  .sent .thanks { display: block; }
+</style>
 </head>
 <body>
+<header>
+  <a href="/">Daniel Young</a>
+  <a href="/contact" id="navContact">Contact</a>
+</header>
 
-<main class="container">
+<main>
+  <div class="home">
+    <section class="lede">
+      <p>Brand designer working across strategy, identity and digital. I lead design at DHD, working alongside the teams we make things for.</p>
+      <p>Between projects I build my own apps. The latest is Selah, a Bible study app for iPhone and iPad.</p>
+    </section>
 
-  <header class="profile">
-    <!-- Replace this div with <img class="avatar" src="profile.jpg" alt="Daniel Young"> once you have a photo -->
-    <div class="avatar avatar-placeholder" aria-hidden="true">
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
-    </div>
+    <section class="work">
+      <section class="strip rise">
+        <h2>Selah <span>&middot; Bible study for iPhone and iPad</span></h2>
+        <div class="row">
+          <div class="tile w t-navy t-ring"></div>
+          <div class="tile t-gold t-type dk">Selah</div>
+          <div class="tile t-paper t-type dk">Read</div>
+          <div class="tile w t-navy t-type">Study</div>
+          <div class="tile t-paper t-type dk">Pray</div>
+          <div class="tile t-navy t-ring"></div>
+        </div>
+      </section>
 
-    <p class="kicker">Creative Lead, DHD</p>
-    <h1 class="name">Daniel Young</h1>
+      <section class="strip rise">
+        <h2>Stripes <span>&middot; Lawn care, logged</span></h2>
+        <div class="row">
+          <div class="tile w t-lawn"></div>
+          <div class="tile t-sky"></div>
+          <div class="tile t-lawn2"></div>
+          <div class="tile w t-mint t-type dk">Mow today</div>
+          <div class="tile t-lawn"></div>
+          <div class="tile t-sky"></div>
+        </div>
+      </section>
 
-    <span class="status-pill"><span class="dot" aria-hidden="true"></span>Taking on freelance projects</span>
+      <section class="strip rise">
+        <h2>Cadence <span>&middot; Focus and break timer</span></h2>
+        <div class="row">
+          <div class="tile w t-clock"></div>
+          <div class="tile t-ink t-type">25:00</div>
+          <div class="tile t-clock"></div>
+          <div class="tile w t-ink t-type">Focus</div>
+          <div class="tile t-clock"></div>
+          <div class="tile t-ink t-type">05:00</div>
+        </div>
+      </section>
 
-    <p class="bio">Building brand strategy and visual identity across print and digital at DHD. First-class honours graduate in Graphic Design &amp; Illustration, Ulster University.</p>
-  </header>
+      <section class="strip rise">
+        <h2>Glowline Studio <span>&middot; Light-stroke pattern generator</span></h2>
+        <div class="row">
+          <div class="tile w t-glow"></div>
+          <div class="tile t-glow b"></div>
+          <div class="tile t-glow"></div>
+          <div class="tile w t-glow b"></div>
+          <div class="tile t-glow"></div>
+          <div class="tile t-glow b"></div>
+        </div>
+      </section>
+    </section>
+  </div>
 
-  <hr class="divider">
-  <section class="section" aria-label="Links">
-    <p class="kicker">Links</p>
-    <div class="icon-row">
-      <a class="icon-btn" href="https://www.linkedin.com/in/daniel-young/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-        <span class="glyph-text">in</span>
-      </a>
-      <a class="icon-btn" href="mailto:info@danielyoung.work" aria-label="Email" title="Email">
-        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-      </a>
-      <a class="icon-btn" href="https://www.instagram.com/danielyoung.work/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
-        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
-      </a>
-      <a class="icon-btn" href="https://dribbble.com/danielyoung" target="_blank" rel="noopener" aria-label="Dribbble" title="Dribbble">
-        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M4 9.5c4 1.4 12 1.4 16.3.3M3.7 14.5c3.6-1 12-2.6 16 .8M9 3.2c2.8 3.4 4.5 8.6 4.3 17.4"/></svg>
-      </a>
-      <a class="icon-btn" href="https://www.behance.net/danielyoung-" target="_blank" rel="noopener" aria-label="Behance" title="Behance">
-        <span class="glyph-text">Be</span>
-      </a>
-    </div>
+  <section class="contact" id="contact">
+    <p class="contact__note">Tell me a bit about what you have in mind, or fill in the form below.</p>
+
+    <form class="form" name="contact" method="POST" action="/contact?sent=1" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="hp"><label>Leave empty <input name="bot-field"></label></p>
+
+      <input class="form__input" name="name" type="text" autocomplete="name" placeholder="Name *" required>
+      <input class="form__input" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Email *" required>
+
+      <p class="form__label">What do you need</p>
+      <div class="chips">
+        <input type="checkbox" id="s1" name="need" value="Brand identity"><label for="s1">Branding</label>
+        <input type="checkbox" id="s2" name="need" value="Brand strategy"><label for="s2">Strategy</label>
+        <input type="checkbox" id="s3" name="need" value="Naming"><label for="s3">Naming</label>
+        <input type="checkbox" id="s4" name="need" value="Art direction"><label for="s4">Art direction</label>
+        <input type="checkbox" id="s5" name="need" value="Illustration"><label for="s5">Illustration</label>
+        <input type="checkbox" id="s6" name="need" value="Website"><label for="s6">Website</label>
+        <input type="checkbox" id="s7" name="need" value="Product"><label for="s7">Product</label>
+        <input type="checkbox" id="s8" name="need" value="Copywriting"><label for="s8">Copywriting</label>
+      </div>
+
+      <p class="form__label">Budget</p>
+      <div class="chips">
+        <input type="radio" id="b1" name="budget" value="Under 5k"><label for="b1">Under 5k</label>
+        <input type="radio" id="b2" name="budget" value="5k-15k"><label for="b2">5k to 15k</label>
+        <input type="radio" id="b3" name="budget" value="15k-30k"><label for="b3">15k to 30k</label>
+        <input type="radio" id="b4" name="budget" value="30k+"><label for="b4">30k+</label>
+      </div>
+
+      <p class="form__label">About the project</p>
+      <textarea class="form__area" name="message" placeholder="Message *" required></textarea>
+
+      <button class="send" type="submit">Send message</button>
+    </form>
+    <p class="thanks">Thank you. I read everything myself and come back within two working days.</p>
   </section>
-
-  <hr class="divider">
-  <section class="section" aria-label="Ask an AI about me">
-    <p class="kicker">Ask your AI</p>
-    <div class="icon-row">
-      <button class="icon-btn ai-button" data-ai="chatgpt" aria-label="ChatGPT" title="ChatGPT">
-        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      </button>
-      <button class="icon-btn ai-button" data-ai="claude" aria-label="Claude" title="Claude">
-        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3l1.8 6.2L20 11l-6.2 1.8L12 19l-1.8-6.2L4 11l6.2-1.8L12 3z"/></svg>
-      </button>
-      <button class="icon-btn ai-button" data-ai="perplexity" aria-label="Perplexity" title="Perplexity">
-        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </button>
-      <button class="icon-btn ai-button" data-ai="gemini" aria-label="Gemini" title="Gemini">
-        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20"/><path d="M9 3l3 6-3 12"/><path d="M15 3l-3 6 3 12"/></svg>
-      </button>
-    </div>
-    <p class="hint">Copies a prompt about me and opens your chosen AI.</p>
-  </section>
-
-  <hr class="divider">
-  <section class="section">
-    <p class="kicker">Experience</p>
-    <ul class="cv-list">
-      <li class="cv-item-block">
-        <div class="cv-item">
-          <div class="cv-main">
-            <span class="cv-role">Creative Lead</span>
-            <span class="cv-org">DHD</span>
-          </div>
-          <span class="cv-dates">Jun 2026 — Present</span>
-        </div>
-        <!-- Add up to a few images for this role (4:3 or 5:4). Replace .image-slot divs with <img class="image-slot" src="..." alt="..."> -->
-        <div class="image-row">
-          <div class="image-slot"></div>
-          <div class="image-slot"></div>
-        </div>
-      </li>
-      <li class="cv-item-block">
-        <div class="cv-item">
-          <div class="cv-main">
-            <span class="cv-role">Brand Designer</span>
-            <span class="cv-org">DHD</span>
-          </div>
-          <span class="cv-dates">Jun 2022 — Jun 2026</span>
-        </div>
-        <div class="image-row">
-          <div class="image-slot"></div>
-          <div class="image-slot"></div>
-        </div>
-      </li>
-      <li class="cv-item-block">
-        <div class="cv-item">
-          <div class="cv-main">
-            <span class="cv-role">Junior Designer</span>
-            <span class="cv-org">DHD</span>
-          </div>
-          <span class="cv-dates">Jun 2020 — Jun 2022</span>
-        </div>
-        <div class="image-row">
-          <div class="image-slot"></div>
-          <div class="image-slot"></div>
-        </div>
-      </li>
-      <li class="cv-item-block">
-        <div class="cv-item">
-          <div class="cv-main">
-            <span class="cv-role">Graphic Designer</span>
-            <span class="cv-org">Signs &amp; Graphics</span>
-          </div>
-          <span class="cv-dates">Jun 2019 — Oct 2019</span>
-        </div>
-        <div class="image-row">
-          <div class="image-slot"></div>
-          <div class="image-slot"></div>
-        </div>
-      </li>
-    </ul>
-  </section>
-
-  <hr class="divider">
-  <section class="section">
-    <p class="kicker">Awards</p>
-    <ul class="cv-list">
-      <li class="cv-item-block">
-        <div class="cv-item">
-          <div class="cv-main">
-            <span class="cv-role">D&amp;AD New Blood Awards — Yellow Pencil</span>
-            <span class="cv-org">D&amp;AD</span>
-          </div>
-          <span class="cv-dates">May 2022</span>
-        </div>
-        <div class="image-row">
-          <div class="image-slot"></div>
-        </div>
-      </li>
-      <li class="cv-item-block">
-        <div class="cv-item">
-          <div class="cv-main">
-            <span class="cv-role">IDI Graduate Awards 2022</span>
-            <span class="cv-org">Institute of Designers Ireland</span>
-            <span class="cv-meta">Commended — Interaction Design &amp; Visual Communication: Design for Digital</span>
-          </div>
-          <span class="cv-dates">Sep 2022</span>
-        </div>
-        <div class="image-row">
-          <div class="image-slot"></div>
-        </div>
-      </li>
-    </ul>
-  </section>
-
-  <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Daniel Young</p>
-  </footer>
-
 </main>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+  var body = document.body;
+  function route() {
+    var isContact = location.pathname.replace(/\/$/, '') === '/contact';
+    body.classList.toggle('is-contact', isContact);
+    body.classList.toggle('sent', isContact && location.search.indexOf('sent=1') > -1);
+    window.scrollTo(0, 0);
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (!a || a.origin !== location.origin) return;
+    var p = a.getAttribute('href');
+    if (p === '/' || p === '/contact') { e.preventDefault(); history.pushState({}, '', p); route(); }
+  });
+  window.addEventListener('popstate', route);
+  route();
 
-<script src="script.js"></script>
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (en) {
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
+  }, { threshold: .1 }) : null;
+  document.querySelectorAll('.rise').forEach(function (el) { io ? io.observe(el) : el.classList.add('is-in'); });
+</script>
 </body>
 </html>
