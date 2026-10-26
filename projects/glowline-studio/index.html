@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glowline Studio · Daniel Young</title>
+<meta name="description" content="Glowline Studio is a single-file light-stroke pattern generator by Daniel Young, with templates, colour themes and PNG, WebM and JSON export.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/projects/project.css">
+</head>
+<body>
+<header class="bar">
+  <a href="/">Daniel Young</a>
+  <a href="/contact">Contact</a>
+</header>
+
+<main class="project">
+  <header class="about">
+    <p class="about__name">Glowline Studio · Light-stroke pattern generator</p>
+    <h1 class="about__title">Make light-stroke patterns in the browser, then save or export them.</h1>
+    <p class="about__text">Glowline Studio is a single HTML file that generates light-stroke patterns. It has eight templates and eight colour themes, sliders for shaping each look, and undo and redo. Looks can be saved, and exported as PNG, WebM video or JSON.</p>
+  </header>
+
+  <div class="frames">
+    <div class="line">
+      <div class="frame frame--ph frame--wide t-glow rise"></div>
+    </div>
+    <div class="line line--pair">
+      <div class="frame frame--ph t-glow b rise"></div>
+      <div class="frame frame--ph t-glow rise"></div>
+    </div>
+    <div class="line">
+      <div class="frame frame--ph frame--wide t-glow b rise"></div>
+    </div>
+    <div class="line line--pair">
+      <div class="frame frame--ph t-glow rise"></div>
+      <div class="frame frame--ph t-glow b rise"></div>
+    </div>
+  </div>
+</main>
+
+<script>
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (en) {
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
+  }, { threshold: .1 }) : null;
+  document.querySelectorAll('.rise').forEach(function (el) { io ? io.observe(el) : el.classList.add('is-in'); });
+</script>
+</body>
+</html>

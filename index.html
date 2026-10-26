@@ -31,6 +31,7 @@
   .row::-webkit-scrollbar { display: none; }
   .tile { flex: 0 0 auto; height: var(--strip-h); aspect-ratio: 1900 / 2160; position: relative; overflow: hidden; background: rgba(0,0,0,.04); }
   .tile.w { aspect-ratio: 16 / 9; }
+  .tile img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .rise { opacity: 0; transform: translateY(4px); transition: opacity .6s cubic-bezier(.32,.72,0,1), transform .6s cubic-bezier(.32,.72,0,1); }
   .rise.is-in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { .rise { opacity: 1; transform: none; transition: none; } }
@@ -85,50 +86,50 @@
 
     <section class="work">
       <section class="strip rise">
-        <h2>Selah<span>&middot;</span><span>Bible study for iPhone and iPad</span></h2>
+        <h2><a href="/projects/selah/">Selah</a><span>&middot;</span><span>Bible study for iPhone and iPad</span></h2>
         <div class="row">
-          <div class="tile w t-navy t-ring"></div>
-          <div class="tile t-gold t-type dk">Selah</div>
-          <div class="tile t-paper t-type dk">Read</div>
-          <div class="tile w t-navy t-type">Study</div>
-          <div class="tile t-paper t-type dk">Pray</div>
-          <div class="tile t-navy t-ring"></div>
+          <a class="tile w" href="/projects/selah/"><img src="/projects/selah/images/tile-01.jpg" alt="Today screen in Selah on iPad" width="1600" height="900" loading="lazy" decoding="async"></a>
+          <a class="tile" href="/projects/selah/"><img src="/projects/selah/images/tile-02.jpg" alt="Today screen in Selah on iPhone" width="950" height="1080" loading="lazy" decoding="async"></a>
+          <a class="tile" href="/projects/selah/"><img src="/projects/selah/images/tile-03.jpg" alt="A highlighted verse in Selah on iPhone" width="950" height="1080" loading="lazy" decoding="async"></a>
+          <a class="tile w" href="/projects/selah/"><img src="/projects/selah/images/tile-04.jpg" alt="Reader and study notes in Selah on iPad" width="1600" height="900" loading="lazy" decoding="async"></a>
+          <a class="tile" href="/projects/selah/"><img src="/projects/selah/images/tile-05.jpg" alt="A study note in Selah on iPhone" width="950" height="1080" loading="lazy" decoding="async"></a>
+          <a class="tile" href="/projects/selah/"><img src="/projects/selah/images/tile-06.jpg" alt="Prayer points in Selah on iPhone" width="950" height="1080" loading="lazy" decoding="async"></a>
         </div>
       </section>
 
       <section class="strip rise">
-        <h2>Stripes<span>&middot;</span><span>Lawn care, logged</span></h2>
+        <h2><a href="/projects/stripes/">Stripes</a><span>&middot;</span><span>Lawn care, logged</span></h2>
         <div class="row">
-          <div class="tile w t-lawn"></div>
-          <div class="tile t-sky"></div>
-          <div class="tile t-lawn2"></div>
-          <div class="tile w t-mint t-type dk">Mow today</div>
-          <div class="tile t-lawn"></div>
-          <div class="tile t-sky"></div>
+          <a class="tile w t-lawn" href="/projects/stripes/"></a>
+          <a class="tile t-sky" href="/projects/stripes/"></a>
+          <a class="tile t-lawn2" href="/projects/stripes/"></a>
+          <a class="tile w t-mint t-type dk" href="/projects/stripes/">Mow today</a>
+          <a class="tile t-lawn" href="/projects/stripes/"></a>
+          <a class="tile t-sky" href="/projects/stripes/"></a>
         </div>
       </section>
 
       <section class="strip rise">
-        <h2>Cadence<span>&middot;</span><span>Focus and break timer</span></h2>
+        <h2><a href="/projects/cadence/">Cadence</a><span>&middot;</span><span>Focus and break timer</span></h2>
         <div class="row">
-          <div class="tile w t-clock"></div>
-          <div class="tile t-ink t-type">25:00</div>
-          <div class="tile t-clock"></div>
-          <div class="tile w t-ink t-type">Focus</div>
-          <div class="tile t-clock"></div>
-          <div class="tile t-ink t-type">05:00</div>
+          <a class="tile w t-clock" href="/projects/cadence/"></a>
+          <a class="tile t-ink t-type" href="/projects/cadence/">25:00</a>
+          <a class="tile t-clock" href="/projects/cadence/"></a>
+          <a class="tile w t-ink t-type" href="/projects/cadence/">Focus</a>
+          <a class="tile t-clock" href="/projects/cadence/"></a>
+          <a class="tile t-ink t-type" href="/projects/cadence/">05:00</a>
         </div>
       </section>
 
       <section class="strip rise">
-        <h2>Glowline Studio<span>&middot;</span><span>Light-stroke pattern generator</span></h2>
+        <h2><a href="/projects/glowline-studio/">Glowline Studio</a><span>&middot;</span><span>Light-stroke pattern generator</span></h2>
         <div class="row">
-          <div class="tile w t-glow"></div>
-          <div class="tile t-glow b"></div>
-          <div class="tile t-glow"></div>
-          <div class="tile w t-glow b"></div>
-          <div class="tile t-glow"></div>
-          <div class="tile t-glow b"></div>
+          <a class="tile w t-glow" href="/projects/glowline-studio/"></a>
+          <a class="tile t-glow b" href="/projects/glowline-studio/"></a>
+          <a class="tile t-glow" href="/projects/glowline-studio/"></a>
+          <a class="tile w t-glow b" href="/projects/glowline-studio/"></a>
+          <a class="tile t-glow" href="/projects/glowline-studio/"></a>
+          <a class="tile t-glow b" href="/projects/glowline-studio/"></a>
         </div>
       </section>
     </section>

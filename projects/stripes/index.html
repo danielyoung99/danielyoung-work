@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stripes · Daniel Young</title>
+<meta name="description" content="Stripes is an iPhone lawn care app by Daniel Young. Log mowing, feeding and other lawn jobs, with photos and a year view.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/projects/project.css">
+</head>
+<body>
+<header class="bar">
+  <a href="/">Daniel Young</a>
+  <a href="/contact">Contact</a>
+</header>
+
+<main class="project">
+  <header class="about">
+    <p class="about__name">Stripes · Lawn care, logged</p>
+    <h1 class="about__title">A lawn care log for every job, from mowing to scarifying.</h1>
+    <p class="about__text">Stripes is an iPhone app for keeping track of lawn care. The lawn on the main screen grows and fades as the next mow gets close, and a Mowed today button logs the job. Nine jobs from a lawn care calendar are built in, and custom jobs take their own name, icon, colour and months. Each entry can have a date, a note and a photo. The year view shows the calendar as a coloured grid, and Open-Meteo weather data suggests the best day to mow.</p>
+  </header>
+
+  <div class="frames">
+    <div class="line">
+      <div class="frame frame--ph frame--wide t-lawn rise"></div>
+    </div>
+    <div class="line line--pair">
+      <div class="frame frame--ph t-sky rise"></div>
+      <div class="frame frame--ph t-mint t-type dk rise">Mow today</div>
+    </div>
+    <div class="line">
+      <div class="frame frame--ph frame--wide t-lawn2 rise"></div>
+    </div>
+    <div class="line line--pair">
+      <div class="frame frame--ph t-lawn rise"></div>
+      <div class="frame frame--ph t-sky rise"></div>
+    </div>
+  </div>
+</main>
+
+<script>
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (en) {
+    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
+  }, { threshold: .1 }) : null;
+  document.querySelectorAll('.rise').forEach(function (el) { io ? io.observe(el) : el.classList.add('is-in'); });
+</script>
+</body>
+</html>
