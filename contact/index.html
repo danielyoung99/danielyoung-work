@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
 <style>
-  :root { --bg: #fcfcfc; --text: #000; --muted: rgba(0,0,0,.45); --line: rgba(0,0,0,.1); --strip-h: clamp(152px, 14vw, 240px); }
+  :root { --bg: #e7e1d7; --text: #000; --muted: rgba(0,0,0,.45); --line: rgba(0,0,0,.1); --strip-h: clamp(152px, 14vw, 240px); }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
   body {
@@ -34,6 +34,24 @@
   .tile { flex: 0 0 auto; height: var(--strip-h); aspect-ratio: 1900 / 2160; position: relative; overflow: hidden; background: rgba(0,0,0,.04); }
   .tile.w { aspect-ratio: 16 / 9; }
   .tile img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  /* hero collage: overlapping project cards, the hovered one comes forward */
+  .collage { container-type: inline-size; max-width: 1100px; margin: 0 auto 64px; }
+  .cluster { --u: .1cqw; position: relative; height: calc(500 * var(--u)); }
+  .card {
+    position: absolute; left: calc(var(--x) * var(--u)); top: calc(var(--y) * var(--u)); width: calc(var(--w) * var(--u));
+    aspect-ratio: var(--ar); overflow: hidden; background: rgba(0,0,0,.04);
+    transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(var(--s, 1));
+    transition: transform .6s cubic-bezier(.32,.72,0,1);
+  }
+  .card.is-focus { z-index: 50; }
+  .card img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .collage__cap { margin: 16px 0 0; min-height: 24px; text-align: center; color: var(--muted); }
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
+  @media (max-width: 720px) {
+    .collage { overflow: hidden; margin-bottom: 48px; }
+    .cluster { --u: .15cqw; width: 150cqw; margin-left: -25cqw; }
+  }
   .rise { opacity: 0; transform: translateY(4px); transition: opacity .6s cubic-bezier(.32,.72,0,1), transform .6s cubic-bezier(.32,.72,0,1); }
   .rise.is-in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { .rise { opacity: 1; transform: none; transition: none; } }
@@ -81,6 +99,21 @@
 
 <main>
   <div class="home">
+    <section class="collage rise" aria-label="Projects">
+      <div class="cluster">
+        <a class="card" href="/projects/selah/" data-name="Selah" data-kind="Bible study for iPhone and iPad" style="--x:40;--y:80;--w:240;--ar:16/9"><img src="/projects/selah/images/tile-framed-01.jpg" alt="" width="1600" height="900"></a>
+        <a class="card t-lawn" href="/projects/stripes/" data-name="Stripes" data-kind="Lawn care, logged" aria-label="Stripes" style="--x:170;--y:250;--w:150;--ar:1900/2160"></a>
+        <a class="card" href="/projects/selah/" data-name="Selah" data-kind="Bible study for iPhone and iPad" style="--x:230;--y:40;--w:150;--ar:1900/2160"><img src="/projects/selah/images/tile-framed-02.jpg" alt="" width="950" height="1080"></a>
+        <a class="card" href="/projects/selah/" data-name="Selah" data-kind="Bible study for iPhone and iPad" style="--x:330;--y:190;--w:240;--ar:16/9"><img src="/projects/selah/images/tile-framed-04.jpg" alt="" width="1600" height="900"></a>
+        <a class="card t-ink t-type" href="/projects/cadence/" data-name="Cadence" data-kind="Focus and break timer" aria-label="Cadence" style="--x:470;--y:30;--w:140;--ar:1900/2160">25:00</a>
+        <a class="card" href="/projects/selah/" data-name="Selah" data-kind="Bible study for iPhone and iPad" style="--x:560;--y:230;--w:150;--ar:1900/2160"><img src="/projects/selah/images/tile-framed-03.jpg" alt="" width="950" height="1080"></a>
+        <a class="card t-glow" href="/projects/glowline-studio/" data-name="Glowline Studio" data-kind="Light-stroke pattern generator" aria-label="Glowline Studio" style="--x:640;--y:60;--w:220;--ar:16/9"></a>
+        <a class="card" href="/projects/selah/" data-name="Selah" data-kind="Bible study for iPhone and iPad" style="--x:790;--y:210;--w:140;--ar:1900/2160"><img src="/projects/selah/images/tile-framed-05.jpg" alt="" width="950" height="1080"></a>
+        <a class="card" href="/projects/selah/" data-name="Selah" data-kind="Bible study for iPhone and iPad" style="--x:400;--y:300;--w:140;--ar:1900/2160"><img src="/projects/selah/images/tile-framed-06.jpg" alt="" width="950" height="1080"></a>
+      </div>
+      <p class="collage__cap" aria-live="polite"></p>
+    </section>
+
     <section class="lede">
       <p>Brand designer working across strategy, identity and digital. I lead design at DHD, working alongside the teams we make things for.</p>
       <p>Between projects I build my own apps. The latest is Selah, a Bible study app for iPhone and iPad.</p>
@@ -167,6 +200,41 @@
     en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
   }, { threshold: .1 }) : null;
   document.querySelectorAll('.rise').forEach(function (el) { io ? io.observe(el) : el.classList.add('is-in'); });
+</script>
+
+<script>
+  // Collage: hovering or focusing a card brings it forward and nudges its neighbours aside.
+  (function () {
+    var cluster = document.querySelector('.cluster');
+    if (!cluster || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var cards = [].slice.call(cluster.querySelectorAll('.card'));
+    var cap = document.querySelector('.collage__cap');
+    function centre(c) { return { x: c.offsetLeft + c.offsetWidth / 2, y: c.offsetTop + c.offsetHeight / 2 }; }
+    function set(c, s, x, y) {
+      c.style.setProperty('--s', s); c.style.setProperty('--tx', x + 'px'); c.style.setProperty('--ty', y + 'px');
+    }
+    function focus(h) {
+      var hc = centre(h), w = cluster.offsetWidth;
+      cards.forEach(function (c) {
+        if (c === h) { c.classList.add('is-focus'); set(c, 1.3, 0, 0); return; }
+        var cc = centre(c), dx = cc.x - hc.x, dy = cc.y - hc.y, d = Math.hypot(dx, dy) || 1;
+        var push = w * 0.045 * Math.max(0, 1 - d / (w * 0.42));
+        c.classList.remove('is-focus');
+        set(c, 1, dx / d * push, dy / d * push);
+      });
+      cap.textContent = h.dataset.name + ' · ' + h.dataset.kind;
+    }
+    function reset() {
+      cards.forEach(function (c) { c.classList.remove('is-focus'); set(c, 1, 0, 0); });
+      cap.textContent = '';
+    }
+    cards.forEach(function (c) {
+      c.addEventListener('pointerenter', function () { focus(c); });
+      c.addEventListener('focus', function () { focus(c); });
+      c.addEventListener('blur', reset);
+    });
+    cluster.addEventListener('pointerleave', reset);
+  })();
 </script>
 </body>
 </html>
