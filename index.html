@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/wipe.js"></script>
 <title>Daniel Young</title>
 <meta name="description" content="Daniel Young is a brand designer. Get in touch about a project.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -152,7 +153,12 @@
     var a = e.target.closest('a[href]');
     if (!a || a.origin !== location.origin) return;
     var p = a.getAttribute('href');
-    if (p === '/' || p === '/contact') { e.preventDefault(); history.pushState({}, '', p); route(); }
+    if (p === '/' || p === '/contact') {
+      e.preventDefault();
+      var change = function () { history.pushState({}, '', p); route(); };
+      var here = location.pathname.replace(/\/$/, '') || '/';
+      if (p !== here && window.Wipe) Wipe.run(change); else change();
+    }
   });
   window.addEventListener('popstate', route);
   route();
