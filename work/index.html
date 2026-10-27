@@ -8,22 +8,25 @@
 <meta name="description" content="Apps and tools by Daniel Young: Selah, Stripes, Cadence and Glowline Studio.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/projects/project.css?v=2">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="/motion.js"></script>
 <script src="/nav.js" defer></script>
 </head>
 <body>
 <main class="project">
   <header class="about">
     <p class="about__name">Work</p>
-    <h1 class="about__title">Apps and tools I have built.</h1>
+    <h1 class="about__title" data-split>Apps and tools I have built.</h1>
   </header>
 
   <ul class="index">
-    <li><a href="/projects/selah/"><span>Selah</span><span>Bible study for iPhone and iPad</span></a></li>
-    <li><a href="/projects/stripes/"><span>Stripes</span><span>Lawn care, logged</span></a></li>
-    <li><a href="/projects/cadence/"><span>Cadence</span><span>Focus and break timer</span></a></li>
-    <li><a href="/projects/glowline-studio/"><span>Glowline Studio</span><span>Light-stroke pattern generator</span></a></li>
+    <li><a href="/projects/selah/"><span class="index__name">Selah</span><span class="index__kind">Bible study for iPhone and iPad</span></a></li>
+    <li><a href="/projects/stripes/"><span class="index__name">Stripes</span><span class="index__kind">Lawn care, logged</span></a></li>
+    <li><a href="/projects/cadence/"><span class="index__name">Cadence</span><span class="index__kind">Focus and break timer</span></a></li>
+    <li><a href="/projects/glowline-studio/"><span class="index__name">Glowline Studio</span><span class="index__kind">Light-stroke pattern generator</span></a></li>
   </ul>
 </main>
 </body>

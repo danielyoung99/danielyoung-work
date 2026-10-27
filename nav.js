@@ -24,7 +24,7 @@
     '.nav-blur i:nth-child(5){backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-mask-image:linear-gradient(to bottom,transparent 50%,#000 62.5%,#000 75%,transparent 87.5%);mask-image:linear-gradient(to bottom,transparent 50%,#000 62.5%,#000 75%,transparent 87.5%)}' +
     '.nav-blur i:nth-child(6){backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);-webkit-mask-image:linear-gradient(to bottom,transparent 62.5%,#000 75%,#000 100%);mask-image:linear-gradient(to bottom,transparent 62.5%,#000 75%,#000 100%)}' +
 
-    '.nav{position:fixed;left:50%;bottom:16px;z-index:100;width:min(340px,calc(100vw - 32px));transform:translateX(-50%);font:400 15px/24px Inter,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.005em;color:#000;-webkit-font-smoothing:antialiased}' +
+    '.nav{position:fixed;left:50%;bottom:16px;z-index:100;width:min(340px,calc(100vw - 32px));transform:translateX(-50%);font:400 15px/24px "Instrument Sans",-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.005em;color:#000;-webkit-font-smoothing:antialiased}' +
     '.nav a{color:inherit;text-decoration:none}' +
     '.nav__panel{background:#fcfcfc;border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 32px rgba(0,0,0,.09)}' +
     '.nav__menu{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .55s cubic-bezier(.32,.72,0,1),visibility 0s linear .55s}' +

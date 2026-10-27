@@ -9,77 +9,73 @@
 <meta name="description" content="Selah is a Bible study app for iPhone and iPad by Daniel Young. Read, highlight, take study notes and turn verses into prayer points.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/projects/project.css?v=2">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="/motion.js"></script>
 </head>
 <body>
 <main class="project">
   <header class="about">
     <p class="about__name">Selah · Bible study for iPhone and iPad</p>
-    <h1 class="about__title">Read the Bible, mark it up, and turn what you read into prayer.</h1>
+    <h1 class="about__title" data-split>Read the Bible, mark it up, and turn what you read into prayer.</h1>
     <p class="about__text">Selah is a Bible study app for iPhone and iPad. Read in KJV, NKJV or NASB, highlight or underline verses in five colours, and write study notes with text, lists and photos. On iPad, notes can be handwritten with Apple Pencil. Any verse can become a prayer point, and prayer points can be shared through iCloud with up to eight people. Three reading plans, habit tracking and two widgets (Verse of the Day and Streaks) sit alongside.</p>
     <p class="about__links"><a href="/selah/privacy/">Privacy policy</a></p>
   </header>
 
   <div class="frames">
     <div class="line">
-      <figure class="frame frame--wide rise">
+      <figure class="frame frame--wide ">
         <img src="/projects/selah/images/frame-framed-01.jpg" alt="Today screen on iPad with the reading for the day, verse of the day and recent study notes" width="1600" height="1200" loading="lazy" decoding="async">
       </figure>
     </div>
 
     <div class="line line--pair">
-      <figure class="frame rise">
+      <figure class="frame">
         <img src="/projects/selah/images/frame-framed-02.jpg" alt="Today screen on iPhone with the reading for the day and verse of the day" width="880" height="1912" loading="lazy" decoding="async">
       </figure>
-      <figure class="frame rise">
+      <figure class="frame">
         <img src="/projects/selah/images/frame-framed-03.jpg" alt="Read tab on iPhone with today's plan and the Bible search" width="880" height="1912" loading="lazy" decoding="async">
       </figure>
     </div>
 
     <div class="line line--pair">
-      <figure class="frame rise">
+      <figure class="frame">
         <img src="/projects/selah/images/frame-framed-04.jpg" alt="Chapter view on iPhone with a verse highlighted and the colour bar open" width="880" height="1912" loading="lazy" decoding="async">
       </figure>
-      <figure class="frame rise">
+      <figure class="frame">
         <img src="/projects/selah/images/frame-framed-05.jpg" alt="A study note on iPhone with a heading, body text and a linked passage" width="880" height="1912" loading="lazy" decoding="async">
       </figure>
     </div>
 
     <div class="line">
-      <figure class="frame frame--wide rise">
+      <figure class="frame frame--wide ">
         <img src="/projects/selah/images/frame-framed-06.jpg" alt="Chapter view on iPad beside the study notes pane" width="1600" height="1200" loading="lazy" decoding="async">
       </figure>
     </div>
 
     <div class="line line--pair">
-      <figure class="frame rise">
+      <figure class="frame">
         <img src="/projects/selah/images/frame-framed-07.jpg" alt="Study notes list on iPhone with a highlighted verse" width="880" height="1912" loading="lazy" decoding="async">
       </figure>
-      <figure class="frame rise">
+      <figure class="frame">
         <img src="/projects/selah/images/frame-framed-08.jpg" alt="Pray tab on iPhone with prayer categories and a Start prayer session button" width="880" height="1912" loading="lazy" decoding="async">
       </figure>
     </div>
 
     <div class="line">
-      <figure class="frame frame--wide rise">
+      <figure class="frame frame--wide ">
         <img src="/projects/selah/images/frame-framed-09.jpg" alt="Pray tab on iPad with prayer points and categories" width="1600" height="1200" loading="lazy" decoding="async">
       </figure>
     </div>
 
     <div class="line">
-      <figure class="frame frame--wide rise">
+      <figure class="frame frame--wide ">
         <img src="/projects/selah/images/frame-framed-10.jpg" alt="Study notes on iPad with the note open in the reading pane" width="1600" height="1200" loading="lazy" decoding="async">
       </figure>
     </div>
   </div>
 </main>
-
-<script>
-  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (en) {
-    en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
-  }, { threshold: .1 }) : null;
-  document.querySelectorAll('.rise').forEach(function (el) { io ? io.observe(el) : el.classList.add('is-in'); });
-</script>
 </body>
 </html>
