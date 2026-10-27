@@ -2,9 +2,8 @@
    Load after both GSAP scripts, with defer. Without GSAP, or with reduced motion,
    the page shows in its final state. Hooks used in the markup:
      [data-split]   heading whose words rise into place
-     [data-reveal]  element that wipes in when it scrolls into view (cards and tiles
-                    in the hero wipe in on load)
-     [data-rule]    hairline that draws across on scroll */
+     [data-reveal]  hero cards that wipe in on load
+     .cases .case   cards that wipe in on scroll */
 (function () {
   if (!window.gsap || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -42,24 +41,16 @@
   }
 
   if (ST) {
-    // Hairlines draw across as they reach the viewport.
-    [].forEach.call(document.querySelectorAll('[data-rule]'), function (el) {
-      gsap.fromTo(el, { scaleX: 0 }, {
-        scaleX: 1, duration: 1.4, ease: EASE,
-        scrollTrigger: { trigger: el, start: 'top 92%' }
-      });
-    });
-
-    // Tiles and framed screens wipe in on scroll, a row at a time.
-    [].forEach.call(document.querySelectorAll('.row'), function (row) {
-      var items = row.querySelectorAll('[data-reveal]');
-      if (!items.length) return;
-      gsap.fromTo(items,
+    // Case-study cards wipe in on scroll, a row at a time.
+    var cases = document.querySelectorAll('.cases');
+    [].forEach.call(cases, function (grid) {
+      gsap.fromTo(grid.children,
         { clipPath: 'inset(100% 0% 0% 0%)' },
-        { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1, ease: EASE, stagger: 0.09,
-          scrollTrigger: { trigger: row, start: 'top 88%' } });
+        { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1, ease: EASE, stagger: 0.12,
+          scrollTrigger: { trigger: grid, start: 'top 85%' } });
     });
 
+    // Framed screens wipe in on scroll.
     [].forEach.call(document.querySelectorAll('.frame'), function (frame) {
       gsap.fromTo(frame,
         { clipPath: 'inset(0% 0% 100% 0%)' },
@@ -78,9 +69,9 @@
     window.addEventListener('load', function () { ST.refresh(); });
   }
 
-  // Tile hover: the picture eases in a little. Fine pointers only.
+  // Tile and case hover: the picture eases in a little. Fine pointers only.
   if (canHover) {
-    [].forEach.call(document.querySelectorAll('.tile'), function (box) {
+    [].forEach.call(document.querySelectorAll('.tile, .case'), function (box) {
       var img = box.querySelector('img');
       if (!img) return;
       var zoom = gsap.quickTo(img, 'scale', { duration: 0.7, ease: EASE });
