@@ -1,8 +1,24 @@
 :root {
-  --bg: #e7e1d7; --text: #0c0c0b; --muted: rgba(12,12,11,.55); --line: rgba(12,12,11,.16);
-  --sans: "Instrument Sans", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-}
+    --bg: #e7e1d7; --text: #0c0c0b; --muted: rgba(12,12,11,.6); --line: rgba(12,12,11,.16); --card: rgba(12,12,11,.06);
+    --panel: #fcfcfb; --button: #0c0c0b; --button-text: #fcfcfb;
+    --sans: "Instrument Sans", system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+    --strip-h: clamp(152px, 14vw, 240px);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d0d0c; --text: #ede8df; --muted: rgba(237,232,223,.6); --line: rgba(237,232,223,.16); --card: rgba(237,232,223,.07);
+    --panel: #171716; --button: #ede8df; --button-text: #0d0d0c;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d0d0c; --text: #ede8df; --muted: rgba(237,232,223,.6); --line: rgba(237,232,223,.16); --card: rgba(237,232,223,.07);
+      --panel: #171716; --button: #ede8df; --button-text: #0d0d0c;
+      color-scheme: dark;
+    }
+  }
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -31,7 +47,7 @@ a { color: inherit; text-decoration: none; }
 
 .about { display: flex; flex-direction: column; gap: 24px; max-width: 880px; }
 .about__title {
-  margin: 0; font: 500 clamp(40px, 6vw, 84px)/.98 var(--sans); letter-spacing: -.035em;
+  margin: 0; font: 400 clamp(44px, 7vw, 104px)/.98 var(--serif); letter-spacing: -.02em;
 }
 .about__text { margin: 0; color: var(--muted); max-width: 60ch; font-size: 17px; line-height: 1.5; }
 .about__links { margin: 0; color: var(--muted); }
@@ -49,7 +65,7 @@ a { color: inherit; text-decoration: none; }
 .line { display: flex; gap: 8px; justify-content: center; }
 .line--pair { width: min(100%, 760px); margin: 0 auto; }
 
-.frame { position: relative; flex: 1 1 0; min-width: 0; margin: 0; overflow: hidden; background: rgba(12,12,11,.05); }
+.frame { position: relative; flex: 1 1 0; min-width: 0; margin: 0; overflow: hidden; background: var(--card); }
 .frame--wide { flex: 1 1 100%; }
 .frame img { display: block; width: 100%; height: auto; }
 

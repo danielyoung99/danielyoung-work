@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/wipe.js"></script>
 <script src="/nav.js" defer></script>
@@ -9,16 +10,31 @@
 <meta name="description" content="Daniel Young is a brand designer. Get in touch about a project.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script defer src="/motion.js"></script>
 <style>
   :root {
-    --bg: #e7e1d7; --text: #0c0c0b; --muted: rgba(12,12,11,.55); --line: rgba(12,12,11,.16);
-    --sans: "Instrument Sans", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --bg: #e7e1d7; --text: #0c0c0b; --muted: rgba(12,12,11,.6); --line: rgba(12,12,11,.16); --card: rgba(12,12,11,.06);
+    --panel: #fcfcfb; --button: #0c0c0b; --button-text: #fcfcfb;
+    --sans: "Instrument Sans", system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --mono: "Geist Mono", ui-monospace, Menlo, monospace;
     --strip-h: clamp(152px, 14vw, 240px);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d0d0c; --text: #ede8df; --muted: rgba(237,232,223,.6); --line: rgba(237,232,223,.16); --card: rgba(237,232,223,.07);
+    --panel: #171716; --button: #ede8df; --button-text: #0d0d0c;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d0d0c; --text: #ede8df; --muted: rgba(237,232,223,.6); --line: rgba(237,232,223,.16); --card: rgba(237,232,223,.07);
+      --panel: #171716; --button: #ede8df; --button-text: #0d0d0c;
+      color-scheme: dark;
+    }
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -39,7 +55,7 @@
   .hero { padding: clamp(96px, 16vw, 180px) 0 0; max-width: 1100px; margin: 0 auto; }
   .hero .kicker { margin-bottom: 24px; }
   .hero__title {
-    margin: 0; font: 500 clamp(40px, 6.6vw, 96px)/.98 var(--sans); letter-spacing: -.035em; max-width: 14ch;
+    margin: 0; font: 400 clamp(44px, 7vw, 104px)/.98 var(--serif); letter-spacing: -.02em; max-width: 14ch;
   }
   .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .08em; margin-bottom: -.08em; }
   .wi { display: inline-block; }
@@ -49,7 +65,7 @@
   .cluster { --u: .1cqw; position: relative; height: calc(500 * var(--u)); }
   .card {
     position: absolute; left: calc(var(--x) * var(--u)); top: calc(var(--y) * var(--u)); width: calc(var(--w) * var(--u));
-    aspect-ratio: var(--ar); overflow: hidden; background: rgba(12,12,11,.05);
+    aspect-ratio: var(--ar); overflow: hidden; background: var(--card);
     transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(var(--s, 1));
     transition: transform .6s cubic-bezier(.32,.72,0,1);
   }
@@ -84,7 +100,7 @@
   .row { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
   .row::after { content: ""; flex: 0 0 8px; }
   .row::-webkit-scrollbar { display: none; }
-  .tile { flex: 0 0 auto; height: var(--strip-h); aspect-ratio: 1900 / 2160; position: relative; overflow: hidden; background: rgba(12,12,11,.05); }
+  .tile { flex: 0 0 auto; height: var(--strip-h); aspect-ratio: 1900 / 2160; position: relative; overflow: hidden; background: var(--card); }
   .tile.w { aspect-ratio: 16 / 9; }
   .tile img { display: block; width: 100%; height: 100%; object-fit: cover; will-change: transform; }
 

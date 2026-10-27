@@ -2,6 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/wipe.js"></script>
 <script src="/nav.js" defer></script>
@@ -9,9 +10,29 @@
 <meta name="description" content="What the Selah Bible study app does with your information.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root { --bg: #e7e1d7; --text: #000; --muted: rgba(0,0,0,.45); --line: rgba(0,0,0,.1); }
+  :root {
+    --bg: #e7e1d7; --text: #0c0c0b; --muted: rgba(12,12,11,.6); --line: rgba(12,12,11,.16); --card: rgba(12,12,11,.06);
+    --panel: #fcfcfb; --button: #0c0c0b; --button-text: #fcfcfb;
+    --sans: "Instrument Sans", system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+    --strip-h: clamp(152px, 14vw, 240px);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d0d0c; --text: #ede8df; --muted: rgba(237,232,223,.6); --line: rgba(237,232,223,.16); --card: rgba(237,232,223,.07);
+    --panel: #171716; --button: #ede8df; --button-text: #0d0d0c;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d0d0c; --text: #ede8df; --muted: rgba(237,232,223,.6); --line: rgba(237,232,223,.16); --card: rgba(237,232,223,.07);
+      --panel: #171716; --button: #ede8df; --button-text: #0d0d0c;
+      color-scheme: dark;
+    }
+  }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
   body {

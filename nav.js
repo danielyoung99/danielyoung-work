@@ -24,9 +24,9 @@
     '.nav-blur i:nth-child(5){backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-mask-image:linear-gradient(to bottom,transparent 50%,#000 62.5%,#000 75%,transparent 87.5%);mask-image:linear-gradient(to bottom,transparent 50%,#000 62.5%,#000 75%,transparent 87.5%)}' +
     '.nav-blur i:nth-child(6){backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);-webkit-mask-image:linear-gradient(to bottom,transparent 62.5%,#000 75%,#000 100%);mask-image:linear-gradient(to bottom,transparent 62.5%,#000 75%,#000 100%)}' +
 
-    '.nav{position:fixed;left:50%;bottom:16px;z-index:100;width:min(340px,calc(100vw - 32px));transform:translateX(-50%);font:400 15px/24px "Instrument Sans",-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.005em;color:#000;-webkit-font-smoothing:antialiased}' +
+    '.nav{position:fixed;left:50%;bottom:16px;z-index:100;width:min(340px,calc(100vw - 32px));transform:translateX(-50%);font:400 15px/24px "Instrument Sans",-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.005em;color:var(--text);-webkit-font-smoothing:antialiased}' +
     '.nav a{color:inherit;text-decoration:none}' +
-    '.nav__panel{background:#fcfcfc;border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 32px rgba(0,0,0,.09)}' +
+    '.nav__panel{background:var(--panel);border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 32px rgba(0,0,0,.09)}' +
     '.nav__menu{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .55s cubic-bezier(.32,.72,0,1),visibility 0s linear .55s}' +
     '.nav.is-open .nav__menu{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .55s cubic-bezier(.32,.72,0,1),visibility 0s}' +
     '.nav__inner{min-height:0;overflow:hidden}' +
@@ -34,8 +34,8 @@
     '.nav__pages a{display:inline-block;font-size:24px;line-height:34px;letter-spacing:-.01em;transition:opacity .2s}' +
     '.nav__pages a:hover{opacity:.45}' +
     '.nav__pages a[aria-current="page"]::after{content:"";display:inline-block;width:6px;height:6px;margin-left:10px;border-radius:50%;background:currentColor;vertical-align:middle}' +
-    '.nav__cols{display:flex;gap:40px;margin:16px 16px 0;padding:16px 0 16px;border-top:1px solid rgba(0,0,0,.1)}' +
-    '.nav__label{margin:0 0 4px;font-size:11px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,0,0,.45)}' +
+    '.nav__cols{display:flex;gap:40px;margin:16px 16px 0;padding:16px 0 16px;border-top:1px solid var(--line)}' +
+    '.nav__label{margin:0 0 4px;font:400 11px/16px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}' +
     '.nav__cols a{display:block;font-size:14px;line-height:22px;transition:opacity .2s}' +
     '.nav__cols a:hover{opacity:.45}' +
     '.nav__pages li,.nav__cols>div{opacity:0;transform:translateY(8px);transition:opacity .3s,transform .4s cubic-bezier(.32,.72,0,1)}' +
@@ -43,12 +43,12 @@
     '.nav.is-open li:nth-child(1){transition-delay:.08s}.nav.is-open li:nth-child(2){transition-delay:.12s}.nav.is-open li:nth-child(3){transition-delay:.16s}.nav.is-open li:nth-child(4){transition-delay:.2s}' +
     '.nav.is-open .nav__cols>div:nth-child(1){transition-delay:.26s}.nav.is-open .nav__cols>div:nth-child(2){transition-delay:.3s}' +
     '.nav__bar{display:flex;align-items:center;justify-content:space-between;height:56px;padding:8px 8px 8px 16px}' +
-    '.nav__btn{position:relative;width:40px;height:40px;padding:0;border:0;border-radius:9px;background:#111;cursor:pointer}' +
-    '.nav__btn i{position:absolute;left:12px;right:12px;height:1.5px;border-radius:1px;background:#fff;transition:transform .45s cubic-bezier(.32,.72,0,1)}' +
+    '.nav__tools{display:flex;gap:8px}.nav__btn{position:relative;width:40px;height:40px;padding:0;border:0;border-radius:9px;background:var(--button);cursor:pointer}.nav__theme{display:flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;border:1px solid var(--line);border-radius:9px;background:transparent;color:var(--text);cursor:pointer}.nav__theme svg{width:18px;height:18px}' +
+    '.nav__btn i{position:absolute;left:12px;right:12px;height:1.5px;border-radius:1px;background:var(--button-text);transition:transform .45s cubic-bezier(.32,.72,0,1)}' +
     '.nav__btn i:nth-child(1){top:15.5px}.nav__btn i:nth-child(2){top:23px}' +
     '.nav.is-open .nav__btn i:nth-child(1){transform:translateY(3.75px) rotate(45deg)}' +
     '.nav.is-open .nav__btn i:nth-child(2){transform:translateY(-3.75px) rotate(-45deg)}' +
-    '.nav a:focus-visible,.nav__btn:focus-visible{outline:2px solid #111;outline-offset:2px}' +
+    '.nav a:focus-visible,.nav__btn:focus-visible,.nav__theme:focus-visible{outline:2px solid var(--text);outline-offset:2px}' +
     'body{padding-bottom:88px}' +
     '@media (prefers-reduced-motion:reduce){.nav__menu,.nav__pages li,.nav__cols>div,.nav__btn i{transition:none!important}}';
 
@@ -88,7 +88,21 @@
     ]);
     var btn = el('button', { 'class': 'nav__btn', type: 'button', 'aria-expanded': 'false', 'aria-controls': 'nav-menu', 'aria-label': 'Menu' },
       [el('i'), el('i')]);
-    var bar = el('div', { 'class': 'nav__bar' }, [el('a', { href: '/', text: 'Daniel Young' }), btn]);
+    var themeBtn = el('button', { 'class': 'nav__theme', type: 'button' });
+    themeBtn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>';
+    var bar = el('div', { 'class': 'nav__bar' }, [el('a', { href: '/', text: 'Daniel Young' }), el('div', { 'class': 'nav__tools' }, [themeBtn, btn])]);
+    function isDark() {
+      var set = document.documentElement.dataset.theme;
+      return set ? set === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function labelTheme() { themeBtn.setAttribute('aria-label', isDark() ? 'Switch to light mode' : 'Switch to dark mode'); }
+    themeBtn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      labelTheme();
+    });
+    labelTheme();
     var nav = el('nav', { 'class': 'nav', 'aria-label': 'Main' }, [el('div', { 'class': 'nav__panel' }, [menu, bar])]);
 
     var blur = el('div', { 'class': 'nav-blur', 'aria-hidden': 'true' }, [el('i'), el('i'), el('i'), el('i'), el('i'), el('i')]);
