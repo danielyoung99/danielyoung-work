@@ -69,9 +69,9 @@
     window.addEventListener('load', function () { ST.refresh(); });
   }
 
-  // Tile and case hover: the picture eases in a little. Fine pointers only.
+  // Tile hover: the picture eases in a little. Fine pointers only.
   if (canHover) {
-    [].forEach.call(document.querySelectorAll('.tile, .case'), function (box) {
+    [].forEach.call(document.querySelectorAll('.tile'), function (box) {
       var img = box.querySelector('img');
       if (!img) return;
       var zoom = gsap.quickTo(img, 'scale', { duration: 0.7, ease: EASE });

@@ -22,6 +22,7 @@
     --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
     --mono: "Geist Mono", ui-monospace, Menlo, monospace;
     --strip-h: clamp(152px, 14vw, 240px);
+    --ease: cubic-bezier(.19, 1, .22, 1);
     color-scheme: light;
   }
   :root[data-theme="dark"] {
@@ -89,15 +90,39 @@
 
   /* work: case-study cards. Grid rows stretch, so cards in a row share one height */
   .work { max-width: 1100px; margin: 128px auto 0; display: flex; flex-direction: column; gap: 24px; }
-  .cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-  .case { display: flex; flex-direction: column; background: var(--card); transition: background .3s; }
+  .cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 16px; }
+  .case { display: flex; flex-direction: column; gap: 8px; color: var(--text); }
   .case--2 { grid-column: span 2; }
-  .case__media { position: relative; flex: 1 1 auto; min-height: 280px; overflow: hidden; }
-  .case__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; will-change: transform; }
-  .case__body { display: flex; flex-direction: column; gap: 8px; padding: 20px 24px 24px; }
-  .case__title { margin: 8px 0 0; font: 500 clamp(24px, 2.6vw, 34px)/1.1 var(--sans); letter-spacing: -.03em; transition: opacity .25s; }
-  .case__text { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.5; max-width: 42ch; }
-  .case:hover .case__title { opacity: .6; }
+  .case__media {
+    position: relative; flex: 1 1 auto; min-height: 260px; overflow: hidden; border-radius: 8px; background: var(--card);
+    transition: transform .8s var(--ease), box-shadow .8s var(--ease);
+  }
+  .case__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .case:hover .case__media { transform: scale(1.01); box-shadow: 0 24px 64px rgba(0,0,0,.18); }
+
+  /* title row: the name on the left, and on the right a line that rolls up to the tags on hover */
+  .case__meta { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; line-height: 24px; }
+  .case__title { margin: 0; flex: 0 0 auto; font: 400 14px/24px var(--sans); }
+  .case__roll { position: relative; flex: 1 1 auto; min-width: 0; height: 24px; overflow: hidden; }
+  .case__roll-inner { display: flex; flex-direction: column; transition: transform .8s var(--ease); }
+  .case__roll-inner > span { display: flex; align-items: center; justify-content: flex-end; height: 24px; white-space: nowrap; }
+  .case__tagline { color: var(--muted); overflow: hidden; text-overflow: ellipsis; transition: opacity .8s var(--ease); }
+  .case__tags { gap: 12px; color: var(--text); }
+  .case__tags span { display: inline-block; opacity: 0; transform: translateY(20px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+  .case__tags span + span { transition-delay: .06s; }
+  .case:hover .case__roll-inner { transform: translateY(-24px); }
+  .case:hover .case__tagline { opacity: 0; }
+  .case:hover .case__tags span { opacity: 1; transform: none; }
+  .case:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; border-radius: 8px; }
+
+  @media (min-width: 720px) {
+    .case { gap: 16px; }
+    .case__meta { font-size: 16px; line-height: 24px; }
+    .case__title { font-size: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .case *, .case { transition: none !important; }
+  }
 
   /* clients */
   .clients { max-width: 1100px; margin: 128px auto 0; }
@@ -108,7 +133,7 @@
 
   @media (max-width: 720px) {
     .work { margin-top: 96px; }
-    .cases { grid-template-columns: 1fr; }
+    .cases { grid-template-columns: 1fr; gap: 32px; }
     .case--2 { grid-column: auto; }
     .case__media { min-height: 220px; }
     .clients { margin-top: 96px; }
@@ -187,34 +212,42 @@
       <div class="cases">
         <a class="case case--2" href="/projects/selah/">
           <div class="case__media"><img src="/projects/selah/images/social-wide-01.jpg" alt="Today screen in Selah on iPad" width="2160" height="1440" loading="lazy" decoding="async"></div>
-          <div class="case__body">
-            <p class="label">iOS app</p>
+          <div class="case__meta">
             <h3 class="case__title">Selah</h3>
-            <p class="case__text">Bible study for iPhone and iPad, with reading plans, study notes and shared prayer points.</p>
+            <span class="case__roll"><span class="case__roll-inner">
+              <span class="case__tagline">Bible study for iPhone and iPad.</span>
+              <span class="case__tags"><span>iOS</span><span>Product</span></span>
+            </span></span>
           </div>
         </a>
         <a class="case case--1" href="/projects/stripes/">
           <div class="case__media t-lawn"></div>
-          <div class="case__body">
-            <p class="label">iOS app</p>
+          <div class="case__meta">
             <h3 class="case__title">Stripes</h3>
-            <p class="case__text">Lawn care, logged. A calendar of mowing, feeding and other jobs.</p>
+            <span class="case__roll"><span class="case__roll-inner">
+              <span class="case__tagline">Lawn care, logged.</span>
+              <span class="case__tags"><span>iOS</span><span>Product</span></span>
+            </span></span>
           </div>
         </a>
         <a class="case case--1" href="/projects/cadence/">
           <div class="case__media t-clock"></div>
-          <div class="case__body">
-            <p class="label">iOS app</p>
+          <div class="case__meta">
             <h3 class="case__title">Cadence</h3>
-            <p class="case__text">Focus and break timer with a full-screen timer and a Live Activity.</p>
+            <span class="case__roll"><span class="case__roll-inner">
+              <span class="case__tagline">Focus and break timer.</span>
+              <span class="case__tags"><span>iOS</span><span>Product</span></span>
+            </span></span>
           </div>
         </a>
         <a class="case case--2" href="/projects/glowline-studio/">
           <div class="case__media t-glow"></div>
-          <div class="case__body">
-            <p class="label">Web app</p>
+          <div class="case__meta">
             <h3 class="case__title">Glowline Studio</h3>
-            <p class="case__text">A single-file light-stroke pattern generator with templates, themes and export.</p>
+            <span class="case__roll"><span class="case__roll-inner">
+              <span class="case__tagline">Light-stroke pattern generator.</span>
+              <span class="case__tags"><span>Web</span><span>Generative</span></span>
+            </span></span>
           </div>
         </a>
       </div>
