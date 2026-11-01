@@ -6,25 +6,81 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/wipe.js"></script>
 <title>About · Daniel Young</title>
-<meta name="description" content="Daniel Young is a brand designer working across strategy, identity and digital.">
+<meta name="description" content="Daniel Young is Head of Design at DHD. Strategy, identity and digital, using AI for speed and keeping the craft human.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/projects/project.css?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css?v=2">
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script defer src="/motion.js"></script>
-<script src="/nav.js" defer></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="/site.js?v=2"></script>
+<script defer src="/nav.js"></script>
 </head>
 <body>
-<main class="project">
-  <header class="about">
-    <p class="about__name">About</p>
-    <h1 class="about__title" data-split>Brand designer working across strategy, identity and digital.</h1>
-    <p class="about__text">I lead design at DHD, working alongside the teams we make things for.</p>
-    <p class="about__text">Between projects I build my own apps and tools: <a href="/projects/selah/">Selah</a>, a Bible study app for iPhone and iPad; <a href="/projects/stripes/">Stripes</a>, for lawn care; <a href="/projects/cadence/">Cadence</a>, a focus and break timer; and <a href="/projects/glowline-studio/">Glowline Studio</a>, a light-stroke pattern generator.</p>
-    <p class="about__links">Write to <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>, or find me on <a href="https://www.linkedin.com/in/daniel-young/" target="_blank" rel="noopener">LinkedIn</a> and <a href="https://www.instagram.com/danielyoung.work/" target="_blank" rel="noopener">Instagram</a>.</p>
+<main class="page">
+  <header class="wrap pagehead">
+    <p class="kicker" data-fade>About</p>
+    <h1 class="display" data-rise style="margin-top:24px">Strategy, identity and digital, with <em>a person in charge.</em></h1>
   </header>
+
+  <section class="section wrap">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px 64px">
+      <p class="lede" data-fade>I'm Head of Design at DHD, a creative agency that does strategy, design, digital and film. <span>I lead brand and digital work, and I work alongside the teams we make things for.</span></p>
+      <div style="display:flex;flex-direction:column;gap:20px;color:var(--muted)">
+        <p data-fade style="margin:0">AI is part of my working day. I use it for research, first drafts, resizing, checks and code. I also build my own apps and tools with it, which is how I learned where it helps and where it gets in the way.</p>
+        <p data-fade style="margin:0">What stays with me: choosing the idea, writing the words that go on the page, type, spacing and colour, and deciding what ships. I check writing for machine habits before it goes out.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section__head">
+      <p class="label">How I use AI</p>
+      <p class="label">Four rules</p>
+    </div>
+    <div class="principles">
+      <div class="principle" data-fade><b>01</b><h3>Machines draft, people decide.</h3><p>AI can give me twenty options. It can't tell me which one is right for the people the brand is for.</p></div>
+      <div class="principle" data-fade><b>02</b><h3>Speed buys thinking time.</h3><p>The hours AI saves go back into the idea and the details, not into making more of the same.</p></div>
+      <div class="principle" data-fade><b>03</b><h3>Say where it was used.</h3><p>I tell clients where AI helped and where it didn't, so nobody is guessing.</p></div>
+      <div class="principle" data-fade><b>04</b><h3>Check everything.</h3><p>Every output is read, used and tested by a person before it leaves my desk.</p></div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="cv">
+    <div class="section__head">
+      <p class="label">CV</p>
+      <div class="chips" data-cv>
+        <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-f="role" aria-pressed="false">Role</button>
+        <button class="chip" type="button" data-f="client" aria-pressed="false">Clients</button>
+        <button class="chip" type="button" data-f="build" aria-pressed="false">Own builds</button>
+        <button class="chip" type="button" data-f="tools" aria-pressed="false">Tools</button>
+      </div>
+    </div>
+    <div class="cv">
+      <div class="cv__item" data-k="role"><span class="cv__when">Present</span><p class="cv__what">Head of Design<span>DHD (David Henderson Design)</span></p><p class="cv__text">Lead design across strategy, identity and digital. Lead DHD's brand messaging and rebrand, set shared folder structures and file naming across departments, and ran the team's first internal workshop on working with Claude.</p></div>
+      <div class="cv__item" data-k="client"><span class="cv__when">Recent</span><p class="cv__what">Chestnutt Holiday Parks<span>Tone of voice, social</span></p><p class="cv__text">Documented the tone of voice for a family-run holiday parks business in Northern Ireland, and led its social visuals.</p></div>
+      <div class="cv__item" data-k="client"><span class="cv__when">Recent</span><p class="cv__what">Software For All<span>Brand guidelines</span></p><p class="cv__text">Brand guidelines for Workplus and Software NI, with a brand architecture that puts the two main brands first.</p></div>
+      <div class="cv__item" data-k="client"><span class="cv__when">Recent</span><p class="cv__what">Myrtlefield House<span>Brand and web</span></p><p class="cv__text">Brand identity and website, from logo variants and colour to content hierarchy and navigation.</p></div>
+      <div class="cv__item" data-k="client"><span class="cv__when">Recent</span><p class="cv__what">Texam<span>Website</span></p><p class="cv__text">Website project, planned and tracked by phase.</p></div>
+      <div class="cv__item" data-k="build"><span class="cv__when">2026</span><p class="cv__what"><a class="link" href="/projects/selah/">Selah</a><span>Bible study app, iPhone and iPad</span></p><p class="cv__text">Reader, study notes, prayer points and reading plans, with iCloud sync. SwiftUI and SwiftData.</p></div>
+      <div class="cv__item" data-k="build"><span class="cv__when">2026</span><p class="cv__what"><a class="link" href="/projects/stripes/">Stripes</a><span>Lawn care app, iPhone</span></p><p class="cv__text">A lawn that grows and fades as the next mow gets close, with a log for every lawn job.</p></div>
+      <div class="cv__item" data-k="build"><span class="cv__when">2026</span><p class="cv__what"><a class="link" href="/projects/cadence/">Cadence</a><span>Focus and break timer</span></p><p class="cv__text">A full-screen timer with notifications and a Live Activity.</p></div>
+      <div class="cv__item" data-k="build"><span class="cv__when">2026</span><p class="cv__what"><a class="link" href="/projects/glowline-studio/">Glowline Studio</a><span>Pattern generator, web</span></p><p class="cv__text">A light-stroke pattern studio with eight templates and export to PNG, video and JSON.</p></div>
+      <div class="cv__item" data-k="build"><span class="cv__when">2026</span><p class="cv__what"><a class="link" href="https://lights-out-belfast.netlify.app" target="_blank" rel="noopener">Lights Out Belfast</a><span>Interactive 3D map, web</span></p><p class="cv__text">Empty buildings in red on a map that follows the real sun and weather over Belfast.</p></div>
+      <div class="cv__item" data-k="tools"><span class="cv__when">Design</span><p class="cv__what">Figma</p><p class="cv__text">Brand systems, decks, UI, email signatures.</p></div>
+      <div class="cv__item" data-k="tools"><span class="cv__when">Code</span><p class="cv__what">HTML, CSS, JavaScript, SwiftUI</p><p class="cv__text">This site, GSAP motion, and the iOS apps above.</p></div>
+      <div class="cv__item" data-k="tools"><span class="cv__when">AI</span><p class="cv__what">Claude</p><p class="cv__text">Research, drafts, code and checks. Skills for file naming, ClickUp descriptions and tone of voice.</p></div>
+    </div>
+  </section>
+
+  <section class="section wrap cta">
+    <p class="label" style="margin-bottom:24px">Next</p>
+    <h2 class="big" data-rise>Let's talk <em>about yours.</em></h2>
+    <div style="height:clamp(28px,4vw,48px)"></div>
+    <a class="btn" href="/contact/" data-magnetic>Get in touch <i>&rarr;</i></a>
+  </section>
 </main>
 </body>
 </html>

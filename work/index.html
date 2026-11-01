@@ -6,29 +6,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/wipe.js"></script>
 <title>Work · Daniel Young</title>
-<meta name="description" content="Apps and tools by Daniel Young: Selah, Stripes, Cadence and Glowline Studio.">
+<meta name="description" content="Apps and tools by Daniel Young, and the client work behind them.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/projects/project.css?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css?v=2">
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script defer src="/motion.js"></script>
-<script src="/nav.js" defer></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="/site.js?v=2"></script>
+<script defer src="/nav.js"></script>
 </head>
 <body>
-<main class="project">
-  <header class="about">
-    <p class="about__name">Work</p>
-    <h1 class="about__title" data-split>Apps and tools I have built.</h1>
+<main class="page">
+  <header class="wrap pagehead">
+    <p class="kicker" data-fade>Work</p>
+    <h1 class="display" data-rise style="margin-top:24px">Things I've built, <em>and who for.</em></h1>
   </header>
 
-  <ul class="index">
-    <li><a href="/projects/selah/"><span class="index__name">Selah</span><span class="index__kind">Bible study for iPhone and iPad</span></a></li>
-    <li><a href="/projects/stripes/"><span class="index__name">Stripes</span><span class="index__kind">Lawn care, logged</span></a></li>
-    <li><a href="/projects/cadence/"><span class="index__name">Cadence</span><span class="index__kind">Focus and break timer</span></a></li>
-    <li><a href="/projects/glowline-studio/"><span class="index__name">Glowline Studio</span><span class="index__kind">Light-stroke pattern generator</span></a></li>
-  </ul>
+  <section class="section wrap">
+    <div class="section__head"><p class="label">Own builds</p><p class="label">Hover for a preview</p></div>
+    <ul class="rows">
+      <li class="row" data-peek="/projects/selah/images/tile-01.jpg"><a href="/projects/selah/"><span class="label">2026</span><span class="row__t">Selah</span><span class="row__k">Bible study for iPhone and iPad</span></a></li>
+      <li class="row" data-peek=".t-lawn"><a href="/projects/stripes/"><span class="label">2026</span><span class="row__t">Stripes</span><span class="row__k">Lawn care, logged</span></a></li>
+      <li class="row" data-peek=".t-clock"><a href="/projects/cadence/"><span class="label">2026</span><span class="row__t">Cadence</span><span class="row__k">Focus and break timer</span></a></li>
+      <li class="row" data-peek=".t-glow"><a href="/projects/glowline-studio/"><span class="label">2026</span><span class="row__t">Glowline Studio</span><span class="row__k">Light-stroke pattern generator</span></a></li>
+      <li class="row" data-peek=".t-lights"><a href="https://lights-out-belfast.netlify.app" target="_blank" rel="noopener"><span class="label">2026</span><span class="row__t">Lights Out Belfast</span><span class="row__k">Empty buildings on a live 3D map</span></a></li>
+    </ul>
+  </section>
+
+  <section class="section wrap">
+    <div class="section__head"><p class="label">Client work</p><p class="label">Through DHD</p></div>
+    <ul class="rows">
+      <li class="row row--static"><div><span class="label">Recent</span><span class="row__t">Chestnutt Holiday Parks</span><span class="row__k">Tone of voice, social</span></div></li>
+      <li class="row row--static"><div><span class="label">Recent</span><span class="row__t">Software For All</span><span class="row__k">Brand guidelines</span></div></li>
+      <li class="row row--static"><div><span class="label">Recent</span><span class="row__t">Myrtlefield House</span><span class="row__k">Brand and web</span></div></li>
+      <li class="row row--static"><div><span class="label">Recent</span><span class="row__t">Texam</span><span class="row__k">Website</span></div></li>
+    </ul>
+    <p class="cap">Client case studies are shared in person, with the client's say-so.</p>
+  </section>
+
+  <section class="section wrap cta">
+    <h2 class="big" data-rise>Want something <em>like this?</em></h2>
+    <div style="height:clamp(28px,4vw,48px)"></div>
+    <a class="btn" href="/contact/" data-magnetic>Get in touch <i>&rarr;</i></a>
+  </section>
 </main>
 </body>
 </html>

@@ -5,324 +5,52 @@
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/wipe.js"></script>
-<script src="/nav.js" defer></script>
-<title>Daniel Young</title>
-<meta name="description" content="Daniel Young is a brand designer. Get in touch about a project.">
+<title>Contact · Daniel Young</title>
+<meta name="description" content="Get in touch with Daniel Young about a brand, a website or a product.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css?v=2">
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script defer src="/motion.js"></script>
-<style>
-  :root {
-    --bg: #e7e1d7; --text: #0c0c0b; --muted: rgba(12,12,11,.6); --line: rgba(12,12,11,.16); --card: rgba(12,12,11,.06);
-    --panel: #fcfcfb; --button: #0c0c0b; --button-text: #fcfcfb;
-    --sans: "Instrument Sans", system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
-    --mono: "Geist Mono", ui-monospace, Menlo, monospace;
-    --strip-h: clamp(152px, 14vw, 240px);
-    --ease: cubic-bezier(.19, 1, .22, 1);
-    color-scheme: light;
-  }
-  :root[data-theme="dark"] {
-    --bg: #0d0d0c; --text: #ede8df; --muted: rgba(237,232,223,.6); --line: rgba(237,232,223,.16); --card: rgba(237,232,223,.07);
-    --panel: #171716; --button: #ede8df; --button-text: #0d0d0c;
-    color-scheme: dark;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #0d0d0c; --text: #ede8df; --muted: rgba(237,232,223,.6); --line: rgba(237,232,223,.16); --card: rgba(237,232,223,.07);
-      --panel: #171716; --button: #ede8df; --button-text: #0d0d0c;
-      color-scheme: dark;
-    }
-  }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0; background: var(--bg); color: var(--text);
-    font: 400 16px/1.5 var(--sans); letter-spacing: -.005em; -webkit-font-smoothing: antialiased;
-    padding-bottom: 96px;
-  }
-  a { color: inherit; text-decoration: none; }
-  main { padding: 0 16px; }
-
-  /* labels: small mono caps, like the index numbers on sameness.io */
-  .kicker, .strip__no, .collage__cap, .label {
-    font: 400 12px/16px var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 0;
-  }
-
-  /* hero */
-  .hero { padding: clamp(96px, 16vw, 180px) 0 0; max-width: 1100px; margin: 0 auto; }
-  .hero .kicker { margin-bottom: 24px; }
-  .hero__title {
-    margin: 0; font: 400 clamp(44px, 7vw, 104px)/.98 var(--serif); letter-spacing: -.02em; max-width: 14ch;
-  }
-  .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .08em; margin-bottom: -.08em; }
-  .wi { display: inline-block; }
-
-  /* hero collage: overlapping project cards, the hovered one comes forward */
-  .collage { container-type: inline-size; max-width: 1100px; margin: 64px auto 0; }
-  .cluster { --u: .1cqw; position: relative; height: calc(500 * var(--u)); }
-  .card {
-    position: absolute; left: calc(var(--x) * var(--u)); top: calc(var(--y) * var(--u)); width: calc(var(--w) * var(--u));
-    aspect-ratio: var(--ar); overflow: hidden; background: var(--card);
-    transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(var(--s, 1));
-    transition: transform .6s cubic-bezier(.32,.72,0,1);
-  }
-  .card.is-focus { z-index: 50; }
-  .card img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .collage__cap { margin: 20px 0 0; min-height: 16px; text-align: center; }
-  @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
-  @media (max-width: 720px) {
-    .collage { overflow: hidden; margin-top: 48px; }
-    .cluster { --u: .15cqw; width: 150cqw; margin-left: -25cqw; }
-  }
-
-  /* intro */
-  .intro {
-    max-width: 1100px; margin: 96px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px;
-    padding-top: 24px; border-top: 1px solid var(--line);
-  }
-  .intro__lead { margin: 0; font: 500 clamp(22px, 2.4vw, 32px)/1.2 var(--sans); letter-spacing: -.02em; }
-  .intro__body { margin: 0; color: var(--muted); font-size: 16px; }
-  .intro__body a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-
-  /* work: case-study cards. Grid rows stretch, so cards in a row share one height */
-  .work { max-width: 1100px; margin: 128px auto 0; display: flex; flex-direction: column; gap: 24px; }
-  .cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 16px; }
-  .case { display: flex; flex-direction: column; gap: 8px; color: var(--text); }
-  .case--2 { grid-column: span 2; }
-  .case__media {
-    position: relative; flex: 0 0 auto; height: clamp(300px, 40vw, 440px); overflow: hidden; border-radius: 8px; background: var(--card);
-    transition: transform .8s var(--ease), box-shadow .8s var(--ease);
-  }
-  .case__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .case:hover .case__media { transform: scale(1.01); box-shadow: 0 24px 64px rgba(0,0,0,.18); }
-
-  /* title row: the name on the left, and on the right a line that rolls up to the tags on hover */
-  .case__meta { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; line-height: 24px; }
-  .case__title { margin: 0; flex: 0 0 auto; font: 400 14px/24px var(--sans); }
-  .case__roll { position: relative; flex: 1 1 auto; min-width: 0; height: 24px; overflow: hidden; }
-  .case__roll-inner { display: flex; flex-direction: column; transition: transform .8s var(--ease); }
-  .case__roll-inner > span { display: flex; align-items: center; justify-content: flex-end; height: 24px; white-space: nowrap; }
-  .case__tagline { color: var(--muted); overflow: hidden; text-overflow: ellipsis; transition: opacity .8s var(--ease); }
-  .case__tags { gap: 12px; color: var(--text); }
-  .case__tags span { display: inline-block; opacity: 0; transform: translateY(20px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
-  .case__tags span + span { transition-delay: .06s; }
-  .case:hover .case__roll-inner { transform: translateY(-24px); }
-  .case:hover .case__tagline { opacity: 0; }
-  .case:hover .case__tags span { opacity: 1; transform: none; }
-  .case:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; border-radius: 8px; }
-
-  @media (min-width: 720px) {
-    .case { gap: 16px; }
-    .case__meta { font-size: 16px; line-height: 24px; }
-    .case__title { font-size: 16px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .case *, .case { transition: none !important; }
-  }
-
-  /* clients */
-  .clients { max-width: 1100px; margin: 128px auto 0; }
-  .clients__title { margin: 16px 0 0; font: 400 clamp(40px, 6vw, 80px)/1 var(--serif); letter-spacing: -.02em; }
-  .clients__list { list-style: none; margin: 64px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); }
-  .clients__list li { padding: 28px 20px 28px 0; border-bottom: 1px solid var(--line); font: 400 clamp(20px, 2.2vw, 30px)/1.15 var(--serif); letter-spacing: -.01em; }
-  .clients__list li + li { padding-left: 20px; border-left: 1px solid var(--line); }
-
-  @media (max-width: 720px) {
-    .work { margin-top: 96px; }
-    .cases { grid-template-columns: 1fr; gap: 32px; }
-    .case--2 { grid-column: auto; }
-    .case__media { height: 260px; }
-    .clients { margin-top: 96px; }
-    .clients__list { grid-template-columns: 1fr 1fr; margin-top: 40px; }
-    .clients__list li:nth-child(3) { padding-left: 0; border-left: 0; }
-    .clients__list li:nth-child(n+3) { border-top: 0; }
-  }
-
-  /* contact */
-  .contact { display: none; max-width: 510px; margin: 96px auto 0; }
-  body.is-contact .home { display: none; }
-  body.is-contact .contact { display: block; }
-  .contact__note { margin: 0; color: var(--muted); }
-  .contact__note a { color: var(--text); }
-
-  /* hidden until GSAP has loaded, so the page still shows if the CDN fails */
-  html.anim [data-reveal] { clip-path: inset(0 0 100% 0); }
-
-  @media (max-width: 720px) {
-    :root { --strip-h: 144px; }
-    .hero { padding-top: 88px; }
-    .intro { grid-template-columns: 1fr; margin-top: 72px; }
-  }
-
-  /* tiles: drawn in CSS, stand-ins until real screenshots go in */
-  .t-navy { background: #16254d; }
-  .t-gold { background: #c9a24a; }
-  .t-paper { background: #ece7da; }
-  .t-type { display: grid; place-items: center; font: 500 22px var(--sans); letter-spacing: -.02em; color: #fff; }
-  .t-type.dk { color: #16254d; }
-  .t-lawn { background: repeating-linear-gradient(90deg, #2f5d3a 0 22px, #3a6d46 22px 44px); }
-  .t-lawn2 { background: repeating-linear-gradient(0deg, #1f4429 0 14px, #26502f 14px 28px); }
-  .t-sky { background: linear-gradient(180deg, #f3c58a, #f7e7cf 70%); }
-  .t-mint { background: #dbe8dc; }
-  .t-ink { background: #161616; }
-  .t-clock { background: #f2f2ef; }
-  .t-clock::after { content: ""; position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; border-radius: 50%; background: conic-gradient(#161616 0 62%, #d7d7d2 0); -webkit-mask: radial-gradient(circle, transparent 24px, #000 25px); mask: radial-gradient(circle, transparent 24px, #000 25px); }
-  .t-glow { background: #0b0b12; }
-  .t-glow::before { content: ""; position: absolute; inset: 0; background:
-    repeating-linear-gradient(115deg, transparent 0 14px, rgba(120,170,255,.55) 14px 15px, transparent 15px 30px),
-    repeating-linear-gradient(115deg, transparent 0 22px, rgba(255,140,200,.4) 22px 23px, transparent 23px 44px);
-    filter: blur(.4px); }
-  .t-glow.b::before { transform: scaleX(-1); }
-</style>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="/site.js?v=2"></script>
+<script defer src="/nav.js"></script>
 </head>
 <body>
-<main>
-  <div class="home">
-    <section class="hero">
-      <p class="kicker">Daniel Young <span aria-hidden="true">/</span> Brand designer</p>
-      <h1 class="hero__title" data-split>Brand designer working across strategy, identity and digital.</h1>
-    </section>
+<main class="page">
+  <header class="wrap pagehead">
+    <p class="kicker" data-fade>Contact</p>
+    <h1 class="big" data-rise style="margin-top:24px">Tell me what <em>you have in mind.</em></h1>
+  </header>
 
-    <section class="collage" aria-label="Projects">
-      <div class="cluster">
-        <a class="card" href="/projects/selah/" data-name="Selah" data-kind="Bible study for iPhone and iPad" data-reveal style="--x:40;--y:80;--w:240;--ar:3/2"><img src="/projects/selah/images/social-wide-001.jpg" alt="" width="2160" height="1440"></a>
-        <a class="card t-lawn" href="/projects/stripes/" data-name="Stripes" data-kind="Lawn care, logged" aria-label="Stripes" data-reveal style="--x:170;--y:250;--w:150;--ar:3/4"></a>
-        <a class="card" href="/projects/selah/" data-name="Selah" data-kind="Bible study for iPhone and iPad" data-reveal style="--x:230;--y:40;--w:150;--ar:3/4"><img src="/projects/selah/images/social-tall-001.jpg" alt="" width="1080" height="1440"></a>
-        <a class="card" href="/projects/selah/" data-name="Selah" data-kind="Bible study for iPhone and iPad" data-reveal style="--x:330;--y:190;--w:240;--ar:3/2"><img src="/projects/selah/images/social-wide-002.jpg" alt="" width="2160" height="1440"></a>
-        <a class="card t-ink t-type" href="/projects/cadence/" data-name="Cadence" data-kind="Focus and break timer" aria-label="Cadence" data-reveal style="--x:470;--y:30;--w:140;--ar:3/4">25:00</a>
-        <a class="card" href="/projects/selah/" data-name="Selah" data-kind="Bible study for iPhone and iPad" data-reveal style="--x:560;--y:230;--w:150;--ar:3/4"><img src="/projects/selah/images/social-tall-003.jpg" alt="" width="1080" height="1440"></a>
-        <a class="card t-glow" href="/projects/glowline-studio/" data-name="Glowline Studio" data-kind="Light-stroke pattern generator" aria-label="Glowline Studio" data-reveal style="--x:640;--y:60;--w:220;--ar:3/2"></a>
-        <a class="card" href="/projects/selah/" data-name="Selah" data-kind="Bible study for iPhone and iPad" data-reveal style="--x:790;--y:210;--w:140;--ar:3/4"><img src="/projects/selah/images/social-tall-004.jpg" alt="" width="1080" height="1440"></a>
-        <a class="card" href="/projects/selah/" data-name="Selah" data-kind="Bible study for iPhone and iPad" data-reveal style="--x:400;--y:300;--w:140;--ar:3/4"><img src="/projects/selah/images/social-tall-006.jpg" alt="" width="1080" height="1440"></a>
+  <section class="section wrap">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-bottom:24px">
+      <a class="mail link" href="mailto:info@danielyoung.work">info@danielyoung.work</a>
+      <button class="copy" type="button" data-copy="info@danielyoung.work">Copy</button>
+    </div>
+    <p class="cap" style="margin-top:0">Or pick what you need below and I'll write the start of the email for you.</p>
+
+    <form class="pick" data-pick onsubmit="return false">
+      <div class="field">
+        <p class="label">What do you need</p>
+        <div class="chips">
+          <button class="chip" type="button" aria-pressed="false">Brand identity</button>
+          <button class="chip" type="button" aria-pressed="false">Brand strategy</button>
+          <button class="chip" type="button" aria-pressed="false">Naming</button>
+          <button class="chip" type="button" aria-pressed="false">Art direction</button>
+          <button class="chip" type="button" aria-pressed="false">Illustration</button>
+          <button class="chip" type="button" aria-pressed="false">Website</button>
+          <button class="chip" type="button" aria-pressed="false">Product</button>
+          <button class="chip" type="button" aria-pressed="false">Copywriting</button>
+        </div>
       </div>
-      <p class="collage__cap" aria-live="polite"></p>
-    </section>
-
-    <section class="intro">
-      <p class="intro__lead">I lead design at DHD, working alongside the teams we make things for.</p>
-      <p class="intro__body">Between projects I build my own apps. The latest is <a href="/projects/selah/">Selah</a>, a Bible study app for iPhone and iPad.</p>
-    </section>
-
-    <section class="work" id="work">
-      <p class="label">Selected work</p>
-      <div class="cases">
-        <a class="case case--2" href="/projects/selah/">
-          <div class="case__media"><img src="/projects/selah/images/social-wide-01.jpg" alt="Today screen in Selah on iPad" width="2160" height="1440" loading="lazy" decoding="async"></div>
-          <div class="case__meta">
-            <h3 class="case__title">Selah</h3>
-            <span class="case__roll"><span class="case__roll-inner">
-              <span class="case__tagline">Bible study for iPhone and iPad.</span>
-              <span class="case__tags"><span>iOS</span><span>Product</span></span>
-            </span></span>
-          </div>
-        </a>
-        <a class="case case--1" href="/projects/stripes/">
-          <div class="case__media t-lawn"></div>
-          <div class="case__meta">
-            <h3 class="case__title">Stripes</h3>
-            <span class="case__roll"><span class="case__roll-inner">
-              <span class="case__tagline">Lawn care, logged.</span>
-              <span class="case__tags"><span>iOS</span><span>Product</span></span>
-            </span></span>
-          </div>
-        </a>
-        <a class="case case--1" href="/projects/cadence/">
-          <div class="case__media t-clock"></div>
-          <div class="case__meta">
-            <h3 class="case__title">Cadence</h3>
-            <span class="case__roll"><span class="case__roll-inner">
-              <span class="case__tagline">Focus and break timer.</span>
-              <span class="case__tags"><span>iOS</span><span>Product</span></span>
-            </span></span>
-          </div>
-        </a>
-        <a class="case case--2" href="/projects/glowline-studio/">
-          <div class="case__media t-glow"></div>
-          <div class="case__meta">
-            <h3 class="case__title">Glowline Studio</h3>
-            <span class="case__roll"><span class="case__roll-inner">
-              <span class="case__tagline">Light-stroke pattern generator.</span>
-              <span class="case__tags"><span>Web</span><span>Generative</span></span>
-            </span></span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <section class="clients" id="clients" aria-labelledby="clients-title">
-      <p class="label">Clients</p>
-      <h2 class="clients__title" id="clients-title">I've worked with</h2>
-      <ul class="clients__list">
-        <li>Chestnutt Holiday Parks</li>
-        <li>Myrtlefield House</li>
-        <li>Software For All</li>
-        <li>Texam</li>
-      </ul>
-    </section>
-  </div>
-
-  <section class="contact" id="contact">
-    <p class="contact__note">Write to <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>.</p>
+      <div class="field"><input type="text" name="name" autocomplete="name" placeholder="Your name" aria-label="Your name"></div>
+      <div class="field"><textarea name="message" placeholder="A few lines about the project" aria-label="About the project"></textarea></div>
+      <div><a class="btn" data-go href="mailto:info@danielyoung.work" data-magnetic>Open in your email app <i>&rarr;</i></a></div>
+      <p class="cap" style="margin:0">This opens your own email app with the message ready to send. Nothing is sent from this page.</p>
+    </form>
   </section>
 </main>
-
-<script>
-  var body = document.body;
-  function route() {
-    var isContact = location.pathname.replace(/\/$/, '') === '/contact';
-    body.classList.toggle('is-contact', isContact);
-    window.scrollTo(0, 0);
-  }
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest('a[href]');
-    if (!a || a.origin !== location.origin) return;
-    var p = a.getAttribute('href');
-    if (p === '/' || p === '/contact') {
-      e.preventDefault();
-      var change = function () { history.pushState({}, '', p); route(); };
-      var here = location.pathname.replace(/\/$/, '') || '/';
-      if (p !== here && window.Wipe) Wipe.run(change); else change();
-    }
-  });
-  window.addEventListener('popstate', route);
-  route();
-
-  // Collage: hovering or focusing a card brings it forward and nudges its neighbours aside.
-  (function () {
-    var cluster = document.querySelector('.cluster');
-    if (!cluster || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-    var cards = [].slice.call(cluster.querySelectorAll('.card'));
-    var cap = document.querySelector('.collage__cap');
-    function centre(c) { return { x: c.offsetLeft + c.offsetWidth / 2, y: c.offsetTop + c.offsetHeight / 2 }; }
-    function set(c, s, x, y) {
-      c.style.setProperty('--s', s); c.style.setProperty('--tx', x + 'px'); c.style.setProperty('--ty', y + 'px');
-    }
-    function focus(h) {
-      var hc = centre(h), w = cluster.offsetWidth;
-      cards.forEach(function (c) {
-        if (c === h) { c.classList.add('is-focus'); set(c, 1.3, 0, 0); return; }
-        var cc = centre(c), dx = cc.x - hc.x, dy = cc.y - hc.y, d = Math.hypot(dx, dy) || 1;
-        var push = w * 0.045 * Math.max(0, 1 - d / (w * 0.42));
-        c.classList.remove('is-focus');
-        set(c, 1, dx / d * push, dy / d * push);
-      });
-      cap.textContent = h.dataset.name + ' · ' + h.dataset.kind;
-    }
-    function reset() {
-      cards.forEach(function (c) { c.classList.remove('is-focus'); set(c, 1, 0, 0); });
-      cap.textContent = '';
-    }
-    cards.forEach(function (c) {
-      c.addEventListener('pointerenter', function () { focus(c); });
-      c.addEventListener('focus', function () { focus(c); });
-      c.addEventListener('blur', reset);
-    });
-    cluster.addEventListener('pointerleave', reset);
-  })();
-</script>
 </body>
 </html>

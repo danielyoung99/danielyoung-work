@@ -5,9 +5,10 @@
 (function () {
   var PAGES = [
     { name: 'Home', href: '/' },
-    { name: 'Work', href: '/work/' },
     { name: 'About', href: '/about/' },
-    { name: 'Journal', href: '/journal/' }
+    { name: 'Work', href: '/work/' },
+    { name: 'Journal', href: '/journal/' },
+    { name: 'Contact', href: '/contact/' }
   ];
   var SOCIALS = [
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/daniel-young/' },
@@ -49,7 +50,7 @@
     'transition:clip-path .8s ' + EASE + ',visibility 0s linear .8s}' +
     '.menu.is-open{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .8s ' + EASE + ',visibility 0s}' +
     '.menu__pages{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}' +
-    '.menu__pages a{display:inline-block;font:400 clamp(44px,9vw,104px)/1.02 var(--serif);letter-spacing:-.02em;color:var(--text);' +
+    '.menu__pages a{display:inline-block;font:400 clamp(40px,8vw,96px)/1.02 var(--serif);letter-spacing:-.02em;color:var(--text);' +
     'transform:translateY(40px);opacity:0;transition:transform .8s ' + EASE + ',opacity .6s,color .25s}' +
     '.menu__pages a:hover{color:var(--muted)}' +
     '.menu__pages a[aria-current="page"]::after{content:"";display:inline-block;width:8px;height:8px;margin-left:12px;border-radius:50%;background:currentColor;vertical-align:middle}' +
@@ -58,6 +59,7 @@
     '.menu.is-open .menu__pages li:nth-child(2) a{transition-delay:.2s}' +
     '.menu.is-open .menu__pages li:nth-child(3) a{transition-delay:.26s}' +
     '.menu.is-open .menu__pages li:nth-child(4) a{transition-delay:.32s}' +
+    '.menu.is-open .menu__pages li:nth-child(5) a{transition-delay:.38s}' +
     '.menu__cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-top:24px;border-top:1px solid var(--line)}' +
     '.menu__label{margin:0 0 8px;font:400 12px/16px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}' +
     '.menu__cols a{display:block;font-size:16px;line-height:24px;color:var(--text)}' +
@@ -84,7 +86,7 @@
     var here = location.pathname.replace(/\/$/, '') || '/';
     var pageItems = PAGES.map(function (p) {
       var target = p.href.replace(/\/$/, '') || '/';
-      var current = target === here || (p.href === '/work/' && here.indexOf('/projects') === 0);
+      var current = target === here || (p.href === '/work/' && here.indexOf('/projects') === 0) || (p.href === '/journal/' && here.indexOf('/journal') === 0);
       var a = el('a', { href: p.href, text: p.name });
       if (current) a.setAttribute('aria-current', 'page');
       return el('li', {}, [a]);
