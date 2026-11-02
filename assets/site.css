@@ -567,6 +567,11 @@ kbd {
 .cv-group { margin-top: 48px; }
 .cv-group > .label { display: block; margin-bottom: 14px; }
 @media (max-width: 760px) { .cv-row { grid-template-columns: 1fr; gap: 6px; } }
+.cv-points { margin: 0; padding: 0 0 0 1.1em; color: var(--ink-2); display: grid; gap: 8px; }
+.cv-points li::marker { color: var(--accent); }
+.cv-intro .display { max-width: none; }
+.cv-meta .facts { grid-template-columns: 1fr; gap: 14px; margin-top: 0; }
+.cv-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
 .portrait {
   aspect-ratio: 4 / 5; border-radius: 6px; background: var(--paper-2); border: 1px solid var(--rule);
   display: grid; place-items: end start; padding: 22px; position: relative; overflow: hidden;
@@ -636,5 +641,15 @@ dialog.keys form { margin-top: 22px; text-align: right; }
   body { background: #fff; color: #000; font-size: 11pt; }
   .reading { display: block; }
   .section { padding: 24px 0; }
-  a { text-decoration: none; }
+  a { text-decoration: none; color: inherit; }
+  .cv-intro { padding: 0 0 12px; }
+  .cv-intro .display { font-size: 30pt; }
+  .cv-intro .intro-split { grid-template-columns: 2fr 1fr; gap: 24px; }
+  .cv-intro .crumbs { display: none; }
+  .cv-section .section-head { margin-bottom: 10px; display: block; }
+  .cv-section .section-head .h2 { display: none; }
+  .cv-row { padding: 10px 0; break-inside: avoid; grid-template-columns: 90pt 1.3fr 2fr; }
+  .cv-points { gap: 3px; }
+  .section + .section { border-top: 0; }
+  @page { margin: 14mm; }
 }
