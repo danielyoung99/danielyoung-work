@@ -84,36 +84,21 @@
     addEventListener("keydown", (e) => { if (e.key === "Escape" && nav.classList.contains("is-open")) { nav.classList.remove("is-open"); menuBtn.setAttribute("aria-expanded", "false"); menuBtn.focus(); } });
   }
 
-  // Hero: lines rise, "people" inks in letter by letter, then "AI" resolves like a machine
-  const human = $(".hero [data-human]");
-  const machine = $(".hero [data-machine]");
-  if (human && machine && !reduced) {
-    const word = human.textContent;
-    human.textContent = "";
-    let t = 0.55;
-    [...word].forEach((ch) => {
-      const s = document.createElement("span");
-      s.className = "ink";
-      s.textContent = ch;
-      s.style.transitionDelay = `${t.toFixed(2)}s`;
-      t += 0.07 + Math.random() * 0.06;
-      human.append(s);
+  // Hero: words come into focus one after another
+  const heroH1 = $(".hero [data-words]");
+  if (heroH1 && !reduced) {
+    const text = heroH1.textContent.trim();
+    heroH1.setAttribute("aria-label", text);
+    heroH1.textContent = "";
+    text.split(" ").forEach((word, i, all) => {
+      const w = document.createElement("span");
+      w.className = "w";
+      w.setAttribute("aria-hidden", "true");
+      w.textContent = word;
+      w.style.transitionDelay = `${(0.15 + i * 0.09).toFixed(2)}s`;
+      heroH1.append(w);
+      if (i < all.length - 1) heroH1.append(" ");
     });
-    const target = machine.textContent;
-    const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/<>_#";
-    machine.textContent = "";
-    machine.classList.add("is-typing");
-    setTimeout(() => {
-      let frame = 0;
-      const tick = setInterval(() => {
-        frame++;
-        machine.textContent = [...target].map((ch, i) => (frame > 8 + i * 5 ? ch : glyphs[Math.floor(Math.random() * glyphs.length)])).join("");
-        if (frame > 8 + target.length * 5) {
-          clearInterval(tick);
-          machine.classList.replace("is-typing", "is-done");
-        }
-      }, 45);
-    }, (t + 0.35) * 1000);
   }
   requestAnimationFrame(() => document.documentElement.classList.add("is-loaded"));
 
