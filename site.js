@@ -216,23 +216,25 @@
     }
   });
 
-  /* ---------- process list ---------- */
+  /* ---------- process: machine / me filter and line drawings ---------- */
   $$('[data-steps]').forEach(function (list) {
-    var mode = list.getAttribute('data-for');
-    var group = mode ? document.getElementById(mode) : null;
+    var group = document.getElementById(list.getAttribute('data-for'));
     if (group) $$('button', group).forEach(function (b) {
       b.addEventListener('click', function () {
         $$('button', group).forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
         list.setAttribute('data-show', b.getAttribute('data-mode'));
       });
     });
-    if (canAnimate && ST) $$('.step', list).forEach(function (s) {
-      s.style.setProperty('--p', 0);
-      ST.create({ trigger: s, start: 'top 80%', once: true, onEnter: function () {
-        gsap.to(s, { '--p': 1, duration: 1.4, ease: EASE });
-      } });
+    if (!(canAnimate && ST)) return;
+    $$('.hstep', list).forEach(function (step, i) {
+      var machine = $$('.m', step), draw = $$('.h.draw', step), lines = $$('.h:not(.draw)', step), fills = $$('.hf', step);
+      var tl = gsap.timeline({ paused: true });
+      tl.from(machine, { opacity: 0, duration: 0.8, ease: 'power2.out', stagger: 0.04 }, 0)
+        .from(draw, { strokeDashoffset: 1, duration: 1.4, ease: 'power2.inOut' }, 0.5)
+        .from(lines, { opacity: 0, duration: 0.6 }, 1)
+        .from(fills, { scale: 0, duration: 0.8, ease: 'back.out(2)', stagger: 0.08 }, 0.9);
+      ST.create({ trigger: step, start: 'top 82%', once: true, onEnter: function () { tl.delay(i * 0.12).play(); } });
     });
-    else $$('.step', list).forEach(function (s) { s.style.setProperty('--p', 1); });
   });
 
   /* ---------- drag rail (mouse drag with a little throw; touch uses native scroll) ---------- */

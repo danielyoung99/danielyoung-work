@@ -32,10 +32,14 @@
     '.top-blur{position:fixed;left:0;right:0;top:0;height:120px;z-index:90;pointer-events:none}' +
     '.top-blur i{position:absolute;inset:0}' + blurCss +
 
-    '.top{position:fixed;left:0;right:0;top:0;z-index:100;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;' +
-    'font:500 17px/1 var(--sans);letter-spacing:-.01em;color:var(--text)}' +
+    '.top{position:fixed;left:0;right:0;top:0;z-index:100;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad,16px);' +
+    'font:500 15px/1 var(--sans);letter-spacing:-.01em;color:var(--text)}' +
     '.top a{color:inherit;text-decoration:none}' +
     '.top__tools{display:flex;align-items:center;gap:8px}' +
+    '.top__links{display:none;position:absolute;left:50%;transform:translateX(-50%);gap:28px;font:400 14px/1 var(--sans);color:var(--muted)}' +
+    '.top__links a{transition:color .3s}.top__links a:hover,.top__links a[aria-current="page"]{color:var(--text)}' +
+    '.top__pill{display:none;align-items:center;padding:10px 18px;border-radius:999px;background:var(--button);color:var(--button-text)!important;font:500 14px/1 var(--sans)}' +
+    '@media (min-width:861px){.top__links{display:flex}.top__pill{display:inline-flex}.top__menu{display:none!important}}' +
     '.top__btn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;border:0;border-radius:9px;background:transparent;color:var(--text);cursor:pointer}' +
     '.top__btn:hover{background:var(--card)}' +
     '.top__btn svg{width:18px;height:18px}' +
@@ -97,9 +101,17 @@
     themeBtn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>';
     var menuBtn = el('button', { 'class': 'top__btn', type: 'button', 'aria-expanded': 'false', 'aria-controls': 'site-menu', 'aria-label': 'Open menu' },
       [el('span', { 'class': 'top__bars' }, [el('i'), el('i')])]);
+    menuBtn.classList.add('top__menu');
+    var links = el('nav', { 'class': 'top__links', 'aria-label': 'Main' }, PAGES.filter(function (p) { return p.href !== '/' && p.href !== '/contact/'; }).map(function (p) {
+      var a = el('a', { href: p.href, text: p.name });
+      var t = p.href.replace(/\/$/, '');
+      if (t === here || (p.href === '/work/' && here.indexOf('/projects') === 0) || (p.href === '/journal/' && here.indexOf('/journal') === 0)) a.setAttribute('aria-current', 'page');
+      return a;
+    }));
     var top = el('header', { 'class': 'top' }, [
       el('a', { href: '/', text: 'Daniel Young' }),
-      el('div', { 'class': 'top__tools' }, [themeBtn, menuBtn])
+      links,
+      el('div', { 'class': 'top__tools' }, [themeBtn, el('a', { 'class': 'top__pill', href: '/contact/', text: 'Contact' }), menuBtn])
     ]);
 
     // Menu sheet

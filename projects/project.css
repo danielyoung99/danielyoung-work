@@ -8,14 +8,14 @@
     color-scheme: light;
   }
   :root[data-theme="dark"] {
-    --bg: #0d0d0c; --text: #ede8df; --muted: rgba(237,232,223,.6); --line: rgba(237,232,223,.16); --card: rgba(237,232,223,.07);
-    --panel: #171716; --button: #ede8df; --button-text: #0d0d0c;
+    --bg: #0a0908; --text: #f5f3ef; --muted: rgba(245,243,239,.6); --line: rgba(245,243,239,.11); --card: rgba(245,243,239,.07);
+    --panel: #141312; --button: #f5f3ef; --button-text: #0a0908;
     color-scheme: dark;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0d0d0c; --text: #ede8df; --muted: rgba(237,232,223,.6); --line: rgba(237,232,223,.16); --card: rgba(237,232,223,.07);
-      --panel: #171716; --button: #ede8df; --button-text: #0d0d0c;
+      --bg: #0a0908; --text: #f5f3ef; --muted: rgba(245,243,239,.6); --line: rgba(245,243,239,.11); --card: rgba(245,243,239,.07);
+      --panel: #141312; --button: #f5f3ef; --button-text: #0a0908;
       color-scheme: dark;
     }
   }
