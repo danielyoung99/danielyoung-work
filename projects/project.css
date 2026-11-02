@@ -1,8 +1,8 @@
 :root {
     --bg: #e7e1d7; --text: #0c0c0b; --muted: rgba(12,12,11,.6); --line: rgba(12,12,11,.16); --card: rgba(12,12,11,.06);
     --panel: #fcfcfb; --button: #0c0c0b; --button-text: #fcfcfb;
-    --sans: "Instrument Sans", system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --sans: "Timeless Sans", "Instrument Sans", system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --serif: "Timeless Serif", "Instrument Serif", "Iowan Old Style", Georgia, serif;
     --mono: "Geist Mono", ui-monospace, Menlo, monospace;
     --strip-h: clamp(152px, 14vw, 240px);
     color-scheme: light;
