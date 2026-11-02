@@ -1,57 +1,204 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<script>try{var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t||"dark"}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="/wipe.js"></script>
 <title>Work · Daniel Young</title>
-<meta name="description" content="Apps and tools by Daniel Young, and the client work behind them.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/fonts.css?v=1">
-<link rel="stylesheet" href="/site.css?v=3">
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script defer src="/site.js?v=3"></script>
-<script defer src="/nav.js?v=2"></script>
+<meta name="description" content="Brand, tone of voice and website projects led through DHD, and the apps and tools Daniel Young has built himself.">
+<link rel="canonical" href="https://danielyoung.work/work/">
+<meta property="og:title" content="Work · Daniel Young">
+<meta property="og:description" content="Brand, tone of voice and website projects led through DHD, and the apps and tools Daniel Young has built himself.">
+<meta property="og:url" content="https://danielyoung.work/work/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131210" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23181715'/%3E%3Ctext x='16' y='22.5' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%23f3f0e8'%3EDY%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/TimelessSerifVF.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/TimelessSansVF.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;var s=localStorage.getItem('size');if(s)document.documentElement.style.setProperty('--reading-size',{s:'1.0625rem',m:'1.1875rem',l:'1.375rem'}[s]);}catch(e){}</script>
+<script src="/assets/site.js" defer></script>
 </head>
 <body>
-<main class="page">
-  <header class="wrap pagehead">
-    <p class="kicker" data-fade>Work</p>
-    <h1 class="display" data-rise style="margin-top:24px">Things I've built, <em>and who for.</em></h1>
-  </header>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Daniel Young, home"><span class="brand-name">Daniel Young</span><span class="brand-role">Brand and design lead</span></a>
+    <nav class="nav" id="nav" aria-label="Main"><a href="/work/" aria-current="page">Work</a><a href="/about/">About</a><a href="/notes/">Notes</a><a href="/contact/">Contact</a></nav>
+    <div class="header-tools">
+      <div class="theme-switch" role="group" aria-label="Colour theme">
+        <button type="button" data-mode="auto" aria-pressed="true" title="Match my system"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg><span class="visually-hidden">Auto</span></button>
+        <button type="button" data-mode="light" aria-pressed="false" title="Light"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9 13 13M3 13l1.1-1.1M11.9 4.1 13 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span class="visually-hidden">Light</span></button>
+        <button type="button" data-mode="dark" aria-pressed="false" title="Dark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span class="visually-hidden">Dark</span></button>
+      </div>
+      <button class="icon-btn menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-intro">
+  <div class="wrap intro-split">
+    <div>
+      <span class="label">Work</span>
+      <h1 class="display">Selected work, <em>and who it was for.</em></h1>
+      <p class="lede">Client projects I've led at DHD, and things I've built myself. I take client case studies further in person, with the client's permission.</p>
+    </div>
+    <p class="note reveal">Open any client project for the brief and what I did on it.</p>
+  </div>
+</section>
 
-  <section class="section wrap">
-    <div class="section__head"><p class="label">Own builds</p><p class="label">Hover for a preview</p></div>
-    <ul class="rows">
-      <li class="row" data-peek="/projects/selah/images/tile-01.jpg"><a href="/projects/selah/"><span class="label">2026</span><span class="row__t">Selah</span><span class="row__k">Bible study for iPhone and iPad</span></a></li>
-      <li class="row" data-peek=".t-lawn"><a href="/projects/stripes/"><span class="label">2026</span><span class="row__t">Stripes</span><span class="row__k">Lawn care, logged</span></a></li>
-      <li class="row" data-peek=".t-clock"><a href="/projects/cadence/"><span class="label">2026</span><span class="row__t">Cadence</span><span class="row__k">Focus and break timer</span></a></li>
-      <li class="row" data-peek=".t-glow"><a href="/projects/glowline-studio/"><span class="label">2026</span><span class="row__t">Glowline Studio</span><span class="row__k">Light-stroke pattern generator</span></a></li>
-      <li class="row" data-peek=".t-lights"><a href="https://lights-out-belfast.netlify.app" target="_blank" rel="noopener"><span class="label">2026</span><span class="row__t">Lights Out Belfast</span><span class="row__k">Empty buildings on a live 3D map</span></a></li>
-    </ul>
-  </section>
+<section class="wrap" style="padding-bottom:clamp(80px,10vw,140px)">
+  <div class="filters" data-filter-bar role="group" aria-label="Filter work">
+    <button class="chip" type="button" data-filter="all" aria-pressed="true">All <span class="count">10</span></button>
+    <button class="chip" type="button" data-filter="client" aria-pressed="false">Client work <span class="count">5</span></button>
+    <button class="chip" type="button" data-filter="build" aria-pressed="false">Own builds <span class="count">5</span></button>
+    <span class="status" aria-live="polite"></span>
+  </div>
 
-  <section class="section wrap">
-    <div class="section__head"><p class="label">Client work</p><p class="label">Through DHD</p></div>
-    <ul class="rows">
-      <li class="row row--static"><div><span class="label">Recent</span><span class="row__t">Chestnutt Holiday Parks</span><span class="row__k">Tone of voice, social</span></div></li>
-      <li class="row row--static"><div><span class="label">Recent</span><span class="row__t">Software For All</span><span class="row__k">Brand guidelines</span></div></li>
-      <li class="row row--static"><div><span class="label">Recent</span><span class="row__t">Myrtlefield House</span><span class="row__k">Brand and web</span></div></li>
-      <li class="row row--static"><div><span class="label">Recent</span><span class="row__t">Texam</span><span class="row__k">Website</span></div></li>
-    </ul>
-    <p class="cap">Client case studies are shared in person, with the client's say-so.</p>
-  </section>
+  <ol class="work-list">
+    <li class="work-row" data-kind="client">
+      <details id="software-for-all">
+        <summary><span class="idx">01</span><span class="title">Software For All</span><span class="what">Brand architecture and guidelines</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
+        <div class="work-detail">
+          <div>
+            <p>Brand guidelines covering three brands: Software For All, Workplus and Software NI. The big decision was the architecture.</p>
+            <p>Workplus and Software NI are the names people already know, so they lead. Software For All sits behind them with a lighter touch. We also took the programme sub-brands out of the guidelines so the system stayed simple to use.</p>
+          </div>
+          <dl><dt>Through</dt><dd>DHD</dd><dt>My role</dt><dd>Design lead</dd><dt>Scope</dt><dd>Architecture, guidelines</dd></dl>
+        </div>
+      </details>
+    </li>
+    <li class="work-row" data-kind="client">
+      <details id="chestnutt">
+        <summary><span class="idx">02</span><span class="title">Chestnutt Holiday Parks</span><span class="what">Tone of voice and social</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
+        <div class="work-detail">
+          <div>
+            <p>A family-run business with holiday parks at Annalong, Loughside and Sandilands. Their brand guidelines had no tone of voice, so I wrote one.</p>
+            <p>It's friendly and familiar, close to how the family actually talks, with guidance for each area of their work. I also built it into an AI skill, so drafts written with AI tools start out sounding like Chestnutt. Alongside that, I lead their social visuals.</p>
+          </div>
+          <dl><dt>Through</dt><dd>DHD</dd><dt>My role</dt><dd>Design lead, writer</dd><dt>Scope</dt><dd>Tone of voice, AI skill, social</dd></dl>
+        </div>
+      </details>
+    </li>
+    <li class="work-row" data-kind="client">
+      <details id="myrtlefield-house">
+        <summary><span class="idx">03</span><span class="title">Myrtlefield House</span><span class="what">Brand identity and website</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
+        <div class="work-detail">
+          <div>
+            <p>A new brand identity and website, worked through with the client in feedback sessions. The work ran from logo variants and colour to content hierarchy and navigation.</p>
+          </div>
+          <dl><dt>Through</dt><dd>DHD</dd><dt>My role</dt><dd>Design lead</dd><dt>Scope</dt><dd>Identity, website</dd></dl>
+        </div>
+      </details>
+    </li>
+    <li class="work-row" data-kind="client">
+      <details id="texam">
+        <summary><span class="idx">04</span><span class="title">Texam</span><span class="what">Website</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
+        <div class="work-detail">
+          <div>
+            <p>A new website, planned and tracked phase by phase.</p>
+          </div>
+          <dl><dt>Through</dt><dd>DHD</dd><dt>My role</dt><dd>Design lead</dd><dt>Scope</dt><dd>Website</dd></dl>
+        </div>
+      </details>
+    </li>
+    <li class="work-row" data-kind="client">
+      <details id="dhd">
+        <summary><span class="idx">05</span><span class="title">DHD</span><span class="what">Our own brand messaging <span class="tag">In progress</span></span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
+        <div class="work-detail">
+          <div>
+            <p>The agency I work for, rewriting its own story. I'm leading the messaging: the big idea, the values and the lines that go on the website and social.</p>
+            <p>Doing it for ourselves is harder than doing it for a client. Nobody else can tell you what you sound like.</p>
+          </div>
+          <dl><dt>Through</dt><dd>DHD</dd><dt>My role</dt><dd>Lead</dd><dt>Scope</dt><dd>Messaging, rebrand</dd></dl>
+        </div>
+      </details>
+    </li>
 
-  <section class="section wrap cta">
-    <h2 class="big" data-rise>Want something <em>like this?</em></h2>
-    <div style="height:clamp(28px,4vw,48px)"></div>
-    <a class="btn" href="/contact/" data-magnetic>Get in touch <i>&rarr;</i></a>
-  </section>
+    <li class="work-row" data-kind="build"><a href="/work/chapter-and-verse/" data-preview="/assets/img/chapter-and-verse/ipad-reader.jpg">
+      <span class="idx">06</span><span class="title">Chapter &amp; Verse</span><span class="what">Bible study app for iPhone and iPad <span class="tag">Case study</span></span><span class="year">2026</span><span class="go" aria-hidden="true">→</span></a></li>
+    <li class="work-row" data-kind="build"><a href="/notes/lights-out-belfast/">
+      <span class="idx">07</span><span class="title">Lights Out Belfast</span><span class="what">Empty buildings on a live 3D map <span class="tag">Build notes</span></span><span class="year">2026</span><span class="go" aria-hidden="true">→</span></a></li>
+    <li class="work-row" data-kind="build">
+      <details id="stripes">
+        <summary><span class="idx">08</span><span class="title">Stripes</span><span class="what">Lawn care app for iPhone</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
+        <div class="work-detail">
+          <div><p>The lawn on screen grows and fades as the next mow gets close, with a log for every lawn job.</p></div>
+          <dl><dt>Role</dt><dd>Design and build</dd><dt>Built with</dt><dd>SwiftUI, Claude</dd></dl>
+        </div>
+      </details>
+    </li>
+    <li class="work-row" data-kind="build">
+      <details id="cadence">
+        <summary><span class="idx">09</span><span class="title">Cadence</span><span class="what">Focus and break timer</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
+        <div class="work-detail">
+          <div><p>A full-screen timer for focus and breaks, with notifications and a Live Activity on the lock screen.</p></div>
+          <dl><dt>Role</dt><dd>Design and build</dd><dt>Built with</dt><dd>SwiftUI, Claude</dd></dl>
+        </div>
+      </details>
+    </li>
+    <li class="work-row" data-kind="build">
+      <details id="glowline-studio">
+        <summary><span class="idx">10</span><span class="title">Glowline Studio</span><span class="what">Light-stroke pattern generator</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
+        <div class="work-detail">
+          <div><p>A pattern tool for the web with eight templates. Export to PNG, video or JSON.</p></div>
+          <dl><dt>Role</dt><dd>Design and build</dd><dt>Built with</dt><dd>JavaScript, Claude</dd></dl>
+        </div>
+      </details>
+    </li>
+  </ol>
+</section>
+
+<section class="cta">
+  <div class="wrap cta-grid">
+    <h2 class="display reveal">Want to see more <em>in person?</em></h2>
+    <div class="cta-side reveal">
+      <p class="lede" style="font-size:1.125rem">I'm happy to walk through client work on a call, with the detail I can't put on a public page.</p>
+      <a class="btn" href="/contact/">Ask for a walkthrough <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
 </main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="colophon">
+        <p class="note">Every word here was written or edited by me. Claude helped build the site.</p>
+        <p class="muted">Set in Timeless Serif and Timeless Sans.</p>
+      </div>
+      <div>
+        <h2>Pages</h2>
+        <ul><li><a href="/">Home</a></li><li><a href="/work/">Work</a></li><li><a href="/about/">About</a></li><li><a href="/notes/">Notes</a></li><li><a href="/contact/">Contact</a></li></ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul><li><a href="mailto:info@danielyoung.work">info@danielyoung.work</a></li><li><button class="kbd-hint" type="button" data-copy="info@danielyoung.work">Copy email address</button></li></ul>
+      </div>
+      <div>
+        <h2>Local time</h2>
+        <p class="clock" data-clock style="align-items:flex-start"><span class="pulse" style="margin-top:7px"></span><span data-clock-text>Northern Ireland</span></p>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 Daniel Young. Last updated 2 November 2026.</span>
+      <button class="kbd-hint" type="button" data-keys>Press <kbd>?</kbd> for keyboard shortcuts</button>
+    </div>
+  </div>
+</footer>
+<dialog class="keys" aria-labelledby="keys-title">
+  <h2 id="keys-title">Keyboard shortcuts</h2>
+  <dl>
+    <dt><kbd>g</kbd> <kbd>h</kbd></dt><dd>Home</dd>
+    <dt><kbd>g</kbd> <kbd>w</kbd></dt><dd>Work</dd>
+    <dt><kbd>g</kbd> <kbd>a</kbd></dt><dd>About</dd>
+    <dt><kbd>g</kbd> <kbd>n</kbd></dt><dd>Notes</dd>
+    <dt><kbd>g</kbd> <kbd>c</kbd></dt><dd>Contact</dd>
+    <dt><kbd>t</kbd></dt><dd>Switch theme: auto, light, dark</dd>
+    <dt><kbd>?</kbd></dt><dd>Show this list</dd>
+  </dl>
+  <form method="dialog"><button class="btn ghost" type="submit">Close</button></form>
+</dialog>
+<div class="preview" aria-hidden="true"><img alt=""></div>
 </body>
 </html>

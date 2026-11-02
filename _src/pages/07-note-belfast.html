@@ -1,0 +1,59 @@
+<!--
+title: Making a map of Belfast's empty buildings
+description: Build notes on Lights Out Belfast, a live 3D map of the city's empty buildings lit by the real sun and weather.
+path: /notes/lights-out-belfast/
+nav: notes
+-->
+<header class="article-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/notes/">Notes</a><span aria-hidden="true">/</span><span>Build notes</span></nav>
+    <h1 class="display">Making a map of <em>Belfast's empty buildings.</em></h1>
+    <div class="article-meta"><span><b>Daniel Young</b></span><time datetime="2026-10-31">31 October 2026</time><span>{{read}} min read</span><a class="link" href="https://lights-out-belfast.netlify.app" rel="noopener">Open the map ↗</a></div>
+  </div>
+</header>
+
+<div class="wrap reading">
+  <aside class="reading-aside">
+    <div class="sticky">
+      <nav class="toc" aria-label="On this page">
+        <span class="label">On this page</span>
+        <ol><li><a href="#question">The question</a></li><li><a href="#what">What it does</a></li><li><a href="#claims">What it doesn't claim</a></li></ol>
+      </nav>
+      <div class="reader-tools">
+        <span class="label">Text size</span>
+        <div class="row" role="group" aria-label="Text size"><button type="button" data-size="s" aria-label="Small">A</button><button type="button" data-size="m" aria-label="Medium" style="font-size:0.95rem">A</button><button type="button" data-size="l" aria-label="Large" style="font-size:1.1rem">A</button></div>
+      </div>
+      <p class="time-left" data-time-left>{{read}} min read</p>
+    </div>
+  </aside>
+
+  <article class="prose" data-reading="{{read}}" data-slug="lights-out-belfast">
+<!--prose-->
+    <h2 id="question" style="margin-top:0">The question</h2>
+    <p class="dropcap">I wanted to know if anyone keeps a list of empty buildings in Belfast. Nobody does. There's no public, address-level register. What exists are quarterly figures from Land and Property Services, published on OpenDataNI.</p>
+    <p>At 30 September 2026 those figures showed 6,880 empty properties in Belfast: 2.2% of homes and 19.4% of business premises. That's a number, but it's hard to feel. So I asked Claude to help me build a map you can look at.</p>
+    <h2 id="what">What it does</h2>
+    <p>It's a 3D map of Belfast, built with MapLibre and OpenFreeMap tiles. The colours, the light direction and the sky follow the real position of the sun over the city. At night about a third of the buildings show lit windows, and the empty ones glow red.</p>
+    <p>Live weather from Open-Meteo adds rain, snow, fog or lightning, and a time slider lets you try other hours of the day.</p>
+    <h2 id="claims">What it doesn't claim</h2>
+    <p>The 190 red buildings come from OpenStreetMap: buildings mapped as ruins, disused, abandoned, vacant shops or closed venues. It's a sample, not an official list, and ten of them are grounds rather than buildings, so they lie flat.</p>
+    <p>The stats panel uses the LPS figures. The map and the numbers come from different places, and the page says so. That part mattered to me more than the lighting. A good-looking map that overstates its data would be worse than no map.</p>
+    <p>You can try it at <a href="https://lights-out-belfast.netlify.app" rel="noopener">lights-out-belfast.netlify.app</a>.</p>
+<!--/prose-->
+    <aside class="disclosure">
+      <span class="label">How this was made</span>
+      <p>The idea, the design and the data choices are mine. Claude wrote most of the code with me. This note was drafted with Claude from my build notes and edited by me.</p>
+    </aside>
+    <div class="article-end">
+      <a class="link" href="/notes/">← All notes</a>
+      <button class="btn ghost" type="button" data-copy="url">Copy link</button>
+    </div>
+  </article>
+
+  <div class="reading-margin" aria-hidden="true"><p class="note">6,880 empty properties. One in five business premises.</p></div>
+</div>
+
+<nav class="wrap pager" aria-label="More notes">
+  <a href="/notes/where-i-use-ai/"><span class="label">Earlier</span><span class="h3">Where I use AI, and where I stop</span></a>
+  <a href="/work/chapter-and-verse/"><span class="label">Another build</span><span class="h3">Chapter &amp; Verse</span></a>
+</nav>

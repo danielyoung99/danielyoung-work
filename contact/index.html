@@ -1,57 +1,135 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<script>try{var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t||"dark"}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="/wipe.js"></script>
 <title>Contact · Daniel Young</title>
-<meta name="description" content="Get in touch with Daniel Young about a brand, a website or a product.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/fonts.css?v=1">
-<link rel="stylesheet" href="/site.css?v=3">
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script defer src="/site.js?v=3"></script>
-<script defer src="/nav.js?v=2"></script>
+<meta name="description" content="Get in touch with Daniel Young about brand strategy, identity, tone of voice or AI-ready brand systems.">
+<link rel="canonical" href="https://danielyoung.work/contact/">
+<meta property="og:title" content="Contact · Daniel Young">
+<meta property="og:description" content="Get in touch with Daniel Young about brand strategy, identity, tone of voice or AI-ready brand systems.">
+<meta property="og:url" content="https://danielyoung.work/contact/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131210" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23181715'/%3E%3Ctext x='16' y='22.5' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%23f3f0e8'%3EDY%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/TimelessSerifVF.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/TimelessSansVF.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;var s=localStorage.getItem('size');if(s)document.documentElement.style.setProperty('--reading-size',{s:'1.0625rem',m:'1.1875rem',l:'1.375rem'}[s]);}catch(e){}</script>
+<script src="/assets/site.js" defer></script>
 </head>
 <body>
-<main class="page">
-  <header class="wrap pagehead">
-    <p class="kicker" data-fade>Contact</p>
-    <h1 class="big" data-rise style="margin-top:24px">Tell me what <em>you have in mind.</em></h1>
-  </header>
-
-  <section class="section wrap">
-    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-bottom:24px">
-      <a class="mail link" href="mailto:info@danielyoung.work">info@danielyoung.work</a>
-      <button class="copy" type="button" data-copy="info@danielyoung.work">Copy</button>
-    </div>
-    <p class="cap" style="margin-top:0">Or pick what you need below and I'll write the start of the email for you.</p>
-
-    <form class="pick" data-pick onsubmit="return false">
-      <div class="field">
-        <p class="label">What do you need</p>
-        <div class="chips">
-          <button class="chip" type="button" aria-pressed="false">Brand identity</button>
-          <button class="chip" type="button" aria-pressed="false">Brand strategy</button>
-          <button class="chip" type="button" aria-pressed="false">Naming</button>
-          <button class="chip" type="button" aria-pressed="false">Art direction</button>
-          <button class="chip" type="button" aria-pressed="false">Illustration</button>
-          <button class="chip" type="button" aria-pressed="false">Website</button>
-          <button class="chip" type="button" aria-pressed="false">Product</button>
-          <button class="chip" type="button" aria-pressed="false">Copywriting</button>
-        </div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Daniel Young, home"><span class="brand-name">Daniel Young</span><span class="brand-role">Brand and design lead</span></a>
+    <nav class="nav" id="nav" aria-label="Main"><a href="/work/">Work</a><a href="/about/">About</a><a href="/notes/">Notes</a><a href="/contact/" aria-current="page">Contact</a></nav>
+    <div class="header-tools">
+      <div class="theme-switch" role="group" aria-label="Colour theme">
+        <button type="button" data-mode="auto" aria-pressed="true" title="Match my system"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg><span class="visually-hidden">Auto</span></button>
+        <button type="button" data-mode="light" aria-pressed="false" title="Light"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9 13 13M3 13l1.1-1.1M11.9 4.1 13 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span class="visually-hidden">Light</span></button>
+        <button type="button" data-mode="dark" aria-pressed="false" title="Dark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span class="visually-hidden">Dark</span></button>
       </div>
-      <div class="field"><input type="text" name="name" autocomplete="name" placeholder="Your name" aria-label="Your name"></div>
-      <div class="field"><textarea name="message" placeholder="A few lines about the project" aria-label="About the project"></textarea></div>
-      <div><a class="btn" data-go href="mailto:info@danielyoung.work" data-magnetic>Open in your email app <i>&rarr;</i></a></div>
-      <p class="cap" style="margin:0">This opens your own email app with the message ready to send. Nothing is sent from this page.</p>
-    </form>
-  </section>
+      <button class="icon-btn menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-intro">
+  <div class="wrap">
+    <span class="label">Contact</span>
+    <h1 class="display">Tell me what <em>you're working on.</em></h1>
+    <div class="contact-email">
+      <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>
+      <button class="btn ghost" type="button" data-copy="info@danielyoung.work">Copy</button>
+    </div>
+    <p class="clock" data-clock style="margin-top:24px"><span class="pulse"></span><span data-clock-text>Northern Ireland</span></p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="builder-title">
+  <div class="wrap builder" data-builder="info@danielyoung.work">
+    <div>
+      <p class="label"><b style="color:var(--accent);font-weight:500">01</b>&nbsp; Not sure where to start?</p>
+      <h2 class="h3" id="builder-title" style="margin-top:16px">Pick what fits and I'll write the start of the email for you.</h2>
+      <p class="note" style="margin-top:28px">Nothing is sent from this page. It opens your own email app with the message filled in, so you can change anything first.</p>
+    </div>
+    <div>
+      <fieldset>
+        <legend class="label">What do you need?</legend>
+        <div class="chips">
+          <button class="chip" type="button" data-group="need" aria-pressed="false">Brand strategy</button>
+          <button class="chip" type="button" data-group="need" aria-pressed="false">Visual identity</button>
+          <button class="chip" type="button" data-group="need" aria-pressed="false">Tone of voice</button>
+          <button class="chip" type="button" data-group="need" aria-pressed="false">An AI-ready brand</button>
+          <button class="chip" type="button" data-group="need" aria-pressed="false">A website</button>
+          <button class="chip" type="button" data-group="need" aria-pressed="false">A walkthrough of past work</button>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend class="label">When?</legend>
+        <div class="chips">
+          <button class="chip" type="button" data-group="when" data-single aria-pressed="false">In the next month</button>
+          <button class="chip" type="button" data-group="when" data-single aria-pressed="false">In the next few months</button>
+          <button class="chip" type="button" data-group="when" data-single aria-pressed="false">Just exploring</button>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend class="label"><label for="b-name">Your name</label></legend>
+        <input id="b-name" type="text" autocomplete="name">
+      </fieldset>
+      <fieldset>
+        <legend class="label"><label for="b-more">Anything else? (optional)</label></legend>
+        <textarea id="b-more" rows="4"></textarea>
+      </fieldset>
+      <p class="label" style="margin-bottom:12px">Your email so far</p>
+      <pre class="draft" aria-live="polite"></pre>
+      <a class="btn" data-send href="mailto:info@danielyoung.work">Open in your email app <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
 </main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="colophon">
+        <p class="note">Every word here was written or edited by me. Claude helped build the site.</p>
+        <p class="muted">Set in Timeless Serif and Timeless Sans.</p>
+      </div>
+      <div>
+        <h2>Pages</h2>
+        <ul><li><a href="/">Home</a></li><li><a href="/work/">Work</a></li><li><a href="/about/">About</a></li><li><a href="/notes/">Notes</a></li><li><a href="/contact/">Contact</a></li></ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul><li><a href="mailto:info@danielyoung.work">info@danielyoung.work</a></li><li><button class="kbd-hint" type="button" data-copy="info@danielyoung.work">Copy email address</button></li></ul>
+      </div>
+      <div>
+        <h2>Local time</h2>
+        <p class="clock" data-clock style="align-items:flex-start"><span class="pulse" style="margin-top:7px"></span><span data-clock-text>Northern Ireland</span></p>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 Daniel Young. Last updated 2 November 2026.</span>
+      <button class="kbd-hint" type="button" data-keys>Press <kbd>?</kbd> for keyboard shortcuts</button>
+    </div>
+  </div>
+</footer>
+<dialog class="keys" aria-labelledby="keys-title">
+  <h2 id="keys-title">Keyboard shortcuts</h2>
+  <dl>
+    <dt><kbd>g</kbd> <kbd>h</kbd></dt><dd>Home</dd>
+    <dt><kbd>g</kbd> <kbd>w</kbd></dt><dd>Work</dd>
+    <dt><kbd>g</kbd> <kbd>a</kbd></dt><dd>About</dd>
+    <dt><kbd>g</kbd> <kbd>n</kbd></dt><dd>Notes</dd>
+    <dt><kbd>g</kbd> <kbd>c</kbd></dt><dd>Contact</dd>
+    <dt><kbd>t</kbd></dt><dd>Switch theme: auto, light, dark</dd>
+    <dt><kbd>?</kbd></dt><dd>Show this list</dd>
+  </dl>
+  <form method="dialog"><button class="btn ghost" type="submit">Close</button></form>
+</dialog>
+<div class="preview" aria-hidden="true"><img alt=""></div>
 </body>
 </html>

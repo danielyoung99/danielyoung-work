@@ -1,0 +1,96 @@
+<!--
+title: Chapter & Verse
+description: A Bible study app for iPhone and iPad that puts reading, study notes and prayer in one place. Designed and built by Daniel Young.
+path: /work/chapter-and-verse/
+nav: work
+-->
+<header class="article-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/work/">Work</a><span aria-hidden="true">/</span><span>Own build</span></nav>
+    <h1 class="display">Chapter &amp; Verse: <em>reading, notes and prayer</em> in one calm app.</h1>
+    <dl class="facts">
+      <div><dt>Role</dt><dd>Design and build</dd></div>
+      <div><dt>Year</dt><dd>2026</dd></div>
+      <div><dt>For</dt><dd>iPhone and iPad</dd></div>
+      <div><dt>Built with</dt><dd>SwiftUI, SwiftData, iCloud, Claude</dd></div>
+    </dl>
+  </div>
+</header>
+
+<div class="wrap">
+  <figure class="figure figure-wide">
+    <img src="/assets/img/chapter-and-verse/ipad-reader.jpg" width="2160" height="1440" alt="Chapter &amp; Verse on iPad: a chapter of the Bible on the left, with a study note open in a pane on the right.">
+    <figcaption>On iPad, notes open beside the text so you never lose your place.</figcaption>
+  </figure>
+</div>
+
+<div class="wrap reading">
+  <aside class="reading-aside">
+    <div class="sticky">
+      <nav class="toc" aria-label="On this page">
+        <span class="label">On this page</span>
+        <ol>
+          <li><a href="#brief">The brief</a></li>
+          <li><a href="#reading">Reading</a></li>
+          <li><a href="#study">Study</a></li>
+          <li><a href="#prayer">Prayer</a></li>
+          <li><a href="#made">How it was made</a></li>
+        </ol>
+      </nav>
+      <p class="time-left" data-time-left>{{read}} min read</p>
+    </div>
+  </aside>
+
+  <article class="prose" data-reading="{{read}}" data-slug="chapter-and-verse">
+<!--prose-->
+    <h2 id="brief">The brief</h2>
+    <p class="dropcap">I set myself a simple brief. One app for reading the Bible, keeping study notes and praying through what I'd read. Most apps I tried did one of those well and bolted on the others, or filled the screen with features I didn't use.</p>
+    <p>So the design goal was restraint. The text comes first. Everything else waits until you ask for it.</p>
+
+    <h2 id="reading">Reading</h2>
+    <p>Tap a verse to select it, then highlight it in one of five colours, add a note or turn it into a prayer point. The markup bar is large on purpose, because people use this with a coffee in one hand.</p>
+    <p>Reading settings cover typeface, size, line and letter spacing, column width and page colour. They're the same controls I'd want in any reading app, and they're the ones most Bible apps leave out.</p>
+    <div class="figure-row">
+      <figure class="figure"><img src="/assets/img/chapter-and-verse/phone-read.jpg" width="1080" height="1440" loading="lazy" alt="The reader on iPhone, showing a chapter of text."></figure>
+      <figure class="figure"><img src="/assets/img/chapter-and-verse/phone-highlight.jpg" width="1080" height="1440" loading="lazy" alt="Verses highlighted in colour on iPhone, with the markup bar open."></figure>
+      <figure class="figure"><img src="/assets/img/chapter-and-verse/phone-study.jpg" width="1080" height="1440" loading="lazy" alt="A study note attached to a verse on iPhone."></figure>
+    </div>
+
+    <h2 id="study">Study</h2>
+    <p>Notes can sit on a verse or stand alone. They have folders, a speaker field for sermon notes, and search that understands a word, a passage or a plain date like "last Sunday".</p>
+    <p>On iPad, notes open in a pane beside the text. That one layout decision did more for the app than any feature, because you can write without losing your place.</p>
+    <figure class="figure">
+      <img src="/assets/img/chapter-and-verse/ipad-notes.jpg" width="2160" height="1440" loading="lazy" alt="The notes library on iPad, with folders down the side.">
+      <figcaption>The notes library on iPad.</figcaption>
+    </figure>
+
+    <h2 id="prayer">Prayer</h2>
+    <p>Any verse can become a prayer point. Prayer points can be ticked off when they're answered, and shared through iCloud with up to eight people. Anyone in the group can mark one complete, so a family or a small group can pray through the same list.</p>
+    <p>Everything syncs between devices through iCloud. There's no account to make and nothing stored on a server I run.</p>
+    <figure class="figure">
+      <img src="/assets/img/chapter-and-verse/ipad-pray.jpg" width="2160" height="1440" loading="lazy" alt="The Pray screen on iPad, listing prayer points.">
+    </figure>
+
+    <h2 id="made">How it was made</h2>
+    <p>I designed every screen and made every product decision. Claude wrote most of the Swift with me, a feature at a time, and I tested each build on my own phone before moving on.</p>
+    <p>That split is the same one I use on client work. The machine is fast at the parts with a right answer. The parts that need taste and judgement, like what to leave out, stayed with me.</p>
+<!--/prose-->
+    <aside class="disclosure">
+      <span class="label">Made with AI, and where</span>
+      <p>Design, product decisions and this write-up are mine. The Swift code was written with Claude and checked by me on real devices.</p>
+    </aside>
+    <div class="article-end">
+      <a class="link" href="/work/">← All work</a>
+      <button class="btn ghost" type="button" data-copy="url">Copy link</button>
+    </div>
+  </article>
+
+  <div class="reading-margin" aria-hidden="true">
+    <p class="note">The best feature turned out to be a layout: notes beside the text, not on top of it.</p>
+  </div>
+</div>
+
+<nav class="wrap pager" aria-label="More work">
+  <a href="/work/"><span class="label">Back to</span><span class="h3">All work</span></a>
+  <a href="/notes/lights-out-belfast/"><span class="label">Next build</span><span class="h3">Lights Out Belfast</span></a>
+</nav>
