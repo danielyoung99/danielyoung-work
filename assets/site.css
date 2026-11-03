@@ -355,28 +355,59 @@ main { display: block; }
   .service { padding-right: 0; }
 }
 
-/* Ledger: machine and me */
-.ledger { border-top: 1px solid var(--ink); }
-.ledger-head, .ledger-row {
-  display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 4fr) minmax(0, 4fr); gap: 24px;
+/* Projects: image-led cards on a 12-column grid. Drop an <img> into .shot to fill a slot. */
+.projects { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(36px, 5vw, 64px) 24px; }
+.project { grid-column: span 4; }
+.project.p-wide { grid-column: span 7; }
+.project.p-tall { grid-column: span 5; }
+.project > a { display: block; text-decoration: none; }
+.shot { position: relative; overflow: hidden; border-radius: 6px; background: var(--paper-2); border: 1px solid var(--rule); aspect-ratio: 4 / 3; }
+.p-wide .shot { aspect-ratio: 8 / 5; }
+.p-tall .shot { aspect-ratio: 8 / 7; }
+.shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s var(--ease); }
+.project > a:hover .shot img { transform: scale(1.035); }
+.shot.is-empty {
+  display: grid; place-items: end start; padding: 18px;
+  background: repeating-linear-gradient(135deg, var(--paper-2) 0 14px, var(--paper-3) 14px 15px);
+  transition: border-color 0.3s;
 }
-.ledger-head { padding: 14px 0; border-bottom: 1px solid var(--rule); }
-.ledger-head .me { color: var(--accent); }
-.ledger-row { padding: 26px 0; border-bottom: 1px solid var(--rule); transition: background-color 0.2s; }
-.ledger-row h3 { margin: 0; }
-.ledger-row p { margin: 0; color: var(--ink-2); max-width: 30rem; }
-.ledger-row .me-col p { color: var(--ink); }
-.ledger-toggle { display: inline-flex; gap: 6px; margin-bottom: 20px; }
+.project > a:hover .shot.is-empty { border-color: var(--rule-strong); }
+.shot .slot { font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.project-meta { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; gap: 2px 12px; padding-top: 16px; align-items: baseline; }
+.project-meta .idx { font-size: 0.8125rem; color: var(--ink-3); font-variant-numeric: tabular-nums; grid-row: 1; }
+.project-meta .title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.4rem, 2.2vw, 1.9rem); line-height: 1.15; margin: 0; transition: color 0.2s; }
+.project > a:hover .title { color: var(--accent); }
+.project-meta .year { color: var(--ink-3); font-size: 0.875rem; font-variant-numeric: tabular-nums; grid-row: 1; grid-column: 3; }
+.project-meta .what { grid-column: 2 / -1; color: var(--ink-2); font-size: 0.9375rem; }
+@media (max-width: 860px) {
+  .project, .project.p-wide, .project.p-tall { grid-column: 1 / -1; }
+  .p-wide .shot, .p-tall .shot { aspect-ratio: 4 / 3; }
+}
+
+/* How I work: stages run left to right, machine above, me below */
+.ledger { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; border-top: 1px solid var(--ink); }
+.stage { position: relative; display: grid; grid-template-rows: subgrid; grid-row: span 3; row-gap: 12px; padding-top: 28px; }
+.stage::before { content: ""; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+.stage .h3 { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.stage .idx { font-family: var(--sans); font-size: 0.8125rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.stage p { margin: 0; }
+.machine-col, .me-col { padding: 18px 18px 20px; border-radius: 6px; font-size: 0.9375rem; }
+.machine-col { background: var(--paper-2); color: var(--ink-2); }
+.me-col { background: var(--accent-soft); color: var(--ink); }
+.machine-col::before, .me-col::before {
+  display: block; font-family: var(--sans); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; color: var(--ink-3);
+}
+.machine-col::before { content: "The machine"; }
+.me-col::before { content: "Me"; color: var(--accent); }
+.ledger-toggle { display: inline-flex; gap: 6px; margin-bottom: 28px; }
 .ledger[data-view="machine"] .me-col, .ledger[data-view="me"] .machine-col { opacity: 0.18; }
-.ledger .machine-col, .ledger .me-col { transition: opacity 0.35s var(--ease); }
-@media (max-width: 760px) {
-  .ledger-head { display: none; }
-  .ledger-row { grid-template-columns: 1fr; gap: 10px; }
-  .ledger-row .machine-col::before, .ledger-row .me-col::before {
-    display: block; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; color: var(--ink-3);
+.machine-col, .me-col { transition: opacity 0.35s var(--ease); }
+@media (max-width: 960px) {
+  .ledger {
+    display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 14px;
+    margin: 0 calc(var(--gutter) * -1); padding-left: var(--gutter); padding-right: var(--gutter); scroll-padding-left: var(--gutter);
   }
-  .ledger-row .machine-col::before { content: "The machine"; }
-  .ledger-row .me-col::before { content: "Me"; color: var(--accent); }
+  .stage { flex: 0 0 min(78%, 320px); scroll-snap-align: start; display: flex; flex-direction: column; gap: 12px; }
 }
 
 /* Pull quote */
