@@ -689,3 +689,12 @@ dialog.keys form { margin-top: 22px; text-align: right; }
   .section + .section { border-top: 0; }
   @page { margin: 14mm; }
 }
+
+/* Client case study galleries */
+.case-gallery { display: grid; gap: clamp(12px, 2vw, 24px); padding-bottom: clamp(56px, 7vw, 96px); }
+.case-gallery .figure { margin: 0; }
+.case-gallery .figure img { width: 100%; height: auto; display: block; }
+.case-gallery .figure-wide { margin: 0; }
+.figure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 24px); }
+.figure-pair > .figure:only-child { grid-column: 1 / -1; width: calc(50% - clamp(6px, 1vw, 12px)); justify-self: center; }
+@media (max-width: 600px) { .figure-pair { gap: 12px; } }
