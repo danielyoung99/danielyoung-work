@@ -698,3 +698,15 @@ dialog.keys form { margin-top: 22px; text-align: right; }
 .figure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 24px); }
 .figure-pair > .figure:only-child { grid-column: 1 / -1; width: calc(50% - clamp(6px, 1vw, 12px)); justify-self: center; }
 @media (max-width: 600px) { .figure-pair { gap: 12px; } }
+
+/* Case study text blocks and extras */
+.case-text { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 16px clamp(24px, 4vw, 64px); padding: clamp(36px, 5vw, 72px) 0; border-top: 1px solid var(--rule); }
+.case-text p { margin: 0 0 1em; max-width: 62ch; font-size: 1.0625rem; line-height: 1.6; }
+.case-text p:last-child { margin-bottom: 0; }
+.case-gallery + .case-text { margin-top: 0; }
+.figure-narrow { max-width: min(100%, 380px); justify-self: center; }
+.scroll-frame { margin: 0; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: var(--paper-2); }
+.scroll-frame__view { max-height: min(78vh, 760px); overflow-y: auto; overscroll-behavior: contain; }
+.scroll-frame__view img { width: 100%; height: auto; display: block; }
+.scroll-frame figcaption { padding: 10px 14px; border-top: 1px solid var(--rule); font-size: 0.8125rem; color: var(--ink-3); }
+@media (max-width: 760px) { .case-text { grid-template-columns: 1fr; } }
