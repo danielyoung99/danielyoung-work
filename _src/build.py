@@ -80,11 +80,14 @@ def layout(p):
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{SITE}{p["path"]}">
 <meta property="og:type" content="{"article" if p.get("nav") == "notes" and p["path"] != "/notes/" else "website"}">
-<meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#131210" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="{FAVICON}">
 <link rel="preload" href="/fonts/TimelessSerifVF.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/TimelessSansVF.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&display=swap">
 <link rel="stylesheet" href="/assets/site.css">
 {THEME_BOOT}
 <script src="/assets/site.js" defer></script>
@@ -94,7 +97,7 @@ def layout(p):
 <div class="progress" aria-hidden="true"></div>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="Daniel Young, home"><span class="brand-name">Daniel Young</span><span class="brand-role">Brand and design lead</span></a>
+    <a class="brand" href="/" aria-label="Daniel Young, home"><span class="brand-name">Daniel Young</span><span class="brand-role">Brand Designer</span></a>
     <nav class="nav" id="nav" aria-label="Main">{nav}</nav>
     <div class="header-tools">
       <div class="theme-switch" role="group" aria-label="Colour theme">

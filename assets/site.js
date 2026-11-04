@@ -259,3 +259,17 @@
     else if (e.key === "?") keys?.showModal();
   });
 })();
+
+// Behind the design carousel: previous and next buttons, and a slide counter
+document.querySelectorAll("[data-carousel]").forEach((root) => {
+  const track = root.querySelector(".carousel__track"), slides = [...track.children];
+  const count = root.querySelector("[data-count]");
+  const step = () => (slides[1] ? slides[1].offsetLeft - slides[0].offsetLeft : track.clientWidth);
+  const go = (d) => track.scrollBy({ left: d * step(), behavior: "smooth" });
+  root.querySelector("[data-prev]").addEventListener("click", () => go(-1));
+  root.querySelector("[data-next]").addEventListener("click", () => go(1));
+  track.addEventListener("scroll", () => {
+    const i = Math.round(track.scrollLeft / step());
+    count.textContent = `${Math.min(slides.length, i + 1)} / ${slides.length}`;
+  }, { passive: true });
+});
