@@ -1,0 +1,71 @@
+name: Stem Systems
+title: An identity that puts human connection at the heart.
+description: An identity that puts human connection at the heart. Stem Systems: brand strategy, visual identity, print design, through DHD.
+fact: Client | Stem Systems
+fact: Role | Brand Designer
+fact: Through | DHD
+fact: Services | Brand Strategy, Visual Identity, Print Design
+card: An IT business scaling into the Republic of Ireland. I led the brand strategy and a warm, human identity.
+home: 04-landscape.jpg + 07-portrait.jpg
+
+---
+
+images full:
+  01-logo.jpg | Stem Systems logo.
+
+# Overview
+
+As the business continued to scale at pace and prepared to enter the Republic of Ireland, Stem Systems saw the need to invest in their brand identity and digital presence as a means of standing out.
+
+This was one of my earliest projects where brand strategy was introduced as a service. DHD has continued working with Stem Systems to deliver web, photography and video services.
+
+# Challenge
+
+The IT industry is often seen as impersonal, technical and uninviting. My aim was to contrast this with something warm and human-centric.
+
+images pp:
+  02-logo-mark.jpg | Stem Systems logo mark.
+  03-colour-palette.jpg | Stem Systems colour palette.
+
+# Process
+
+Questionnaires and in-person visits helped to lay the groundwork.
+
+Competitor research showed that cold navy and blue colours dominated, and close-up imagery of equipment stole the spotlight.
+
+The brand strategy focused on the idea that Stem Systems is an enabler of something greater – building stronger customer connections. Technology is a means to a more impactful end.
+
+images v-d:
+  04-landscape.jpg | Stem Systems brand identity in use, image 1.
+  05-portrait.jpg | Stem Systems brand identity in use, image 2.
+
+# Solution
+
+I opted for warmer colour palettes to differentiate from the industry.
+
+The logomark pictorially captures how one human connection can grow exponentially, as well as the forward-thinking approach that Stem Systems can bring.
+
+The imagery focuses on customers, their experiences, and their connections—rather than on equipment being installed.
+
+images full:
+  06-landscape.jpg | Stem Systems brand identity in use, image 3.
+
+# Results
+
+Director Stephen has sung our praises, subsequently bringing multiple new brand and web projects to DHD as a result.
+
+Due to a period of extreme busyness, Stem Systems’ new identity is only just beginning to roll out – but it has received a positive reception from existing customers.
+
+Their new identity helped secure marketing funding from Microsoft to promote Stem Systems’ Azure accreditation.
+
+DHD continues to support Stem Systems through web, photo, video and design.
+
+images solo:
+  07-portrait.jpg | Stem Systems brand identity in use, image 4.
+
+images free:
+  08-website-ipad.jpg | Stem Systems website design on an iPad.
+
+# Behind the design
+
+Five design decisions behind this identity, as a carousel: <a href="/notes/behind-the-design-stem-systems/">read it here</a>.

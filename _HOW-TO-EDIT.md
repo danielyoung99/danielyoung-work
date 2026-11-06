@@ -1,0 +1,98 @@
+# Editing danielyoung.work
+
+You edit plain text files. A small script turns them into the pages. You never edit the HTML by hand.
+
+```
+_content/
+  home.txt            the headline and intro paragraph on the home page
+  order.txt           which case studies appear, and in what order
+  studies/            one text file per case study
+  templates/          the page frames (leave these alone unless you want to change the design)
+assets/img/case-studies/<name>/    the images for each case study
+```
+
+The About section (Experience and Education) lives in `_content/templates/home.html`. Edit it there.
+
+## The everyday routine
+
+1. Change a text file, or add or swap images.
+2. In Terminal, from this folder, run `python3 _build.py`. It rebuilds the pages and tells you if anything is wrong.
+3. Check it if you like. Open `index.html` in a browser.
+4. Run `sh _publish.sh`. It shows what changed, asks you to confirm, saves a backup zip, and pushes it live. The site updates in about 3 minutes.
+
+## Change the words
+
+Open `_content/studies/<name>.txt`.
+
+- The lines above `---` are the details: the big line at the top (`title:`), the search description, the facts (Client, Role and so on) and the sentence shown on the home page (`card:`).
+- Everything below `---` is the page, top to bottom.
+- A line starting with `# ` is a heading. The paragraphs under it are its text. Leave a blank line between paragraphs.
+- A line starting with `> ` is a large pull quote.
+- Lines starting with `//` are notes to yourself and never appear on the site.
+- To make a word italic, wrap it in `<em>` and `</em>`. Type `&` normally.
+
+## Change or add images
+
+Images live in `assets/img/case-studies/<name>/`. Use .jpg or .png.
+
+- Swap an image: put the new file in with the same file name.
+- Add one: put the file in the folder, then add it to an `images` block in the text file (below).
+- Sizes: landscape 2160 x 1440, portrait 1080 x 1440. The script reads the real size from the file.
+
+Images are listed in blocks, one image per line, in this form:
+
+```
+images v-d:
+  04-landscape.jpg | Describe the image for screen readers.
+  05-portrait.jpg | Describe the image for screen readers.
+```
+
+The word after `images` is the layout. You can leave it out and the script picks one.
+
+| Layout | What it is |
+| --- | --- |
+| `full` | One landscape image, full width. Add `\| A caption` after the description for a caption. |
+| `free` | One image at its own proportions (websites, mock-ups). |
+| `solo` | One portrait image, centred. |
+| `pp` | Two portraits side by side. |
+| `row3` | Three portraits in a row. |
+| `v-a` to `v-e` | One landscape and one portrait, arranged five different ways. Try each. |
+| `scroll` | A tall page image in a scrolling frame. The third part is the caption. |
+
+The image order on the page is the order you list them. Move a block up or down to move it.
+
+## Home page images
+
+In the details of each study, the `home:` line chooses the two images on the home page: one landscape and one portrait, joined with ` + `. The order you write them sets which comes first in the markup. Their position on the page (the five arrangements) follows the study's place in the list, so the layouts keep alternating however you reorder.
+
+## Change the order
+
+Open `_content/order.txt`. Move a line up or down. That sets the order on the home page and the previous and next links at the bottom of each case study. Save and run the build.
+
+## Add a case study
+
+```
+python3 _build.py new "Client Name"
+```
+
+This creates a text file with a starter layout, an empty image folder and an entry at the top of `order.txt`. Then:
+
+1. Put the images in `assets/img/case-studies/client-name/`.
+2. Open `_content/studies/client-name.txt`, replace the placeholder text and image file names.
+3. Run `python3 _build.py`. It will tell you about any missing image or detail.
+4. Run `sh _publish.sh`.
+
+## Remove a case study
+
+Delete its line from `order.txt`. Run the build, then delete its folder in `work/` so the old page stops being live. Publish.
+
+## If something goes wrong
+
+- The build stops with a plain message saying what to fix. Nothing half-built is published.
+- Every publish saves a backup zip in `danielyoung-work Backups/`.
+- Everything before the move to this system is tagged `pre-content-system-2026-11-06` in Git, and a zip of the old site sits in the Backups folder.
+
+## Notes
+
+- Do not run `_src/sync.sh`. It belongs to an earlier version of the site and would overwrite these pages.
+- Only the home page and the 12 case studies are built from `_content/`. The Work index, About, Notes, Contact, CV and 404 pages are still separate files.

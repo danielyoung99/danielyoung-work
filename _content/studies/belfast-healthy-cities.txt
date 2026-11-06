@@ -1,0 +1,32 @@
+name: Belfast Healthy Cities
+title: Belfast Healthy Cities
+description: Brand identity work for Belfast Healthy Cities: logo, colour and the identity in use.
+fact: Client | Belfast Healthy Cities
+fact: Work | Brand identity
+card: I designed the brand identity, from logo and colour to the identity in use.
+home: 05-portrait.jpg + 06-landscape.jpg
+
+---
+
+images full:
+  01-logo.jpg | Belfast Healthy Cities logo.
+
+images pp:
+  02-logo-mark.jpg | Belfast Healthy Cities logo mark.
+  03-colour-palette.jpg | Belfast Healthy Cities colour palette.
+
+images v-e:
+  04-landscape.jpg | Belfast Healthy Cities brand identity in use, image 1.
+  05-portrait.jpg | Belfast Healthy Cities brand identity in use, image 2.
+
+images v-a:
+  06-landscape.jpg | Belfast Healthy Cities brand identity in use, image 3.
+  07-portrait.jpg | Belfast Healthy Cities brand identity in use, image 4.
+
+images v-b:
+  08-landscape.jpg | Belfast Healthy Cities brand identity in use, image 5.
+  09-portrait.jpg | Belfast Healthy Cities brand identity in use, image 6.
+
+images v-c:
+  10-landscape.jpg | Belfast Healthy Cities brand identity in use, image 7.
+  11-portrait.jpg | Belfast Healthy Cities brand identity in use, image 8.

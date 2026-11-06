@@ -1,0 +1,74 @@
+name: SG Elite
+title: Rethinking a rushed visual identity for an industry pioneer
+description: Rethinking a rushed visual identity for an industry pioneer. SG Elite: brand strategy, visual identity, print design, through DHD.
+fact: Client | SG Elite
+fact: Role | Brand Designer
+fact: Through | DHD
+fact: Services | Brand Strategy, Visual Identity, Print Design
+card: A growing business with a rushed identity. I did the brand strategy and identity, and worked with a UI designer on the website.
+home: 05-portrait.jpg + 06-landscape.jpg
+
+---
+
+images full:
+  01-logo.jpg | SG Elite logo.
+
+# Overview
+
+As a growing business that recognised the importance of branding, SG Elite approached DHD to rethink their impractical existing visual identity and rushed website.
+
+I completed the brand strategy and visual identity independently, before working closely with a UI designer to shape the website design.
+
+# Challenge
+
+Practical considerations, such as PPE and equipment colours, placed restrictions on the creative choices available to me.
+
+images pp:
+  02-logo-mark.jpg | SG Elite logo mark.
+  03-colour-palette.jpg | SG Elite colour palette.
+
+# Process
+
+A brand audit and competitor research revealed a strong focus on sustainability within the industry.
+
+Interviews and questionnaires indicated that SG Elite wanted to differentiate based on quality and expertise—actively seeking to create an accreditation standard for the entire industry.
+
+When the client initially dismissed the concepts presented, I successfully defended them and made minor adjustments to demonstrate that they met the client’s needs.
+
+images v-e:
+  04-landscape.jpg | SG Elite brand identity in use, image 1.
+  05-portrait.jpg | SG Elite brand identity in use, image 2.
+
+images v-a:
+  06-landscape.jpg | SG Elite brand identity in use, image 3.
+  07-portrait.jpg | SG Elite brand identity in use, image 4.
+
+# Solution
+
+An evolution of their existing mark, I brought new meaning by linking it to their brand value of being industry pioneers and innovators.
+
+The angular construction of the logo has lent itself to both print and digital compositions, making for a unique graphic device.
+
+For this project, motion has been considered from the earliest days, bringing brand expression to their video content across the website and social media.
+
+images v-b:
+  08-landscape.jpg | SG Elite brand identity in use, image 5.
+  09-portrait.jpg | SG Elite brand identity in use, image 6.
+
+images full:
+  10-landscape.jpg | SG Elite brand identity in use, image 7.
+
+# Results
+
+DHD is in the midst of rolling out the new SG Elite brand.
+
+Based on their experience working on the brand and web projects, they have become a major retainer client, making use of photo, video, design, and social media services.
+
+images solo:
+  11-portrait.jpg | SG Elite brand identity in use, image 8.
+
+images full:
+  12-landscape.jpg | SG Elite brand identity in use, image 9.
+
+images full:
+  13-landscape.jpg | SG Elite brand identity in use, image 10.

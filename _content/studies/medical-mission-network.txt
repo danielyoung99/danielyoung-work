@@ -1,0 +1,27 @@
+name: Medical Mission Network
+title: Medical Mission Network
+description: Brand identity work for Medical Mission Network: logo, colour and the identity in use.
+fact: Client | Medical Mission Network
+fact: Work | Brand identity
+card: I designed the brand identity, from logo and colour to the identity in use.
+home: 04-landscape.jpg + 07-portrait.jpg
+
+---
+
+images full:
+  01-logo.jpg | Medical Mission Network logo.
+
+images pp:
+  02-logo-mark.jpg | Medical Mission Network logo mark.
+  03-colour-palette.jpg | Medical Mission Network colour palette.
+
+images v-c:
+  04-landscape.jpg | Medical Mission Network brand identity in use, image 1.
+  05-portrait.jpg | Medical Mission Network brand identity in use, image 2.
+
+images v-d:
+  06-landscape.jpg | Medical Mission Network brand identity in use, image 3.
+  07-portrait.jpg | Medical Mission Network brand identity in use, image 4.
+
+images full:
+  08-landscape.jpg | Medical Mission Network brand identity in use, image 5.

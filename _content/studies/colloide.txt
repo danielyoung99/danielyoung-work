@@ -1,0 +1,61 @@
+name: Colloide
+title: Strategy and identity for those building the future
+description: Strategy and identity for those building the future. Colloide: brand strategy, visual identity, website design, through DHD.
+fact: Client | Colloide
+fact: Role | Brand Designer
+fact: Through | DHD
+fact: Services | Brand Strategy, Visual Identity, Website Design
+card: A business repositioning around sustainability. I worked on the brand strategy, identity and website.
+home: 05-portrait.jpg + 06-landscape.jpg
+
+---
+
+images full:
+  01-logo.jpg | Colloide logo.
+
+# Overview
+
+Colloide was seeking brand strategy, visual identity design, and website design to help reposition and futureproof their brand.
+
+As workloads allowed, I was fortunately able to move from visual identity design into website design — likely one of the largest websites I have designed to date.
+
+# Challenge
+
+Sustainability needed to be the core focus of the new rebrand, but not in a way that felt heavy-handed or forced. The previous identity was never grounded in meaning and, as a result, lacked affinity with employees.
+
+images pp:
+  02-logo-mark.jpg | Colloide logo mark.
+  03-colour-palette.jpg | Colloide colour palette.
+
+# Process
+
+Extensive interviews with employees revealed a mystery surrounding the existing identity and strong support for a rebrand.
+
+While the strategy came easily, with values being updated rather than defined from scratch, the visual identity required multiple iterations to narrow down to a concept.
+
+images v-d:
+  04-landscape.jpg | Colloide brand identity in use, image 1.
+  05-portrait.jpg | Colloide brand identity in use, image 2.
+
+# Solution
+
+The simple mark minimally depicts the Earth orbiting the Sun, linking into their vision for a brighter tomorrow.
+
+Rounded corners, a vivid accent colour, and halo graphic devices reinforce the circular, sustainable narrative throughout the visual components.
+
+images v-e:
+  06-landscape.jpg | Colloide brand identity in use, image 3.
+  07-portrait.jpg | Colloide brand identity in use, image 4.
+
+# Results
+
+Colloide’s internal team has managed the rollout of the brand. With no expense spared, they’ve redecorated offices and updated their fleet of vehicles – killing off their old visual identity quickly and effectively.
+
+images full:
+  08-landscape.jpg | Colloide brand identity in use, image 5.
+
+images free:
+  12-website.jpg | Colloide website design shown on a tablet.
+
+images scroll:
+  13-website-home.jpg | The Colloide website home page, full length. | Scroll to see the whole page.

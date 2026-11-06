@@ -1,0 +1,26 @@
+name: Bored of Lunch
+title: Bored of Lunch
+description: Brand identity work for Bored of Lunch: logo, colour and the identity in use.
+fact: Client | Bored of Lunch
+fact: Work | Brand identity
+card: I designed the brand identity, from logo and colour to the identity in use.
+home: 04-landscape.jpg + 06-portrait.jpg
+
+---
+
+images full:
+  01-logo.jpg | Bored of Lunch logo.
+
+images pp:
+  02-logo-mark.jpg | Bored of Lunch logo mark.
+  03-colour-palette.jpg | Bored of Lunch colour palette.
+
+images full:
+  04-landscape.jpg | Bored of Lunch brand identity in use, image 1.
+
+images pp:
+  05-portrait.jpg | Bored of Lunch brand identity in use, image 2.
+  06-portrait.jpg | Bored of Lunch brand identity in use, image 3.
+
+images solo:
+  07-portrait.jpg | Bored of Lunch brand identity in use, image 4.

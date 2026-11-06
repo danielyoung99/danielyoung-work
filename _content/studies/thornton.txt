@@ -1,0 +1,28 @@
+name: Thornton
+title: Thornton
+description: Brand identity work for Thornton: logo, colour and the identity in use.
+fact: Client | Thornton
+fact: Work | Brand identity
+card: I designed the brand identity, from logo and colour to the identity in use.
+home: 05-portrait.jpg + 06-landscape.jpg
+
+---
+
+images full:
+  01-logo.jpg | Thornton logo.
+
+images pp:
+  02-logo-mark.jpg | Thornton logo mark.
+  03-colour-palette.jpg | Thornton colour palette.
+
+images v-c:
+  04-landscape.jpg | Thornton brand identity in use, image 1.
+  05-portrait.jpg | Thornton brand identity in use, image 2.
+
+images v-d:
+  06-landscape.jpg | Thornton brand identity in use, image 3.
+  07-portrait.jpg | Thornton brand identity in use, image 4.
+
+images v-e:
+  08-landscape.jpg | Thornton brand identity in use, image 5.
+  09-portrait.jpg | Thornton brand identity in use, image 6.

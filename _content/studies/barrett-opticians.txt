@@ -1,0 +1,58 @@
+name: Barrett Opticians
+title: Creating a boutique, local eyecare experience
+description: Creating a boutique, local eyecare experience. Barrett Opticians: brand strategy, visual identity, print design, through DHD.
+fact: Client | Barrett Opticians
+fact: Role | Brand Designer
+fact: Through | DHD
+fact: Services | Brand Strategy, Visual Identity, Print Design
+card: A high-end opticians adding hearing care. I led the brand strategy, a monogram identity and the print.
+home: 04-landscape.jpg + 07-portrait.jpg
+
+---
+
+images full:
+  01-logo.jpg | Barrett Opticians logo.
+
+# Overview
+
+Originally seeking a website design from DHD to raise brand awareness, discussions led to a rebrand project to ensure the website would have the best foundation to build upon. The high-end opticians were expanding to offer hearing care and wanted to include this in their positioning.
+
+# Challenge
+
+Barrett’s needed something sophisticated and well-considered to match their store’s interior design and personal service.
+
+images pp:
+  02-logo-mark.jpg | Barrett Opticians logo mark.
+  03-colour-palette.jpg | Barrett Opticians colour palette.
+
+# Process
+
+Interviewing customers about their experiences, I frequently heard terms such as “retail therapy” and “spa treatment” repeated.
+
+Moodboards created with the client further helped define the strategic and visual direction of the brand.
+
+I produced many concepts, including logomarks, before we concluded that a traditional monogram best suited the project.
+
+images v-b:
+  04-landscape.jpg | Barrett Opticians brand identity in use, image 1.
+  05-portrait.jpg | Barrett Opticians brand identity in use, image 2.
+
+# Solution
+
+Barrett’s strategy focuses on the sights and sounds we can enjoy through eye and hearing care.
+
+Human-focused, relatable, and approachable – we aimed to include personal touches across brand touchpoints.
+
+An earthy colour palette was inspired by eye colours, while the high-contrast headline type was inspired by fashion brands.
+
+images v-c:
+  06-landscape.jpg | Barrett Opticians brand identity in use, image 3.
+  07-portrait.jpg | Barrett Opticians brand identity in use, image 4.
+
+# Results
+
+The Barrett Opticians rebrand is still in the planning stages, now involving interior designers who are outfitting the shop. Both the client and I are excited to launch the brand in the coming months.
+
+images v-d:
+  08-landscape.jpg | Barrett Opticians brand identity in use, image 5.
+  09-portrait.jpg | Barrett Opticians brand identity in use, image 6.

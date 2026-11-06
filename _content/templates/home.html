@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel Young</title>
+<meta name="description" content="Daniel Young is a senior designer building brands that work for people, and for AI. Head of Design at DHD, Northern Ireland.">
+<style>
+@font-face{font-family:"Timeless Sans";src:url(/fonts/TimelessSansVF.woff2) format("woff2");font-weight:300 800;font-style:normal;font-display:swap}
+
+:root{
+  --bg:#dfdfd8;
+  --block:#d5d5cd;
+  --ink:#0a0a0a;
+  --mute:#8c8c85;
+  
+  --sans:"Timeless Sans",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --gut:clamp(20px,3.4vw,44px);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#121211;--block:#1c1c1a;--ink:#f1f1ec;--mute:#85857e}
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+
+.wrap{max-width:1512px;margin:0 auto;padding:0 var(--gut)}
+
+/* header */
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding-top:clamp(18px,2.6vw,32px);
+  color:var(--mute);
+  font-size:15px;
+}
+.top nav{display:flex;gap:clamp(16px,2.4vw,32px)}
+.top a{transition:color .15s}
+.top a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:clamp(56px,10vw,128px) 0 clamp(64px,9vw,128px)}
+h1{
+  font-weight:500;
+  font-size:clamp(32px,5vw,76px);
+  line-height:1.08;
+  letter-spacing:-.025em;
+  max-width:15em;
+  text-wrap:balance;
+}
+
+/* work: each case study is a landscape (2160x1350) and a portrait (1080x1350), rounded, in five arrangements */
+:root{--r:clamp(6px,.7vw,10px)}
+.work{display:flex;flex-direction:column;gap:clamp(80px,11vw,170px)}
+.work-item{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  column-gap:clamp(12px,2.6vw,40px);
+  align-items:start;
+  width:100%;
+}
+.pair{display:contents}
+.ph{overflow:hidden;background:var(--block);border-radius:var(--r)}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.ph.l{aspect-ratio:2160/1350}
+.ph.p{aspect-ratio:1080/1350}
+.work-item:hover .ph img{transform:scale(1.03)}
+.cap{margin-top:20px;max-width:28em}
+.cap .eyebrow{font-size:17px;font-weight:500;line-height:1.3}
+.cap .line{margin-top:4px;color:var(--mute);font-size:17px;line-height:1.4;text-wrap:pretty}
+
+/* a: landscape left, portrait right, same height */
+.v-a{grid-template-columns:2fr 1fr}
+.v-a .l{grid-column:1;grid-row:1}
+.v-a .p{grid-column:2;grid-row:1}
+.v-a .cap{grid-column:1;grid-row:2}
+/* b: tall portrait left, landscape right, caption under the landscape */
+.v-b .p{grid-column:1 / span 5;grid-row:1 / span 2}
+.v-b .l{grid-column:6 / span 7;grid-row:1}
+.v-b .cap{grid-column:6 / span 7;grid-row:2}
+/* c: small portrait top left, large landscape right, caption centred below */
+.v-c .p{grid-column:1 / span 3;grid-row:1}
+.v-c .l{grid-column:4 / span 9;grid-row:1}
+.v-c .cap{grid-column:4 / span 9;grid-row:2}
+/* d: large landscape left, small portrait right dropped lower */
+.v-d .l{grid-column:1 / span 9;grid-row:1}
+.v-d .p{grid-column:10 / span 3;grid-row:1 / span 2;margin-top:clamp(0px,9vw,140px)}
+.v-d .cap{grid-column:1 / span 6;grid-row:2}
+/* e: landscape left, taller portrait right overlapping the caption row */
+.v-e .l{grid-column:1 / span 7;grid-row:1}
+.v-e .p{grid-column:8 / span 4;grid-row:1 / span 2;margin-top:clamp(0px,6vw,96px)}
+.v-e .cap{grid-column:1 / span 6;grid-row:2}
+
+@media (max-width:760px){
+  /* phones: landscape image only, caption underneath; the portrait is hidden */
+  .work-item{grid-template-columns:1fr;row-gap:0}
+  .work-item .l{grid-column:1;grid-row:1;margin-top:0}
+  .work-item .p{display:none}
+  .work-item .cap{grid-column:1;grid-row:2;margin-top:20px;max-width:none}
+}
+
+/* about */
+.about{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  column-gap:clamp(12px,2.6vw,40px);
+  padding:clamp(96px,12vw,176px) 0 0;
+}
+.about .side{grid-column:1 / span 3}
+.about .main{grid-column:4 / span 6;max-width:520px}
+@media (max-width:900px){
+  .about .side{grid-column:1 / -1;margin-bottom:32px}
+  .about .main{grid-column:1 / -1}
+}
+.photo{width:124px;height:124px;background:var(--block);overflow:hidden}
+.photo img{display:block;width:100%;height:100%;object-fit:cover}
+.lede{
+  margin-top:0;
+  font-size:clamp(18px,1.7vw,21px);
+  line-height:1.3;
+  text-wrap:pretty;
+}
+.label{
+  
+  font-weight:500;
+  margin:72px 0 28px;
+  color:var(--mute);
+  font-size:17px;
+  line-height:1.2;
+}
+.roles{list-style:none}
+.roles li{display:flex;align-items:center;gap:32px;margin-bottom:40px}
+.roles li:last-child{margin-bottom:0}
+.thumb{flex:none;width:58px;height:58px;background:var(--block);overflow:hidden}
+.thumb img{display:block;width:100%;height:100%;object-fit:contain;padding:11px}
+.role{font-weight:500;font-size:19px;line-height:1.2}
+.meta{margin-top:4px;color:var(--mute);font-size:15px;line-height:1.3}
+.nw{white-space:nowrap}
+
+.foot{
+  margin-top:clamp(96px,12vw,176px);
+  padding-bottom:40px;
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;
+  color:var(--mute);
+  font-size:15px;
+}
+.foot .links{display:flex;gap:24px}
+.foot a:hover{color:var(--ink)}
+
+@media (prefers-reduced-motion:no-preference){
+  .js .rv{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .js .rv.on{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <a href="#top" aria-label="Daniel Young, home">Daniel Young</a>
+    <nav aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="mailto:info@danielyoung.work">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <h1 class="rv">{{HERO}}</h1>
+  </section>
+
+  <section class="work" id="work" aria-label="Selected work">
+{{WORK}}
+  </section>
+
+  <section class="about" id="about">
+    <div class="side rv">
+      <div class="photo" role="img" aria-label="Photo of Daniel to come"></div>
+    </div>
+    <div class="main">
+      <p class="lede rv">{{LEDE}}</p>
+
+      <h2 class="label rv">Experience</h2>
+      <ul class="roles rv">
+        <li>
+          <div class="thumb"><picture><source srcset="/assets/img/dhd-logo-light.svg" media="(prefers-color-scheme:dark)"><img src="/assets/img/dhd-logo.svg" alt="DHD logo"></picture></div>
+          <div><div class="role">Head of Design</div><div class="meta">DHD, <span class="nw">2020&nbsp;&ndash;&nbsp;Present</span></div></div>
+        </li>
+        <li>
+          <div class="thumb"></div>
+          <div><div class="role">Graphic Designer</div><div class="meta">Azzura Digital, <span class="nw">2019&nbsp;&ndash;&nbsp;2020</span></div></div>
+        </li>
+        <li>
+          <div class="thumb"></div>
+          <div><div class="role">Graphic Designer</div><div class="meta">Signs and Graphics, 2019</div></div>
+        </li>
+      </ul>
+
+      <h2 class="label rv">Education</h2>
+      <ul class="roles rv">
+        <li>
+          <div class="thumb"></div>
+          <div><div class="role">BA (Hons) Graphic Design and Illustration</div><div class="meta">Ulster University, First Class Honours, <span class="nw">2018&nbsp;&ndash;&nbsp;2022</span></div></div>
+        </li>
+        <li>
+          <div class="thumb"></div>
+          <div><div class="role">Diploma in Professional Practice</div><div class="meta">Ulster University, Distinction, <span class="nw">2018&nbsp;&ndash;&nbsp;2022</span></div></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>
+    <div class="links"><a href="/cv/">CV</a><a href="/work/">All work</a></div>
+  </footer>
+
+</div>
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  document.documentElement.classList.add('js');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}});
+  },{rootMargin:'0px 0px -8% 0px',threshold:.05});
+  els.forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>

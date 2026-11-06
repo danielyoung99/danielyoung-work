@@ -1,0 +1,72 @@
+name: Balmoral Textiles
+title: Repositioning a trade success story for a retail market
+description: Repositioning a trade success story for a retail market. Balmoral Textiles: brand strategy, brand architecture, visual identity, print design, through DHD.
+fact: Client | Balmoral Textiles
+fact: Role | Brand Designer
+fact: Through | DHD
+fact: Services | Brand Strategy, Brand Architecture, Visual Identity, Print Design
+card: A fabric supplier moving from trade into retail. I worked on the brand strategy, architecture and identity.
+home: 05-portrait.jpg + 06-landscape.jpg
+
+---
+
+images full:
+  01-logo.jpg | Balmoral Textiles logo.
+
+# Overview
+
+Having seen great success selling to trade customers, Balmoral Textiles sought to relaunch their brand to a previously neglected retail audience—alongside an aggressive new marketing strategy.
+
+# Challenge
+
+Awareness of Balmoral Textiles’ Infinity Collection of fabrics had outgrown that of the parent brand. This was one of my first experiences working on a brand with architectural issues.
+
+images pp:
+  02-logo-mark.jpg | Balmoral Textiles logo mark.
+  03-colour-palette.jpg | Balmoral Textiles colour palette.
+
+# Process
+
+I explored the history of the company to uncover valuable insights to inform the strategy, as well as to discover how the Infinity Collection had grown in recognition.
+
+I spoke to leadership, customers, and employees to form a well-rounded picture of the brand.
+
+Employees in particular enjoyed this research phase, admitting they had felt unheard and pushed around for many years.
+
+images v-e:
+  04-landscape.jpg | Balmoral Textiles brand identity in use, image 1.
+  05-portrait.jpg | Balmoral Textiles brand identity in use, image 2.
+
+images full:
+  06-landscape.jpg | Balmoral Textiles brand identity in use, image 3.
+
+# Solution
+
+A bold approach that focused on individuality and expression was the solution.
+
+Product photography across the industry often lacked human (or pet) subjects, so I placed them front and centre.
+
+I identified and customised a typeface that harked back to the golden days of the textile mill.
+
+To maintain brand recognition, I retained the previous brand colour, expanded the palette, and introduced contextual colour usage.
+
+images solo:
+  07-portrait.jpg | Balmoral Textiles brand identity in use, image 4.
+
+images full:
+  08-landscape.jpg | Balmoral Textiles brand identity in use, image 5.
+
+# Results
+
+Unfortunately, factors outside of the business led to a shake-up within the leadership team at Balmoral Textiles.
+
+While the new leadership team was incredibly complimentary of the work, they decided to focus on the trade brand and revisit this repositioned brand in the future.
+
+images solo:
+  09-portrait.jpg | Balmoral Textiles brand identity in use, image 6.
+
+images full:
+  10-landscape.jpg | Balmoral Textiles brand identity in use, image 7.
+
+images free:
+  11-instagram-profile.jpg | Balmoral Textiles Instagram profile.

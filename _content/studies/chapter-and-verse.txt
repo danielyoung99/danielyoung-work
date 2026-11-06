@@ -1,0 +1,64 @@
+name: Chapter & Verse
+title: Chapter & Verse: <em>reading, notes and prayer</em> in one calm app.
+description: A Bible study app for iPhone and iPad that puts reading, study notes and prayer in one place. Designed and built by Daniel Young.
+fact: Role | Design and build
+fact: Year | 2026
+fact: For | iPhone and iPad
+fact: Built with | SwiftUI, SwiftData, iCloud, Claude
+image-folder: assets/img/chapter-and-verse/
+card: My own Bible study app for iPhone and iPad. I designed and built it.
+home: phone-read.jpg | Chapter & Verse on iPhone, reading view. + ipad-reader.jpg | Chapter & Verse on iPad, with a study note open beside the text.
+prev: /work/ | Back to | All work
+next: /notes/lights-out-belfast/ | Next build | Lights Out Belfast
+
+---
+
+images full:
+  ipad-reader.jpg | Chapter & Verse on iPad: a chapter of the Bible on the left, with a study note open in a pane on the right. | On iPad, notes open beside the text so you never lose your place.
+
+# The brief
+
+I set myself a simple brief. One app for reading the Bible, keeping study notes and praying through what I'd read. Most apps I tried did one of those well and bolted on the others, or filled the screen with features I didn't use.
+
+So the design goal was restraint. The text comes first. Everything else waits until you ask for it.
+
+# Reading
+
+Tap a verse to select it, then highlight it in one of five colours, add a note or turn it into a prayer point. The markup bar is large on purpose, because people use this with a coffee in one hand.
+
+Reading settings cover typeface, size, line and letter spacing, column width and page colour. They're the same controls I'd want in any reading app, and they're the ones most Bible apps leave out.
+
+images row3:
+  phone-read.jpg | The reader on iPhone, showing a chapter of text.
+  phone-highlight.jpg | Verses highlighted in colour on iPhone, with the markup bar open.
+  phone-study.jpg | A study note attached to a verse on iPhone.
+
+# Study
+
+Notes can sit on a verse or stand alone. They have folders, a speaker field for sermon notes, and search that understands a word, a passage or a plain date like "last Sunday".
+
+On iPad, notes open in a pane beside the text. That one layout decision did more for the app than any feature, because you can write without losing your place.
+
+images full:
+  ipad-notes.jpg | The notes library on iPad, with folders down the side. | The notes library on iPad.
+
+# Prayer
+
+Any verse can become a prayer point. Prayer points can be ticked off when they're answered, and shared through iCloud with up to eight people. Anyone in the group can mark one complete, so a family or a small group can pray through the same list.
+
+Everything syncs between devices through iCloud. There's no account to make and nothing stored on a server I run.
+
+images full:
+  ipad-pray.jpg | The Pray screen on iPad, listing prayer points.
+
+# How it was made
+
+I designed every screen and made every product decision. Claude wrote most of the Swift with me, a feature at a time, and I tested each build on my own phone before moving on.
+
+That split is the same one I use on client work. The machine is fast at the parts with a right answer. The parts that need taste and judgement, like what to leave out, stayed with me.
+
+> The best feature turned out to be a layout: notes beside the text, not on top of it.
+
+# Made with AI, and where
+
+Design, product decisions and this write-up are mine. The Swift code was written with Claude and checked by me on real devices.

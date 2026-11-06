@@ -1,0 +1,73 @@
+name: Ballymena Academy
+title: Breathing new life into a centuries-old identity
+description: Breathing new life into a centuries-old identity. Ballymena Academy: visual identity, wayfinding, print design, through DHD.
+fact: Client | Ballymena Academy
+fact: Role | Brand Designer
+fact: Through | DHD
+fact: Services | Visual Identity, Wayfinding, Print Design
+card: A school with a 200-year history. I led a new brand mark and guidelines, then the rollout across print and wayfinding.
+home: 04-landscape.jpg + 05-portrait.jpg
+
+---
+
+images full:
+  01-logo.jpg | Ballymena Academy logo.
+
+# Overview
+
+Ballymena Academy appointed DHD to clarify, modernise, and expand their visual identity, while honouring their 200-year history.
+
+As the Brand Designer, I worked with the client to separate fact from fiction, uncover the truly valuable components of their existing identity, and introduce a new brand mark and guidelines to help protect the brand going forward. As multiple creatives assist in the rollout of the new identity, I continue to oversee and direct the process.
+
+# Challenge
+
+The school’s traditional coat of arms, and the visual elements derived from it, held deep historical value, but lacked flexibility across digital and print applications. Changes to the brand required consultation with over 90 members of staff and the board of governors.
+
+images pp:
+  02-logo-mark.jpg | Ballymena Academy logo mark.
+  03-colour-palette.jpg | Ballymena Academy colour palette.
+
+# Process
+
+Questionnaires allowed me to consult with the largest stakeholder group I had ever worked with.
+
+On-site visits revealed almost 20 variations of the school coat of arms, along with an overused primary colour palette.
+
+Working with the client, we sourced the original coat of arms and redrew it, while making improvements and documenting its meaning.
+
+After revisiting and testing many of the school’s previous brand marks, we settled on the shield mark.
+
+images v-d:
+  04-landscape.jpg | Ballymena Academy brand identity in use, image 1.
+  05-portrait.jpg | Ballymena Academy brand identity in use, image 2.
+
+images full:
+  06-landscape.jpg | Ballymena Academy brand identity in use, image 3.
+
+# Solution
+
+The shield mark felt refreshing and ready for the online world, yet was distilled from the existing coat of arms.
+
+Variable fonts allowed us to tweak the brand expression from serif to sans serif, depending on the audience.
+
+A colourful secondary colour palette complemented the navy, red, and white synonymous with the brand, while giving flexibility and expression.
+
+I repurposed the mantling from the coat of arms and used it to frame content, creating a unique and instantly recognisable compositional element for brand touchpoints.
+
+images solo:
+  07-portrait.jpg | Ballymena Academy brand identity in use, image 4.
+
+images v-e:
+  08-landscape.jpg | Ballymena Academy brand identity in use, image 5.
+  09-portrait.jpg | Ballymena Academy brand identity in use, image 6.
+
+# Results
+
+I worked with a close-knit internal team to revise the final concept, which, when presented to over 90 members of staff, received unanimously positive feedback.
+
+images v-a:
+  10-landscape.jpg | Ballymena Academy brand identity in use, image 7.
+  11-portrait.jpg | Ballymena Academy brand identity in use, image 8.
+
+images full:
+  12-landscape.jpg | Ballymena Academy brand identity in use, image 9.

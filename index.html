@@ -103,10 +103,11 @@ h1{
 .v-e .cap{grid-column:1 / span 6;grid-row:2}
 
 @media (max-width:760px){
-  .work-item{grid-template-columns:2fr 1fr;row-gap:0}
-  .work-item .l{grid-column:1;grid-row:1}
-  .work-item .p{grid-column:2;grid-row:1;margin-top:0}
-  .work-item .cap{grid-column:1 / -1;grid-row:2}
+  /* phones: landscape image only, caption underneath; the portrait is hidden */
+  .work-item{grid-template-columns:1fr;row-gap:0}
+  .work-item .l{grid-column:1;grid-row:1;margin-top:0}
+  .work-item .p{display:none}
+  .work-item .cap{grid-column:1;grid-row:2;margin-top:20px;max-width:none}
 }
 
 /* about */

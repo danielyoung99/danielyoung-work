@@ -1,0 +1,30 @@
+name: Versaffix
+title: Versaffix
+description: Brand identity work for Versaffix: logo, colour and the identity in use.
+fact: Client | Versaffix
+fact: Work | Brand identity
+card: I designed the brand identity, from logo and colour to the identity in use.
+home: 04-landscape.jpg + 05-portrait.jpg
+
+---
+
+images full:
+  01-logo.jpg | Versaffix logo.
+
+images pp:
+  02-logo-mark.jpg | Versaffix logo mark.
+  03-colour-palette.jpg | Versaffix colour palette.
+
+images v-e:
+  04-landscape.jpg | Versaffix brand identity in use, image 1.
+  05-portrait.jpg | Versaffix brand identity in use, image 2.
+
+images v-a:
+  06-landscape.jpg | Versaffix brand identity in use, image 3.
+  07-portrait.jpg | Versaffix brand identity in use, image 4.
+
+images full:
+  08-landscape.jpg | Versaffix brand identity in use, image 5.
+
+images full:
+  09-landscape.jpg | Versaffix brand identity in use, image 6.
