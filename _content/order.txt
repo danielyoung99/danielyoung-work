@@ -4,9 +4,9 @@ barrett-opticians
 belfast-healthy-cities
 bored-of-lunch
 colloide
-medical-mission-network
+// medical-mission-network
 sg-elite
 stem-systems
 thornton
-versaffix
+// versaffix
 chapter-and-verse
