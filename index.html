@@ -103,6 +103,10 @@ h1{
 .v-e .cap{grid-column:1 / span 6;grid-row:2}
 
 @media (max-width:760px){
+  /* phones: a touch more air and a slightly larger headline so the hero feels as roomy as on desktop */
+  .top{padding-top:28px}
+  .hero{padding:clamp(88px,26vw,120px) 0 clamp(88px,26vw,120px)}
+  h1{font-size:clamp(35px,9.6vw,44px);line-height:1.1}
   /* phones: landscape image only, caption underneath; the portrait is hidden */
   .work-item{grid-template-columns:1fr;row-gap:0}
   .work-item .l{grid-column:1;grid-row:1;margin-top:0}
