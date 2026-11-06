@@ -3,278 +3,286 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daniel Young · Brand strategy, identity and AI-ready brands</title>
-<meta name="description" content="Daniel Young is Head of Design at DHD. He leads brand strategy, identity and digital work, and sets brands up to hold together in the AI tools teams now write with.">
-<link rel="canonical" href="https://danielyoung.work/">
-<meta property="og:title" content="Daniel Young · Brand strategy, identity and AI-ready brands">
-<meta property="og:description" content="Daniel Young is Head of Design at DHD. He leads brand strategy, identity and digital work, and sets brands up to hold together in the AI tools teams now write with.">
-<meta property="og:url" content="https://danielyoung.work/">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23181715'/%3E%3Ctext x='16' y='22.5' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%23f3f0e8'%3EDY%3C/text%3E%3C/svg%3E">
-<link rel="preload" href="/fonts/TimelessSerifVF.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/TimelessSansVF.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&display=swap">
-<link rel="stylesheet" href="/assets/site.css">
-<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;var s=localStorage.getItem('size');if(s)document.documentElement.style.setProperty('--reading-size',{s:'1.0625rem',m:'1.1875rem',l:'1.375rem'}[s]);}catch(e){}</script>
-<script src="/assets/site.js" defer></script>
+<title>Daniel Young</title>
+<meta name="description" content="Daniel Young is a senior designer building brands that work for people, and for AI. Head of Design at DHD, Northern Ireland.">
+<style>
+@font-face{font-family:"Timeless Sans";src:url(/fonts/TimelessSansVF.woff2) format("woff2");font-weight:300 800;font-style:normal;font-display:swap}
+
+:root{
+  --bg:#dfdfd8;
+  --block:#d5d5cd;
+  --ink:#0a0a0a;
+  --mute:#8c8c85;
+  
+  --sans:"Timeless Sans",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --gut:clamp(20px,3.4vw,44px);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#121211;--block:#1c1c1a;--ink:#f1f1ec;--mute:#85857e}
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+
+.wrap{max-width:1512px;margin:0 auto;padding:0 var(--gut)}
+
+/* header */
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding-top:clamp(18px,2.6vw,32px);
+  color:var(--mute);
+  font-size:15px;
+}
+.top nav{display:flex;gap:clamp(16px,2.4vw,32px)}
+.top a{transition:color .15s}
+.top a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:clamp(56px,10vw,128px) 0 clamp(64px,9vw,128px)}
+h1{
+  font-weight:500;
+  font-size:clamp(32px,5vw,76px);
+  line-height:1.08;
+  letter-spacing:-.025em;
+  max-width:15em;
+  text-wrap:balance;
+}
+
+/* work: each case study is a landscape (2160x1350) and a portrait (1080x1350), rounded, in five arrangements */
+:root{--r:clamp(6px,.7vw,10px)}
+.work{display:flex;flex-direction:column;gap:clamp(80px,11vw,170px)}
+.work-item{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  column-gap:clamp(12px,2.6vw,40px);
+  align-items:start;
+  width:100%;
+}
+.pair{display:contents}
+.ph{overflow:hidden;background:var(--block);border-radius:var(--r)}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.ph.l{aspect-ratio:2160/1350}
+.ph.p{aspect-ratio:1080/1350}
+.work-item:hover .ph img{transform:scale(1.03)}
+.cap{margin-top:20px;max-width:28em}
+.cap .eyebrow{font-size:17px;font-weight:500;line-height:1.3}
+.cap .line{margin-top:4px;color:var(--mute);font-size:17px;line-height:1.4;text-wrap:pretty}
+
+/* a: landscape left, portrait right, same height */
+.v-a{grid-template-columns:2fr 1fr}
+.v-a .l{grid-column:1;grid-row:1}
+.v-a .p{grid-column:2;grid-row:1}
+.v-a .cap{grid-column:1;grid-row:2}
+/* b: tall portrait left, landscape right, caption under the landscape */
+.v-b .p{grid-column:1 / span 5;grid-row:1 / span 2}
+.v-b .l{grid-column:6 / span 7;grid-row:1}
+.v-b .cap{grid-column:6 / span 7;grid-row:2}
+/* c: small portrait top left, large landscape right, caption centred below */
+.v-c .p{grid-column:1 / span 3;grid-row:1}
+.v-c .l{grid-column:4 / span 9;grid-row:1}
+.v-c .cap{grid-column:4 / span 9;grid-row:2}
+/* d: large landscape left, small portrait right dropped lower */
+.v-d .l{grid-column:1 / span 9;grid-row:1}
+.v-d .p{grid-column:10 / span 3;grid-row:1 / span 2;margin-top:clamp(0px,9vw,140px)}
+.v-d .cap{grid-column:1 / span 6;grid-row:2}
+/* e: landscape left, taller portrait right overlapping the caption row */
+.v-e .l{grid-column:1 / span 7;grid-row:1}
+.v-e .p{grid-column:8 / span 4;grid-row:1 / span 2;margin-top:clamp(0px,6vw,96px)}
+.v-e .cap{grid-column:1 / span 6;grid-row:2}
+
+@media (max-width:760px){
+  .work-item{grid-template-columns:2fr 1fr;row-gap:0}
+  .work-item .l{grid-column:1;grid-row:1}
+  .work-item .p{grid-column:2;grid-row:1;margin-top:0}
+  .work-item .cap{grid-column:1 / -1;grid-row:2}
+}
+
+/* about */
+.about{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  column-gap:clamp(12px,2.6vw,40px);
+  padding:clamp(96px,12vw,176px) 0 0;
+}
+.about .side{grid-column:1 / span 3}
+.about .main{grid-column:4 / span 6;max-width:520px}
+@media (max-width:900px){
+  .about .side{grid-column:1 / -1;margin-bottom:32px}
+  .about .main{grid-column:1 / -1}
+}
+.photo{width:124px;height:124px;background:var(--block);overflow:hidden}
+.photo img{display:block;width:100%;height:100%;object-fit:cover}
+.lede{
+  margin-top:0;
+  font-size:clamp(18px,1.7vw,21px);
+  line-height:1.3;
+  text-wrap:pretty;
+}
+.label{
+  
+  font-weight:500;
+  margin:72px 0 28px;
+  color:var(--mute);
+  font-size:17px;
+  line-height:1.2;
+}
+.roles{list-style:none}
+.roles li{display:flex;align-items:center;gap:32px;margin-bottom:40px}
+.roles li:last-child{margin-bottom:0}
+.thumb{flex:none;width:58px;height:58px;background:var(--block);overflow:hidden}
+.thumb img{display:block;width:100%;height:100%;object-fit:contain;padding:11px}
+.role{font-weight:500;font-size:19px;line-height:1.2}
+.meta{margin-top:4px;color:var(--mute);font-size:15px;line-height:1.3}
+.nw{white-space:nowrap}
+
+.foot{
+  margin-top:clamp(96px,12vw,176px);
+  padding-bottom:40px;
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;
+  color:var(--mute);
+  font-size:15px;
+}
+.foot .links{display:flex;gap:24px}
+.foot a:hover{color:var(--ink)}
+
+@media (prefers-reduced-motion:no-preference){
+  .js .rv{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .js .rv.on{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="progress" aria-hidden="true"></div>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="/" aria-label="Daniel Young, home"><span class="brand-name">Daniel Young</span><span class="brand-role">Head of Design</span></a>
-    <nav class="nav" id="nav" aria-label="Main"><a href="/work/">Work</a><a href="/about/">About</a><a href="/notes/">Notes</a><a href="/contact/">Contact</a></nav>
-    <div class="header-tools">
-      <div class="theme-switch" role="group" aria-label="Colour theme">
-        <button type="button" data-mode="auto" aria-pressed="true" title="Match my system"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg><span class="visually-hidden">Auto</span></button>
-        <button type="button" data-mode="light" aria-pressed="false" title="Light"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9 13 13M3 13l1.1-1.1M11.9 4.1 13 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span class="visually-hidden">Light</span></button>
-        <button type="button" data-mode="dark" aria-pressed="false" title="Dark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span class="visually-hidden">Dark</span></button>
-      </div>
-      <button class="icon-btn menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
-    </div>
-  </div>
-</header>
-<main id="main">
-<section class="hero">
-  <div class="wrap hero-grid">
-    <p class="eyebrow label">Daniel Young <span aria-hidden="true">/</span> Head of Design</p>
-    <h1 class="display" data-words>Brand design that connects with people and guides AI</h1>
-    <div class="hero-foot reveal">
-      <p class="lede">Brand strategy, identity and digital work for the people who meet a brand, and for the AI tools that now write in its name.</p>
-      <div class="actions">
-        <a class="btn" href="/work/">See the work <span class="arrow" aria-hidden="true">→</span></a>
-        <a class="btn ghost" href="/contact/">Get in touch</a>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="wrap">
 
-<section class="section" aria-labelledby="work-title">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="label"><b>01</b> Selected work</p>
-      <h2 class="h2" id="work-title">A few recent projects, <em>for clients and for me.</em></h2>
-    </div>
-    <ol class="projects reveal">
-      <li class="project p-wide"><a href="/work/chapter-and-verse/">
-        <div class="shot"><img src="/assets/img/chapter-and-verse/ipad-reader.jpg" width="2160" height="1440" loading="lazy" alt="Chapter &amp; Verse on iPad, with a study note open beside the text."></div>
-        <div class="project-meta"><span class="idx">01</span><h3 class="title">Chapter &amp; Verse</h3><span class="what">Bible study app for iPhone and iPad</span><span class="year">2026</span></div>
-      </a></li>
-      <li class="project p-tall"><a href="/work/#software-for-all">
-        <div class="shot is-empty"><span class="slot" aria-hidden="true">Image to come</span></div>
-        <div class="project-meta"><span class="idx">02</span><h3 class="title">Software For All</h3><span class="what">Brand architecture and guidelines</span><span class="year">2026</span></div>
-      </a></li>
-      <li class="project p-third"><a href="/work/#chestnutt">
-        <div class="shot is-empty"><span class="slot" aria-hidden="true">Image to come</span></div>
-        <div class="project-meta"><span class="idx">03</span><h3 class="title">Chestnutt Holiday Parks</h3><span class="what">Tone of voice and social</span><span class="year">2026</span></div>
-      </a></li>
-      <li class="project p-third"><a href="/work/#myrtlefield-house">
-        <div class="shot is-empty"><span class="slot" aria-hidden="true">Image to come</span></div>
-        <div class="project-meta"><span class="idx">04</span><h3 class="title">Myrtlefield House</h3><span class="what">Brand identity and website</span><span class="year">2026</span></div>
-      </a></li>
-      <li class="project p-third"><a href="/notes/lights-out-belfast/">
-        <div class="shot is-empty"><span class="slot" aria-hidden="true">Image to come</span></div>
-        <div class="project-meta"><span class="idx">05</span><h3 class="title">Lights Out Belfast</h3><span class="what">A live 3D map of the city's empty buildings</span><span class="year">2026</span></div>
-      </a></li>
-    </ol>
-    <p style="margin-top:28px"><a class="link" href="/work/">All work, including the apps I've built</a></p>
-  </div>
-</section>
+  <header class="top">
+    <a href="#top" aria-label="Daniel Young, home">Daniel Young</a>
+    <nav aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="mailto:info@danielyoung.work">Contact</a>
+    </nav>
+  </header>
 
-<section class="section" aria-labelledby="identity-title">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="label"><b>02</b> Brand identity</p>
-      <h2 class="h2" id="identity-title">Identities, <em>in use.</em></h2>
-    </div>
-    <ol class="projects reveal">
-      <li class="project p-wide"><a href="/work/ballymena-academy/">
-        <div class="shot"><img src="/assets/img/case-studies/ballymena-academy/04-landscape.jpg" width="2160" height="1440" loading="lazy" alt="Ballymena Academy brand identity in use."></div>
-        <div class="project-meta"><span class="idx">01</span><h3 class="title">Ballymena Academy</h3><span class="what">Visual identity, wayfinding and print</span></div>
-      </a></li>
-      <li class="project p-tall"><a href="/work/belfast-healthy-cities/">
-        <div class="shot"><img src="/assets/img/case-studies/belfast-healthy-cities/04-landscape.jpg" width="2160" height="1440" loading="lazy" alt="Belfast Healthy Cities brand identity in use."></div>
-        <div class="project-meta"><span class="idx">02</span><h3 class="title">Belfast Healthy Cities</h3><span class="what">Brand identity</span></div>
-      </a></li>
-      <li class="project p-third"><a href="/work/sg-elite/">
-        <div class="shot"><img src="/assets/img/case-studies/sg-elite/04-landscape.jpg" width="2160" height="1440" loading="lazy" alt="SG Elite brand identity in use."></div>
-        <div class="project-meta"><span class="idx">03</span><h3 class="title">SG Elite</h3><span class="what">Brand strategy, identity and print</span></div>
-      </a></li>
-      <li class="project p-third"><a href="/work/medical-mission-network/">
-        <div class="shot"><img src="/assets/img/case-studies/medical-mission-network/04-landscape.jpg" width="2160" height="1440" loading="lazy" alt="Medical Mission Network brand identity in use."></div>
-        <div class="project-meta"><span class="idx">04</span><h3 class="title">Medical Mission Network</h3><span class="what">Brand identity</span></div>
-      </a></li>
-      <li class="project p-third"><a href="/work/bored-of-lunch/">
-        <div class="shot"><img src="/assets/img/case-studies/bored-of-lunch/04-landscape.jpg" width="2160" height="1440" loading="lazy" alt="Bored of Lunch brand identity in use."></div>
-        <div class="project-meta"><span class="idx">05</span><h3 class="title">Bored of Lunch</h3><span class="what">Brand identity</span></div>
-      </a></li>
-    </ol>
-    <p style="margin-top:28px"><a class="link" href="/work/">All 11 identity case studies</a></p>
-  </div>
-</section>
+  <section class="hero" id="top">
+    <h1 class="rv">I'm Daniel, a senior designer building brands that work for people, and for AI.</h1>
+  </section>
 
-<section class="section" aria-labelledby="do-title">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="label"><b>03</b> What I do</p>
-      <h2 class="h2" id="do-title">The thinking first, <em>then the making.</em></h2>
-    </div>
-    <div class="services reveal">
-      <div class="service">
-        <span class="label">Strategy</span>
-        <h3 class="h3">Brand strategy</h3>
-        <p>Positioning, a brand platform and a big idea, worked out with the people who run the business.</p>
-      </div>
-      <div class="service">
-        <span class="label">Identity</span>
-        <h3 class="h3">Visual identity</h3>
-        <p>Logo, type, colour, grid and imagery, built as a system a team can pick up and use.</p>
-      </div>
-      <div class="service">
-        <span class="label">Voice</span>
-        <h3 class="h3">Tone of voice</h3>
-        <p>How the brand writes, with real examples of what's right and what isn't. Written down so anyone can follow it.</p>
-      </div>
-      <div class="service is-new">
-        <span class="label">Systems</span>
-        <h3 class="h3">AI-ready brands</h3>
-        <p>Your brand written down in a form AI tools can follow: brand.md files, tone of voice skills and prompt-ready guidelines. The hundredth post should still sound like you.</p>
-      </div>
-      <div class="service">
-        <span class="label">Digital</span>
-        <h3 class="h3">Websites</h3>
-        <p>From content structure and navigation down to the last hover state.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  <section class="work" id="work" aria-label="Selected work">
+    <a class="work-item v-a rv" href="/work/ballymena-academy/">
+      <div class="pair lp"><div class="ph l"><img src="/assets/img/case-studies/ballymena-academy/04-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Ballymena Academy, identity in use, landscape."></div><div class="ph p"><img src="/assets/img/case-studies/ballymena-academy/05-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Ballymena Academy, identity in use, portrait."></div></div>
+      <div class="cap"><div class="eyebrow">Ballymena Academy</div><p class="line">A school with a 200-year history. I led a new brand mark and guidelines, then the rollout across print and wayfinding.</p></div>
+    </a>
+    <a class="work-item v-b rv" href="/work/balmoral-textiles/">
+      <div class="pair pl"><div class="ph p"><img src="/assets/img/case-studies/balmoral-textiles/05-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Balmoral Textiles, identity in use, portrait."></div><div class="ph l"><img src="/assets/img/case-studies/balmoral-textiles/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Balmoral Textiles, identity in use, landscape."></div></div>
+      <div class="cap"><div class="eyebrow">Balmoral Textiles</div><p class="line">A fabric supplier moving from trade into retail. I worked on the brand strategy, architecture and identity.</p></div>
+    </a>
+    <a class="work-item v-c rv" href="/work/barrett-opticians/">
+      <div class="pair lp"><div class="ph l"><img src="/assets/img/case-studies/barrett-opticians/04-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Barrett Opticians, identity in use, landscape."></div><div class="ph p"><img src="/assets/img/case-studies/barrett-opticians/07-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Barrett Opticians, identity in use, portrait."></div></div>
+      <div class="cap"><div class="eyebrow">Barrett Opticians</div><p class="line">A high-end opticians adding hearing care. I led the brand strategy, a monogram identity and the print.</p></div>
+    </a>
+    <a class="work-item v-d rv" href="/work/belfast-healthy-cities/">
+      <div class="pair pl"><div class="ph p"><img src="/assets/img/case-studies/belfast-healthy-cities/05-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Belfast Healthy Cities, identity in use, portrait."></div><div class="ph l"><img src="/assets/img/case-studies/belfast-healthy-cities/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Belfast Healthy Cities, identity in use, landscape."></div></div>
+      <div class="cap"><div class="eyebrow">Belfast Healthy Cities</div><p class="line">I designed the brand identity, from logo and colour to the identity in use.</p></div>
+    </a>
+    <a class="work-item v-e rv" href="/work/bored-of-lunch/">
+      <div class="pair lp"><div class="ph l"><img src="/assets/img/case-studies/bored-of-lunch/04-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Bored of Lunch, identity in use, landscape."></div><div class="ph p"><img src="/assets/img/case-studies/bored-of-lunch/06-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Bored of Lunch, identity in use, portrait."></div></div>
+      <div class="cap"><div class="eyebrow">Bored of Lunch</div><p class="line">I designed the brand identity, from logo and colour to the identity in use.</p></div>
+    </a>
+    <a class="work-item v-a rv" href="/work/colloide/">
+      <div class="pair pl"><div class="ph p"><img src="/assets/img/case-studies/colloide/05-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Colloide, identity in use, portrait."></div><div class="ph l"><img src="/assets/img/case-studies/colloide/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Colloide, identity in use, landscape."></div></div>
+      <div class="cap"><div class="eyebrow">Colloide</div><p class="line">A business repositioning around sustainability. I worked on the brand strategy, identity and website.</p></div>
+    </a>
+    <a class="work-item v-b rv" href="/work/medical-mission-network/">
+      <div class="pair lp"><div class="ph l"><img src="/assets/img/case-studies/medical-mission-network/04-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Medical Mission Network, identity in use, landscape."></div><div class="ph p"><img src="/assets/img/case-studies/medical-mission-network/07-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Medical Mission Network, identity in use, portrait."></div></div>
+      <div class="cap"><div class="eyebrow">Medical Mission Network</div><p class="line">I designed the brand identity, from logo and colour to the identity in use.</p></div>
+    </a>
+    <a class="work-item v-c rv" href="/work/sg-elite/">
+      <div class="pair pl"><div class="ph p"><img src="/assets/img/case-studies/sg-elite/05-portrait.jpg" width="1080" height="1350" loading="lazy" alt="SG Elite, identity in use, portrait."></div><div class="ph l"><img src="/assets/img/case-studies/sg-elite/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt="SG Elite, identity in use, landscape."></div></div>
+      <div class="cap"><div class="eyebrow">SG Elite</div><p class="line">A growing business with a rushed identity. I did the brand strategy and identity, and worked with a UI designer on the website.</p></div>
+    </a>
+    <a class="work-item v-d rv" href="/work/stem-systems/">
+      <div class="pair lp"><div class="ph l"><img src="/assets/img/case-studies/stem-systems/04-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Stem Systems, identity in use, landscape."></div><div class="ph p"><img src="/assets/img/case-studies/stem-systems/07-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Stem Systems, identity in use, portrait."></div></div>
+      <div class="cap"><div class="eyebrow">Stem Systems</div><p class="line">An IT business scaling into the Republic of Ireland. I led the brand strategy and a warm, human identity.</p></div>
+    </a>
+    <a class="work-item v-e rv" href="/work/thornton/">
+      <div class="pair pl"><div class="ph p"><img src="/assets/img/case-studies/thornton/05-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Thornton, identity in use, portrait."></div><div class="ph l"><img src="/assets/img/case-studies/thornton/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Thornton, identity in use, landscape."></div></div>
+      <div class="cap"><div class="eyebrow">Thornton</div><p class="line">I designed the brand identity, from logo and colour to the identity in use.</p></div>
+    </a>
+    <a class="work-item v-a rv" href="/work/versaffix/">
+      <div class="pair lp"><div class="ph l"><img src="/assets/img/case-studies/versaffix/04-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Versaffix, identity in use, landscape."></div><div class="ph p"><img src="/assets/img/case-studies/versaffix/05-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Versaffix, identity in use, portrait."></div></div>
+      <div class="cap"><div class="eyebrow">Versaffix</div><p class="line">I designed the brand identity, from logo and colour to the identity in use.</p></div>
+    </a>
+    <a class="work-item v-b rv" href="/work/chapter-and-verse/">
+      <div class="pair pl"><div class="ph p"><img src="/assets/img/chapter-and-verse/phone-read.jpg" width="1080" height="1350" loading="lazy" alt="Chapter &amp; Verse on iPhone, reading view."></div><div class="ph l"><img src="/assets/img/chapter-and-verse/ipad-reader.jpg" width="2160" height="1350" loading="lazy" alt="Chapter &amp; Verse on iPad, with a study note open beside the text."></div></div>
+      <div class="cap"><div class="eyebrow">Chapter &amp; Verse</div><p class="line">My own Bible study app for iPhone and iPad. I designed and built it.</p></div>
+    </a>
+  </section>
 
-<section class="section" aria-labelledby="ai-title">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="label"><b>04</b> How I work with AI</p>
-      <div>
-        <h2 class="h2" id="ai-title">Machines draft. <em>People decide.</em></h2>
-        <p class="lede" style="margin-top:20px">AI is part of my working day. This is where it helps on a typical brand project, and where I take over.</p>
-      </div>
+  <section class="about" id="about">
+    <div class="side rv">
+      <div class="photo" role="img" aria-label="Photo of Daniel to come"></div>
     </div>
-    <div class="ledger-toggle reveal" role="group" aria-label="Highlight">
-      <button class="chip" type="button" data-view="both" aria-pressed="true">Both</button>
-      <button class="chip" type="button" data-view="machine" aria-pressed="false">The machine</button>
-      <button class="chip" type="button" data-view="me" aria-pressed="false">Me</button>
-    </div>
-    <div class="ledger reveal" data-view="both">
-      <article class="stage">
-        <h3 class="h3"><span class="idx">01</span>Research</h3>
-        <div class="machine-col"><p>Summarises meeting transcripts. Scans thirty competitors where I used to manage five.</p></div>
-        <div class="me-col"><p>Reads the parts the summary skipped. Talks to the people who run the business and the people who use it.</p></div>
-      </article>
-      <article class="stage">
-        <h3 class="h3"><span class="idx">02</span>Options</h3>
-        <div class="machine-col"><p>A dozen headline routes in a minute. Most are fine. None are specific.</p></div>
-        <div class="me-col"><p>Uses them to find the obvious answer, then steers away from it.</p></div>
-      </article>
-      <article class="stage">
-        <h3 class="h3"><span class="idx">03</span>Production</h3>
-        <div class="machine-col"><p>Resizes artwork, names files, exports logos and checks colour contrast.</p></div>
-        <div class="me-col"><p>Type, spacing, colour and the words on the page.</p></div>
-      </article>
-      <article class="stage">
-        <h3 class="h3"><span class="idx">04</span>Sign-off</h3>
-        <div class="machine-col"><p>Checks drafts against the brand's own rules and flags anything that drifts.</p></div>
-        <div class="me-col"><p>Decides what ships. If I can't say why a choice is right, it isn't finished.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
+    <div class="main">
+      <p class="lede rv">I started as a graphic designer, and I still care about the details, right down to leading, orphans and widows. Now I design brands that come alive in the digital world, and keep developing through AI with my creative work at the core.</p>
 
-<figure class="pull">
-  <div class="wrap reveal">
-    <blockquote>A first pass can be correct and still sound like <em>anyone.</em></blockquote>
-    <figcaption class="label">From <a class="link" href="/notes/where-i-use-ai/">Where I use AI, and where I stop</a></figcaption>
-  </div>
-</figure>
+      <h2 class="label rv">Experience</h2>
+      <ul class="roles rv">
+        <li>
+          <div class="thumb"><picture><source srcset="/assets/img/dhd-logo-light.svg" media="(prefers-color-scheme:dark)"><img src="/assets/img/dhd-logo.svg" alt="DHD logo"></picture></div>
+          <div><div class="role">Head of Design</div><div class="meta">DHD, <span class="nw">2020&nbsp;&ndash;&nbsp;Present</span></div></div>
+        </li>
+        <li>
+          <div class="thumb"></div>
+          <div><div class="role">Graphic Designer</div><div class="meta">Azzura Digital, <span class="nw">2019&nbsp;&ndash;&nbsp;2020</span></div></div>
+        </li>
+        <li>
+          <div class="thumb"></div>
+          <div><div class="role">Graphic Designer</div><div class="meta">Signs and Graphics, 2019</div></div>
+        </li>
+      </ul>
 
-<section class="section" aria-labelledby="notes-title">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="label"><b>05</b> Notes</p>
-      <h2 class="h2" id="notes-title">Writing about the work, <em>while it's fresh.</em></h2>
+      <h2 class="label rv">Education</h2>
+      <ul class="roles rv">
+        <li>
+          <div class="thumb"></div>
+          <div><div class="role">BA (Hons) Graphic Design and Illustration</div><div class="meta">Ulster University, First Class Honours, <span class="nw">2018&nbsp;&ndash;&nbsp;2022</span></div></div>
+        </li>
+        <li>
+          <div class="thumb"></div>
+          <div><div class="role">Diploma in Professional Practice</div><div class="meta">Ulster University, Distinction, <span class="nw">2018&nbsp;&ndash;&nbsp;2022</span></div></div>
+        </li>
+      </ul>
     </div>
-    <ul class="notes-list reveal">
-      <li data-note-slug="where-i-use-ai"><a href="/notes/where-i-use-ai/">
-        <span class="meta">1 Nov 2026</span>
-        <span><span class="h3">Where I use AI in a design project, and where I stop</span></span>
-        <span class="meta right">1 min read</span></a></li>
-      <li data-note-slug="lights-out-belfast"><a href="/notes/lights-out-belfast/">
-        <span class="meta">31 Oct 2026</span>
-        <span><span class="h3">Making a map of Belfast's empty buildings</span></span>
-        <span class="meta right">1 min read</span></a></li>
-      <li data-note-slug="catching-machine-writing"><a href="/notes/catching-machine-writing/">
-        <span class="meta">30 Oct 2026</span>
-        <span><span class="h3">How I catch machine-sounding writing</span></span>
-        <span class="meta right">1 min read</span></a></li>
-    </ul>
-  </div>
-</section>
+  </section>
 
-<section class="cta">
-  <div class="wrap cta-grid">
-    <h2 class="display reveal">Tell me what you're <em>working on.</em></h2>
-    <div class="cta-side reveal">
-      <p class="clock" data-clock><span class="pulse"></span><span data-clock-text>Northern Ireland</span></p>
-      <div style="display:flex;flex-wrap:wrap;gap:10px">
-        <a class="btn" href="/contact/">Start a conversation <span class="arrow" aria-hidden="true">→</span></a>
-        <button class="btn ghost" type="button" data-copy="info@danielyoung.work">Copy email</button>
-      </div>
-    </div>
-  </div>
-</section>
-</main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="colophon">
-        <p class="note">Every word here was written or edited by me. Claude helped build the site.</p>
-        <p class="muted">Set in Timeless Serif and Timeless Sans.</p>
-      </div>
-      <div>
-        <h2>Pages</h2>
-        <ul><li><a href="/">Home</a></li><li><a href="/work/">Work</a></li><li><a href="/about/">About</a></li><li><a href="/notes/">Notes</a></li><li><a href="/contact/">Contact</a></li><li><a href="/cv/">CV</a></li></ul>
-      </div>
-      <div>
-        <h2>Get in touch</h2>
-        <ul><li><a href="mailto:info@danielyoung.work">info@danielyoung.work</a></li><li><a href="https://www.linkedin.com/in/daniel-young/" target="_blank" rel="me noopener">LinkedIn</a></li><li><button class="kbd-hint" type="button" data-copy="info@danielyoung.work">Copy email address</button></li></ul>
-      </div>
-      <div>
-        <h2>Local time</h2>
-        <p class="clock" data-clock style="align-items:flex-start"><span class="pulse" style="margin-top:7px"></span><span data-clock-text>Northern Ireland</span></p>
-      </div>
-    </div>
-    <div class="footer-base">
-      <span>© 2026 Daniel Young. Last updated 2 November 2026.</span>
-      <button class="kbd-hint" type="button" data-keys>Press <kbd>?</kbd> for keyboard shortcuts</button>
-    </div>
-  </div>
-</footer>
-<dialog class="keys" aria-labelledby="keys-title">
-  <h2 id="keys-title">Keyboard shortcuts</h2>
-  <dl>
-    <dt><kbd>g</kbd> <kbd>h</kbd></dt><dd>Home</dd>
-    <dt><kbd>g</kbd> <kbd>w</kbd></dt><dd>Work</dd>
-    <dt><kbd>g</kbd> <kbd>a</kbd></dt><dd>About</dd>
-    <dt><kbd>g</kbd> <kbd>n</kbd></dt><dd>Notes</dd>
-    <dt><kbd>g</kbd> <kbd>c</kbd></dt><dd>Contact</dd>
-    <dt><kbd>t</kbd></dt><dd>Switch theme: auto, light, dark</dd>
-    <dt><kbd>?</kbd></dt><dd>Show this list</dd>
-  </dl>
-  <form method="dialog"><button class="btn ghost" type="submit">Close</button></form>
-</dialog>
-<div class="preview" aria-hidden="true"><img alt=""></div>
+  <footer class="foot">
+    <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>
+    <div class="links"><a href="/cv/">CV</a><a href="/work/">All work</a></div>
+  </footer>
+
+</div>
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  document.documentElement.classList.add('js');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}});
+  },{rootMargin:'0px 0px -8% 0px',threshold:.05});
+  els.forEach(function(el){io.observe(el)});
+})();
+</script>
 </body>
 </html>
