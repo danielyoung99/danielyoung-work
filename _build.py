@@ -252,10 +252,16 @@ def render_case(s, tpl, prev, nxt):
         pager.append('    <a class="%s" href="%s"><span>%s</span><b>%s</b></a>' % (cls, href, esc(label), esc(name)))
     page_title = s.get('page-title') or (plain(s['name']) + ' · Daniel Young')
     desc = esc(plain(s['description']), True)
+    pagernav = '  <nav class="pager" aria-label="More work">\n%s\n  </nav>\n\n' % '\n'.join(pager)
+    return fill_page(tpl, page_title, desc, '/work/%s/' % s['slug'], s['title'], facts, '\n'.join(parts),
+                     pagernav, ' aria-current="page"', '/#work', 'Work')
+
+
+def fill_page(tpl, page_title, desc, url, h1, facts, body, pagernav, current, backhref, backlabel):
     out = tpl
-    for key, val in (('{{PAGETITLE}}', esc(page_title)), ('{{DESC}}', desc), ('{{SLUG}}', s['slug']),
-                     ('{{H1}}', esc(s['title'])), ('{{FACTS}}', facts), ('{{BODY}}', '\n'.join(parts)),
-                     ('{{PAGER}}', '\n'.join(pager))):
+    for key, val in (('{{PAGETITLE}}', esc(page_title)), ('{{DESC}}', desc), ('{{URL}}', url),
+                     ('{{H1}}', esc(h1)), ('{{FACTS}}', facts), ('{{BODY}}', body), ('{{PAGERNAV}}', pagernav),
+                     ('{{CURRENT}}', current), ('{{BACKHREF}}', backhref), ('{{BACKLABEL}}', esc(backlabel))):
         out = out.replace(key, val)
     return out
 
@@ -283,6 +289,101 @@ def render_card(s, index):
             '      <div class="pair %s">%s</div>\n'
             '      <div class="cap"><div class="eyebrow">%s</div><p class="line">%s</p></div>\n'
             '    </a>') % (v, s['slug'], order, inner, esc(s['name']), esc(s['card']))
+
+
+# ---------------------------------------------------------------- simple text pages (e.g. privacy policies)
+def parse_page(name):
+    path = os.path.join(CONTENT, 'pages', name)
+    text = read(path).replace('\r\n', '\n')
+    parts = re.split(r'(?m)^---[ \t]*$', text, maxsplit=1)
+    if len(parts) != 2:
+        raise Problem('%s needs a line with just --- between the details and the page.' % name)
+    d = {'facts': [], 'redirect': [], 'blocks': []}
+    for line in parts[0].split('\n'):
+        if not line.strip() or line.lstrip().startswith('//'):
+            continue
+        k, v = line.split(':', 1)
+        k, v = k.strip().lower(), v.strip()
+        if k == 'fact':
+            a, c = v.split('|', 1)
+            d['facts'].append((a.strip(), c.strip()))
+        elif k == 'redirect-from':
+            d['redirect'].append(v.strip('/'))
+        elif k in ('path', 'title', 'name', 'description', 'back'):
+            d[k] = v
+        else:
+            raise Problem('%s: unknown detail "%s".' % (name, k))
+    for k in ('path', 'title', 'name', 'description', 'back'):
+        if not d.get(k):
+            raise Problem('%s: "%s:" is missing.' % (name, k))
+    cur, para = None, []
+
+    def flush():
+        if para and cur is not None:
+            cur['items'].append(('p', ' '.join(para)))
+        del para[:]
+    for raw in parts[1].split('\n'):
+        line = raw.rstrip()
+        if line.lstrip().startswith('//'):
+            continue
+        if not line.strip():
+            flush()
+        elif line.startswith('# '):
+            flush()
+            cur = {'heading': line[2:].strip(), 'items': []}
+            d['blocks'].append(cur)
+        elif line.startswith('- '):
+            flush()
+            if cur is None:
+                raise Problem('%s: put a "# Heading" before the text.' % name)
+            cur['items'].append(('li', line[2:].strip()))
+        elif cur is None:
+            raise Problem('%s: put a "# Heading" before the text.' % name)
+        else:
+            para.append(line.strip())
+    flush()
+    return d
+
+
+def render_page(d, tpl):
+    body = []
+    for blk in d['blocks']:
+        inner, items = '', blk['items']
+        k = 0
+        while k < len(items):
+            if items[k][0] == 'li':
+                lis = ''
+                while k < len(items) and items[k][0] == 'li':
+                    lis += '<li>%s</li>' % esc(items[k][1])
+                    k += 1
+                inner += '<ul>%s</ul>' % lis
+            else:
+                inner += '<p>%s</p>' % esc(items[k][1])
+                k += 1
+        body.append('<section class="txt rv"><h2>%s</h2><div>%s</div></section>' % (esc(blk['heading']), inner))
+    facts = '\n'.join('        <div><dt>%s</dt><dd>%s</dd></div>' % (esc(a), esc(b)) for a, b in d['facts'])
+    bits = [x.strip() for x in d['back'].split('|')]
+    if len(bits) != 2:
+        raise Problem('"back:" needs "link | label".')
+    url = '/' + d['path'].strip('/') + '/'
+    return fill_page(tpl, plain(d['name']) + ' \u00b7 Daniel Young', esc(plain(d['description']), True), url,
+                     d['title'], facts, '\n'.join(body), '', '', bits[0], bits[1])
+
+
+REDIRECT = '''<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>{name} | Daniel Young</title>
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url={url}">
+<link rel="canonical" href="https://danielyoung.work{url}">
+</head>
+<body>
+<p>This page has moved to <a href="{url}">{name}</a>.</p>
+</body>
+</html>
+'''
 
 
 def read_order():
@@ -330,6 +431,20 @@ def build():
     out = tpl.replace('{{HERO}}', esc(home['hero'])).replace('{{LEDE}}', esc(home['lede'])).replace('{{WORK}}', cards)
     if write_if_changed(os.path.join(ROOT, 'index.html'), out):
         changed.append('index.html')
+    pdir = os.path.join(CONTENT, 'pages')
+    npages = 0
+    if os.path.isdir(pdir):
+        for f in sorted(os.listdir(pdir)):
+            if not f.endswith('.txt'):
+                continue
+            d = parse_page(f)
+            npages += 1
+            url = '/' + d['path'].strip('/') + '/'
+            if write_if_changed(os.path.join(ROOT, d['path'].strip('/'), 'index.html'), render_page(d, case_tpl)):
+                changed.append(d['path'].strip('/') + '/index.html')
+            for old in d['redirect']:
+                if write_if_changed(os.path.join(ROOT, old, 'index.html'), REDIRECT.format(name=plain(d['name']), url=url)):
+                    changed.append(old + '/index.html')
     # warn about leftovers
     listed = set(order)
     for f in sorted(os.listdir(os.path.join(CONTENT, 'studies'))):
@@ -338,7 +453,7 @@ def build():
     for d in sorted(os.listdir(os.path.join(ROOT, 'work'))):
         if os.path.isfile(os.path.join(ROOT, 'work', d, 'index.html')) and d not in listed:
             print('Note: work/%s/ still exists but is no longer in order.txt (the old page stays live until you delete that folder).' % d)
-    print('Built %d case studies and the home page.' % len(studies))
+    print('Built %d case studies, %d text pages and the home page.' % (len(studies), npages))
     print('Changed: ' + (', '.join(changed) if changed else 'nothing (already up to date)'))
 
 

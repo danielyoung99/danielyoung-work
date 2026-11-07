@@ -125,6 +125,11 @@ h1 em{font-style:normal;color:var(--mute)}
 .txt div{grid-column:4 / span 6;max-width:36em}
 .txt p{font-size:clamp(18px,1.7vw,22px);line-height:1.4;text-wrap:pretty}
 .txt p + p{margin-top:1em}
+.txt ul{margin-top:1em;padding-left:1.1em}
+.txt p + ul,.txt ul + p{margin-top:1em}
+.txt li{font-size:clamp(18px,1.7vw,22px);line-height:1.4;text-wrap:pretty}
+.txt li + li{margin-top:.5em}
+.txt a{text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:1px}
 .quote{
   max-width:20em;
   margin:0 0 clamp(56px,8vw,120px) calc((100% + var(--gap)) / 12 * 3);

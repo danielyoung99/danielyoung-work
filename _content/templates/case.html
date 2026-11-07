@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{PAGETITLE}}</title>
 <meta name="description" content="{{DESC}}">
-<link rel="canonical" href="https://danielyoung.work/work/{{SLUG}}/">
+<link rel="canonical" href="https://danielyoung.work{{URL}}">
 <meta property="og:title" content="{{PAGETITLE}}">
 <meta property="og:description" content="{{DESC}}">
-<meta property="og:url" content="https://danielyoung.work/work/{{SLUG}}/">
+<meta property="og:url" content="https://danielyoung.work{{URL}}">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#dfdfd8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121211" media="(prefers-color-scheme: dark)">
@@ -22,7 +22,7 @@
   <header class="top">
     <a href="/" aria-label="Daniel Young, home">Daniel Young</a>
     <nav aria-label="Main">
-      <a href="/#work" aria-current="page">Work</a>
+      <a href="/#work"{{CURRENT}}>Work</a>
       <a href="/#about">About</a>
       <a href="mailto:info@danielyoung.work">Contact</a>
     </nav>
@@ -30,7 +30,7 @@
 
   <main id="main">
     <section class="hero">
-      <a class="back" href="/#work">&larr; Work</a>
+      <a class="back" href="{{BACKHREF}}">&larr; {{BACKLABEL}}</a>
       <h1>{{H1}}</h1>
       <dl class="facts">
 {{FACTS}}
@@ -40,11 +40,7 @@
 {{BODY}}
   </main>
 
-  <nav class="pager" aria-label="More work">
-{{PAGER}}
-  </nav>
-
-  <footer class="foot">
+{{PAGERNAV}}  <footer class="foot">
     <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>
     <div class="links"><a href="/cv/">CV</a><a href="/work/">All work</a></div>
   </footer>

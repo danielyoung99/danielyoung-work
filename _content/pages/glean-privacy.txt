@@ -1,0 +1,71 @@
+// A text page. The details are above the --- line, the page is below it.
+// "redirect-from" leaves a stub at the old address so existing links keep working.
+path: glean/privacy
+name: Glean privacy policy
+title: Glean <em>privacy policy</em>
+description: What the Glean app does with your information.
+back: /work/chapter-and-verse/ | Glean
+fact: Last updated | 7 November 2026
+fact: App | Glean for iPhone and iPad
+fact: Contact | info@danielyoung.work
+redirect-from: chapter-and-verse/privacy
+redirect-from: selah/privacy
+
+---
+
+# Summary
+
+Glean is a Bible reading and study app for iPhone and iPad, made by Daniel Young. This page says what the app does with your information. The short version: I don't run a server for Glean, I don't have your data, and nothing in the app tracks you.
+
+# What stays with you
+
+Your notes, handwritten pages, photos you add to notes, highlights, underlines, bookmarks, prayer points, reading progress and settings are stored on your device. If you are signed in to iCloud, Glean also keeps them in your private iCloud storage so they appear on your other devices. That storage belongs to your Apple account. I can't see it or get into it.
+
+# What Glean asks the internet for
+
+Glean downloads Bible text and word definitions when you read or study. These requests go to other services, not to me:
+
+- getBible (api.getbible.net) supplies the King James Version, and a one-off download of the King James text that powers word search.
+- API.Bible (rest.api.bible) supplies the New King James Version and the New American Standard Bible. Glean sends the book and chapter you are opening, along with the app's own access key.
+- bolls.life supplies original-language words and definitions. Glean sends the verse or Strong's number you are studying.
+
+Like any website or service, these providers can see your IP address when your device contacts them. Glean doesn't send them your name, your notes, your prayers or an account, because Glean has no accounts. Each service has its own privacy policy.
+
+# Sharing prayer points
+
+If you share a prayer point, Glean uses Apple's iCloud sharing. The people you invite can see that prayer point, who shared it, who else is in the group, and who marked it complete. They see the name Apple shows for each person's iCloud account. You can stop sharing at any time. Anything you haven't shared stays private.
+
+# Camera, photos and handwriting
+
+Glean asks for the camera only when you add a photo to a note. Photos you pick from your library or Files are copied into the note. The camera and photos are used for nothing else. When you write by hand with the Apple Pencil, the words are read on your device using Apple's text recognition. The handwriting doesn't leave your device, except as part of your notes in your own iCloud.
+
+# Notifications and widgets
+
+Prayer and reading reminders are scheduled on your device. They don't go through a server. The Home Screen and Lock Screen widgets show the verse of the day and your streaks, using data kept on your device.
+
+# Spotlight and Shortcuts
+
+Glean lets iOS index the titles and text of your notes so you can find them in Spotlight and use them in Shortcuts. That index stays on your device and is handled by Apple.
+
+# What Glean doesn't do
+
+- No advertising and no advertising identifier.
+- No analytics, crash reporting or tracking of any kind.
+- No account, sign-up or email address needed.
+- No selling or sharing of your information, because I don't have it.
+
+# Deleting your data
+
+Delete a note, highlight, bookmark or prayer point in the app and it is removed from your devices and from your iCloud. Deleting Glean from a device removes the data stored on that device. To remove everything from iCloud as well, go to Settings, tap your name, then iCloud, Manage Account Storage, and delete Glean's data.
+
+# Children
+
+Glean doesn't collect personal information from anyone, children included.
+
+# Changes to this policy
+
+If the app starts doing something new with your information, I'll update this page and the date at the top before the change reaches you.
+
+# Contact
+
+Questions about this policy or the app: <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>
