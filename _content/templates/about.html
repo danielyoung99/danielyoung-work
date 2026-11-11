@@ -71,6 +71,14 @@ h1{
   h1{font-size:clamp(26px,7vw,34px);line-height:1.16}
 }
 
+/* photos at work */
+.shots{display:grid;gap:clamp(12px,2.6vw,40px);margin-bottom:clamp(72px,9vw,128px);align-items:start}
+.shots.n1{grid-template-columns:minmax(0,1fr);max-width:960px}
+.shots.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.shots.n3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.shots figure{margin:0;overflow:hidden;border-radius:var(--r);background:var(--block)}
+.shots img{display:block;width:100%;height:auto}
+@media (max-width:760px){.shots.n2,.shots.n3{grid-template-columns:1fr}}
 /* about */
 .about{
   display:grid;
@@ -152,10 +160,8 @@ h1{
     <h1 class="rv">{{LEDE}}</h1>
   </section>
 
+{{PHOTOS}}
   <section class="about" aria-label="Experience, awards and education">
-    <div class="side rv">
-      <div class="photo" role="img" aria-label="Photo of Daniel to come"></div>
-    </div>
     <div class="main">
       <h2 class="label rv">Experience</h2>
       <ul class="roles rv">
@@ -219,7 +225,6 @@ h1{
       <a href="https://www.instagram.com/danielyoung.work/" rel="me noopener" target="_blank">Instagram</a>
       <a href="https://x.com/danielyoungwork" rel="me noopener" target="_blank">X</a>
     </div>
-    <div class="links"><a href="/work/">All work</a></div>
   </footer>
 
 </div>

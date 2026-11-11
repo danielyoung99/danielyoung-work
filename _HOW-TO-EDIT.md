@@ -112,6 +112,14 @@ An item can have its own write-up page. Put a text file in `_content/lab/` (it w
 
 Below the work, the home page shows the three newest notes (by date) and the first four items in `_content/lab.txt`. Nothing to set up: add a note or change the order in `lab.txt` and run the build. A Lab card with no `link:` goes to the Lab page.
 
+## Adding your photos
+
+- **Headshot on the home page:** save it as `assets/img/headshot.jpg` (or .png, .webp). Portrait, about 4:5 (for example 1200 x 1500). Until it exists the home page shows an empty space. Run the build and it swaps in.
+- **Photos of you at work on the About page:** put the files in `assets/img/about/`, then add one line each to `_content/about.txt`: `photo: about/my-photo.jpg | A short description of the photo.` Up to three look best. With none, the section is left out.
+- **Lab card pictures on the home page:** in `_content/lab.txt` add `card: folder/file.jpg | description` (landscape, 3:2). Without one, the card shows the first letter of the name.
+- **Previous and Next cards on a case study** use that study's landscape picture from its `home:` line, so nothing extra to do. For Lab pages and notes (no picture yet) the card shows the name on a tinted block.
+- **Home page work:** the home page shows the first five case studies in `order.txt`, then a "See all work" link.
+
 ## Add a case study
 
 ```

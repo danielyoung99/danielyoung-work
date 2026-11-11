@@ -19,6 +19,9 @@ class Problem(Exception):
     pass
 
 
+PAGER_IMG = {}  # page address -> landscape picture, filled in by build() for the Previous / Next cards
+
+
 # ---------------------------------------------------------------- helpers
 def esc(s, attr=False):
     """Escape & (unless it is already an entity). Tags such as <em> are left alone."""
@@ -248,8 +251,15 @@ def render_case(s, tpl, prev, nxt, section='work'):
     facts = '\n'.join('        <div><dt>%s</dt><dd>%s</dd></div>' % (esc(a), esc(b)) for a, b in s['facts'])
     pager = []
     for k, (cls, link) in enumerate((('prev', prev), ('next', nxt))):
-        href, label, name = link
-        pager.append('    <a class="%s" href="%s"><span>%s</span><b>%s</b></a>' % (cls, href, esc(label), esc(name)))
+        href, label, name = link[:3]
+        img = PAGER_IMG.get(href)
+        if img:
+            media = '<span class="pimg"><img src="%s" width="2160" height="1350" loading="lazy" alt=""></span>' % img
+            title = '<b>%s</b>' % esc(name)
+        else:  # no picture yet: the name set large on a tinted block
+            media = '<span class="pimg tile"><span>%s</span></span>' % esc(name)
+            title = ''
+        pager.append('    <a class="pc %s" href="%s">%s<span class="plabel">%s</span>%s</a>' % (cls, href, media, esc(label), title))
     page_title = s.get('page-title') or (plain(s['name']) + ' · Daniel Young')
     desc = esc(plain(s['description']), True)
     pagernav = '  <nav class="pager" aria-label="More work">\n%s\n  </nav>\n\n' % '\n'.join(pager)
@@ -266,6 +276,28 @@ def fill_page(tpl, page_title, desc, url, h1, facts, body, pagernav, current, ba
                      ('{{H1}}', esc(h1)), ('{{FACTS}}', facts), ('{{BODY}}', body), ('{{PAGERNAV}}', pagernav),
                      ('{{CURRENT}}', current), ('{{BACKHREF}}', backhref), ('{{BACKLABEL}}', esc(backlabel))):
         out = out.replace(key, val)
+    return out
+
+
+def land_src(s):
+    """The landscape picture a study uses on the home page (used for the Previous / Next cards)."""
+    for part in s['home'].split(' + '):
+        i = resolve(s, part.split(' | ')[0].strip())
+        if is_land(i):
+            return i['src']
+    return None
+
+
+def load_lab_studies():
+    ldir = os.path.join(CONTENT, 'lab')
+    out = []
+    if os.path.isdir(ldir):
+        for f in sorted(os.listdir(ldir)):
+            if f.endswith('.txt'):
+                s = parse_study(f[:-4], 'lab')
+                if not (s['prev'] and s['next']):
+                    raise Problem('lab/%s: give both "prev:" and "next:".' % f)
+                out.append(s)
     return out
 
 
@@ -462,11 +494,22 @@ def render_home_note(n):
 def render_home_lab(d):
     href = d.get('link') or '/lab/'
     ext = href.startswith('http')
-    built = '<span class="built">Built with %s</span>' % esc(d['built']) if d.get('built') else ''
+    pic = d.get('card') or d.get('image')
+    if pic:
+        src, _, alt = pic.partition('|')
+        src = src.strip()
+        p = os.path.join(ROOT, 'assets', 'img', src)
+        if not os.path.exists(p):
+            raise Problem('_content/lab.txt: the image assets/img/%s does not exist.' % src)
+        w, h = image_size(p)
+        media = '<span class="cimg"><img src="/assets/img/%s" width="%d" height="%d" loading="lazy" alt="%s"></span>' % (src, w, h, esc(alt.strip(), True))
+    else:  # no picture yet: the first letter, large, on a tinted block
+        media = '<span class="cimg"><span class="ctile" aria-hidden="true">%s</span></span>' % esc(d['name'][:1])
     return ('    <a class="card lcard rv" href="%s"%s>\n'
+            '      %s\n'
             '      <span class="kind">%s</span>\n'
-            '      <h3>%s</h3><p>%s</p>%s\n'
-            '    </a>') % (esc(href, True), ' target="_blank" rel="noopener"' if ext else '', esc(d['kind']), esc(d['name']), esc(plain(d['summary'])), built)
+            '      <h3>%s</h3><p>%s</p>\n'
+            '    </a>') % (esc(href, True), ' target="_blank" rel="noopener"' if ext else '', media, esc(d['kind']), esc(d['name']), esc(plain(d['summary'])))
 
 
 def build_notes(changed):
@@ -499,7 +542,7 @@ def parse_projects():
                 raise Problem('_content/lab.txt: expected "name: value" but found "%s".' % line)
             k, v = line.split(':', 1)
             k = k.strip().lower()
-            if k not in ('name', 'kind', 'year', 'summary', 'built', 'link', 'action', 'image'):
+            if k not in ('name', 'kind', 'year', 'summary', 'built', 'link', 'action', 'image', 'card'):
                 raise Problem('_content/lab.txt: unknown detail "%s".' % k)
             d[k] = v.strip()
         if not d:
@@ -657,6 +700,11 @@ def read_keys(name, keys):
 def build():
     order = read_order()
     studies = [parse_study(x) for x in order]
+    lab_studies = load_lab_studies()
+    for s in studies:
+        PAGER_IMG['/work/%s/' % s['slug']] = land_src(s)
+    for s in lab_studies:
+        PAGER_IMG['/lab/%s/' % s['slug']] = land_src(s)
     ring = [s for s in studies if not (s['prev'] or s['next'])]
     case_tpl = read(os.path.join(CONTENT, 'templates', 'case.html'))
     changed = []
@@ -674,15 +722,37 @@ def build():
             changed.append('work/%s/index.html' % s['slug'])
     home = read_keys('home.txt', ('hero',))
     tpl = read(os.path.join(CONTENT, 'templates', 'home.html'))
-    cards = '\n'.join(render_card(s, k) for k, s in enumerate(studies))
+    cards = '\n'.join(render_card(s, k) for k, s in enumerate(studies[:5]))
+    head = ''
+    for ext in ('jpg', 'jpeg', 'png', 'webp'):
+        hp = os.path.join(ROOT, 'assets', 'img', 'headshot.' + ext)
+        if os.path.exists(hp):
+            w, h = image_size(hp) if ext in ('jpg', 'jpeg', 'png') else (1080, 1350)
+            head = '<figure class="headshot rv"><img src="/assets/img/headshot.%s" width="%d" height="%d" alt="Daniel Young"></figure>' % (ext, w, h)
+            break
+    if not head:  # a space for the photo until the file is added
+        head = '<div class="headshot rv" role="img" aria-label="Photo of Daniel to come"></div>'
     note_cards = '\n'.join(render_home_note(n) for n in load_notes()[:3])
     lab_cards = '\n'.join(render_home_lab(d) for d in parse_projects()[:4])
-    out = tpl.replace('{{HERO}}', esc(home['hero'])).replace('{{WORK}}', cards).replace('{{NOTES}}', note_cards).replace('{{LABCARDS}}', lab_cards)
+    out = tpl.replace('{{HERO}}', esc(home['hero'])).replace('{{WORK}}', cards).replace('{{HEADSHOT}}', head).replace('{{WORKCOUNT}}', str(len(studies))).replace('{{NOTES}}', note_cards).replace('{{LABCARDS}}', lab_cards)
     if write_if_changed(os.path.join(ROOT, 'index.html'), out):
         changed.append('index.html')
     about = read_keys('about.txt', ('lede',))
     tpl = read(os.path.join(CONTENT, 'templates', 'about.html'))
-    if write_if_changed(os.path.join(ROOT, 'about', 'index.html'), tpl.replace('{{LEDE}}', esc(about['lede']))):
+    shots = []
+    for line in read(os.path.join(CONTENT, 'about.txt')).split('\n'):
+        if line.startswith('photo:'):
+            src, _, alt = line[6:].partition('|')
+            src = src.strip()
+            pp = os.path.join(ROOT, 'assets', 'img', src)
+            if not os.path.exists(pp):
+                raise Problem('_content/about.txt: the image assets/img/%s does not exist.' % src)
+            w, h = image_size(pp)
+            shots.append('<figure><img src="/assets/img/%s" width="%d" height="%d" loading="lazy" alt="%s"></figure>' % (src, w, h, esc(alt.strip(), True)))
+    photos = ''
+    if shots:
+        photos = '  <section class="shots n%d rv" aria-label="Daniel at work">\n    %s\n  </section>\n' % (min(len(shots), 3), '\n    '.join(shots))
+    if write_if_changed(os.path.join(ROOT, 'about', 'index.html'), tpl.replace('{{LEDE}}', esc(about['lede'])).replace('{{PHOTOS}}', photos)):
         changed.append('about/index.html')
     if write_if_changed(os.path.join(ROOT, '404.html'), read(os.path.join(CONTENT, 'templates', '404.html'))):
         changed.append('404.html')
@@ -699,15 +769,9 @@ def build():
     if write_if_changed(os.path.join(ROOT, 'lab', 'index.html'), read(os.path.join(CONTENT, 'templates', 'lab.html')).replace('{{ROWS}}', rows)):
         changed.append('lab/index.html')
     # pages that sit in the Lab (written up like a case study, but they are my own builds)
-    ldir = os.path.join(CONTENT, 'lab')
-    if os.path.isdir(ldir):
-        for f in sorted(os.listdir(ldir)):
-            if f.endswith('.txt'):
-                s = parse_study(f[:-4], 'lab')
-                if not (s['prev'] and s['next']):
-                    raise Problem('lab/%s: give both "prev:" and "next:".' % f)
-                if write_if_changed(os.path.join(ROOT, 'lab', s['slug'], 'index.html'), render_case(s, case_tpl, s['prev'], s['next'], 'lab')):
-                    changed.append('lab/%s/index.html' % s['slug'])
+    for s in lab_studies:
+        if write_if_changed(os.path.join(ROOT, 'lab', s['slug'], 'index.html'), render_case(s, case_tpl, s['prev'], s['next'], 'lab')):
+            changed.append('lab/%s/index.html' % s['slug'])
     # old addresses that now redirect
     for old_dir, new_url, label in MOVED:
         if write_if_changed(os.path.join(ROOT, old_dir, 'index.html'), REDIRECT.format(name=label, url=new_url)):

@@ -1,2 +1,6 @@
 // The large paragraph at the top of the About page. Experience and Education are in templates/about.html.
 lede: I started as a graphic designer, and I still care about the details, right down to leading, orphans and widows. Now I design brands that come alive in the digital world, and keep developing through AI with my creative work at the core.
+
+// Photos of me at work, shown as a row below the intro. Put the files in assets/img/about/ and add one line each
+// (up to three look best), then run the build. With no photo: lines, the section is left out.
+//   photo: about/at-work-1.jpg | A short description of the photo.

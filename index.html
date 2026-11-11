@@ -133,11 +133,15 @@ h1{
 .ncard .meta b{color:var(--ink);font-weight:500}
 .ncard h3{margin-top:clamp(28px,4vw,56px);font-size:clamp(22px,2.2vw,30px)}
 .ncard .len{margin-top:auto;padding-top:20px;color:var(--mute);font-size:15px}
-.lcard{border:1px solid var(--rule);min-height:clamp(200px,17vw,240px)}
-.lcard:hover{border-color:var(--ink)}
-.lcard .kind{color:var(--mute);font-size:15px;line-height:1.3}
-.lcard h3{margin-top:clamp(20px,2.6vw,36px);font-size:clamp(22px,2vw,26px)}
-.lcard .built{margin-top:auto;padding-top:16px;color:var(--mute);font-size:14px}
+.lcard{padding:0;border-radius:0;gap:0}
+.lcard .cimg{display:block;overflow:hidden;border-radius:var(--cr);aspect-ratio:3/2;background:var(--block)}
+.lcard .cimg img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.lcard:hover .cimg img{transform:scale(1.05)}
+.lcard .ctile{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-weight:500;font-size:clamp(72px,9vw,128px);line-height:1;letter-spacing:-.04em;color:var(--mute);opacity:.5;transition:opacity .2s}
+.lcard:hover .ctile{opacity:.9}
+.lcard .kind{margin-top:16px;color:var(--mute);font-size:15px;line-height:1.3}
+.lcard h3{margin-top:6px;font-size:clamp(22px,2vw,26px)}
+.lcard p{-webkit-line-clamp:2}
 @media (max-width:1000px){
   .cards.n{grid-template-columns:1fr}
   .ncard{min-height:0}
@@ -145,10 +149,24 @@ h1{
   .cards.l{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:560px){
-  .cards.l{grid-template-columns:1fr}
-  .lcard{min-height:0}
-  .lcard .built{padding-top:12px;margin-top:0}
+  .cards.l{row-gap:28px}
+  .lcard p{display:none}
+  .lcard h3{font-size:20px}
 }
+
+/* hero with a space for a headshot */
+.hero-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(12px,2.6vw,40px);align-items:end}
+.hero-grid h1{grid-column:1 / span 9}
+.headshot{grid-column:10 / span 3;margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:var(--r);background:var(--block)}
+.headshot img{display:block;width:100%;height:100%;object-fit:cover}
+@media (max-width:760px){
+  .hero-grid{display:block}
+  .headshot{width:clamp(120px,38vw,168px);margin-top:44px}
+}
+.all{margin-top:clamp(56px,7vw,104px);display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 24px}
+.all a{font-weight:500;font-size:clamp(30px,4.4vw,64px);line-height:1.05;letter-spacing:-.03em;transition:color .15s}
+.all a:hover{color:var(--mute)}
+.all .count{color:var(--mute);font-size:17px}
 
 .foot{
   margin-top:clamp(96px,12vw,176px);
@@ -186,7 +204,10 @@ h1{
   </header>
 
   <section class="hero" id="top">
-    <h1 class="rv">I'm Daniel, a senior designer building brands that work for people, and for AI.</h1>
+    <div class="hero-grid">
+      <h1 class="rv">I'm Daniel, a senior designer building brands that work for people, and for AI.</h1>
+      <div class="headshot rv" role="img" aria-label="Photo of Daniel to come"></div>
+    </div>
   </section>
 
   <section class="work" id="work" aria-label="Selected work">
@@ -210,27 +231,9 @@ h1{
       <div class="pair pl"><div class="ph p"><img src="/assets/img/case-studies/belfast-healthy-cities/05-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Belfast Healthy Cities, identity in use, portrait."></div><div class="ph l"><img src="/assets/img/case-studies/belfast-healthy-cities/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Belfast Healthy Cities, identity in use, landscape."></div></div>
       <div class="cap"><div class="eyebrow">Belfast Healthy Cities</div><p class="line">I designed the brand identity, from logo and colour to the identity in use.</p></div>
     </a>
-    <a class="work-item v-a rv" href="/work/bored-of-lunch/">
-      <div class="pair lp"><div class="ph l"><img src="/assets/img/case-studies/bored-of-lunch/04-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Bored of Lunch, identity in use, landscape."></div><div class="ph p"><img src="/assets/img/case-studies/bored-of-lunch/06-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Bored of Lunch, identity in use, portrait."></div></div>
-      <div class="cap"><div class="eyebrow">Bored of Lunch</div><p class="line">I designed the brand identity, from logo and colour to the identity in use.</p></div>
-    </a>
-    <a class="work-item v-b rv" href="/work/colloide/">
-      <div class="pair pl"><div class="ph p"><img src="/assets/img/case-studies/colloide/05-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Colloide, identity in use, portrait."></div><div class="ph l"><img src="/assets/img/case-studies/colloide/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Colloide, identity in use, landscape."></div></div>
-      <div class="cap"><div class="eyebrow">Colloide</div><p class="line">A business repositioning around sustainability. I worked on the brand strategy, identity and website.</p></div>
-    </a>
-    <a class="work-item v-c rv" href="/work/sg-elite/">
-      <div class="pair pl"><div class="ph p"><img src="/assets/img/case-studies/sg-elite/05-portrait.jpg" width="1080" height="1350" loading="lazy" alt="SG Elite, identity in use, portrait."></div><div class="ph l"><img src="/assets/img/case-studies/sg-elite/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt="SG Elite, identity in use, landscape."></div></div>
-      <div class="cap"><div class="eyebrow">SG Elite</div><p class="line">A growing business with a rushed identity. I did the brand strategy and identity, and worked with a UI designer on the website.</p></div>
-    </a>
-    <a class="work-item v-d rv" href="/work/stem-systems/">
-      <div class="pair lp"><div class="ph l"><img src="/assets/img/case-studies/stem-systems/04-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Stem Systems, identity in use, landscape."></div><div class="ph p"><img src="/assets/img/case-studies/stem-systems/07-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Stem Systems, identity in use, portrait."></div></div>
-      <div class="cap"><div class="eyebrow">Stem Systems</div><p class="line">An IT business scaling into the Republic of Ireland. I led the brand strategy and a warm, human identity.</p></div>
-    </a>
-    <a class="work-item v-e rv" href="/work/thornton/">
-      <div class="pair pl"><div class="ph p"><img src="/assets/img/case-studies/thornton/05-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Thornton, identity in use, portrait."></div><div class="ph l"><img src="/assets/img/case-studies/thornton/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Thornton, identity in use, landscape."></div></div>
-      <div class="cap"><div class="eyebrow">Thornton</div><p class="line">I designed the brand identity, from logo and colour to the identity in use.</p></div>
-    </a>
   </section>
+
+  <div class="all rv"><a href="/work/">See all work <span aria-hidden="true">&rarr;</span></a><span class="count">10 case studies</span></div>
 
   <section class="band" aria-label="From the notes">
     <div class="band-head rv"><h2>From the notes</h2><a href="/notes/">All notes &rarr;</a></div>
@@ -254,20 +257,24 @@ h1{
     <div class="band-head rv"><h2>From the Lab</h2><a href="/lab/">Everything in the Lab &rarr;</a></div>
     <div class="cards l">
     <a class="card lcard rv" href="/lab/chapter-and-verse/">
+      <span class="cimg"><img src="/assets/img/chapter-and-verse/ipad-reader.jpg" width="2160" height="1440" loading="lazy" alt="Chapter &amp; Verse on iPad, with a study note open beside the text."></span>
       <span class="kind">Bible study app for iPhone and iPad</span>
-      <h3>Chapter &amp; Verse</h3><p>Reading, study notes and prayer in one calm app. I designed and built it.</p><span class="built">Built with SwiftUI, SwiftData, iCloud, Claude</span>
+      <h3>Chapter &amp; Verse</h3><p>Reading, study notes and prayer in one calm app. I designed and built it.</p>
     </a>
     <a class="card lcard rv" href="/notes/lights-out-belfast/">
+      <span class="cimg"><span class="ctile" aria-hidden="true">L</span></span>
       <span class="kind">Interactive 3D map</span>
-      <h3>Lights Out Belfast</h3><p>Nobody keeps an address-level list of empty buildings in Belfast. So I built a map you can look at instead.</p><span class="built">Built with MapLibre, OpenFreeMap, Claude</span>
+      <h3>Lights Out Belfast</h3><p>Nobody keeps an address-level list of empty buildings in Belfast. So I built a map you can look at instead.</p>
     </a>
     <a class="card lcard rv" href="/lab/">
+      <span class="cimg"><span class="ctile" aria-hidden="true">S</span></span>
       <span class="kind">Lawn care app for iPhone</span>
-      <h3>Stripes</h3><p>The lawn on screen grows and fades as the next mow gets close, with a log for every lawn job.</p><span class="built">Built with SwiftUI, Claude</span>
+      <h3>Stripes</h3><p>The lawn on screen grows and fades as the next mow gets close, with a log for every lawn job.</p>
     </a>
     <a class="card lcard rv" href="/lab/">
+      <span class="cimg"><span class="ctile" aria-hidden="true">C</span></span>
       <span class="kind">Focus and break timer</span>
-      <h3>Cadence</h3><p>A full-screen timer for focus and breaks, with notifications and a Live Activity on the lock screen.</p><span class="built">Built with SwiftUI, Claude</span>
+      <h3>Cadence</h3><p>A full-screen timer for focus and breaks, with notifications and a Live Activity on the lock screen.</p>
     </a>
     </div>
   </section>
@@ -279,7 +286,6 @@ h1{
       <a href="https://www.instagram.com/danielyoung.work/" rel="me noopener" target="_blank">Instagram</a>
       <a href="https://x.com/danielyoungwork" rel="me noopener" target="_blank">X</a>
     </div>
-    <div class="links"><a href="/work/">All work</a></div>
   </footer>
 
 </div>

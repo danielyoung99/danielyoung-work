@@ -2,7 +2,8 @@
 // Newest or most important first. Only "name", "kind" and "summary" are needed.
 //   link:   where the row goes. A page on this site (/work/x/) or a full web address. Leave it out for no link.
 //   action: the words for the link, e.g. Case study, Build notes, Visit.
-//   image:  a picture in assets/img/, shown beside the text (optional), e.g. chapter-and-verse/phone-read.jpg
+//   image:  a picture in assets/img/, shown beside the text on the Lab page (optional), e.g. chapter-and-verse/phone-read.jpg | A short description.
+//   card:   a landscape picture (3:2) for the home page card. If left out, image is used, and if there is neither the card shows the first letter of the name on a tinted block.
 //   built:  what it was built with.
 
 name: Chapter & Verse
@@ -13,6 +14,7 @@ built: SwiftUI, SwiftData, iCloud, Claude
 link: /lab/chapter-and-verse/
 action: Read more
 image: chapter-and-verse/phone-read.jpg | The Chapter & Verse reading screen on an iPhone.
+card: chapter-and-verse/ipad-reader.jpg | Chapter & Verse on iPad, with a study note open beside the text.
 
 name: Lights Out Belfast
 kind: Interactive 3D map
