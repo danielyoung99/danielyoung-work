@@ -458,6 +458,56 @@ def build_notes(changed):
     return len(notes)
 
 
+# ---------------------------------------------------------------- projects (own apps, sites and tools)
+def parse_projects():
+    path = os.path.join(CONTENT, 'projects.txt')
+    out = []
+    for n, block in enumerate(re.split(r'\n\s*\n', read(path).replace('\r\n', '\n')), 1):
+        d = {}
+        for line in block.split('\n'):
+            if not line.strip() or line.lstrip().startswith('//'):
+                continue
+            if ':' not in line:
+                raise Problem('_content/projects.txt: expected "name: value" but found "%s".' % line)
+            k, v = line.split(':', 1)
+            k = k.strip().lower()
+            if k not in ('name', 'kind', 'year', 'summary', 'built', 'link', 'action', 'image'):
+                raise Problem('_content/projects.txt: unknown detail "%s".' % k)
+            d[k] = v.strip()
+        if not d:
+            continue
+        for k in ('name', 'kind', 'summary'):
+            if not d.get(k):
+                raise Problem('_content/projects.txt: a project is missing "%s:" (%s).' % (k, d.get('name', 'block %d' % n)))
+        out.append(d)
+    return out
+
+
+def render_project(d):
+    meta = '<div class="meta"><b>%s</b>%s</div>' % (esc(d['kind']), esc(d.get('year', '')))
+    inner = '<h2>%s</h2><p>%s</p>' % (esc(d['name']), inline(d['summary']))
+    if d.get('built'):
+        inner += '<span class="built">Built with %s</span>' % esc(d['built'])
+    link = d.get('link')
+    if link:
+        inner += '<span class="go">%s &rarr;</span>' % esc(d.get('action', 'View'))
+    shot = ''
+    if d.get('image'):
+        src, _, alt = d['image'].partition('|')
+        src = src.strip()
+        p = os.path.join(ROOT, 'assets', 'img', src)
+        if not os.path.exists(p):
+            raise Problem('_content/projects.txt: the image assets/img/%s does not exist.' % src)
+        w, h = image_size(p)
+        shot = '<figure class="shot"><span><img src="/assets/img/%s" width="%d" height="%d" loading="lazy" alt="%s"></span></figure>' % (src, w, h, esc(alt.strip(), True))
+    cls = 'proj' if shot else 'proj empty'
+    body = '%s<div class="txt">%s</div>%s' % (meta, inner, shot)
+    if link:
+        ext = link.startswith('http')
+        return '    <li><a class="%s" href="%s"%s>%s</a></li>' % (cls, esc(link, True), ' target="_blank" rel="noopener"' if ext else '', body)
+    return '    <li><div class="%s">%s</div></li>' % (cls, body)
+
+
 # ---------------------------------------------------------------- simple text pages (e.g. privacy policies)
 def parse_page(name):
     path = os.path.join(CONTENT, 'pages', name)
@@ -610,6 +660,9 @@ def build():
     if write_if_changed(os.path.join(ROOT, 'work', 'index.html'), read(os.path.join(CONTENT, 'templates', 'work.html')).replace('{{ROWS}}', rows)):
         changed.append('work/index.html')
     nnotes = build_notes(changed)
+    rows = '\n'.join(render_project(d) for d in parse_projects())
+    if write_if_changed(os.path.join(ROOT, 'projects', 'index.html'), read(os.path.join(CONTENT, 'templates', 'projects.html')).replace('{{ROWS}}', rows)):
+        changed.append('projects/index.html')
     pdir = os.path.join(CONTENT, 'pages')
     npages = 0
     if os.path.isdir(pdir):
@@ -632,7 +685,7 @@ def build():
     for d in sorted(os.listdir(os.path.join(ROOT, 'work'))):
         if os.path.isfile(os.path.join(ROOT, 'work', d, 'index.html')) and d not in listed:
             print('Note: work/%s/ still exists but is no longer in order.txt (the old page stays live until you delete that folder).' % d)
-    print('Built %d case studies, %d notes, %d text pages, the home page, the About, Contact, Work and 404 pages.' % (len(studies), nnotes, npages))
+    print('Built %d case studies, %d notes, %d text pages, the home page, the About, Contact, Work, Projects and 404 pages.' % (len(studies), nnotes, npages))
     print('Changed: ' + (', '.join(changed) if changed else 'nothing (already up to date)'))
 
 

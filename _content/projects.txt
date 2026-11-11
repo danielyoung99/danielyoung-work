@@ -1,0 +1,41 @@
+// My own apps, sites and tools. One block per project, separated by a blank line.
+// Newest or most important first. Only "name", "kind" and "summary" are needed.
+//   link:   where the row goes. A page on this site (/work/x/) or a full web address. Leave it out for no link.
+//   action: the words for the link, e.g. Case study, Build notes, Visit.
+//   image:  a picture in assets/img/, shown beside the text (optional), e.g. chapter-and-verse/phone-read.jpg
+//   built:  what it was built with.
+
+name: Chapter & Verse
+kind: Bible study app for iPhone and iPad
+year: 2026
+summary: Reading, study notes and prayer in one calm app. I designed and built it.
+built: SwiftUI, SwiftData, iCloud, Claude
+link: /work/chapter-and-verse/
+action: Case study
+image: chapter-and-verse/phone-read.jpg | The Chapter & Verse reading screen on an iPhone.
+
+name: Lights Out Belfast
+kind: Interactive 3D map
+year: 2026
+summary: Nobody keeps an address-level list of empty buildings in Belfast. So I built a map you can look at instead.
+built: MapLibre, OpenFreeMap, Claude
+link: /notes/lights-out-belfast/
+action: Build notes
+
+name: Stripes
+kind: Lawn care app for iPhone
+year: 2026
+summary: The lawn on screen grows and fades as the next mow gets close, with a log for every lawn job.
+built: SwiftUI, Claude
+
+name: Cadence
+kind: Focus and break timer
+year: 2026
+summary: A full-screen timer for focus and breaks, with notifications and a Live Activity on the lock screen.
+built: SwiftUI, Claude
+
+name: Glowline Studio
+kind: Light-stroke pattern generator
+year: 2026
+summary: A pattern tool for the web with eight templates. Export to PNG, video or JSON.
+built: JavaScript, Claude

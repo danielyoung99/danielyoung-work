@@ -100,6 +100,10 @@ More paragraphs. Leave a blank line between them. Links look like [this](https:/
 
 A carousel note (like Stem Systems) adds `kind: carousel`, then a `slides:` block (`slide-01.jpg | description`, with the images in `assets/img/notes/<note-name>/`) and a `transcript:` block (`Heading | text`).
 
+## Projects (my own apps, sites and tools)
+
+The Projects page (danielyoung.work/projects/) is a list built from one file, `_content/projects.txt`. Each project is a block of `name: value` lines, with a blank line between projects. Only `name`, `kind` and `summary` are needed. Add `link:` and `action:` to make the row clickable, `image:` for a picture beside the text (the file goes in `assets/img/`), and `built:` for what it was made with. The order in the file is the order on the page.
+
 ## Add a case study
 
 ```
