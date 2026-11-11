@@ -139,7 +139,7 @@ h1{
 <div class="wrap">
 
   <header class="top">
-    <a href="#top" aria-label="Daniel Young, home">Daniel Young</a>
+    <a href="/" aria-label="Daniel Young, home">Daniel Young</a>
     <nav aria-label="Main">
       <a href="#work">Work</a>
       <a href="/lab/">Lab</a>
@@ -208,6 +208,15 @@ h1{
 
 </div>
 <script>
+(function(){
+  // On the home page the name link goes to the very top of the page, not to the hero below the header
+  var home=document.querySelector('.top > a');
+  if(home)home.addEventListener('click',function(e){
+    if(location.pathname!=='/')return;
+    e.preventDefault();
+    window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
+  });
+})();
 (function(){
   var els=document.querySelectorAll('.rv');
   if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
