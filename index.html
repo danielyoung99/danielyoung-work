@@ -146,23 +146,22 @@ h1{
   .cards.n{grid-template-columns:1fr}
   .ncard{min-height:0}
   .ncard .len{padding-top:14px;margin-top:0}
-  .cards.l{grid-template-columns:repeat(2,minmax(0,1fr))}
+  /* phones and small tablets: Lab cards slide sideways, with the next card peeking in */
+  .cards.l{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(var(--gut) * -1);padding:0 var(--gut);scroll-padding:0 var(--gut)}
+  .cards.l::-webkit-scrollbar{display:none}
+  .lcard{flex:0 0 min(72vw,300px);scroll-snap-align:start}
+  .lcard .cimg{aspect-ratio:4/5}
 }
 @media (max-width:560px){
-  .cards.l{row-gap:28px}
-  .lcard p{display:none}
-  .lcard h3{font-size:20px}
+  .lcard p{display:-webkit-box}
+  .lcard h3{font-size:22px}
 }
 
-/* hero with a space for a headshot */
-.hero-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(12px,2.6vw,40px);align-items:end}
-.hero-grid h1{grid-column:1 / span 9}
-.headshot{grid-column:10 / span 3;margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:var(--r);background:var(--block)}
+/* hero: square headshot above the headline */
+.hero-grid{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(28px,3.4vw,48px)}
+.hero-grid h1{max-width:none}
+.headshot{order:-1;margin:0;width:clamp(112px,11vw,168px);aspect-ratio:1/1;overflow:hidden;border-radius:var(--r);background:var(--block)}
 .headshot img{display:block;width:100%;height:100%;object-fit:cover}
-@media (max-width:760px){
-  .hero-grid{display:block}
-  .headshot{width:clamp(120px,38vw,168px);margin-top:44px}
-}
 .all{margin-top:clamp(56px,7vw,104px);display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 24px}
 .all a{font-weight:500;font-size:clamp(30px,4.4vw,64px);line-height:1.05;letter-spacing:-.03em;transition:color .15s}
 .all a:hover{color:var(--mute)}
