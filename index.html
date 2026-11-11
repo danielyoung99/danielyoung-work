@@ -114,54 +114,6 @@ h1{
   .work-item .cap{grid-column:1;grid-row:2;margin-top:20px;max-width:none}
 }
 
-/* about */
-.about{
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  column-gap:clamp(12px,2.6vw,40px);
-  padding:clamp(96px,12vw,176px) 0 0;
-}
-.about .side{grid-column:1 / span 3}
-.about .main{grid-column:4 / span 6;max-width:520px}
-@media (max-width:900px){
-  .about .side{grid-column:1 / -1;margin-bottom:32px}
-  .about .main{grid-column:1 / -1}
-}
-.photo{width:124px;height:124px;background:var(--block);overflow:hidden}
-.photo img{display:block;width:100%;height:100%;object-fit:cover}
-.lede{
-  margin-top:0;
-  font-size:clamp(18px,1.7vw,21px);
-  line-height:1.3;
-  text-wrap:pretty;
-}
-.label{
-  
-  font-weight:500;
-  margin:72px 0 28px;
-  color:var(--mute);
-  font-size:17px;
-  line-height:1.2;
-}
-.roles{list-style:none}
-.roles li{display:flex;align-items:center;gap:32px;margin-bottom:40px}
-.roles li:last-child{margin-bottom:0}
-.thumb{flex:none;width:58px;height:58px;background:var(--block);overflow:hidden}
-.thumb img{display:block;width:100%;height:100%;object-fit:contain;padding:11px}
-.role{font-weight:500;font-size:19px;line-height:1.2}
-.meta{margin-top:4px;color:var(--mute);font-size:15px;line-height:1.3}
-.nw{white-space:nowrap}
-
-.foot{
-  margin-top:clamp(96px,12vw,176px);
-  padding-bottom:40px;
-  display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;
-  color:var(--mute);
-  font-size:15px;
-}
-.foot .links{display:flex;gap:24px}
-.foot a:hover{color:var(--ink)}
-
 @media (prefers-reduced-motion:no-preference){
   .js .rv{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
   .js .rv.on{opacity:1;transform:none}
@@ -175,7 +127,7 @@ h1{
     <a href="#top" aria-label="Daniel Young, home">Daniel Young</a>
     <nav aria-label="Main">
       <a href="#work">Work</a>
-      <a href="#about">About</a>
+      <a href="/about/">About</a>
       <a href="mailto:info@danielyoung.work">Contact</a>
     </nav>
   </header>
@@ -225,43 +177,6 @@ h1{
       <div class="pair pl"><div class="ph p"><img src="/assets/img/chapter-and-verse/phone-read.jpg" width="1080" height="1350" loading="lazy" alt="Chapter &amp; Verse on iPhone, reading view."></div><div class="ph l"><img src="/assets/img/chapter-and-verse/ipad-reader.jpg" width="2160" height="1350" loading="lazy" alt="Chapter &amp; Verse on iPad, with a study note open beside the text."></div></div>
       <div class="cap"><div class="eyebrow">Chapter &amp; Verse</div><p class="line">My own Bible study app for iPhone and iPad. I designed and built it.</p></div>
     </a>
-  </section>
-
-  <section class="about" id="about">
-    <div class="side rv">
-      <div class="photo" role="img" aria-label="Photo of Daniel to come"></div>
-    </div>
-    <div class="main">
-      <p class="lede rv">I started as a graphic designer, and I still care about the details, right down to leading, orphans and widows. Now I design brands that come alive in the digital world, and keep developing through AI with my creative work at the core.</p>
-
-      <h2 class="label rv">Experience</h2>
-      <ul class="roles rv">
-        <li>
-          <div class="thumb"><picture><source srcset="/assets/img/dhd-logo-light.svg" media="(prefers-color-scheme:dark)"><img src="/assets/img/dhd-logo.svg" alt="DHD logo"></picture></div>
-          <div><div class="role">Head of Design</div><div class="meta">DHD, <span class="nw">2020&nbsp;&ndash;&nbsp;Present</span></div></div>
-        </li>
-        <li>
-          <div class="thumb"></div>
-          <div><div class="role">Graphic Designer</div><div class="meta">Azzura Digital, <span class="nw">2019&nbsp;&ndash;&nbsp;2020</span></div></div>
-        </li>
-        <li>
-          <div class="thumb"></div>
-          <div><div class="role">Graphic Designer</div><div class="meta">Signs and Graphics, 2019</div></div>
-        </li>
-      </ul>
-
-      <h2 class="label rv">Education</h2>
-      <ul class="roles rv">
-        <li>
-          <div class="thumb"></div>
-          <div><div class="role">BA (Hons) Graphic Design and Illustration</div><div class="meta">Ulster University, First Class Honours, <span class="nw">2018&nbsp;&ndash;&nbsp;2022</span></div></div>
-        </li>
-        <li>
-          <div class="thumb"></div>
-          <div><div class="role">Diploma in Professional Practice</div><div class="meta">Ulster University, Distinction, <span class="nw">2018&nbsp;&ndash;&nbsp;2022</span></div></div>
-        </li>
-      </ul>
-    </div>
   </section>
 
   <footer class="foot">

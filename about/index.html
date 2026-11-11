@@ -4,191 +4,199 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About · Daniel Young</title>
-<meta name="description" content="Daniel Young is Head of Design at DHD in Northern Ireland. How he works, how he uses AI, and his CV.">
+<meta name="description" content="About Daniel Young, Head of Design at DHD in Northern Ireland: experience, education and CV.">
 <link rel="canonical" href="https://danielyoung.work/about/">
-<meta property="og:title" content="About · Daniel Young">
-<meta property="og:description" content="Daniel Young is Head of Design at DHD in Northern Ireland. How he works, how he uses AI, and his CV.">
-<meta property="og:url" content="https://danielyoung.work/about/">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23181715'/%3E%3Ctext x='16' y='22.5' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%23f3f0e8'%3EDY%3C/text%3E%3C/svg%3E">
-<link rel="preload" href="/fonts/TimelessSerifVF.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/TimelessSansVF.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&display=swap">
-<link rel="stylesheet" href="/assets/site.css">
-<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;var s=localStorage.getItem('size');if(s)document.documentElement.style.setProperty('--reading-size',{s:'1.0625rem',m:'1.1875rem',l:'1.375rem'}[s]);}catch(e){}</script>
-<script src="/assets/site.js" defer></script>
+<style>
+@font-face{font-family:"Timeless Sans";src:url(/fonts/TimelessSansVF.woff2) format("woff2");font-weight:300 800;font-style:normal;font-display:swap}
+
+:root{
+  --bg:#dfdfd8;
+  --block:#d5d5cd;
+  --ink:#0a0a0a;
+  --mute:#8c8c85;
+  
+  --sans:"Timeless Sans",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --gut:clamp(20px,3.4vw,44px);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#121211;--block:#1c1c1a;--ink:#f1f1ec;--mute:#85857e}
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+
+.wrap{max-width:1512px;margin:0 auto;padding:0 var(--gut)}
+
+/* header */
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding-top:clamp(18px,2.6vw,32px);
+  color:var(--mute);
+  font-size:15px;
+}
+.top nav{display:flex;gap:clamp(16px,2.4vw,32px)}
+.top a{transition:color .15s}
+.top a:hover{color:var(--ink)}
+
+
+/* intro */
+.hero{padding:clamp(56px,10vw,128px) 0 clamp(72px,9vw,136px)}
+h1{
+  font-weight:500;
+  font-size:clamp(28px,3.6vw,54px);
+  line-height:1.12;
+  letter-spacing:-.02em;
+  max-width:19em;
+  text-wrap:pretty;
+}
+.top a[aria-current]{color:var(--ink)}
+.main > .label:first-child{margin-top:0}
+.cv{display:inline-block;margin-top:72px;font-size:17px;font-weight:500;border-bottom:1px solid currentColor;padding-bottom:2px;transition:color .15s}
+.cv:hover{color:var(--mute)}
+@media (max-width:760px){
+  .top{padding-top:28px}
+  .hero{padding:clamp(88px,26vw,120px) 0 clamp(72px,20vw,100px)}
+  h1{font-size:clamp(26px,7vw,34px);line-height:1.16}
+}
+
+/* about */
+.about{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  column-gap:clamp(12px,2.6vw,40px);
+  padding:0;
+}
+.about .side{grid-column:1 / span 3}
+.about .main{grid-column:4 / span 6;max-width:520px}
+@media (max-width:900px){
+  .about .side{grid-column:1 / -1;margin-bottom:32px}
+  .about .main{grid-column:1 / -1}
+}
+.photo{width:124px;height:124px;background:var(--block);overflow:hidden}
+.photo img{display:block;width:100%;height:100%;object-fit:cover}
+.lede{
+  margin-top:0;
+  font-size:clamp(18px,1.7vw,21px);
+  line-height:1.3;
+  text-wrap:pretty;
+}
+.label{
+  
+  font-weight:500;
+  margin:72px 0 28px;
+  color:var(--mute);
+  font-size:17px;
+  line-height:1.2;
+}
+.roles{list-style:none}
+.roles li{display:flex;align-items:center;gap:32px;margin-bottom:40px}
+.roles li:last-child{margin-bottom:0}
+.thumb{flex:none;width:58px;height:58px;background:var(--block);overflow:hidden}
+.thumb img{display:block;width:100%;height:100%;object-fit:contain;padding:11px}
+.role{font-weight:500;font-size:19px;line-height:1.2}
+.meta{margin-top:4px;color:var(--mute);font-size:15px;line-height:1.3}
+.nw{white-space:nowrap}
+
+.foot{
+  margin-top:clamp(96px,12vw,176px);
+  padding-bottom:40px;
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;
+  color:var(--mute);
+  font-size:15px;
+}
+.foot .links{display:flex;gap:24px}
+.foot a:hover{color:var(--ink)}
+
+@media (prefers-reduced-motion:no-preference){
+  .js .rv{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .js .rv.on{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="progress" aria-hidden="true"></div>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="/" aria-label="Daniel Young, home"><span class="brand-name">Daniel Young</span><span class="brand-role">Head of Design</span></a>
-    <nav class="nav" id="nav" aria-label="Main"><a href="/work/">Work</a><a href="/about/" aria-current="page">About</a><a href="/notes/">Notes</a><a href="/contact/">Contact</a></nav>
-    <div class="header-tools">
-      <div class="theme-switch" role="group" aria-label="Colour theme">
-        <button type="button" data-mode="auto" aria-pressed="true" title="Match my system"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg><span class="visually-hidden">Auto</span></button>
-        <button type="button" data-mode="light" aria-pressed="false" title="Light"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9 13 13M3 13l1.1-1.1M11.9 4.1 13 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span class="visually-hidden">Light</span></button>
-        <button type="button" data-mode="dark" aria-pressed="false" title="Dark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span class="visually-hidden">Dark</span></button>
-      </div>
-      <button class="icon-btn menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
-    </div>
-  </div>
-</header>
-<main id="main">
-<section class="page-intro">
-  <div class="wrap intro-split">
-    <div>
-      <span class="label">About</span>
-      <h1 class="display">I lead design at DHD, and I still <em>fuss over the kerning.</em></h1>
-    </div>
-    <div class="portrait reveal" role="img" aria-label="Daniel Young monogram">
-      <span class="mono" aria-hidden="true">DY</span>
-      <span class="label">Daniel Young<br>Northern Ireland</span>
-    </div>
-  </div>
-</section>
+<div class="wrap">
 
-<section class="section" style="padding-top:0">
-  <div class="wrap reading" style="padding-bottom:0">
-    <div class="reading-aside"><div class="sticky"><span class="label">In short</span></div></div>
-    <div class="prose">
-      <p>I'm Daniel Young, Head of Design at DHD, a creative agency that does strategy, design, digital and film. I lead our brand and digital work and sit on the senior leadership team.</p>
-      <p>Most of my week goes on the questions before the design. Who is this brand for? What should it say, and what should it stop saying? Then I make it, with the team, down to the detail.</p>
-      <p>AI is part of that. I use it for research, first drafts, production and checks, and I build my own apps and tools with it. Building things taught me where it helps and where it gets in the way.</p>
-      <p>I also help brands get ready for it. More and more of a brand's words are now written with AI tools, by marketing teams, agencies and the client's own staff. If the brand isn't written down in a way those tools can follow, it drifts. So alongside guidelines, I write tone of voice skills and brand.md files that keep it on track.</p>
-    </div>
-    <div class="reading-margin"><p class="note">Most of the work happens before anyone opens Figma.</p></div>
-  </div>
-</section>
+  <header class="top">
+    <a href="/" aria-label="Daniel Young, home">Daniel Young</a>
+    <nav aria-label="Main">
+      <a href="/#work">Work</a>
+      <a href="/about/" aria-current="page">About</a>
+      <a href="mailto:info@danielyoung.work">Contact</a>
+    </nav>
+  </header>
 
-<section class="section" aria-labelledby="rules-title">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="label"><b>01</b> How I use AI</p>
-      <h2 class="h2" id="rules-title">Four rules I <em>keep to.</em></h2>
-    </div>
-    <ol class="principles reveal">
-      <li><span class="idx">01</span><div><h3 class="h3">Machines draft, people decide.</h3><p>AI can give me twenty options. It can't tell me which one is right for the people the brand is for.</p></div></li>
-      <li><span class="idx">02</span><div><h3 class="h3">Speed buys thinking time.</h3><p>The hours AI saves go back into the idea and the details, not into making more of the same.</p></div></li>
-      <li><span class="idx">03</span><div><h3 class="h3">Say where it was used.</h3><p>I tell clients where AI helped and where it didn't, so nobody is guessing. This site does the same at the end of each note.</p></div></li>
-      <li><span class="idx">04</span><div><h3 class="h3">A person checks everything.</h3><p>Every output is read, used and tested by me before it leaves my desk.</p></div></li>
-    </ol>
-  </div>
-</section>
+  <main>
+  <section class="hero">
+    <h1 class="rv">I started as a graphic designer, and I still care about the details, right down to leading, orphans and widows. Now I design brands that come alive in the digital world, and keep developing through AI with my creative work at the core.</h1>
+  </section>
 
-<section class="section" aria-labelledby="cv-title">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="label"><b>02</b> CV</p>
-      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:end;justify-content:space-between">
-        <h2 class="h2" id="cv-title">Experience</h2>
-        <a class="btn ghost no-print" href="/cv/">Full CV <span class="arrow" aria-hidden="true">→</span></a>
-      </div>
+  <section class="about" aria-label="Experience and education">
+    <div class="side rv">
+      <div class="photo" role="img" aria-label="Photo of Daniel to come"></div>
     </div>
+    <div class="main">
+      <h2 class="label rv">Experience</h2>
+      <ul class="roles rv">
+        <li>
+          <div class="thumb"><picture><source srcset="/assets/img/dhd-logo-light.svg" media="(prefers-color-scheme:dark)"><img src="/assets/img/dhd-logo.svg" alt="DHD logo"></picture></div>
+          <div><div class="role">Head of Design</div><div class="meta">DHD, <span class="nw">2020&nbsp;&ndash;&nbsp;Present</span></div></div>
+        </li>
+        <li>
+          <div class="thumb"></div>
+          <div><div class="role">Graphic Designer</div><div class="meta">Azzura Digital, <span class="nw">2019&nbsp;&ndash;&nbsp;2020</span></div></div>
+        </li>
+        <li>
+          <div class="thumb"></div>
+          <div><div class="role">Graphic Designer</div><div class="meta">Signs and Graphics, 2019</div></div>
+        </li>
+      </ul>
 
-    <div class="cv">
-      <div class="cv-row">
-        <span class="when">Now</span>
-        <div><h3>Head of Design</h3><p class="sub">DHD (David Henderson Design)</p></div>
-        <p>I lead design across strategy, identity and digital, and sit on the senior leadership team. I'm leading DHD's own brand messaging, set up shared folder structures and file naming across our departments, and ran the team's first workshop on working with Claude.</p>
-      </div>
-    </div>
+      <h2 class="label rv">Education</h2>
+      <ul class="roles rv">
+        <li>
+          <div class="thumb"></div>
+          <div><div class="role">BA (Hons) Graphic Design and Illustration</div><div class="meta">Ulster University, First Class Honours, <span class="nw">2018&nbsp;&ndash;&nbsp;2022</span></div></div>
+        </li>
+        <li>
+          <div class="thumb"></div>
+          <div><div class="role">Diploma in Professional Practice</div><div class="meta">Ulster University, Distinction, <span class="nw">2018&nbsp;&ndash;&nbsp;2022</span></div></div>
+        </li>
+      </ul>
 
-    <div class="cv-group">
-      <span class="label">Recent client work, through DHD</span>
-      <div class="cv">
-        <div class="cv-row"><span class="when">2026</span><div><h3>Software For All</h3><p class="sub">Brand guidelines</p></div><p>Guidelines for Workplus and Software NI, with an architecture that puts the two best-known brands first.</p></div>
-        <div class="cv-row"><span class="when">2026</span><div><h3>Chestnutt Holiday Parks</h3><p class="sub">Tone of voice, social</p></div><p>Wrote the tone of voice for a family-run holiday parks business and lead its social visuals.</p></div>
-        <div class="cv-row"><span class="when">2026</span><div><h3>Myrtlefield House</h3><p class="sub">Brand and web</p></div><p>Brand identity and website, from logo variants and colour to content hierarchy and navigation.</p></div>
-        <div class="cv-row"><span class="when">2026</span><div><h3>Texam</h3><p class="sub">Website</p></div><p>Website, planned and tracked by phase.</p></div>
-      </div>
+      <a class="cv rv" href="/cv/">Read the full CV</a>
     </div>
+  </section>
 
-    <div class="cv-group">
-      <span class="label">Own builds</span>
-      <div class="cv">
-        <div class="cv-row"><span class="when">2026</span><div><h3>Chapter &amp; Verse</h3><p class="sub">iPhone and iPad</p></div><p>Bible reading, study notes and shared prayer points, with iCloud sync. SwiftUI and SwiftData.</p></div>
-        <div class="cv-row"><span class="when">2026</span><div><h3>Lights Out Belfast</h3><p class="sub">Web</p></div><p>A 3D map of Belfast's empty buildings, lit by the real sun and weather.</p></div>
-        <div class="cv-row"><span class="when">2026</span><div><h3>Stripes, Cadence, Glowline Studio</h3><p class="sub">iPhone and web</p></div><p>A lawn care log, a focus timer and a pattern generator.</p></div>
-      </div>
-    </div>
+  </main>
 
-    <div class="cv-group">
-      <span class="label">Tools</span>
-      <div class="cv">
-        <div class="cv-row"><span class="when">Design</span><div><h3>Figma</h3></div><p>Brand systems, decks, UI and email signatures.</p></div>
-        <div class="cv-row"><span class="when">Code</span><div><h3>HTML, CSS, JavaScript, SwiftUI</h3></div><p>This site and the apps above.</p></div>
-        <div class="cv-row"><span class="when">AI</span><div><h3>Claude</h3></div><p>Research, drafts, code and checks. I write and maintain the skills our team uses, from file naming to tone of voice.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+  <footer class="foot">
+    <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>
+    <div class="links"><a href="/cv/">CV</a><a href="/work/">All work</a></div>
+  </footer>
 
-<section class="section" aria-labelledby="outside-title">
-  <div class="wrap reading" style="padding-bottom:0">
-    <div class="reading-aside"><div class="sticky"><span class="label"><b style="color:var(--accent);font-weight:500">03</b>&nbsp; Outside work</span></div></div>
-    <div class="prose">
-      <h2 id="outside-title" style="margin-top:0">Away from the desk</h2>
-      <p>I'm usually out walking Marlo, our golden retriever, who has opinions about every hedge in the county. When I'm not, I'm building small apps for things I care about, like Chapter &amp; Verse.</p>
-      <p>I'm also working slowly through a personal series of abstract landscapes, one for each of the 66 books of the Bible.</p>
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="wrap cta-grid">
-    <h2 class="display reveal">Sound like a fit? <em>Say hello.</em></h2>
-    <div class="cta-side reveal">
-      <p class="clock" data-clock><span class="pulse"></span><span data-clock-text>Northern Ireland</span></p>
-      <a class="btn" href="/contact/">Get in touch <span class="arrow" aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
-</main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="colophon">
-        <p class="note">Every word here was written or edited by me. Claude helped build the site.</p>
-        <p class="muted">Set in Timeless Serif and Timeless Sans.</p>
-      </div>
-      <div>
-        <h2>Pages</h2>
-        <ul><li><a href="/">Home</a></li><li><a href="/work/">Work</a></li><li><a href="/about/">About</a></li><li><a href="/notes/">Notes</a></li><li><a href="/contact/">Contact</a></li><li><a href="/cv/">CV</a></li></ul>
-      </div>
-      <div>
-        <h2>Get in touch</h2>
-        <ul><li><a href="mailto:info@danielyoung.work">info@danielyoung.work</a></li><li><a href="https://www.linkedin.com/in/daniel-young/" target="_blank" rel="me noopener">LinkedIn</a></li><li><button class="kbd-hint" type="button" data-copy="info@danielyoung.work">Copy email address</button></li></ul>
-      </div>
-      <div>
-        <h2>Local time</h2>
-        <p class="clock" data-clock style="align-items:flex-start"><span class="pulse" style="margin-top:7px"></span><span data-clock-text>Northern Ireland</span></p>
-      </div>
-    </div>
-    <div class="footer-base">
-      <span>© 2026 Daniel Young. Last updated 2 November 2026.</span>
-      <button class="kbd-hint" type="button" data-keys>Press <kbd>?</kbd> for keyboard shortcuts</button>
-    </div>
-  </div>
-</footer>
-<dialog class="keys" aria-labelledby="keys-title">
-  <h2 id="keys-title">Keyboard shortcuts</h2>
-  <dl>
-    <dt><kbd>g</kbd> <kbd>h</kbd></dt><dd>Home</dd>
-    <dt><kbd>g</kbd> <kbd>w</kbd></dt><dd>Work</dd>
-    <dt><kbd>g</kbd> <kbd>a</kbd></dt><dd>About</dd>
-    <dt><kbd>g</kbd> <kbd>n</kbd></dt><dd>Notes</dd>
-    <dt><kbd>g</kbd> <kbd>c</kbd></dt><dd>Contact</dd>
-    <dt><kbd>t</kbd></dt><dd>Switch theme: auto, light, dark</dd>
-    <dt><kbd>?</kbd></dt><dd>Show this list</dd>
-  </dl>
-  <form method="dialog"><button class="btn ghost" type="submit">Close</button></form>
-</dialog>
-<div class="preview" aria-hidden="true"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  document.documentElement.classList.add('js');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}});
+  },{rootMargin:'0px 0px -8% 0px',threshold:.05});
+  els.forEach(function(el){io.observe(el)});
+})();
+</script>
 </body>
 </html>

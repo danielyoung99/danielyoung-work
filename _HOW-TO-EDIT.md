@@ -4,14 +4,15 @@ You edit plain text files. A small script turns them into the pages. You never e
 
 ```
 _content/
-  home.txt            the headline and intro paragraph on the home page
+  home.txt            the headline on the home page
+  about.txt           the intro paragraph on the About page
   order.txt           which case studies appear, and in what order
   studies/            one text file per case study
   templates/          the page frames (leave these alone unless you want to change the design)
 assets/img/case-studies/<name>/    the images for each case study
 ```
 
-The About section (Experience and Education) lives in `_content/templates/home.html`. Edit it there.
+The About page (danielyoung.work/about/) takes its intro paragraph from `_content/about.txt`. Experience and Education live in `_content/templates/about.html`. Edit them there.
 
 ## The everyday routine
 

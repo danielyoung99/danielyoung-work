@@ -395,15 +395,15 @@ def read_order():
     return out
 
 
-def read_home():
+def read_keys(name, keys):
     d = {}
-    for line in read(os.path.join(CONTENT, 'home.txt')).split('\n'):
+    for line in read(os.path.join(CONTENT, name)).split('\n'):
         if ':' in line and not line.strip().startswith('//'):
             k, v = line.split(':', 1)
             d[k.strip()] = v.strip()
-    for k in ('hero', 'lede'):
+    for k in keys:
         if not d.get(k):
-            raise Problem('_content/home.txt: "%s:" is missing.' % k)
+            raise Problem('_content/%s: "%s:" is missing.' % (name, k))
     return d
 
 
@@ -425,12 +425,16 @@ def build():
             nxt = ['/work/%s/' % n['slug'], 'Next', plain(n['name'])]
         if write_if_changed(os.path.join(ROOT, 'work', s['slug'], 'index.html'), render_case(s, case_tpl, prev, nxt)):
             changed.append('work/%s/index.html' % s['slug'])
-    home = read_home()
+    home = read_keys('home.txt', ('hero',))
     tpl = read(os.path.join(CONTENT, 'templates', 'home.html'))
     cards = '\n'.join(render_card(s, k) for k, s in enumerate(studies))
-    out = tpl.replace('{{HERO}}', esc(home['hero'])).replace('{{LEDE}}', esc(home['lede'])).replace('{{WORK}}', cards)
+    out = tpl.replace('{{HERO}}', esc(home['hero'])).replace('{{WORK}}', cards)
     if write_if_changed(os.path.join(ROOT, 'index.html'), out):
         changed.append('index.html')
+    about = read_keys('about.txt', ('lede',))
+    tpl = read(os.path.join(CONTENT, 'templates', 'about.html'))
+    if write_if_changed(os.path.join(ROOT, 'about', 'index.html'), tpl.replace('{{LEDE}}', esc(about['lede']))):
+        changed.append('about/index.html')
     pdir = os.path.join(CONTENT, 'pages')
     npages = 0
     if os.path.isdir(pdir):
@@ -453,7 +457,7 @@ def build():
     for d in sorted(os.listdir(os.path.join(ROOT, 'work'))):
         if os.path.isfile(os.path.join(ROOT, 'work', d, 'index.html')) and d not in listed:
             print('Note: work/%s/ still exists but is no longer in order.txt (the old page stays live until you delete that folder).' % d)
-    print('Built %d case studies, %d text pages and the home page.' % (len(studies), npages))
+    print('Built %d case studies, %d text pages, the home page and the About page.' % (len(studies), npages))
     print('Changed: ' + (', '.join(changed) if changed else 'nothing (already up to date)'))
 
 
