@@ -1,0 +1,48 @@
+name: Myrtlefield House
+title: A new identity for a library of Bible teaching
+description: Myrtlefield House: discovery, visual identity, brand guidelines and website design for a charity sharing David Gooding's Bible teaching, through DHD.
+fact: Client | Myrtlefield House
+fact: Role | Design lead
+fact: Through | DHD
+fact: Services | Discovery, Visual Identity, Brand Guidelines, Website Design
+card: A charity sharing David Gooding's Bible teaching around the world. I led the identity, the guidelines and the website design.
+home: 02-portrait.jpg + 03-landscape.jpg
+
+---
+
+images full:
+  01-tote.jpg | The Myrtlefield House logo, a tree mark above the name in capitals, on a brown tote bag.
+
+# Overview
+
+Myrtlefield House produces books and other media from the teaching of David Gooding, and sends them out in every language where there is a need. The aim is to get people reading, studying and teaching the Bible for themselves.
+
+DHD took the brand from discovery through to a finished identity, a 57-page set of brand guidelines and a design for the new website.
+
+# Challenge
+
+The audience already knew Myrtlefield House, so the new identity had to feel like the same organisation, only clearer and more confident. It also had to work in very different places: a book spine, a podcast graphic, a phone and a tote bag.
+
+The system also had to hold a lot at once: Bible text, David Gooding's own words, and a growing library of video and audio.
+
+# Process
+
+We started with discovery work, then built the strategy into the guidelines: a vision (a world convinced that God still speaks today through the Bible), a mission, a motivation and five guiding principles.
+
+The design direction went through two rounds with the client. Between the first and second, the colour palette was revised, and we talked through logo variants, content hierarchy and navigation with the client.
+
+images v-d:
+  03-landscape.jpg | The Myrtlefield House newsletter on a phone, with the tree mark over a landscape painting.
+  02-portrait.jpg | A Myrtlefield House content card for the topic The Holy Spirit, over a painted dove.
+
+# Solution
+
+The logo is a myrtle tree. Hidden in it are the Greek letters delta and gamma, the initials of David Gooding. The flared trunk is repeated in the letters of the wordmark, set in capitals in a modern serif.
+
+The palette is taken from the landscape and the page: Myrtle green, Mist blue, Brick, Slate, Paper and Gable. Headings are set in ABC Arizona Flare and text in ABC Arizona Sans. Painted landscapes and a soft, textured background give the screens warmth, and content cards sort the material into topics, Bible books, sermons and answers.
+
+# Results
+
+The guidelines cover the logo and its four lockups, colour, type, textures, video thumbnails and end screens, then show the system applied to the website, a mobile app, social posts, book spines, a podcast graphic and merchandise.
+
+// Add any outcome you can stand behind: launch date, live website link, what the client said.

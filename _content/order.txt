@@ -1,12 +1,11 @@
+myrtlefield-house
 ballymena-academy
 balmoral-textiles
 barrett-opticians
 belfast-healthy-cities
 bored-of-lunch
 colloide
-// medical-mission-network
 sg-elite
 stem-systems
 thornton
-// versaffix
 chapter-and-verse
