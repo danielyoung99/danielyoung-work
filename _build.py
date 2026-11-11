@@ -306,6 +306,158 @@ def render_row(s, k):
             '    </a></li>') % (s['slug'], k + 1, esc(s['name']), esc(what), img)
 
 
+# ---------------------------------------------------------------- notes (the blog)
+MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+
+def long_date(iso):
+    y, m, d = iso.split('-')
+    return '%d %s %s' % (int(d), MONTHS[int(m) - 1], y)
+
+
+def short_date(iso):
+    y, m, d = iso.split('-')
+    return '%d %s %s' % (int(d), MONTHS[int(m) - 1][:3], y)
+
+
+def inline(s):
+    """Escape, then turn [text](url) into links. Outside links open in a new tab."""
+    s = esc(s)
+
+    def link(m):
+        url = m.group(2)
+        ext = url.startswith('http')
+        return '<a href="%s"%s>%s</a>' % (esc(url, True), ' target="_blank" rel="noopener"' if ext else '', m.group(1))
+    return re.sub(r'\[([^\]]+)\]\(([^)\s]+)\)', link, s)
+
+
+def parse_note(slug):
+    path = os.path.join(CONTENT, 'notes', slug + '.txt')
+    parts = re.split(r'(?m)^---[ \t]*$', read(path).replace('\r\n', '\n'), maxsplit=1)
+    if len(parts) != 2:
+        raise Problem('notes/%s.txt needs a line with just --- between the details and the note.' % slug)
+    n = {'slug': slug}
+    for line in parts[0].split('\n'):
+        if not line.strip() or line.lstrip().startswith('//'):
+            continue
+        if ':' not in line:
+            raise Problem('notes/%s.txt, details: expected "name: value" but found "%s".' % (slug, line))
+        k, v = line.split(':', 1)
+        k = k.strip().lower()
+        if k not in ('title', 'name', 'date', 'category', 'summary', 'read', 'margin', 'how-label', 'how', 'kind'):
+            raise Problem('notes/%s.txt: unknown detail "%s".' % (slug, k))
+        n[k] = v.strip()
+    for k in ('title', 'name', 'date', 'category', 'summary', 'read'):
+        if not n.get(k):
+            raise Problem('notes/%s.txt: "%s:" is missing.' % (slug, k))
+    if not re.match(r'^\d{4}-\d{2}-\d{2}$', n['date']):
+        raise Problem('notes/%s.txt: date must look like 2026-11-01.' % slug)
+    n['kind'] = n.get('kind', 'article')
+    n['body'] = parts[1]
+    return n
+
+
+def render_note_body(n):
+    body, first, para = [], True, []
+    lines = n['body'].split('\n')
+    section = None  # None, 'slides' or 'transcript'
+    slides, transcript = [], []
+
+    def flush():
+        nonlocal first
+        if para:
+            body.append('      <p%s>%s</p>' % (' class="first"' if first else '', inline(' '.join(para))))
+            first = False
+            del para[:]
+    for line in lines:
+        s = line.strip()
+        if s.startswith('//'):
+            continue
+        if s in ('slides:', 'transcript:'):
+            flush()
+            section = s[:-1]
+            continue
+        if section and line.startswith((' ', '\t')) and s:
+            if '|' not in s:
+                raise Problem('notes/%s.txt: "%s" needs the form "first part | second part".' % (n['slug'], s))
+            a, c = [x.strip() for x in s.split('|', 1)]
+            (slides if section == 'slides' else transcript).append((a, c))
+            continue
+        if not s:
+            flush()
+            continue
+        section = None
+        if s.startswith('# '):
+            flush()
+            body.append('      <h2>%s</h2>' % inline(s[2:]))
+        elif s.startswith('> '):
+            flush()
+            body.append('      <blockquote>%s</blockquote>' % inline(s[2:]))
+        else:
+            para.append(s)
+    flush()
+    if slides:
+        lis = []
+        for f, alt in slides:
+            p = os.path.join(ROOT, 'assets', 'img', 'notes', n['slug'], f)
+            if not os.path.exists(p):
+                raise Problem('notes/%s.txt: the image assets/img/notes/%s/%s does not exist.' % (n['slug'], n['slug'], f))
+            w, h = image_size(p)
+            lis.append('<li><img src="/assets/img/notes/%s/%s" width="%d" height="%d" loading="lazy" alt="%s"></li>' % (n['slug'], f, w, h, esc(alt, True)))
+        body.append('      <div class="carousel" data-carousel>\n        <ol class="track">%s</ol>\n'
+                    '        <div class="cbar"><span data-count aria-live="polite">1 / %d</span><span><button type="button" data-prev aria-label="Previous slide">&larr;</button>'
+                    '<button type="button" data-next aria-label="Next slide">&rarr;</button></span></div>\n      </div>' % (''.join(lis), len(slides)))
+    if transcript:
+        items = ''.join('<li><h3>%s</h3><p>%s</p></li>' % (inline(a), inline(c)) for a, c in transcript)
+        body.append('      <details class="transcript"><summary>Read it as text</summary><ol>%s</ol></details>' % items)
+    return '\n'.join(body)
+
+
+def render_note(n, tpl, prev, nxt):
+    margin = '<p class="pull">%s</p>' % inline(n['margin']) if n.get('margin') else ''
+    how = ''
+    if n.get('how'):
+        how = '      <aside class="how"><div class="l">%s</div><p>%s</p></aside>' % (inline(n.get('how-label', 'How this was written')), inline(n['how']))
+    pager = ''
+    for item, label, align in ((prev, 'Earlier', ''), (nxt, 'Next', '')):
+        if item:
+            pager += '    <a href="/notes/%s/"><span class="l">%s</span><span class="t">%s</span></a>\n' % (item['slug'], label, esc(plain(item['name'])))
+        else:
+            pager += '    <a href="/notes/"><span class="l">Back to</span><span class="t">All notes</span></a>\n'
+    out = tpl
+    for k, v in (('{{PAGETITLE}}', esc(plain(n['name'])) + ' \u00b7 Daniel Young'), ('{{DESC}}', esc(plain(n['summary']), True)),
+                 ('{{URL}}', '/notes/%s/' % n['slug']), ('{{TITLE}}', esc(n['title'])), ('{{CAT}}', esc(n['category'])),
+                 ('{{DATE_ISO}}', n['date']), ('{{DATE}}', long_date(n['date'])), ('{{READ}}', esc(n['read'])),
+                 ('{{MARGIN}}', margin), ('{{BODY}}', render_note_body(n)), ('{{HOW}}', how), ('{{PAGER}}', pager.rstrip('\n'))):
+        out = out.replace(k, v)
+    return out
+
+
+def render_note_row(n):
+    return ('    <li><a class="post" href="/notes/%s/">\n'
+            '      <div class="meta"><b>%s</b>%s</div>\n'
+            '      <div class="txt"><h2>%s</h2><p>%s</p><span class="len">%s</span></div>\n'
+            '    </a></li>') % (n['slug'], esc(n['category']), short_date(n['date']), esc(plain(n['name'])), inline(n['summary']), esc(n['read']))
+
+
+def build_notes(changed):
+    ndir = os.path.join(CONTENT, 'notes')
+    if not os.path.isdir(ndir):
+        return 0
+    notes = [parse_note(f[:-4]) for f in sorted(os.listdir(ndir)) if f.endswith('.txt')]
+    notes.sort(key=lambda n: n['date'], reverse=True)  # newest first
+    tpl = read(os.path.join(CONTENT, 'templates', 'note.html'))
+    for k, n in enumerate(notes):
+        nxt = notes[k - 1] if k > 0 else None            # newer
+        prev = notes[k + 1] if k + 1 < len(notes) else None  # older
+        if write_if_changed(os.path.join(ROOT, 'notes', n['slug'], 'index.html'), render_note(n, tpl, prev, nxt)):
+            changed.append('notes/%s/index.html' % n['slug'])
+    rows = '\n'.join(render_note_row(n) for n in notes)
+    if write_if_changed(os.path.join(ROOT, 'notes', 'index.html'), read(os.path.join(CONTENT, 'templates', 'notes.html')).replace('{{ROWS}}', rows)):
+        changed.append('notes/index.html')
+    return len(notes)
+
+
 # ---------------------------------------------------------------- simple text pages (e.g. privacy policies)
 def parse_page(name):
     path = os.path.join(CONTENT, 'pages', name)
@@ -457,6 +609,7 @@ def build():
     rows = '\n'.join(render_row(s, k) for k, s in enumerate(studies))
     if write_if_changed(os.path.join(ROOT, 'work', 'index.html'), read(os.path.join(CONTENT, 'templates', 'work.html')).replace('{{ROWS}}', rows)):
         changed.append('work/index.html')
+    nnotes = build_notes(changed)
     pdir = os.path.join(CONTENT, 'pages')
     npages = 0
     if os.path.isdir(pdir):
@@ -479,7 +632,7 @@ def build():
     for d in sorted(os.listdir(os.path.join(ROOT, 'work'))):
         if os.path.isfile(os.path.join(ROOT, 'work', d, 'index.html')) and d not in listed:
             print('Note: work/%s/ still exists but is no longer in order.txt (the old page stays live until you delete that folder).' % d)
-    print('Built %d case studies, %d text pages, the home page, the About, Contact, Work and 404 pages.' % (len(studies), npages))
+    print('Built %d case studies, %d notes, %d text pages, the home page, the About, Contact, Work and 404 pages.' % (len(studies), nnotes, npages))
     print('Changed: ' + (', '.join(changed) if changed else 'nothing (already up to date)'))
 
 

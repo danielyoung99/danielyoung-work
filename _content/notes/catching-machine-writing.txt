@@ -1,0 +1,29 @@
+title: How I catch <em>machine-sounding</em> writing.
+name: How I catch machine-sounding writing
+date: 2026-10-30
+category: Writing
+summary: If I use AI to draft, I owe the reader a pass that makes it sound like a person. These are the checks that catch the most.
+read: 1 min read
+margin: Read it aloud. Your ear catches what your eye skims past.
+how-label: How this was written
+how: Drafted with Claude from my own writing rules, then edited by me. Yes, I ran it through the same checks.
+
+---
+
+If I'm going to use AI to draft, I owe the reader a pass that makes it sound like a person. I keep a short list of rules, based on Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) field guide. These are the ones that catch the most.
+
+# Say the specific thing
+
+Models drift towards the average. A real fact gets swapped for a claim that something is important. "Opened in 1958 after a £2m refit" beats "a testament to enduring vision". If I can't say why something matters in a way someone could check, I cut the line.
+
+# Use plain verbs
+
+"Is" and "has", not "serves as" and "boasts". It looks odd on the page until you read it aloud, and then it sounds like a person.
+
+# Watch the patterns
+
+Three adjectives every time. "Not just X, but Y". A trailing phrase that adds fake insight, like "highlighting its importance". One of these is fine. Several in a paragraph is what gives it away.
+
+# Don't overcorrect
+
+No sign proves a machine wrote something, and none proves a person did. I'm not trying to hide anything. I'm trying to get rid of vague, generic writing, because that's the real problem. Swapping words won't fix it.

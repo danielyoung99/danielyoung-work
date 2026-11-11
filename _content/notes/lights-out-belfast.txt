@@ -1,0 +1,31 @@
+title: Making a map of <em>Belfast's empty buildings.</em>
+name: Making a map of Belfast's empty buildings
+date: 2026-10-31
+category: Build notes
+summary: Nobody keeps an address-level list of empty buildings in Belfast. So I built a map you can look at instead.
+read: 1 min read
+margin: 6,880 empty properties. One in five business premises.
+how-label: How this was made
+how: The idea, the design and the data choices are mine. Claude wrote most of the code with me. This note was drafted with Claude from my build notes and edited by me.
+
+---
+
+# The question
+
+I wanted to know if anyone keeps a list of empty buildings in Belfast. Nobody does. There's no public, address-level register. What exists are quarterly figures from Land and Property Services, published on OpenDataNI.
+
+At 30 September 2026 those figures showed 6,880 empty properties in Belfast: 2.2% of homes and 19.4% of business premises. That's a number, but it's hard to feel. So I asked Claude to help me build a map you can look at.
+
+# What it does
+
+It's a 3D map of Belfast, built with MapLibre and OpenFreeMap tiles. The colours, the light direction and the sky follow the real position of the sun over the city. At night about a third of the buildings show lit windows, and the empty ones glow red.
+
+Live weather from Open-Meteo adds rain, snow, fog or lightning, and a time slider lets you try other hours of the day.
+
+# What it doesn't claim
+
+The 190 red buildings come from OpenStreetMap: buildings mapped as ruins, disused, abandoned, vacant shops or closed venues. It's a sample, not an official list, and ten of them are grounds rather than buildings, so they lie flat.
+
+The stats panel uses the LPS figures. The map and the numbers come from different places, and the page says so. That part mattered to me more than the lighting. A good-looking map that overstates its data would be worse than no map.
+
+You can try it at [lights-out-belfast.netlify.app](https://lights-out-belfast.netlify.app).

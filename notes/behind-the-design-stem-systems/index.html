@@ -3,110 +3,207 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Behind the Design: Stem Systems · Daniel Young</title>
-<meta name="description" content="Five design decisions behind the Stem Systems identity: strategy, photography, colour, icon and typography.">
+<title>Behind the design: Stem Systems · Daniel Young</title>
+<meta name="description" content="Five design decisions behind the identity, as a swipeable carousel: strategy, photography, colour, icon and typography.">
 <link rel="canonical" href="https://danielyoung.work/notes/behind-the-design-stem-systems/">
-<meta property="og:title" content="Behind the Design: Stem Systems · Daniel Young">
-<meta property="og:description" content="Five design decisions behind the Stem Systems identity: strategy, photography, colour, icon and typography.">
-<meta property="og:url" content="https://danielyoung.work/notes/behind-the-design-stem-systems/">
-<meta property="og:type" content="article">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23181715'/%3E%3Ctext x='16' y='22.5' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%23f3f0e8'%3EDY%3C/text%3E%3C/svg%3E">
-<link rel="preload" href="/fonts/TimelessSerifVF.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/TimelessSansVF.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&display=swap">
-<link rel="stylesheet" href="/assets/site.css">
-<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;var s=localStorage.getItem('size');if(s)document.documentElement.style.setProperty('--reading-size',{s:'1.0625rem',m:'1.1875rem',l:'1.375rem'}[s]);}catch(e){}</script>
-<script src="/assets/site.js" defer></script>
+<style>
+@font-face{font-family:"Timeless Sans";src:url(/fonts/TimelessSansVF.woff2) format("woff2");font-weight:300 800;font-style:normal;font-display:swap}
+
+:root{
+  --bg:#dfdfd8;
+  --block:#d5d5cd;
+  --ink:#0a0a0a;
+  --mute:#8c8c85;
+  
+  --sans:"Timeless Sans",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --gut:clamp(20px,3.4vw,44px);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#121211;--block:#1c1c1a;--ink:#f1f1ec;--mute:#85857e}
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+
+.wrap{max-width:1512px;margin:0 auto;padding:0 var(--gut)}
+
+/* header */
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding-top:clamp(18px,2.6vw,32px);
+  color:var(--mute);
+  font-size:15px;
+}
+.top nav{display:flex;gap:clamp(16px,2.4vw,32px)}
+.top a{transition:color .15s}
+.top a:hover{color:var(--ink)}
+
+
+/* article head */
+.hero{padding:clamp(40px,6vw,88px) 0 clamp(48px,6vw,88px)}
+.back{display:inline-block;color:var(--mute);font-size:15px;transition:color .15s}
+.back:hover{color:var(--ink)}
+h1{margin-top:clamp(40px,6vw,88px);font-weight:500;font-size:clamp(32px,5vw,76px);line-height:1.08;letter-spacing:-.025em;max-width:15em;text-wrap:balance}
+h1 em{font-style:normal}
+.facts{margin-top:clamp(28px,3.4vw,48px);display:flex;flex-wrap:wrap;gap:6px 28px;color:var(--mute);font-size:15px}
+.facts b{color:var(--ink);font-weight:500}
+
+/* article */
+:root{--r:clamp(6px,.7vw,10px);--rule:color-mix(in srgb,var(--mute),transparent 60%)}
+.article{display:grid;grid-template-columns:repeat(12,1fr);column-gap:clamp(12px,2.6vw,40px)}
+.side{grid-column:1 / span 3;align-self:start;position:sticky;top:32px;max-width:15em}
+.side .pull{color:var(--mute);font-size:17px;line-height:1.4;text-wrap:pretty}
+.prose{grid-column:4 / span 6;max-width:640px;min-width:0}
+.prose p{font-size:clamp(18px,1.6vw,21px);line-height:1.5;margin-bottom:1.1em;text-wrap:pretty}
+.prose p a,.prose .lede a{border-bottom:1px solid currentColor;transition:color .15s}
+.prose p a:hover{color:var(--mute)}
+.prose h2{margin:2.2em 0 .7em;font-weight:500;font-size:clamp(22px,2.2vw,30px);line-height:1.15;letter-spacing:-.015em}
+.prose > :first-child{margin-top:0}
+.prose p.first{font-size:clamp(21px,2.1vw,27px);line-height:1.35;letter-spacing:-.01em}
+.prose blockquote{margin:1.8em 0;font-weight:500;font-size:clamp(24px,2.8vw,38px);line-height:1.15;letter-spacing:-.02em;text-wrap:balance}
+.how{margin-top:clamp(48px,6vw,80px);padding-top:20px;border-top:1px solid var(--rule)}
+.how .l{color:var(--mute);font-size:15px;margin-bottom:8px}
+.how p{font-size:16px;line-height:1.45;color:var(--mute)}
+@media (max-width:900px){
+  .side{grid-column:1 / -1;position:static;margin-bottom:32px;max-width:none}
+  .prose{grid-column:1 / -1}
+}
+
+/* carousel */
+.carousel{margin:8px 0 0;max-width:560px}
+.track{list-style:none;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:var(--r)}
+.track::-webkit-scrollbar{display:none}
+.track li{flex:none;width:100%;scroll-snap-align:center}
+.track img{display:block;width:100%;height:auto;border-radius:var(--r);background:var(--block)}
+.cbar{display:flex;justify-content:space-between;align-items:center;margin-top:14px;color:var(--mute);font-size:15px}
+.cbar button{font:inherit;font-size:20px;color:var(--ink);background:var(--block);border:0;border-radius:999px;width:44px;height:44px;cursor:pointer;margin-left:8px;transition:opacity .15s}
+.cbar button:hover{opacity:.7}
+.transcript{margin-top:clamp(36px,5vw,64px);border-top:1px solid var(--rule)}
+.transcript summary{cursor:pointer;padding:18px 0;font-weight:500;font-size:17px}
+.transcript ol{list-style:none;padding-bottom:8px}
+.transcript li{margin-bottom:24px}
+.transcript h3{font-weight:500;font-size:17px;margin-bottom:4px}
+.transcript p{font-size:17px}
+
+/* pager */
+.pager{margin-top:clamp(88px,11vw,160px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2.6vw,40px);border-top:1px solid var(--rule);padding-top:28px}
+.pager a{display:block}
+.pager a:last-child{text-align:right}
+.pager .l{display:block;color:var(--mute);font-size:15px;margin-bottom:6px}
+.pager .t{display:block;font-weight:500;font-size:clamp(20px,2.4vw,34px);line-height:1.1;letter-spacing:-.02em;text-wrap:balance;transition:color .15s}
+.pager a:hover .t{color:var(--mute)}
+@media (max-width:760px){
+  .top{padding-top:28px}
+  h1{font-size:clamp(32px,9vw,42px);line-height:1.1}
+  .pager{grid-template-columns:1fr;row-gap:28px}
+  .pager a:last-child{text-align:left}
+}
+
+.foot{
+  margin-top:clamp(96px,12vw,176px);
+  padding-bottom:40px;
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;
+  color:var(--mute);
+  font-size:15px;
+}
+.foot .links{display:flex;flex-wrap:wrap;gap:8px 24px}
+.foot a:hover{color:var(--ink)}
+@media (max-width:760px){
+  .foot{flex-direction:column;gap:12px}
+}
+
+@media (prefers-reduced-motion:no-preference){
+  .js .rv{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .js .rv.on{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="progress" aria-hidden="true"></div>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="/" aria-label="Daniel Young, home"><span class="brand-name">Daniel Young</span><span class="brand-role">Head of Design</span></a>
-    <nav class="nav" id="nav" aria-label="Main"><a href="/work/">Work</a><a href="/about/">About</a><a href="/notes/" aria-current="page">Notes</a><a href="/contact/">Contact</a></nav>
-    <div class="header-tools">
-      <div class="theme-switch" role="group" aria-label="Colour theme">
-        <button type="button" data-mode="auto" aria-pressed="true" title="Match my system"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg><span class="visually-hidden">Auto</span></button>
-        <button type="button" data-mode="light" aria-pressed="false" title="Light"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9 13 13M3 13l1.1-1.1M11.9 4.1 13 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span class="visually-hidden">Light</span></button>
-        <button type="button" data-mode="dark" aria-pressed="false" title="Dark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span class="visually-hidden">Dark</span></button>
-      </div>
-      <button class="icon-btn menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
-    </div>
-  </div>
-</header>
-<main id="main">
-<header class="article-head">
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/notes/">Notes</a><span aria-hidden="true">/</span><span>Behind the design</span></nav>
-    <h1 class="display">Behind the design: <em>Stem Systems.</em></h1>
-    <div class="article-meta"><span><b>Daniel Young</b></span><time datetime="2026-11-04">4 November 2026</time><span>7 slides</span></div>
-  </div>
-</header>
+<div class="wrap">
 
-<div class="wrap" style="padding-bottom:clamp(56px,8vw,112px)">
-  <p class="lede" style="margin-bottom:40px">Five design decisions behind the Stem Systems identity, as a swipeable carousel. The full case study is <a href="/work/stem-systems/">here</a>, and I post more like this on <a href="https://www.linkedin.com/in/daniel-young/" target="_blank" rel="noopener">LinkedIn</a>.</p>
-  <div class="carousel" data-carousel>
-    <ol class="carousel__track" style="list-style:none;margin:0;padding:0"><li class="carousel__slide"><img src="/assets/img/notes/behind-the-design-stem-systems/slide-01.jpg" width="1080" height="1350" alt="Slide 1 of 7. Designing for connection: Five key design components helping Stem Systems connect more than cables."></li><li class="carousel__slide"><img src="/assets/img/notes/behind-the-design-stem-systems/slide-02.jpg" width="1080" height="1350" loading="lazy" alt="Slide 2 of 7. Stem Systems isn’t about the tech—it’s about what the tech enables. Stronger, more human connections. Commercial? Yes. But always human. Because clients don’t care about specs – they care about outcomes."></li><li class="carousel__slide"><img src="/assets/img/notes/behind-the-design-stem-systems/slide-03.jpg" width="1080" height="1350" loading="lazy" alt="Slide 3 of 7. We didn’t shoot control panels or server racks. We captured what matters: clients connecting with their customers. Because that’s what Stem Systems really delivers."></li><li class="carousel__slide"><img src="/assets/img/notes/behind-the-design-stem-systems/slide-04.jpg" width="1080" height="1350" loading="lazy" alt="Slide 4 of 7. Research found an industry drenched in blue. So we chose red - confident, warm and a little unexpected. Paired with rich burgundy and soft off-whites, the palette builds trust while keeping it human. Familiar, but not generic."></li><li class="carousel__slide"><img src="/assets/img/notes/behind-the-design-stem-systems/slide-05.jpg" width="1080" height="1350" loading="lazy" alt="Slide 5 of 7. The mark captures how a single human connection can grow, evolve and branch into many. A nod to the compounding impact Stem Systems has on its clients, and its forward-thinking ethos."></li><li class="carousel__slide"><img src="/assets/img/notes/behind-the-design-stem-systems/slide-06.jpg" width="1080" height="1350" loading="lazy" alt="Slide 6 of 7. Set in Alliance No.1 – a sans-serif chosen for its clarity and versatility. With clean strokes, subtle inktraps, and open apertures, it stays readable across every touchpoint. Functional, but with just enough personality to feel considered."></li><li class="carousel__slide"><img src="/assets/img/notes/behind-the-design-stem-systems/slide-07.jpg" width="1080" height="1350" loading="lazy" alt="Slide 7 of 7. Bringing the brand to life: As Stem expands into the Republic of Ireland, this new identity is designed to scale, maintaining a sense of clarity, warmth, and purpose. DHD has continued to support the brand rollout with photography, film and web design."></li></ol>
-    <div class="carousel__bar">
-      <span class="carousel__count" data-count aria-live="polite">1 / 7</span>
-      <div class="btns"><button class="btn ghost" type="button" data-prev aria-label="Previous slide">←</button><button class="btn ghost" type="button" data-next aria-label="Next slide">→</button></div>
+  <header class="top">
+    <a href="/" aria-label="Daniel Young, home">Daniel Young</a>
+    <nav aria-label="Main">
+      <a href="/work/">Work</a>
+      <a href="/about/">About</a>
+      <a href="/notes/">Notes</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+  <article>
+  <header class="hero">
+    <a class="back" href="/notes/">&larr; Notes</a>
+    <h1 class="rv">Behind the design: <em>Stem Systems.</em></h1>
+    <p class="facts rv"><b>Behind the design</b><time datetime="2026-11-04">4 November 2026</time><span>7 slides</span></p>
+  </header>
+
+  <div class="article">
+    <aside class="side rv"></aside>
+    <div class="prose">
+      <p class="first">Five design decisions behind the Stem Systems identity, as a swipeable carousel. The full case study is <a href="/work/stem-systems/">here</a>, and I post more like this on <a href="https://www.linkedin.com/in/daniel-young/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+      <div class="carousel" data-carousel>
+        <ol class="track"><li><img src="/assets/img/notes/behind-the-design-stem-systems/slide-01.jpg" width="1080" height="1350" loading="lazy" alt="Slide 1 of 7. Designing for connection: Five key design components helping Stem Systems connect more than cables."></li><li><img src="/assets/img/notes/behind-the-design-stem-systems/slide-02.jpg" width="1080" height="1350" loading="lazy" alt="Slide 2 of 7. Stem Systems isn’t about the tech—it’s about what the tech enables. Stronger, more human connections. Commercial? Yes. But always human. Because clients don’t care about specs – they care about outcomes."></li><li><img src="/assets/img/notes/behind-the-design-stem-systems/slide-03.jpg" width="1080" height="1350" loading="lazy" alt="Slide 3 of 7. We didn’t shoot control panels or server racks. We captured what matters: clients connecting with their customers. Because that’s what Stem Systems really delivers."></li><li><img src="/assets/img/notes/behind-the-design-stem-systems/slide-04.jpg" width="1080" height="1350" loading="lazy" alt="Slide 4 of 7. Research found an industry drenched in blue. So we chose red - confident, warm and a little unexpected. Paired with rich burgundy and soft off-whites, the palette builds trust while keeping it human. Familiar, but not generic."></li><li><img src="/assets/img/notes/behind-the-design-stem-systems/slide-05.jpg" width="1080" height="1350" loading="lazy" alt="Slide 5 of 7. The mark captures how a single human connection can grow, evolve and branch into many. A nod to the compounding impact Stem Systems has on its clients, and its forward-thinking ethos."></li><li><img src="/assets/img/notes/behind-the-design-stem-systems/slide-06.jpg" width="1080" height="1350" loading="lazy" alt="Slide 6 of 7. Set in Alliance No.1 – a sans-serif chosen for its clarity and versatility. With clean strokes, subtle inktraps, and open apertures, it stays readable across every touchpoint. Functional, but with just enough personality to feel considered."></li><li><img src="/assets/img/notes/behind-the-design-stem-systems/slide-07.jpg" width="1080" height="1350" loading="lazy" alt="Slide 7 of 7. Bringing the brand to life: As Stem expands into the Republic of Ireland, this new identity is designed to scale, maintaining a sense of clarity, warmth, and purpose. DHD has continued to support the brand rollout with photography, film and web design."></li></ol>
+        <div class="cbar"><span data-count aria-live="polite">1 / 7</span><span><button type="button" data-prev aria-label="Previous slide">&larr;</button><button type="button" data-next aria-label="Next slide">&rarr;</button></span></div>
+      </div>
+      <details class="transcript"><summary>Read it as text</summary><ol><li><h3>Designing for connection</h3><p>Designing for connection: Five key design components helping Stem Systems connect more than cables.</p></li><li><h3>01 Strategy</h3><p>Stem Systems isn’t about the tech—it’s about what the tech enables. Stronger, more human connections. Commercial? Yes. But always human. Because clients don’t care about specs – they care about outcomes.</p></li><li><h3>02 Photo</h3><p>We didn’t shoot control panels or server racks. We captured what matters: clients connecting with their customers. Because that’s what Stem Systems really delivers.</p></li><li><h3>03 Colour</h3><p>Research found an industry drenched in blue. So we chose red - confident, warm and a little unexpected. Paired with rich burgundy and soft off-whites, the palette builds trust while keeping it human. Familiar, but not generic.</p></li><li><h3>04 Icon</h3><p>The mark captures how a single human connection can grow, evolve and branch into many. A nod to the compounding impact Stem Systems has on its clients, and its forward-thinking ethos.</p></li><li><h3>05 Typography</h3><p>Set in Alliance No.1 – a sans-serif chosen for its clarity and versatility. With clean strokes, subtle inktraps, and open apertures, it stays readable across every touchpoint. Functional, but with just enough personality to feel considered.</p></li><li><h3>Bringing the brand to life</h3><p>Bringing the brand to life: As Stem expands into the Republic of Ireland, this new identity is designed to scale, maintaining a sense of clarity, warmth, and purpose. DHD has continued to support the brand rollout with photography, film and web design.</p></li></ol></details>
+
     </div>
   </div>
-  <details class="transcript">
-    <summary>Read it as text</summary>
-    <ol><li><h3>Designing for connection</h3><p>Designing for connection: Five key design components helping Stem Systems connect more than cables.</p></li><li><h3>01 Strategy</h3><p>Stem Systems isn’t about the tech—it’s about what the tech enables. Stronger, more human connections. Commercial? Yes. But always human. Because clients don’t care about specs – they care about outcomes.</p></li><li><h3>02 Photo</h3><p>We didn’t shoot control panels or server racks. We captured what matters: clients connecting with their customers. Because that’s what Stem Systems really delivers.</p></li><li><h3>03 Colour</h3><p>Research found an industry drenched in blue. So we chose red - confident, warm and a little unexpected. Paired with rich burgundy and soft off-whites, the palette builds trust while keeping it human. Familiar, but not generic.</p></li><li><h3>04 Icon</h3><p>The mark captures how a single human connection can grow, evolve and branch into many. A nod to the compounding impact Stem Systems has on its clients, and its forward-thinking ethos.</p></li><li><h3>05 Typography</h3><p>Set in Alliance No.1 – a sans-serif chosen for its clarity and versatility. With clean strokes, subtle inktraps, and open apertures, it stays readable across every touchpoint. Functional, but with just enough personality to feel considered.</p></li><li><h3>Bringing the brand to life</h3><p>Bringing the brand to life: As Stem expands into the Republic of Ireland, this new identity is designed to scale, maintaining a sense of clarity, warmth, and purpose. DHD has continued to support the brand rollout with photography, film and web design.</p></li></ol>
-  </details>
+  </article>
+
+  <nav class="pager" aria-label="More notes">
+    <a href="/notes/where-i-use-ai/"><span class="l">Earlier</span><span class="t">Where I use AI in a design project, and where I stop</span></a>
+    <a href="/notes/"><span class="l">Back to</span><span class="t">All notes</span></a>
+  </nav>
+  </main>
+
+  <footer class="foot">
+    <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>
+    <div class="links" aria-label="Social">
+      <a href="https://www.linkedin.com/in/daniel-young/" rel="me noopener" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/danielyoung.work/" rel="me noopener" target="_blank">Instagram</a>
+      <a href="https://x.com/danielyoungwork" rel="me noopener" target="_blank">X</a>
+    </div>
+    <div class="links"><a href="/cv/">CV</a><a href="/work/">All work</a></div>
+  </footer>
+
 </div>
-
-<nav class="wrap pager" aria-label="More notes">
-  <a href="/notes/"><span class="label">Back to</span><span class="h3">All notes</span></a>
-  <a href="/work/stem-systems/"><span class="label">Case study</span><span class="h3">Stem Systems</span></a>
-</nav>
-</main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="colophon">
-        <p class="note">Every word here was written or edited by me. Claude helped build the site.</p>
-        <p class="muted">Set in Timeless Serif and Timeless Sans.</p>
-      </div>
-      <div>
-        <h2>Pages</h2>
-        <ul><li><a href="/">Home</a></li><li><a href="/work/">Work</a></li><li><a href="/about/">About</a></li><li><a href="/notes/">Notes</a></li><li><a href="/contact/">Contact</a></li><li><a href="/cv/">CV</a></li></ul>
-      </div>
-      <div>
-        <h2>Get in touch</h2>
-        <ul><li><a href="mailto:info@danielyoung.work">info@danielyoung.work</a></li><li><a href="https://www.linkedin.com/in/daniel-young/" target="_blank" rel="me noopener">LinkedIn</a></li><li><button class="kbd-hint" type="button" data-copy="info@danielyoung.work">Copy email address</button></li></ul>
-      </div>
-      <div>
-        <h2>Local time</h2>
-        <p class="clock" data-clock style="align-items:flex-start"><span class="pulse" style="margin-top:7px"></span><span data-clock-text>Northern Ireland</span></p>
-      </div>
-    </div>
-    <div class="footer-base">
-      <span>© 2026 Daniel Young. Last updated 2 November 2026.</span>
-      <button class="kbd-hint" type="button" data-keys>Press <kbd>?</kbd> for keyboard shortcuts</button>
-    </div>
-  </div>
-</footer>
-<dialog class="keys" aria-labelledby="keys-title">
-  <h2 id="keys-title">Keyboard shortcuts</h2>
-  <dl>
-    <dt><kbd>g</kbd> <kbd>h</kbd></dt><dd>Home</dd>
-    <dt><kbd>g</kbd> <kbd>w</kbd></dt><dd>Work</dd>
-    <dt><kbd>g</kbd> <kbd>a</kbd></dt><dd>About</dd>
-    <dt><kbd>g</kbd> <kbd>n</kbd></dt><dd>Notes</dd>
-    <dt><kbd>g</kbd> <kbd>c</kbd></dt><dd>Contact</dd>
-    <dt><kbd>t</kbd></dt><dd>Switch theme: auto, light, dark</dd>
-    <dt><kbd>?</kbd></dt><dd>Show this list</dd>
-  </dl>
-  <form method="dialog"><button class="btn ghost" type="submit">Close</button></form>
-</dialog>
-<div class="preview" aria-hidden="true"><img alt=""></div>
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  document.documentElement.classList.add('js');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}});
+  },{rootMargin:'0px 0px -8% 0px',threshold:.05});
+  els.forEach(function(el){io.observe(el)});
+})();
+</script>
+<script>
+(function(){
+  var root=document.querySelector('[data-carousel]');
+  if(!root)return;
+  var track=root.querySelector('.track'), slides=[].slice.call(track.children), count=root.querySelector('[data-count]');
+  var step=function(){return slides[1]?slides[1].offsetLeft-slides[0].offsetLeft:track.clientWidth};
+  var go=function(d){track.scrollBy({left:d*step(),behavior:'smooth'})};
+  root.querySelector('[data-prev]').addEventListener('click',function(){go(-1)});
+  root.querySelector('[data-next]').addEventListener('click',function(){go(1)});
+  track.addEventListener('scroll',function(){var i=Math.round(track.scrollLeft/step());count.textContent=Math.min(slides.length,i+1)+' / '+slides.length},{passive:true});
+})();
+</script>
 </body>
 </html>

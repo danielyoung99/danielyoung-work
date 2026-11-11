@@ -72,6 +72,34 @@ In the details of each study, the `home:` line chooses the two images on the hom
 
 Open `_content/order.txt`. Move a line up or down. That sets the order on the home page and the previous and next links at the bottom of each case study. Save and run the build.
 
+## Notes (the blog)
+
+Each note is a text file in `_content/notes/`, and `python3 _build.py` makes the listing at /notes/ and a page for each one. The listing is newest first, by the date in each file. Copy an existing file to start a new one.
+
+```
+title: The big heading. Use <em> if you like.
+name: The same heading as plain text, for the listing and the browser tab
+date: 2026-11-01
+category: Process
+summary: One or two sentences for the listing and link previews.
+read: 1 min read
+margin: A line shown in the left column beside the text (optional).
+how-label: How this was written
+how: A line about how it was written, shown at the end (optional).
+
+---
+
+The first paragraph is shown a little larger.
+
+# A heading
+
+More paragraphs. Leave a blank line between them. Links look like [this](https://example.com).
+
+> A big pull quote.
+```
+
+A carousel note (like Stem Systems) adds `kind: carousel`, then a `slides:` block (`slide-01.jpg | description`, with the images in `assets/img/notes/<note-name>/`) and a `transcript:` block (`Heading | text`).
+
 ## Add a case study
 
 ```

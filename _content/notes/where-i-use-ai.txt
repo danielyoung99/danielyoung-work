@@ -1,0 +1,35 @@
+title: Where I use AI in a design project, <em>and where I stop.</em>
+name: Where I use AI in a design project, and where I stop
+date: 2026-11-01
+category: Process
+summary: I use AI every day at work. I don't let it make the final call. Here's where that line sits on a typical brand project.
+read: 1 min read
+margin: Thirty competitors used to be a week's work. Now it's an afternoon, and the afternoon is spent reading.
+how-label: How this was written
+how: Drafted with Claude from my own notes, then rewritten and checked by me.
+
+---
+
+I use AI every day at work. I don't let it make the final call. Here's where that line sits on a typical brand project.
+
+# Research
+
+Meeting notes and transcripts go in and a short summary comes out. I read the summary, then I read the parts it skipped. That second read is where the useful stuff usually is: the aside a client made at the end of a call, or the thing three different people said in slightly different words.
+
+Competitor research is wide by default now, because looking at thirty brands costs about the same as looking at five. More brands in the room makes the gaps easier to see.
+
+# First drafts
+
+A model can give me a dozen headline options in a minute. Most are fine and none are specific. I use them to find out what the obvious answer is, so I can steer away from it.
+
+> The obvious answer is useful. It tells you where everyone else will end up.
+
+# The slow, boring work
+
+Resizing artwork, naming files, exporting logos, checking colour contrast. This is where the time comes back. DHD's folder and file naming format is now a skill that applies it for me, so it's the same on every project, whoever is working on it.
+
+# Where I stop
+
+Type, spacing, colour and the words on the page stay with me. So does the decision about what ships. If I can't say why a choice is right, it isn't finished.
+
+The test I use is whether the client would recognise the people behind the work. A first pass can be correct and still sound like anyone. A person has to make it sound like them.
