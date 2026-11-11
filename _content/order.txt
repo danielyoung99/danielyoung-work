@@ -8,4 +8,3 @@ colloide
 sg-elite
 stem-systems
 thornton
-chapter-and-verse

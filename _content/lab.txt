@@ -1,4 +1,4 @@
-// My own apps, sites and tools. One block per project, separated by a blank line.
+// My own apps, sites and tools (the Lab page). One block per item, separated by a blank line.
 // Newest or most important first. Only "name", "kind" and "summary" are needed.
 //   link:   where the row goes. A page on this site (/work/x/) or a full web address. Leave it out for no link.
 //   action: the words for the link, e.g. Case study, Build notes, Visit.
@@ -10,8 +10,8 @@ kind: Bible study app for iPhone and iPad
 year: 2026
 summary: Reading, study notes and prayer in one calm app. I designed and built it.
 built: SwiftUI, SwiftData, iCloud, Claude
-link: /work/chapter-and-verse/
-action: Case study
+link: /lab/chapter-and-verse/
+action: Read more
 image: chapter-and-verse/phone-read.jpg | The Chapter & Verse reading screen on an iPhone.
 
 name: Lights Out Belfast

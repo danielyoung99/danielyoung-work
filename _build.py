@@ -71,10 +71,10 @@ def image_size(path):
 
 
 # ---------------------------------------------------------------- reading a study
-def parse_study(slug):
-    path = os.path.join(CONTENT, 'studies', slug + '.txt')
+def parse_study(slug, folder='studies'):
+    path = os.path.join(CONTENT, folder, slug + '.txt')
     if not os.path.exists(path):
-        raise Problem('%s is in order.txt but _content/studies/%s.txt does not exist.' % (slug, slug))
+        raise Problem('%s is in order.txt but _content/%s/%s.txt does not exist.' % (slug, folder, slug))
     text = read(path).replace('\r\n', '\n')
     parts = re.split(r'(?m)^---[ \t]*$', text, maxsplit=1)
     if len(parts) != 2:
@@ -232,7 +232,7 @@ def render_images(s, block, state, first):
 
 
 # ---------------------------------------------------------------- pages
-def render_case(s, tpl, prev, nxt):
+def render_case(s, tpl, prev, nxt, section='work'):
     state = {'n': sum(map(ord, s['slug'])) % 5}
     parts = []
     first = True
@@ -253,6 +253,9 @@ def render_case(s, tpl, prev, nxt):
     page_title = s.get('page-title') or (plain(s['name']) + ' · Daniel Young')
     desc = esc(plain(s['description']), True)
     pagernav = '  <nav class="pager" aria-label="More work">\n%s\n  </nav>\n\n' % '\n'.join(pager)
+    if section == 'lab':
+        return fill_page(tpl, page_title, desc, '/lab/%s/' % s['slug'], s['title'], facts, '\n'.join(parts),
+                         pagernav.replace('aria-label="More work"', 'aria-label="More from the Lab"'), '', '/lab/', 'Lab')
     return fill_page(tpl, page_title, desc, '/work/%s/' % s['slug'], s['title'], facts, '\n'.join(parts),
                      pagernav, ' aria-current="page"', '/#work', 'Work')
 
@@ -458,9 +461,9 @@ def build_notes(changed):
     return len(notes)
 
 
-# ---------------------------------------------------------------- projects (own apps, sites and tools)
+# ---------------------------------------------------------------- the Lab (own apps, sites and tools)
 def parse_projects():
-    path = os.path.join(CONTENT, 'projects.txt')
+    path = os.path.join(CONTENT, 'lab.txt')
     out = []
     for n, block in enumerate(re.split(r'\n\s*\n', read(path).replace('\r\n', '\n')), 1):
         d = {}
@@ -468,17 +471,17 @@ def parse_projects():
             if not line.strip() or line.lstrip().startswith('//'):
                 continue
             if ':' not in line:
-                raise Problem('_content/projects.txt: expected "name: value" but found "%s".' % line)
+                raise Problem('_content/lab.txt: expected "name: value" but found "%s".' % line)
             k, v = line.split(':', 1)
             k = k.strip().lower()
             if k not in ('name', 'kind', 'year', 'summary', 'built', 'link', 'action', 'image'):
-                raise Problem('_content/projects.txt: unknown detail "%s".' % k)
+                raise Problem('_content/lab.txt: unknown detail "%s".' % k)
             d[k] = v.strip()
         if not d:
             continue
         for k in ('name', 'kind', 'summary'):
             if not d.get(k):
-                raise Problem('_content/projects.txt: a project is missing "%s:" (%s).' % (k, d.get('name', 'block %d' % n)))
+                raise Problem('_content/lab.txt: a project is missing "%s:" (%s).' % (k, d.get('name', 'block %d' % n)))
         out.append(d)
     return out
 
@@ -497,7 +500,7 @@ def render_project(d):
         src = src.strip()
         p = os.path.join(ROOT, 'assets', 'img', src)
         if not os.path.exists(p):
-            raise Problem('_content/projects.txt: the image assets/img/%s does not exist.' % src)
+            raise Problem('_content/lab.txt: the image assets/img/%s does not exist.' % src)
         w, h = image_size(p)
         shot = '<figure class="shot"><span><img src="/assets/img/%s" width="%d" height="%d" loading="lazy" alt="%s"></span></figure>' % (src, w, h, esc(alt.strip(), True))
     cls = 'proj' if shot else 'proj empty'
@@ -587,6 +590,8 @@ def render_page(d, tpl):
                      d['title'], facts, '\n'.join(body), '', '', bits[0], bits[1])
 
 
+MOVED = [('projects', '/lab/', 'Lab'), ('work/chapter-and-verse', '/lab/chapter-and-verse/', 'Chapter &amp; Verse')]
+
 REDIRECT = '''<!doctype html>
 <html lang="en-GB">
 <head>
@@ -664,8 +669,22 @@ def build():
     if write_if_changed(os.path.join(ROOT, 'cv', 'index.html'), REDIRECT.format(name='About', url='/about/')):
         changed.append('cv/index.html')
     rows = '\n'.join(render_project(d) for d in parse_projects())
-    if write_if_changed(os.path.join(ROOT, 'projects', 'index.html'), read(os.path.join(CONTENT, 'templates', 'projects.html')).replace('{{ROWS}}', rows)):
-        changed.append('projects/index.html')
+    if write_if_changed(os.path.join(ROOT, 'lab', 'index.html'), read(os.path.join(CONTENT, 'templates', 'lab.html')).replace('{{ROWS}}', rows)):
+        changed.append('lab/index.html')
+    # pages that sit in the Lab (written up like a case study, but they are my own builds)
+    ldir = os.path.join(CONTENT, 'lab')
+    if os.path.isdir(ldir):
+        for f in sorted(os.listdir(ldir)):
+            if f.endswith('.txt'):
+                s = parse_study(f[:-4], 'lab')
+                if not (s['prev'] and s['next']):
+                    raise Problem('lab/%s: give both "prev:" and "next:".' % f)
+                if write_if_changed(os.path.join(ROOT, 'lab', s['slug'], 'index.html'), render_case(s, case_tpl, s['prev'], s['next'], 'lab')):
+                    changed.append('lab/%s/index.html' % s['slug'])
+    # old addresses that now redirect
+    for old_dir, new_url, label in MOVED:
+        if write_if_changed(os.path.join(ROOT, old_dir, 'index.html'), REDIRECT.format(name=label, url=new_url)):
+            changed.append(old_dir + '/index.html')
     pdir = os.path.join(CONTENT, 'pages')
     npages = 0
     if os.path.isdir(pdir):
@@ -686,9 +705,9 @@ def build():
         if f.endswith('.txt') and f[:-4] not in listed:
             print('Note: _content/studies/%s is not in order.txt, so it is not on the site.' % f)
     for d in sorted(os.listdir(os.path.join(ROOT, 'work'))):
-        if os.path.isfile(os.path.join(ROOT, 'work', d, 'index.html')) and d not in listed:
+        if os.path.isfile(os.path.join(ROOT, 'work', d, 'index.html')) and d not in listed and ('work/' + d) not in [m[0] for m in MOVED]:
             print('Note: work/%s/ still exists but is no longer in order.txt (the old page stays live until you delete that folder).' % d)
-    print('Built %d case studies, %d notes, %d text pages, the home page, the About, Contact, Work, Projects and 404 pages.' % (len(studies), nnotes, npages))
+    print('Built %d case studies, %d notes, %d text pages, the home page, the About, Contact, Work, Lab and 404 pages.' % (len(studies), nnotes, npages))
     print('Changed: ' + (', '.join(changed) if changed else 'nothing (already up to date)'))
 
 

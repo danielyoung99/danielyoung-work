@@ -102,9 +102,11 @@ More paragraphs. Leave a blank line between them. Links look like [this](https:/
 
 A carousel note (like Stem Systems) adds `kind: carousel`, then a `slides:` block (`slide-01.jpg | description`, with the images in `assets/img/notes/<note-name>/`) and a `transcript:` block (`Heading | text`).
 
-## Projects (my own apps, sites and tools)
+## The Lab (my own apps, sites and tools)
 
-The Projects page (danielyoung.work/projects/) is a list built from one file, `_content/projects.txt`. Each project is a block of `name: value` lines, with a blank line between projects. Only `name`, `kind` and `summary` are needed. Add `link:` and `action:` to make the row clickable, `image:` for a picture beside the text (the file goes in `assets/img/`), and `built:` for what it was made with. The order in the file is the order on the page.
+The Lab page (danielyoung.work/lab/) is a list built from one file, `_content/lab.txt`. Each item is a block of `name: value` lines, with a blank line between items. Only `name`, `kind` and `summary` are needed. Add `link:` and `action:` to make the row clickable, `image:` for a picture beside the text (the file goes in `assets/img/`), and `built:` for what it was made with. The order in the file is the order on the page.
+
+An item can have its own write-up page. Put a text file in `_content/lab/` (it works exactly like a case study file, but needs both `prev:` and `next:` lines) and it is built at `/lab/<name>/`. Chapter & Verse is one. Case studies are for client work only: they live in `_content/studies/` and are listed in `order.txt`.
 
 ## Add a case study
 

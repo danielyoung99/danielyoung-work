@@ -8,7 +8,7 @@ fact: Built with | SwiftUI, SwiftData, iCloud, Claude
 image-folder: assets/img/chapter-and-verse/
 card: My own Bible study app for iPhone and iPad. I designed and built it.
 home: phone-read.jpg | Chapter & Verse on iPhone, reading view. + ipad-reader.jpg | Chapter & Verse on iPad, with a study note open beside the text.
-prev: /work/ | Back to | All work
+prev: /lab/ | Back to | Lab
 next: /notes/lights-out-belfast/ | Next build | Lights Out Belfast
 
 ---

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter &amp; Verse · Daniel Young</title>
+<meta name="description" content="A Bible study app for iPhone and iPad that puts reading, study notes and prayer in one place. Designed and built by Daniel Young.">
+<link rel="canonical" href="https://danielyoung.work/lab/chapter-and-verse/">
+<meta property="og:title" content="Chapter &amp; Verse · Daniel Young">
+<meta property="og:description" content="A Bible study app for iPhone and iPad that puts reading, study notes and prayer in one place. Designed and built by Daniel Young.">
+<meta property="og:url" content="https://danielyoung.work/lab/chapter-and-verse/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#dfdfd8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121211" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23181715'/%3E%3Ctext x='16' y='22.5' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%23f3f0e8'%3EDY%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/TimelessSansVF.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/case.css">
+<link rel="stylesheet" href="/assets/nav.css">
+<script src="/assets/nav.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <header class="top">
+    <a href="/" aria-label="Daniel Young, home">Daniel Young</a>
+    <nav aria-label="Main">
+      <a href="/#work">Work</a>
+      <a href="/lab/">Lab</a>
+      <a href="/about/">About</a>
+      <a href="/notes/">Notes</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <a class="back" href="/lab/">&larr; Lab</a>
+      <h1>Chapter &amp; Verse: <em>reading, notes and prayer</em> in one calm app.</h1>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Design and build</dd></div>
+        <div><dt>Year</dt><dd>2026</dd></div>
+        <div><dt>For</dt><dd>iPhone and iPad</dd></div>
+        <div><dt>Built with</dt><dd>SwiftUI, SwiftData, iCloud, Claude</dd></div>
+      </dl>
+    </section>
+
+<figure class="gal rv full"><div class="ph l"><img src="/assets/img/chapter-and-verse/ipad-reader.jpg" width="2160" height="1440" alt="Chapter &amp; Verse on iPad: a chapter of the Bible on the left, with a study note open in a pane on the right."></div><p class="fcap">On iPad, notes open beside the text so you never lose your place.</p></figure>
+<section class="txt rv"><h2>The brief</h2><div><p>I set myself a simple brief. One app for reading the Bible, keeping study notes and praying through what I'd read. Most apps I tried did one of those well and bolted on the others, or filled the screen with features I didn't use.</p><p>So the design goal was restraint. The text comes first. Everything else waits until you ask for it.</p></div></section>
+<section class="txt rv"><h2>Reading</h2><div><p>Tap a verse to select it, then highlight it in one of five colours, add a note or turn it into a prayer point. The markup bar is large on purpose, because people use this with a coffee in one hand.</p><p>Reading settings cover typeface, size, line and letter spacing, column width and page colour. They're the same controls I'd want in any reading app, and they're the ones most Bible apps leave out.</p></div></section>
+<div class="gal rv row3"><div class="ph p"><img src="/assets/img/chapter-and-verse/phone-read.jpg" width="1080" height="1440" loading="lazy" alt="The reader on iPhone, showing a chapter of text."></div><div class="ph p"><img src="/assets/img/chapter-and-verse/phone-highlight.jpg" width="1080" height="1440" loading="lazy" alt="Verses highlighted in colour on iPhone, with the markup bar open."></div><div class="ph p"><img src="/assets/img/chapter-and-verse/phone-study.jpg" width="1080" height="1440" loading="lazy" alt="A study note attached to a verse on iPhone."></div></div>
+<section class="txt rv"><h2>Study</h2><div><p>Notes can sit on a verse or stand alone. They have folders, a speaker field for sermon notes, and search that understands a word, a passage or a plain date like "last Sunday".</p><p>On iPad, notes open in a pane beside the text. That one layout decision did more for the app than any feature, because you can write without losing your place.</p></div></section>
+<figure class="gal rv full"><div class="ph l"><img src="/assets/img/chapter-and-verse/ipad-notes.jpg" width="2160" height="1440" loading="lazy" alt="The notes library on iPad, with folders down the side."></div><p class="fcap">The notes library on iPad.</p></figure>
+<section class="txt rv"><h2>Prayer</h2><div><p>Any verse can become a prayer point. Prayer points can be ticked off when they're answered, and shared through iCloud with up to eight people. Anyone in the group can mark one complete, so a family or a small group can pray through the same list.</p><p>Everything syncs between devices through iCloud. There's no account to make and nothing stored on a server I run.</p></div></section>
+<figure class="gal rv full"><div class="ph l"><img src="/assets/img/chapter-and-verse/ipad-pray.jpg" width="2160" height="1440" loading="lazy" alt="The Pray screen on iPad, listing prayer points."></div></figure>
+<section class="txt rv"><h2>How it was made</h2><div><p>I designed every screen and made every product decision. Claude wrote most of the Swift with me, a feature at a time, and I tested each build on my own phone before moving on.</p><p>That split is the same one I use on client work. The machine is fast at the parts with a right answer. The parts that need taste and judgement, like what to leave out, stayed with me.</p></div></section>
+<p class="quote rv">The best feature turned out to be a layout: notes beside the text, not on top of it.</p>
+<section class="txt rv"><h2>Made with AI, and where</h2><div><p>Design, product decisions and this write-up are mine. The Swift code was written with Claude and checked by me on real devices.</p></div></section>
+  </main>
+
+  <nav class="pager" aria-label="More from the Lab">
+    <a class="prev" href="/lab/"><span>Back to</span><b>Lab</b></a>
+    <a class="next" href="/notes/lights-out-belfast/"><span>Next build</span><b>Lights Out Belfast</b></a>
+  </nav>
+
+  <footer class="foot">
+    <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>
+    <div class="links" aria-label="Social">
+      <a href="https://www.linkedin.com/in/daniel-young/" rel="me noopener" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/danielyoung.work/" rel="me noopener" target="_blank">Instagram</a>
+      <a href="https://x.com/danielyoungwork" rel="me noopener" target="_blank">X</a>
+    </div>
+    <div class="links"><a href="/work/">All work</a></div>
+  </footer>
+</div>
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  document.documentElement.classList.add('js');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}});
+  },{rootMargin:'0px 0px -8% 0px',threshold:.05});
+  els.forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>

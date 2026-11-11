@@ -4,7 +4,7 @@ path: glean/privacy
 name: Glean privacy policy
 title: Glean <em>privacy policy</em>
 description: What the Glean app does with your information.
-back: /work/chapter-and-verse/ | Glean
+back: /lab/chapter-and-verse/ | Glean
 fact: Last updated | 7 November 2026
 fact: App | Glean for iPhone and iPad
 fact: Contact | info@danielyoung.work

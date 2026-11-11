@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Projects · Daniel Young</title>
+<title>Lab · Daniel Young</title>
 <meta name="description" content="Apps, sites and tools designed and built by Daniel Young.">
-<link rel="canonical" href="https://danielyoung.work/projects/">
+<link rel="canonical" href="https://danielyoung.work/lab/">
 <style>
 @font-face{font-family:"Timeless Sans";src:url(/fonts/TimelessSansVF.woff2) format("woff2");font-weight:300 800;font-style:normal;font-display:swap}
 
@@ -110,12 +110,9 @@ a.proj:hover .shot img{transform:scale(1.04)}
   .js .rv{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
   .js .rv.on{opacity:1;transform:none}
 }
-@media (max-width:520px){
-  .top{flex-wrap:wrap;row-gap:14px}
-  .top > a{white-space:nowrap}
-  .top nav{flex-basis:100%;gap:20px}
-}
 </style>
+<link rel="stylesheet" href="/assets/nav.css">
+<script src="/assets/nav.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -124,7 +121,7 @@ a.proj:hover .shot img{transform:scale(1.04)}
     <a href="/" aria-label="Daniel Young, home">Daniel Young</a>
     <nav aria-label="Main">
       <a href="/work/">Work</a>
-      <a href="/projects/" aria-current="page">Projects</a>
+      <a href="/lab/" aria-current="page">Lab</a>
       <a href="/about/">About</a>
       <a href="/notes/">Notes</a>
       <a href="/contact/">Contact</a>
@@ -137,8 +134,12 @@ a.proj:hover .shot img{transform:scale(1.04)}
     <p class="sub rv">Apps, sites and tools made on my own time, mostly with Claude. I do the design and decide what ships.</p>
   </section>
 
-  <ol class="projects rv" aria-label="My projects">
-{{ROWS}}
+  <ol class="projects rv" aria-label="Lab">
+    <li><a class="proj" href="/lab/chapter-and-verse/"><div class="meta"><b>Bible study app for iPhone and iPad</b>2026</div><div class="txt"><h2>Chapter &amp; Verse</h2><p>Reading, study notes and prayer in one calm app. I designed and built it.</p><span class="built">Built with SwiftUI, SwiftData, iCloud, Claude</span><span class="go">Read more &rarr;</span></div><figure class="shot"><span><img src="/assets/img/chapter-and-verse/phone-read.jpg" width="1080" height="1440" loading="lazy" alt="The Chapter &amp; Verse reading screen on an iPhone."></span></figure></a></li>
+    <li><a class="proj empty" href="/notes/lights-out-belfast/"><div class="meta"><b>Interactive 3D map</b>2026</div><div class="txt"><h2>Lights Out Belfast</h2><p>Nobody keeps an address-level list of empty buildings in Belfast. So I built a map you can look at instead.</p><span class="built">Built with MapLibre, OpenFreeMap, Claude</span><span class="go">Build notes &rarr;</span></div></a></li>
+    <li><div class="proj empty"><div class="meta"><b>Lawn care app for iPhone</b>2026</div><div class="txt"><h2>Stripes</h2><p>The lawn on screen grows and fades as the next mow gets close, with a log for every lawn job.</p><span class="built">Built with SwiftUI, Claude</span></div></div></li>
+    <li><div class="proj empty"><div class="meta"><b>Focus and break timer</b>2026</div><div class="txt"><h2>Cadence</h2><p>A full-screen timer for focus and breaks, with notifications and a Live Activity on the lock screen.</p><span class="built">Built with SwiftUI, Claude</span></div></div></li>
+    <li><div class="proj empty"><div class="meta"><b>Light-stroke pattern generator</b>2026</div><div class="txt"><h2>Glowline Studio</h2><p>A pattern tool for the web with eight templates. Export to PNG, video or JSON.</p><span class="built">Built with JavaScript, Claude</span></div></div></li>
   </ol>
   </main>
 
