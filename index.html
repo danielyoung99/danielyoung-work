@@ -114,6 +114,19 @@ h1{
   .work-item .cap{grid-column:1;grid-row:2;margin-top:20px;max-width:none}
 }
 
+.foot{
+  margin-top:clamp(96px,12vw,176px);
+  padding-bottom:40px;
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;
+  color:var(--mute);
+  font-size:15px;
+}
+.foot .links{display:flex;flex-wrap:wrap;gap:8px 24px}
+.foot a:hover{color:var(--ink)}
+@media (max-width:760px){
+  .foot{flex-direction:column;gap:12px}
+}
+
 @media (prefers-reduced-motion:no-preference){
   .js .rv{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
   .js .rv.on{opacity:1;transform:none}
@@ -185,6 +198,11 @@ h1{
 
   <footer class="foot">
     <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>
+    <div class="links" aria-label="Social">
+      <a href="https://www.linkedin.com/in/daniel-young/" rel="me noopener" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/danielyoung.work/" rel="me noopener" target="_blank">Instagram</a>
+      <a href="https://x.com/danielyoungwork" rel="me noopener" target="_blank">X</a>
+    </div>
     <div class="links"><a href="/cv/">CV</a><a href="/work/">All work</a></div>
   </footer>
 

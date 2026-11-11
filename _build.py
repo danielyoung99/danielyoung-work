@@ -435,6 +435,8 @@ def build():
     tpl = read(os.path.join(CONTENT, 'templates', 'about.html'))
     if write_if_changed(os.path.join(ROOT, 'about', 'index.html'), tpl.replace('{{LEDE}}', esc(about['lede']))):
         changed.append('about/index.html')
+    if write_if_changed(os.path.join(ROOT, '404.html'), read(os.path.join(CONTENT, 'templates', '404.html'))):
+        changed.append('404.html')
     pdir = os.path.join(CONTENT, 'pages')
     npages = 0
     if os.path.isdir(pdir):
@@ -457,7 +459,7 @@ def build():
     for d in sorted(os.listdir(os.path.join(ROOT, 'work'))):
         if os.path.isfile(os.path.join(ROOT, 'work', d, 'index.html')) and d not in listed:
             print('Note: work/%s/ still exists but is no longer in order.txt (the old page stays live until you delete that folder).' % d)
-    print('Built %d case studies, %d text pages, the home page and the About page.' % (len(studies), npages))
+    print('Built %d case studies, %d text pages, the home page, the About page and the 404 page.' % (len(studies), npages))
     print('Changed: ' + (', '.join(changed) if changed else 'nothing (already up to date)'))
 
 

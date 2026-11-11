@@ -14,6 +14,8 @@ assets/img/case-studies/<name>/    the images for each case study
 
 The About page (danielyoung.work/about/) takes its intro paragraph from `_content/about.txt`. Experience and Education live in `_content/templates/about.html`. Edit them there.
 
+The page people see at a broken link (404) is `_content/templates/404.html`.
+
 ## The everyday routine
 
 1. Change a text file, or add or swap images.
