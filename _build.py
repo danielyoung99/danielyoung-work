@@ -443,12 +443,37 @@ def render_note_row(n):
             '    </a></li>') % (n['slug'], esc(n['category']), short_date(n['date']), esc(plain(n['name'])), inline(n['summary']), esc(n['read']))
 
 
+def load_notes():
+    ndir = os.path.join(CONTENT, 'notes')
+    if not os.path.isdir(ndir):
+        return []
+    notes = [parse_note(f[:-4]) for f in sorted(os.listdir(ndir)) if f.endswith('.txt')]
+    notes.sort(key=lambda n: n['date'], reverse=True)  # newest first
+    return notes
+
+
+def render_home_note(n):
+    return ('    <a class="card ncard rv" href="/notes/%s/">\n'
+            '      <span class="meta"><b>%s</b><span>%s</span></span>\n'
+            '      <h3>%s</h3><p>%s</p><span class="len">%s</span>\n'
+            '    </a>') % (n['slug'], esc(n['category']), short_date(n['date']), esc(plain(n['name'])), esc(plain(n['summary'])), esc(n['read']))
+
+
+def render_home_lab(d):
+    href = d.get('link') or '/lab/'
+    ext = href.startswith('http')
+    built = '<span class="built">Built with %s</span>' % esc(d['built']) if d.get('built') else ''
+    return ('    <a class="card lcard rv" href="%s"%s>\n'
+            '      <span class="kind">%s</span>\n'
+            '      <h3>%s</h3><p>%s</p>%s\n'
+            '    </a>') % (esc(href, True), ' target="_blank" rel="noopener"' if ext else '', esc(d['kind']), esc(d['name']), esc(plain(d['summary'])), built)
+
+
 def build_notes(changed):
     ndir = os.path.join(CONTENT, 'notes')
     if not os.path.isdir(ndir):
         return 0
-    notes = [parse_note(f[:-4]) for f in sorted(os.listdir(ndir)) if f.endswith('.txt')]
-    notes.sort(key=lambda n: n['date'], reverse=True)  # newest first
+    notes = load_notes()
     tpl = read(os.path.join(CONTENT, 'templates', 'note.html'))
     for k, n in enumerate(notes):
         nxt = notes[k - 1] if k > 0 else None            # newer
@@ -650,7 +675,9 @@ def build():
     home = read_keys('home.txt', ('hero',))
     tpl = read(os.path.join(CONTENT, 'templates', 'home.html'))
     cards = '\n'.join(render_card(s, k) for k, s in enumerate(studies))
-    out = tpl.replace('{{HERO}}', esc(home['hero'])).replace('{{WORK}}', cards)
+    note_cards = '\n'.join(render_home_note(n) for n in load_notes()[:3])
+    lab_cards = '\n'.join(render_home_lab(d) for d in parse_projects()[:4])
+    out = tpl.replace('{{HERO}}', esc(home['hero'])).replace('{{WORK}}', cards).replace('{{NOTES}}', note_cards).replace('{{LABCARDS}}', lab_cards)
     if write_if_changed(os.path.join(ROOT, 'index.html'), out):
         changed.append('index.html')
     about = read_keys('about.txt', ('lede',))

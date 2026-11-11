@@ -114,6 +114,42 @@ h1{
   .work-item .cap{grid-column:1;grid-row:2;margin-top:20px;max-width:none}
 }
 
+/* from the notes and the Lab: soft text cards, nothing like the work grid above */
+:root{--rule:color-mix(in srgb,var(--mute),transparent 55%);--cr:calc(var(--r)*1.8)}
+.band{margin-top:clamp(96px,12vw,176px)}
+.band-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(20px,2.4vw,32px)}
+.band-head h2{font-weight:500;font-size:17px;line-height:1.2;color:var(--mute)}
+.band-head a{font-size:17px;font-weight:500;border-bottom:1px solid currentColor;padding-bottom:2px;white-space:nowrap;transition:color .15s}
+.band-head a:hover{color:var(--mute)}
+.cards{display:grid;gap:clamp(12px,1.6vw,20px)}
+.cards.n{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cards.l{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{display:flex;flex-direction:column;border-radius:var(--cr);padding:clamp(20px,2vw,28px);transition:background .2s,border-color .2s}
+.card h3{font-weight:500;line-height:1.1;letter-spacing:-.02em;text-wrap:balance}
+.card p{margin-top:12px;color:var(--mute);font-size:16px;line-height:1.4;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ncard{background:var(--block);min-height:clamp(280px,26vw,360px)}
+.ncard:hover{background:color-mix(in srgb,var(--block),var(--ink) 7%)}
+.ncard .meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--mute);font-size:15px}
+.ncard .meta b{color:var(--ink);font-weight:500}
+.ncard h3{margin-top:clamp(28px,4vw,56px);font-size:clamp(22px,2.2vw,30px)}
+.ncard .len{margin-top:auto;padding-top:20px;color:var(--mute);font-size:15px}
+.lcard{border:1px solid var(--rule);min-height:clamp(200px,17vw,240px)}
+.lcard:hover{border-color:var(--ink)}
+.lcard .kind{color:var(--mute);font-size:15px;line-height:1.3}
+.lcard h3{margin-top:clamp(20px,2.6vw,36px);font-size:clamp(22px,2vw,26px)}
+.lcard .built{margin-top:auto;padding-top:16px;color:var(--mute);font-size:14px}
+@media (max-width:1000px){
+  .cards.n{grid-template-columns:1fr}
+  .ncard{min-height:0}
+  .ncard .len{padding-top:14px;margin-top:0}
+  .cards.l{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  .cards.l{grid-template-columns:1fr}
+  .lcard{min-height:0}
+  .lcard .built{padding-top:12px;margin-top:0}
+}
+
 .foot{
   margin-top:clamp(96px,12vw,176px);
   padding-bottom:40px;
@@ -194,6 +230,46 @@ h1{
       <div class="pair pl"><div class="ph p"><img src="/assets/img/case-studies/thornton/05-portrait.jpg" width="1080" height="1350" loading="lazy" alt="Thornton, identity in use, portrait."></div><div class="ph l"><img src="/assets/img/case-studies/thornton/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt="Thornton, identity in use, landscape."></div></div>
       <div class="cap"><div class="eyebrow">Thornton</div><p class="line">I designed the brand identity, from logo and colour to the identity in use.</p></div>
     </a>
+  </section>
+
+  <section class="band" aria-label="From the notes">
+    <div class="band-head rv"><h2>From the notes</h2><a href="/notes/">All notes &rarr;</a></div>
+    <div class="cards n">
+    <a class="card ncard rv" href="/notes/behind-the-design-stem-systems/">
+      <span class="meta"><b>Behind the design</b><span>4 Nov 2026</span></span>
+      <h3>Behind the design: Stem Systems</h3><p>Five design decisions behind the identity, as a swipeable carousel: strategy, photography, colour, icon and typography.</p><span class="len">7 slides</span>
+    </a>
+    <a class="card ncard rv" href="/notes/where-i-use-ai/">
+      <span class="meta"><b>Process</b><span>1 Nov 2026</span></span>
+      <h3>Where I use AI in a design project, and where I stop</h3><p>I use AI every day at work. I don't let it make the final call. Here's where that line sits on a typical brand project.</p><span class="len">1 min read</span>
+    </a>
+    <a class="card ncard rv" href="/notes/lights-out-belfast/">
+      <span class="meta"><b>Build notes</b><span>31 Oct 2026</span></span>
+      <h3>Making a map of Belfast's empty buildings</h3><p>Nobody keeps an address-level list of empty buildings in Belfast. So I built a map you can look at instead.</p><span class="len">1 min read</span>
+    </a>
+    </div>
+  </section>
+
+  <section class="band" aria-label="From the Lab">
+    <div class="band-head rv"><h2>From the Lab</h2><a href="/lab/">Everything in the Lab &rarr;</a></div>
+    <div class="cards l">
+    <a class="card lcard rv" href="/lab/chapter-and-verse/">
+      <span class="kind">Bible study app for iPhone and iPad</span>
+      <h3>Chapter &amp; Verse</h3><p>Reading, study notes and prayer in one calm app. I designed and built it.</p><span class="built">Built with SwiftUI, SwiftData, iCloud, Claude</span>
+    </a>
+    <a class="card lcard rv" href="/notes/lights-out-belfast/">
+      <span class="kind">Interactive 3D map</span>
+      <h3>Lights Out Belfast</h3><p>Nobody keeps an address-level list of empty buildings in Belfast. So I built a map you can look at instead.</p><span class="built">Built with MapLibre, OpenFreeMap, Claude</span>
+    </a>
+    <a class="card lcard rv" href="/lab/">
+      <span class="kind">Lawn care app for iPhone</span>
+      <h3>Stripes</h3><p>The lawn on screen grows and fades as the next mow gets close, with a log for every lawn job.</p><span class="built">Built with SwiftUI, Claude</span>
+    </a>
+    <a class="card lcard rv" href="/lab/">
+      <span class="kind">Focus and break timer</span>
+      <h3>Cadence</h3><p>A full-screen timer for focus and breaks, with notifications and a Live Activity on the lock screen.</p><span class="built">Built with SwiftUI, Claude</span>
+    </a>
+    </div>
   </section>
 
   <footer class="foot">

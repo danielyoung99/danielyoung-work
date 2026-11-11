@@ -108,6 +108,10 @@ The Lab page (danielyoung.work/lab/) is a list built from one file, `_content/la
 
 An item can have its own write-up page. Put a text file in `_content/lab/` (it works exactly like a case study file, but needs both `prev:` and `next:` lines) and it is built at `/lab/<name>/`. Chapter & Verse is one. Case studies are for client work only: they live in `_content/studies/` and are listed in `order.txt`.
 
+## Notes and Lab cards on the home page
+
+Below the work, the home page shows the three newest notes (by date) and the first four items in `_content/lab.txt`. Nothing to set up: add a note or change the order in `lab.txt` and run the build. A Lab card with no `link:` goes to the Lab page.
+
 ## Add a case study
 
 ```
