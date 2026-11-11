@@ -291,6 +291,21 @@ def render_card(s, index):
             '    </a>') % (v, s['slug'], order, inner, esc(s['name']), esc(s['card']))
 
 
+def render_row(s, k):
+    facts = dict((a.lower(), c) for a, c in s['facts'])
+    what = facts.get('services') or facts.get('work') or facts.get('for') or ''
+    first = s['home'].split(' + ')
+    land = None
+    for part in first:
+        i = resolve(s, part.split(' | ')[0].strip())
+        if is_land(i):
+            land = i
+    img = ('<div class="thumb"><img src="%s" width="2160" height="1350" loading="lazy" alt=""></div>' % land['src']) if land else '<div class="thumb"></div>'
+    return ('    <li><a class="row" href="/work/%s/">\n'
+            '      <span class="num">%02d</span><span class="name">%s</span><span class="what">%s</span>%s\n'
+            '    </a></li>') % (s['slug'], k + 1, esc(s['name']), esc(what), img)
+
+
 # ---------------------------------------------------------------- simple text pages (e.g. privacy policies)
 def parse_page(name):
     path = os.path.join(CONTENT, 'pages', name)
@@ -439,6 +454,9 @@ def build():
         changed.append('404.html')
     if write_if_changed(os.path.join(ROOT, 'contact', 'index.html'), read(os.path.join(CONTENT, 'templates', 'contact.html'))):
         changed.append('contact/index.html')
+    rows = '\n'.join(render_row(s, k) for k, s in enumerate(studies))
+    if write_if_changed(os.path.join(ROOT, 'work', 'index.html'), read(os.path.join(CONTENT, 'templates', 'work.html')).replace('{{ROWS}}', rows)):
+        changed.append('work/index.html')
     pdir = os.path.join(CONTENT, 'pages')
     npages = 0
     if os.path.isdir(pdir):
@@ -461,7 +479,7 @@ def build():
     for d in sorted(os.listdir(os.path.join(ROOT, 'work'))):
         if os.path.isfile(os.path.join(ROOT, 'work', d, 'index.html')) and d not in listed:
             print('Note: work/%s/ still exists but is no longer in order.txt (the old page stays live until you delete that folder).' % d)
-    print('Built %d case studies, %d text pages, the home page, the About, Contact and 404 pages.' % (len(studies), npages))
+    print('Built %d case studies, %d text pages, the home page, the About, Contact, Work and 404 pages.' % (len(studies), npages))
     print('Changed: ' + (', '.join(changed) if changed else 'nothing (already up to date)'))
 
 

@@ -4,227 +4,207 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work · Daniel Young</title>
-<meta name="description" content="Brand, tone of voice and website projects led through DHD, and the apps and tools Daniel Young has built himself.">
+<meta name="description" content="Selected work by Daniel Young: brand identity, strategy and digital projects, mostly through DHD in Northern Ireland.">
 <link rel="canonical" href="https://danielyoung.work/work/">
-<meta property="og:title" content="Work · Daniel Young">
-<meta property="og:description" content="Brand, tone of voice and website projects led through DHD, and the apps and tools Daniel Young has built himself.">
-<meta property="og:url" content="https://danielyoung.work/work/">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23181715'/%3E%3Ctext x='16' y='22.5' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%23f3f0e8'%3EDY%3C/text%3E%3C/svg%3E">
-<link rel="preload" href="/fonts/TimelessSerifVF.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/TimelessSansVF.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&display=swap">
-<link rel="stylesheet" href="/assets/site.css">
-<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;var s=localStorage.getItem('size');if(s)document.documentElement.style.setProperty('--reading-size',{s:'1.0625rem',m:'1.1875rem',l:'1.375rem'}[s]);}catch(e){}</script>
-<script src="/assets/site.js" defer></script>
+<style>
+@font-face{font-family:"Timeless Sans";src:url(/fonts/TimelessSansVF.woff2) format("woff2");font-weight:300 800;font-style:normal;font-display:swap}
+
+:root{
+  --bg:#dfdfd8;
+  --block:#d5d5cd;
+  --ink:#0a0a0a;
+  --mute:#8c8c85;
+  
+  --sans:"Timeless Sans",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --gut:clamp(20px,3.4vw,44px);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#121211;--block:#1c1c1a;--ink:#f1f1ec;--mute:#85857e}
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+
+.wrap{max-width:1512px;margin:0 auto;padding:0 var(--gut)}
+
+/* header */
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding-top:clamp(18px,2.6vw,32px);
+  color:var(--mute);
+  font-size:15px;
+}
+.top nav{display:flex;gap:clamp(16px,2.4vw,32px)}
+.top a{transition:color .15s}
+.top a:hover{color:var(--ink)}
+
+
+/* intro */
+.hero{padding:clamp(56px,10vw,128px) 0 clamp(56px,7vw,104px)}
+h1{
+  font-weight:500;
+  font-size:clamp(32px,5vw,76px);
+  line-height:1.08;
+  letter-spacing:-.025em;
+  max-width:15em;
+  text-wrap:balance;
+}
+.top a[aria-current]{color:var(--ink)}
+.sub{margin-top:28px;max-width:30em;color:var(--mute);font-size:clamp(18px,1.7vw,21px);line-height:1.35;text-wrap:pretty}
+
+/* index */
+:root{--r:clamp(6px,.7vw,10px);--rule:color-mix(in srgb,var(--mute),transparent 60%)}
+.index{list-style:none;border-top:1px solid var(--rule)}
+.row{
+  display:grid;
+  grid-template-columns:3.5em minmax(0,1.3fr) minmax(0,1fr) clamp(120px,16vw,240px);
+  column-gap:clamp(12px,2.6vw,40px);
+  align-items:center;
+  padding:clamp(16px,1.8vw,24px) 0;
+  border-bottom:1px solid var(--rule);
+}
+.num{color:var(--mute);font-size:15px;font-variant-numeric:tabular-nums}
+.name{font-weight:500;font-size:clamp(22px,2.8vw,40px);line-height:1.1;letter-spacing:-.02em;transition:color .15s}
+.what{color:var(--mute);font-size:17px;line-height:1.35;text-wrap:pretty}
+.thumb{aspect-ratio:2160/1350;overflow:hidden;border-radius:var(--r);background:var(--block)}
+.thumb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.row:hover .thumb img{transform:scale(1.05)}
+.index:hover .row:not(:hover) .name{color:var(--mute)}
+@media (max-width:760px){
+  .top{padding-top:28px}
+  .hero{padding:clamp(88px,26vw,120px) 0 clamp(56px,16vw,80px)}
+  h1{font-size:clamp(35px,9.6vw,44px);line-height:1.1}
+  .row{grid-template-columns:2.4em minmax(0,1fr);row-gap:6px;align-items:start}
+  .num{padding-top:.5em}
+  .name{grid-column:2}
+  .what{grid-column:2;font-size:16px}
+  .thumb{grid-column:2;margin-top:10px}
+}
+
+/* ask */
+.ask{margin-top:clamp(72px,9vw,128px);display:grid;grid-template-columns:repeat(12,1fr);column-gap:clamp(12px,2.6vw,40px)}
+.ask > div{grid-column:4 / span 6;max-width:520px}
+@media (max-width:900px){.ask > div{grid-column:1 / -1}}
+.ask h2{font-weight:500;font-size:clamp(22px,2.4vw,30px);line-height:1.15;letter-spacing:-.015em}
+.ask p{margin-top:12px;color:var(--mute);font-size:17px;line-height:1.4;text-wrap:pretty}
+.ask a{display:inline-block;margin-top:24px;font-size:17px;font-weight:500;border-bottom:1px solid currentColor;padding-bottom:2px;transition:color .15s}
+.ask a:hover{color:var(--mute)}
+
+.foot{
+  margin-top:clamp(96px,12vw,176px);
+  padding-bottom:40px;
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;
+  color:var(--mute);
+  font-size:15px;
+}
+.foot .links{display:flex;flex-wrap:wrap;gap:8px 24px}
+.foot a:hover{color:var(--ink)}
+@media (max-width:760px){
+  .foot{flex-direction:column;gap:12px}
+}
+
+@media (prefers-reduced-motion:no-preference){
+  .js .rv{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .js .rv.on{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="progress" aria-hidden="true"></div>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="/" aria-label="Daniel Young, home"><span class="brand-name">Daniel Young</span><span class="brand-role">Head of Design</span></a>
-    <nav class="nav" id="nav" aria-label="Main"><a href="/work/" aria-current="page">Work</a><a href="/about/">About</a><a href="/notes/">Notes</a><a href="/contact/">Contact</a></nav>
-    <div class="header-tools">
-      <div class="theme-switch" role="group" aria-label="Colour theme">
-        <button type="button" data-mode="auto" aria-pressed="true" title="Match my system"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg><span class="visually-hidden">Auto</span></button>
-        <button type="button" data-mode="light" aria-pressed="false" title="Light"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9 13 13M3 13l1.1-1.1M11.9 4.1 13 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span class="visually-hidden">Light</span></button>
-        <button type="button" data-mode="dark" aria-pressed="false" title="Dark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span class="visually-hidden">Dark</span></button>
-      </div>
-      <button class="icon-btn menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
-    </div>
-  </div>
-</header>
-<main id="main">
-<section class="page-intro">
-  <div class="wrap intro-split">
-    <div>
-      <span class="label">Work</span>
-      <h1 class="display">Selected work, <em>and who it was for.</em></h1>
-      <p class="lede">Client projects I've led at DHD, and things I've built myself. I take client case studies further in person, with the client's permission.</p>
-    </div>
-    <p class="note reveal">Open a client project for the brief, or a case study for the identity in use.</p>
-  </div>
-</section>
+<div class="wrap">
 
-<section class="wrap" style="padding-bottom:clamp(80px,10vw,140px)">
-  <div class="filters" data-filter-bar role="group" aria-label="Filter work">
-    <button class="chip" type="button" data-filter="all" aria-pressed="true">All <span class="count">21</span></button>
-    <button class="chip" type="button" data-filter="client" aria-pressed="false">Client work <span class="count">16</span></button>
-    <button class="chip" type="button" data-filter="build" aria-pressed="false">Own builds <span class="count">5</span></button>
-    <span class="status" aria-live="polite"></span>
-  </div>
+  <header class="top">
+    <a href="/" aria-label="Daniel Young, home">Daniel Young</a>
+    <nav aria-label="Main">
+      <a href="/work/" aria-current="page">Work</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </header>
 
-  <ol class="work-list">
-    <li class="work-row" data-kind="client">
-      <details id="software-for-all">
-        <summary><span class="idx">01</span><span class="title">Software For All</span><span class="what">Brand architecture and guidelines</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
-        <div class="work-detail">
-          <div>
-            <p>Brand guidelines covering three brands: Software For All, Workplus and Software NI. The big decision was the architecture.</p>
-            <p>Workplus and Software NI are the names people already know, so they lead. Software For All sits behind them with a lighter touch. We also took the programme sub-brands out of the guidelines so the system stayed simple to use.</p>
-          </div>
-          <dl><dt>Through</dt><dd>DHD</dd><dt>My role</dt><dd>Design lead</dd><dt>Scope</dt><dd>Architecture, guidelines</dd></dl>
-        </div>
-      </details>
-    </li>
-    <li class="work-row" data-kind="client">
-      <details id="chestnutt">
-        <summary><span class="idx">02</span><span class="title">Chestnutt Holiday Parks</span><span class="what">Tone of voice and social</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
-        <div class="work-detail">
-          <div>
-            <p>A family-run business with holiday parks at Annalong, Loughside and Sandilands. Their brand guidelines had no tone of voice, so I wrote one.</p>
-            <p>It's friendly and familiar, close to how the family actually talks, with guidance for each area of their work. I also built it into an AI skill, so drafts written with AI tools start out sounding like Chestnutt. Alongside that, I lead their social visuals.</p>
-          </div>
-          <dl><dt>Through</dt><dd>DHD</dd><dt>My role</dt><dd>Design lead, writer</dd><dt>Scope</dt><dd>Tone of voice, AI skill, social</dd></dl>
-        </div>
-      </details>
-    </li>
-    <li class="work-row" data-kind="client">
-      <details id="myrtlefield-house">
-        <summary><span class="idx">03</span><span class="title">Myrtlefield House</span><span class="what">Brand identity and website</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
-        <div class="work-detail">
-          <div>
-            <p>A new brand identity and website, worked through with the client in feedback sessions. The work ran from logo variants and colour to content hierarchy and navigation.</p>
-          </div>
-          <dl><dt>Through</dt><dd>DHD</dd><dt>My role</dt><dd>Design lead</dd><dt>Scope</dt><dd>Identity, website</dd></dl>
-        </div>
-      </details>
-    </li>
-    <li class="work-row" data-kind="client">
-      <details id="texam">
-        <summary><span class="idx">04</span><span class="title">Texam</span><span class="what">Website</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
-        <div class="work-detail">
-          <div>
-            <p>A new website, planned and tracked phase by phase.</p>
-          </div>
-          <dl><dt>Through</dt><dd>DHD</dd><dt>My role</dt><dd>Design lead</dd><dt>Scope</dt><dd>Website</dd></dl>
-        </div>
-      </details>
-    </li>
-    <li class="work-row" data-kind="client">
-      <details id="dhd">
-        <summary><span class="idx">05</span><span class="title">DHD</span><span class="what">Our own brand messaging <span class="tag">In progress</span></span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
-        <div class="work-detail">
-          <div>
-            <p>The agency I work for, rewriting its own story. I'm leading the messaging: the big idea, the values and the lines that go on the website and social.</p>
-            <p>Doing it for ourselves is harder than doing it for a client. Nobody else can tell you what you sound like.</p>
-          </div>
-          <dl><dt>Through</dt><dd>DHD</dd><dt>My role</dt><dd>Lead</dd><dt>Scope</dt><dd>Messaging, rebrand</dd></dl>
-        </div>
-      </details>
-    </li>
+  <main>
+  <section class="hero">
+    <h1 class="rv">Selected work, and who it was for.</h1>
+    <p class="sub rv">Brand identities, strategy and digital projects I&rsquo;ve led at DHD, and things I&rsquo;ve built myself.</p>
+  </section>
 
-    <li class="work-row" data-kind="client"><a href="/work/ballymena-academy/" data-preview="/assets/img/case-studies/ballymena-academy/04-landscape.jpg">
-      <span class="idx">06</span><span class="title">Ballymena Academy</span><span class="what">Visual identity, wayfinding and print <span class="tag">Case study</span></span><span class="year"></span><span class="go" aria-hidden="true">→</span></a></li>
-    <li class="work-row" data-kind="client"><a href="/work/balmoral-textiles/" data-preview="/assets/img/case-studies/balmoral-textiles/04-landscape.jpg">
-      <span class="idx">07</span><span class="title">Balmoral Textiles</span><span class="what">Brand strategy, architecture and identity <span class="tag">Case study</span></span><span class="year"></span><span class="go" aria-hidden="true">→</span></a></li>
-    <li class="work-row" data-kind="client"><a href="/work/barrett-opticians/" data-preview="/assets/img/case-studies/barrett-opticians/04-landscape.jpg">
-      <span class="idx">08</span><span class="title">Barrett Opticians</span><span class="what">Brand strategy, identity and print <span class="tag">Case study</span></span><span class="year"></span><span class="go" aria-hidden="true">→</span></a></li>
-    <li class="work-row" data-kind="client"><a href="/work/belfast-healthy-cities/" data-preview="/assets/img/case-studies/belfast-healthy-cities/04-landscape.jpg">
-      <span class="idx">09</span><span class="title">Belfast Healthy Cities</span><span class="what">Brand identity <span class="tag">Case study</span></span><span class="year"></span><span class="go" aria-hidden="true">→</span></a></li>
-    <li class="work-row" data-kind="client"><a href="/work/bored-of-lunch/" data-preview="/assets/img/case-studies/bored-of-lunch/04-landscape.jpg">
-      <span class="idx">10</span><span class="title">Bored of Lunch</span><span class="what">Brand identity <span class="tag">Case study</span></span><span class="year"></span><span class="go" aria-hidden="true">→</span></a></li>
-    <li class="work-row" data-kind="client"><a href="/work/colloide/" data-preview="/assets/img/case-studies/colloide/04-landscape.jpg">
-      <span class="idx">11</span><span class="title">Colloide</span><span class="what">Brand strategy, identity and website <span class="tag">Case study</span></span><span class="year"></span><span class="go" aria-hidden="true">→</span></a></li>
-    <li class="work-row" data-kind="client"><a href="/work/medical-mission-network/" data-preview="/assets/img/case-studies/medical-mission-network/04-landscape.jpg">
-      <span class="idx">12</span><span class="title">Medical Mission Network</span><span class="what">Brand identity <span class="tag">Case study</span></span><span class="year"></span><span class="go" aria-hidden="true">→</span></a></li>
-    <li class="work-row" data-kind="client"><a href="/work/sg-elite/" data-preview="/assets/img/case-studies/sg-elite/04-landscape.jpg">
-      <span class="idx">13</span><span class="title">SG Elite</span><span class="what">Brand strategy, identity and print <span class="tag">Case study</span></span><span class="year"></span><span class="go" aria-hidden="true">→</span></a></li>
-    <li class="work-row" data-kind="client"><a href="/work/stem-systems/" data-preview="/assets/img/case-studies/stem-systems/04-landscape.jpg">
-      <span class="idx">14</span><span class="title">Stem Systems</span><span class="what">Brand strategy, identity and print <span class="tag">Case study</span></span><span class="year"></span><span class="go" aria-hidden="true">→</span></a></li>
-    <li class="work-row" data-kind="client"><a href="/work/thornton/" data-preview="/assets/img/case-studies/thornton/04-landscape.jpg">
-      <span class="idx">15</span><span class="title">Thornton</span><span class="what">Brand identity <span class="tag">Case study</span></span><span class="year"></span><span class="go" aria-hidden="true">→</span></a></li>
-    <li class="work-row" data-kind="client"><a href="/work/versaffix/" data-preview="/assets/img/case-studies/versaffix/04-landscape.jpg">
-      <span class="idx">16</span><span class="title">Versaffix</span><span class="what">Brand identity <span class="tag">Case study</span></span><span class="year"></span><span class="go" aria-hidden="true">→</span></a></li>
-
-    <li class="work-row" data-kind="build"><a href="/work/chapter-and-verse/" data-preview="/assets/img/chapter-and-verse/ipad-reader.jpg">
-      <span class="idx">17</span><span class="title">Chapter &amp; Verse</span><span class="what">Bible study app for iPhone and iPad <span class="tag">Case study</span></span><span class="year">2026</span><span class="go" aria-hidden="true">→</span></a></li>
-    <li class="work-row" data-kind="build"><a href="/notes/lights-out-belfast/">
-      <span class="idx">18</span><span class="title">Lights Out Belfast</span><span class="what">Empty buildings on a live 3D map <span class="tag">Build notes</span></span><span class="year">2026</span><span class="go" aria-hidden="true">→</span></a></li>
-    <li class="work-row" data-kind="build">
-      <details id="stripes">
-        <summary><span class="idx">19</span><span class="title">Stripes</span><span class="what">Lawn care app for iPhone</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
-        <div class="work-detail">
-          <div><p>The lawn on screen grows and fades as the next mow gets close, with a log for every lawn job.</p></div>
-          <dl><dt>Role</dt><dd>Design and build</dd><dt>Built with</dt><dd>SwiftUI, Claude</dd></dl>
-        </div>
-      </details>
-    </li>
-    <li class="work-row" data-kind="build">
-      <details id="cadence">
-        <summary><span class="idx">20</span><span class="title">Cadence</span><span class="what">Focus and break timer</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
-        <div class="work-detail">
-          <div><p>A full-screen timer for focus and breaks, with notifications and a Live Activity on the lock screen.</p></div>
-          <dl><dt>Role</dt><dd>Design and build</dd><dt>Built with</dt><dd>SwiftUI, Claude</dd></dl>
-        </div>
-      </details>
-    </li>
-    <li class="work-row" data-kind="build">
-      <details id="glowline-studio">
-        <summary><span class="idx">21</span><span class="title">Glowline Studio</span><span class="what">Light-stroke pattern generator</span><span class="year">2026</span><span class="go" aria-hidden="true">+</span></summary>
-        <div class="work-detail">
-          <div><p>A pattern tool for the web with eight templates. Export to PNG, video or JSON.</p></div>
-          <dl><dt>Role</dt><dd>Design and build</dd><dt>Built with</dt><dd>JavaScript, Claude</dd></dl>
-        </div>
-      </details>
-    </li>
+  <ol class="index rv" aria-label="All work">
+    <li><a class="row" href="/work/myrtlefield-house/">
+      <span class="num">01</span><span class="name">Myrtlefield House</span><span class="what">Discovery, Visual Identity, Brand Guidelines, Website Design</span><div class="thumb"><img src="/assets/img/case-studies/myrtlefield-house/03-landscape.jpg" width="2160" height="1350" loading="lazy" alt=""></div>
+    </a></li>
+    <li><a class="row" href="/work/ballymena-academy/">
+      <span class="num">02</span><span class="name">Ballymena Academy</span><span class="what">Visual Identity, Wayfinding, Print Design</span><div class="thumb"><img src="/assets/img/case-studies/ballymena-academy/04-landscape.jpg" width="2160" height="1350" loading="lazy" alt=""></div>
+    </a></li>
+    <li><a class="row" href="/work/balmoral-textiles/">
+      <span class="num">03</span><span class="name">Balmoral Textiles</span><span class="what">Brand Strategy, Brand Architecture, Visual Identity, Print Design</span><div class="thumb"><img src="/assets/img/case-studies/balmoral-textiles/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt=""></div>
+    </a></li>
+    <li><a class="row" href="/work/barrett-opticians/">
+      <span class="num">04</span><span class="name">Barrett Opticians</span><span class="what">Brand Strategy, Visual Identity, Print Design</span><div class="thumb"><img src="/assets/img/case-studies/barrett-opticians/04-landscape.jpg" width="2160" height="1350" loading="lazy" alt=""></div>
+    </a></li>
+    <li><a class="row" href="/work/belfast-healthy-cities/">
+      <span class="num">05</span><span class="name">Belfast Healthy Cities</span><span class="what">Brand identity</span><div class="thumb"><img src="/assets/img/case-studies/belfast-healthy-cities/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt=""></div>
+    </a></li>
+    <li><a class="row" href="/work/bored-of-lunch/">
+      <span class="num">06</span><span class="name">Bored of Lunch</span><span class="what">Brand identity</span><div class="thumb"><img src="/assets/img/case-studies/bored-of-lunch/04-landscape.jpg" width="2160" height="1350" loading="lazy" alt=""></div>
+    </a></li>
+    <li><a class="row" href="/work/colloide/">
+      <span class="num">07</span><span class="name">Colloide</span><span class="what">Brand Strategy, Visual Identity, Website Design</span><div class="thumb"><img src="/assets/img/case-studies/colloide/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt=""></div>
+    </a></li>
+    <li><a class="row" href="/work/sg-elite/">
+      <span class="num">08</span><span class="name">SG Elite</span><span class="what">Brand Strategy, Visual Identity, Print Design</span><div class="thumb"><img src="/assets/img/case-studies/sg-elite/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt=""></div>
+    </a></li>
+    <li><a class="row" href="/work/stem-systems/">
+      <span class="num">09</span><span class="name">Stem Systems</span><span class="what">Brand Strategy, Visual Identity, Print Design</span><div class="thumb"><img src="/assets/img/case-studies/stem-systems/04-landscape.jpg" width="2160" height="1350" loading="lazy" alt=""></div>
+    </a></li>
+    <li><a class="row" href="/work/thornton/">
+      <span class="num">10</span><span class="name">Thornton</span><span class="what">Brand identity</span><div class="thumb"><img src="/assets/img/case-studies/thornton/06-landscape.jpg" width="2160" height="1350" loading="lazy" alt=""></div>
+    </a></li>
+    <li><a class="row" href="/work/chapter-and-verse/">
+      <span class="num">11</span><span class="name">Chapter &amp; Verse</span><span class="what">iPhone and iPad</span><div class="thumb"><img src="/assets/img/chapter-and-verse/ipad-reader.jpg" width="2160" height="1350" loading="lazy" alt=""></div>
+    </a></li>
   </ol>
-</section>
 
-<section class="cta">
-  <div class="wrap cta-grid">
-    <h2 class="display reveal">Want to see more <em>in person?</em></h2>
-    <div class="cta-side reveal">
-      <p class="lede" style="font-size:1.125rem">I'm happy to walk through client work on a call, with the detail I can't put on a public page.</p>
-      <a class="btn" href="/contact/">Ask for a walkthrough <span class="arrow" aria-hidden="true">→</span></a>
+  <section class="ask rv">
+    <div>
+      <h2>Want to see more in person?</h2>
+      <p>I&rsquo;m happy to walk through client work on a call, with the detail I can&rsquo;t put on a public page.</p>
+      <a href="/contact/">Ask for a walkthrough &rarr;</a>
     </div>
-  </div>
-</section>
-</main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="colophon">
-        <p class="note">Every word here was written or edited by me. Claude helped build the site.</p>
-        <p class="muted">Set in Timeless Serif and Timeless Sans.</p>
-      </div>
-      <div>
-        <h2>Pages</h2>
-        <ul><li><a href="/">Home</a></li><li><a href="/work/">Work</a></li><li><a href="/about/">About</a></li><li><a href="/notes/">Notes</a></li><li><a href="/contact/">Contact</a></li><li><a href="/cv/">CV</a></li></ul>
-      </div>
-      <div>
-        <h2>Get in touch</h2>
-        <ul><li><a href="mailto:info@danielyoung.work">info@danielyoung.work</a></li><li><a href="https://www.linkedin.com/in/daniel-young/" target="_blank" rel="me noopener">LinkedIn</a></li><li><button class="kbd-hint" type="button" data-copy="info@danielyoung.work">Copy email address</button></li></ul>
-      </div>
-      <div>
-        <h2>Local time</h2>
-        <p class="clock" data-clock style="align-items:flex-start"><span class="pulse" style="margin-top:7px"></span><span data-clock-text>Northern Ireland</span></p>
-      </div>
+  </section>
+  </main>
+
+  <footer class="foot">
+    <a href="mailto:info@danielyoung.work">info@danielyoung.work</a>
+    <div class="links" aria-label="Social">
+      <a href="https://www.linkedin.com/in/daniel-young/" rel="me noopener" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/danielyoung.work/" rel="me noopener" target="_blank">Instagram</a>
+      <a href="https://x.com/danielyoungwork" rel="me noopener" target="_blank">X</a>
     </div>
-    <div class="footer-base">
-      <span>© 2026 Daniel Young. Last updated 2 November 2026.</span>
-      <button class="kbd-hint" type="button" data-keys>Press <kbd>?</kbd> for keyboard shortcuts</button>
-    </div>
-  </div>
-</footer>
-<dialog class="keys" aria-labelledby="keys-title">
-  <h2 id="keys-title">Keyboard shortcuts</h2>
-  <dl>
-    <dt><kbd>g</kbd> <kbd>h</kbd></dt><dd>Home</dd>
-    <dt><kbd>g</kbd> <kbd>w</kbd></dt><dd>Work</dd>
-    <dt><kbd>g</kbd> <kbd>a</kbd></dt><dd>About</dd>
-    <dt><kbd>g</kbd> <kbd>n</kbd></dt><dd>Notes</dd>
-    <dt><kbd>g</kbd> <kbd>c</kbd></dt><dd>Contact</dd>
-    <dt><kbd>t</kbd></dt><dd>Switch theme: auto, light, dark</dd>
-    <dt><kbd>?</kbd></dt><dd>Show this list</dd>
-  </dl>
-  <form method="dialog"><button class="btn ghost" type="submit">Close</button></form>
-</dialog>
-<div class="preview" aria-hidden="true"><img alt=""></div>
+    <div class="links"><a href="/cv/">CV</a><a href="/work/">All work</a></div>
+  </footer>
+
+</div>
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  document.documentElement.classList.add('js');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}});
+  },{rootMargin:'0px 0px -8% 0px',threshold:.05});
+  els.forEach(function(el){io.observe(el)});
+})();
+</script>
 </body>
 </html>
