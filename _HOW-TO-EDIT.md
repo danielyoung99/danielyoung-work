@@ -14,6 +14,8 @@ assets/img/case-studies/<name>/    the images for each case study
 
 The About page (danielyoung.work/about/) takes its intro paragraph from `_content/about.txt`. Experience and Education live in `_content/templates/about.html`. Edit them there.
 
+There is no CV page any more: /cv/ is a redirect to the About page, which has the experience, awards and education.
+
 The page people see at a broken link (404) is `_content/templates/404.html`. The Contact page (danielyoung.work/contact/) is `_content/templates/contact.html`. The Work page (danielyoung.work/work/) is a list built from `order.txt`: each row takes the study's name, its Services (or Work, or For) line and its landscape home image, so adding or reordering a case study updates it. The page frame is `_content/templates/work.html`.
 
 ## The everyday routine

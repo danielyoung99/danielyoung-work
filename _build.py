@@ -660,6 +660,9 @@ def build():
     if write_if_changed(os.path.join(ROOT, 'work', 'index.html'), read(os.path.join(CONTENT, 'templates', 'work.html')).replace('{{ROWS}}', rows)):
         changed.append('work/index.html')
     nnotes = build_notes(changed)
+    # the old CV page is gone: /cv/ now sends people to About
+    if write_if_changed(os.path.join(ROOT, 'cv', 'index.html'), REDIRECT.format(name='About', url='/about/')):
+        changed.append('cv/index.html')
     rows = '\n'.join(render_project(d) for d in parse_projects())
     if write_if_changed(os.path.join(ROOT, 'projects', 'index.html'), read(os.path.join(CONTENT, 'templates', 'projects.html')).replace('{{ROWS}}', rows)):
         changed.append('projects/index.html')
