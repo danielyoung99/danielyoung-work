@@ -94,6 +94,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
+  font-feature-settings: "ss06", "ss07"; /* round i and j dots, round punctuation and quotes */
   font-size: 1rem;
   line-height: 1.55;
   font-weight: 380;
