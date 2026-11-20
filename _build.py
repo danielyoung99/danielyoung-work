@@ -244,7 +244,10 @@ AI_DEFAULT = {
 def render_ai(s, section):
     text = s.get('ai') or AI_DEFAULT[section]
     link = ' <a href="/notes/where-i-use-ai/">Where I use AI, and where I stop</a>.' if not s.get('ai') else ''
-    return '<section class="txt rv"><h2>AI transparency</h2><div><p>%s%s</p></div></section>' % (esc(text), link)
+    icon = ('<svg class="ai-ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" '
+            'd="M10 2l1.9 5.6a3 3 0 0 0 1.9 1.9L19.4 11.4 13.8 13.3a3 3 0 0 0-1.9 1.9L10 20.8 8.1 15.2a3 3 0 0 0-1.9-1.9L.6 11.4 6.2 9.5a3 3 0 0 0 1.9-1.9z"/>'
+            '<path fill="currentColor" d="M19 1l.8 2.2a1.5 1.5 0 0 0 1 1L23 5l-2.2.8a1.5 1.5 0 0 0-1 1L19 9l-.8-2.2a1.5 1.5 0 0 0-1-1L15 5l2.2-.8a1.5 1.5 0 0 0 1-1z"/></svg>')
+    return '<section class="txt ai rv"><h2>%sAI transparency</h2><div><p>%s%s</p></div></section>' % (icon, esc(text), link)
 
 
 def render_case(s, tpl, prev, nxt, section='work'):
@@ -260,7 +263,6 @@ def render_case(s, tpl, prev, nxt, section='work'):
         else:
             parts.append(render_images(s, b, state, first))
         first = False
-    parts.append(render_ai(s, section))
     facts = '\n'.join('        <div><dt>%s</dt><dd>%s</dd></div>' % (esc(a), esc(b)) for a, b in s['facts'])
     pager = []
     for k, (cls, link) in enumerate((('prev', prev), ('next', nxt))):

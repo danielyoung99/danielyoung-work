@@ -148,7 +148,7 @@ h1{
   .ncard{min-height:0}
   .ncard .len{padding-top:14px;margin-top:0}
   /* phones and small tablets: Lab cards slide sideways, with the next card peeking in */
-  .cards.l{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(var(--gut) * -1);padding:0 var(--gut);scroll-padding:0 var(--gut)}
+  .cards.l{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(var(--gut) * -1);padding:0 var(--gut);scroll-padding:0 var(--gut)}
   .cards.l::-webkit-scrollbar{display:none}
   .lcard{flex:0 0 min(72vw,300px);scroll-snap-align:start}
   .lcard .cimg{aspect-ratio:4/5}
