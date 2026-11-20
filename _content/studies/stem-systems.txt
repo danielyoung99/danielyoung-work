@@ -2,7 +2,6 @@ name: Stem Systems
 title: An identity that puts human connection at the heart.
 description: An identity that puts human connection at the heart. Stem Systems: brand strategy, visual identity, print design, through DHD.
 fact: Client | Stem Systems
-fact: Role | Brand Designer
 fact: Through | DHD
 fact: Services | Brand Strategy, Visual Identity, Print Design
 card: An IT business scaling into the Republic of Ireland. I led the brand strategy and a warm, human identity.

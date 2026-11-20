@@ -2,7 +2,6 @@ name: Balmoral Textiles
 title: Repositioning a trade success story for a retail market
 description: Repositioning a trade success story for a retail market. Balmoral Textiles: brand strategy, brand architecture, visual identity, print design, through DHD.
 fact: Client | Balmoral Textiles
-fact: Role | Brand Designer
 fact: Through | DHD
 fact: Services | Brand Strategy, Brand Architecture, Visual Identity, Print Design
 card: A fabric supplier moving from trade into retail. I worked on the brand strategy, architecture and identity.

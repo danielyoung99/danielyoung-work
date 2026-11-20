@@ -2,7 +2,6 @@ name: Colloide
 title: Strategy and identity for those building the future
 description: Strategy and identity for those building the future. Colloide: brand strategy, visual identity, website design, through DHD.
 fact: Client | Colloide
-fact: Role | Brand Designer
 fact: Through | DHD
 fact: Services | Brand Strategy, Visual Identity, Website Design
 card: A business repositioning around sustainability. I worked on the brand strategy, identity and website.

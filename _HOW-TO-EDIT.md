@@ -29,10 +29,11 @@ The page people see at a broken link (404) is `_content/templates/404.html`. The
 
 Open `_content/studies/<name>.txt`.
 
-- The lines above `---` are the details: the big line at the top (`title:`), the search description, the facts (Client, Role and so on) and the sentence shown on the home page (`card:`).
+- The lines above `---` are the details: the big line at the top (`title:`), the search description, the facts (Client, Services and so on) and the sentence shown on the home page (`card:`).
 - Everything below `---` is the page, top to bottom.
 - A line starting with `# ` is a heading. The paragraphs under it are its text. Leave a blank line between paragraphs.
 - A line starting with `> ` is a large pull quote.
+- Every case study and Lab write-up ends with an "AI transparency" section. It uses a standard line (with a link to the note on where you use AI). To say something specific about one project, add `ai: Your own sentence.` to its details above `---`. That replaces the standard line.
 - Lines starting with `//` are notes to yourself and never appear on the site.
 - To make a word italic, wrap it in `<em>` and `</em>`. Type `&` normally.
 

@@ -2,7 +2,6 @@ name: Barrett Opticians
 title: Creating a boutique, local eyecare experience
 description: Creating a boutique, local eyecare experience. Barrett Opticians: brand strategy, visual identity, print design, through DHD.
 fact: Client | Barrett Opticians
-fact: Role | Brand Designer
 fact: Through | DHD
 fact: Services | Brand Strategy, Visual Identity, Print Design
 card: A high-end opticians adding hearing care. I led the brand strategy, a monogram identity and the print.

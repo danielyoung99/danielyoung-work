@@ -2,7 +2,6 @@ name: Myrtlefield House
 title: A new identity for a library of Bible teaching
 description: Myrtlefield House: discovery, visual identity, brand guidelines and website design for a charity sharing David Gooding's Bible teaching, through DHD.
 fact: Client | Myrtlefield House
-fact: Role | Design lead
 fact: Through | DHD
 fact: Services | Discovery, Visual Identity, Brand Guidelines, Website Design
 card: A charity sharing David Gooding's Bible teaching around the world. I led the identity, the guidelines and the website design.

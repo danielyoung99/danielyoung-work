@@ -102,7 +102,7 @@ def parse_study(slug, folder='studies'):
             if len(bits) != 3:
                 raise Problem('%s.txt: %s needs "link | small label | name".' % (slug, k))
             s[k] = bits
-        elif k in ('name', 'title', 'description', 'card', 'home', 'home-layout', 'image-folder', 'page-title'):
+        elif k in ('name', 'title', 'description', 'card', 'home', 'home-layout', 'image-folder', 'page-title', 'ai'):
             s[k] = v
         else:
             raise Problem('%s.txt: unknown detail "%s".' % (slug, k))
@@ -235,6 +235,18 @@ def render_images(s, block, state, first):
 
 
 # ---------------------------------------------------------------- pages
+AI_DEFAULT = {
+    'work': 'I use AI tools for research summaries, first-draft options and routine production work such as resizing artwork and naming files. The strategy, the design decisions, the type, colour and spacing, and the words on the page are made and checked by people.',
+    'lab': 'I used AI tools while making this. Where it helped, and where I stopped, is below. The design and the decisions are mine.',
+}
+
+
+def render_ai(s, section):
+    text = s.get('ai') or AI_DEFAULT[section]
+    link = ' <a href="/notes/where-i-use-ai/">Where I use AI, and where I stop</a>.' if not s.get('ai') else ''
+    return '<section class="txt rv"><h2>AI transparency</h2><div><p>%s%s</p></div></section>' % (esc(text), link)
+
+
 def render_case(s, tpl, prev, nxt, section='work'):
     state = {'n': sum(map(ord, s['slug'])) % 5}
     parts = []
@@ -248,6 +260,7 @@ def render_case(s, tpl, prev, nxt, section='work'):
         else:
             parts.append(render_images(s, b, state, first))
         first = False
+    parts.append(render_ai(s, section))
     facts = '\n'.join('        <div><dt>%s</dt><dd>%s</dd></div>' % (esc(a), esc(b)) for a, b in s['facts'])
     pager = []
     for k, (cls, link) in enumerate((('prev', prev), ('next', nxt))):
@@ -806,7 +819,6 @@ STARTER = '''name: {name}
 title: One line about the project, shown big at the top of the page
 description: One or two sentences for search results and link previews.
 fact: Client | {name}
-fact: Role | Brand Designer
 fact: Through | DHD
 fact: Services | Brand Strategy, Visual Identity
 card: One sentence for the home page: who they are and what you did.

@@ -2,7 +2,6 @@ name: Ballymena Academy
 title: Breathing new life into a centuries-old identity
 description: Breathing new life into a centuries-old identity. Ballymena Academy: visual identity, wayfinding, print design, through DHD.
 fact: Client | Ballymena Academy
-fact: Role | Brand Designer
 fact: Through | DHD
 fact: Services | Visual Identity, Wayfinding, Print Design
 card: A school with a 200-year history. I led a new brand mark and guidelines, then the rollout across print and wayfinding.

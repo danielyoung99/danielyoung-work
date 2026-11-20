@@ -2,7 +2,6 @@ name: SG Elite
 title: Rethinking a rushed visual identity for an industry pioneer
 description: Rethinking a rushed visual identity for an industry pioneer. SG Elite: brand strategy, visual identity, print design, through DHD.
 fact: Client | SG Elite
-fact: Role | Brand Designer
 fact: Through | DHD
 fact: Services | Brand Strategy, Visual Identity, Print Design
 card: A growing business with a rushed identity. I did the brand strategy and identity, and worked with a UI designer on the website.
